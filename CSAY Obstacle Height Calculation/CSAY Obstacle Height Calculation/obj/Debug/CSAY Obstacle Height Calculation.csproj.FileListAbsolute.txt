@@ -83,3 +83,88 @@ F:\VBStudio\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bi
 F:\VBStudio\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY_Obstacle_Height_Calculation.FrmObstacleHeightCalculation.resources
 F:\VBStudio\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY_Obstacle_Height_Calculation.FrmAbout.resources
 F:\VBStudio\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.ResolveComReference.cache
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\x86\sqlite3.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\x64\sqlite3.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\CSAY Obstacle Height Calculation.exe.config
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\CSAY Obstacle Height Calculation.exe
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\CSAY Obstacle Height Calculation.pdb
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\BouncyCastle.Crypto.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\EntityFramework.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\EntityFramework.SqlServer.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\GMap.NET.Core.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\GMap.NET.WindowsForms.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\GMap.NET.WindowsPresentation.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.barcodes.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.commons.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.forms.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.io.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.kernel.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.layout.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.pdfa.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.sign.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.styledxmlparser.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.svg.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.Logging.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.Options.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.Primitives.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Newtonsoft.Json.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\SharpKml.Core.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Buffers.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Data.SqlClient.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Data.SQLite.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Data.SQLite.EF6.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Data.SQLite.Linq.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Memory.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Numerics.Vectors.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Security.Principal.Windows.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Threading.Tasks.Extensions.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.ValueTuple.dll
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\BouncyCastle.Crypto.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\EntityFramework.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\EntityFramework.SqlServer.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.barcodes.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.commons.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.forms.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.io.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.kernel.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.layout.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.pdfa.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.sign.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.styledxmlparser.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\itext.svg.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.Logging.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.Options.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Microsoft.Extensions.Primitives.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\Newtonsoft.Json.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\SharpKml.Core.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Buffers.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Data.SqlClient.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Data.SQLite.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Memory.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Numerics.Vectors.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Security.Principal.Windows.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Threading.Tasks.Extensions.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.ValueTuple.xml
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.AssemblyReference.cache
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.SuggestedBindingRedirects.cache
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.ResolveComReference.cache
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY_Obstacle_Height_Calculation.FrmObstacleHeightCalculation.resources
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY_Obstacle_Height_Calculation.FrmAbout.resources
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY_Obstacle_Height_Calculation.Properties.Resources.resources
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.GenerateResource.cache
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.CoreCompileInputs.cache
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.CopyComplete
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.exe
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.pdb

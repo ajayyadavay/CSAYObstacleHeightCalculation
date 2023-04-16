@@ -4851,12 +4851,13 @@ namespace CSAY_Obstacle_Height_Calculation
                 mm = Convert.ToDouble(dataGridView2.Rows[2].Cells["ColSlope"].Value);//CD
                 cc = Convert.ToDouble(dataGridView2.Rows[2].Cells["ColIntercept"].Value);//CD
 
-
-                seg = (Math.PI ) / segments;//Math.PI * 2 / segments;
-                //plot_position = "Below";
-                for (int i = 0; i < segments; i++)
+                double temp_theta_slope;
+                seg = (Math.PI ) / segments;//Math.PI / segments;
+                temp_theta_slope = Math.Atan(m);//radian
+                //plot_position = "Below";//AB Side
+                for (int i = 0; i >= -segments ; i--)
                 {
-                    theta = seg * i;
+                    theta = 2 * Math.PI + temp_theta_slope + seg * i;
                     a1 = a + Math.Cos(theta) * r;
                     b1 = b + Math.Sin(theta) * r;
                     plot_position1 = Find_Plotting_Position(a1, b1, m, c);
@@ -4868,11 +4869,12 @@ namespace CSAY_Obstacle_Height_Calculation
                     }
                 }
 
-                //plot_position = "Above";
-                seg = (Math.PI /2)*3 / segments;//Math.PI * 2 / segments;
-                for (int i = 0; i < segments; i++)
+                //plot_position = "Above";//CD Side
+                seg = (Math.PI ) / segments;//Math.PI * 2 / segments;
+                temp_theta_slope = Math.Atan(mm);//radian slope of CD
+                for (int i = 0; i >= -segments; i--)
                 {
-                    theta =  seg * i;
+                    theta =  Math.PI + temp_theta_slope + seg * i;
                     a1 = aa + Math.Cos(theta) * r;
                     b1 = bb + Math.Sin(theta) * r;
                     plot_position1 = Find_Plotting_Position(a1, b1, mm, cc);
@@ -4884,11 +4886,11 @@ namespace CSAY_Obstacle_Height_Calculation
                     }
                 }
 
-                //plot_position = "Below";
+                /*//plot_position = "Below";
                 seg = (Math.PI) / segments;//Math.PI * 2 / segments;
                 for (int i = 0; i < segments; i++)
                 {
-                    theta = Math.PI +  seg * i;
+                    theta =   seg * i;
                     a1 = a + Math.Cos(theta) * r;
                     b1 = b + Math.Sin(theta) * r;
                     plot_position1 = Find_Plotting_Position(a1, b1, m, c);
@@ -4898,7 +4900,7 @@ namespace CSAY_Obstacle_Height_Calculation
                         latlong1 = Convert_UTM_To_Latitude_Longitude(a1, b1);
                         points.Add(new PointLatLng(latlong1[0], latlong1[1]));
                     }
-                }
+                }*/
 
 
                 GMap.NET.WindowsForms.GMapPolygon polygon = new GMap.NET.WindowsForms.GMapPolygon(points, "CirclePoly");
