@@ -5473,7 +5473,21 @@ namespace CSAY_Obstacle_Height_Calculation
             string[] IT_Line_Name = new string[2] { "IT_AD", "IT_BC" };
 
             int DGV2_row_inx, DGV1_row_inx, i, intrcpt;
-            int[] mulfactor = new int[2] { 1, -1 };//1 for IT_AD and -1 for IT_BC
+            int a1, a2;
+            slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
+            if (tempslope >= 0)
+            {
+                a1 = -1;
+                a2 = 1;
+            }
+            else
+            {
+                a1 = 1;
+                a2 = -1;
+            }
+            int[] mulfactor = new int[2] { a1, a2 };//1 for T_AD and -1 for T_BC
             int[] RW_Side = new int[1] { 4 };//EF
 
 
@@ -5584,7 +5598,21 @@ namespace CSAY_Obstacle_Height_Calculation
             string[] Trans_Line_Name = new string[2] { "Trans_AD", "Trans_BC" };
 
             int DGV2_row_inx, DGV1_row_inx, i, intrcpt;
-            int[] mulfactor = new int[2] { 1, -1 };//1 for T_AD and -1 for T_BC
+            int a1, a2;
+            slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
+            if(tempslope>=0)
+            {
+                a1 = -1;
+                a2 = 1;
+            }
+            else
+            {
+                a1 = 1;
+                a2 = -1;
+            }
+            int[] mulfactor = new int[2] { a1, a2 };//1 for T_AD and -1 for T_BC
             int[] RW_Side = new int[1] { 4 };
 
             
