@@ -1,0 +1,8 @@
+ID
+FiscalYear
+ObstacleType
+FirstName
+LocalLevel
+SurfaceName
+PermittedElevation
+ArealDistance

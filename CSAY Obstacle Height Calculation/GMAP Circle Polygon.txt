@@ -1,0 +1,79 @@
+public void Draw_Circle_GMAP(double a, double b, double r, double x_start, double y_start, int No_of_Points)
+        {
+            try
+            {
+                double lat1, long1;
+                //show google map
+                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
+                gMapControl1.DragButton = MouseButtons.Left;
+                gMapControl1.MouseWheelZoomEnabled = true;
+                gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance;
+                gMapControl2.Zoom = 15;
+
+                //Making red cross invisible
+                gMapControl1.ShowCenter = false;
+
+                //Draw Polygon
+                GMapOverlay polygons = new GMapOverlay("polygons");
+                List<PointLatLng> points = new List<PointLatLng>();
+
+                //double a, b, r, x_start, y_start;
+                double Extrm_a, Extrm_b, EachDistance, x, y;
+                double[] latlong1 = new double[2];
+
+                //int No_of_Points;
+                /*//Input
+                a = Convert.ToDouble(dataGridView1.Rows[4].Cells["ColEasting"].Value);//E
+                b = Convert.ToDouble(dataGridView1.Rows[4].Cells["ColNorthing"].Value);//E
+                r = 4000.0;
+                No_of_Points = 3000;
+
+                x_start = Convert.ToDouble(dataGridView1.Rows[46].Cells["ColEasting"].Value);//H_A
+                y_start = Convert.ToDouble(dataGridView1.Rows[46].Cells["ColNorthing"].Value);//H_A
+                //Input Ends*/
+
+                x = x_start;
+                EachDistance = (a + r - x) / No_of_Points;
+
+                latlong1 = Convert_UTM_To_Latitude_Longitude(a, b);
+                points.Add(new PointLatLng(latlong1[0], latlong1[1]));
+
+                latlong1 = Convert_UTM_To_Latitude_Longitude(x_start, y_start);
+                points.Add(new PointLatLng(latlong1[0], latlong1[1]));
+                //lat1 = Convert.ToDouble(dataGridView1.Rows[46].Cells["ColLatitude"].Value);//H_A
+                //long1 = Convert.ToDouble(dataGridView1.Rows[46].Cells["ColLongitude"].Value);//H_A
+                //points.Add(new PointLatLng(lat1, long1));
+
+                for (int k = 0; k < No_of_Points - 2; k++)
+                {
+                    x += EachDistance;
+                    if ((r * r - (x - a) * (x - a)) >= 0)
+                    {
+                        y = b + Math.Sqrt(r * r - (x - a) * (x - a));
+                        latlong1 = Convert_UTM_To_Latitude_Longitude(x, y);
+                        points.Add(new PointLatLng(latlong1[0], latlong1[1]));
+                    }
+                }
+
+                Extrm_a = a + r;
+                Extrm_b = b;
+
+                latlong1 = Convert_UTM_To_Latitude_Longitude(Extrm_a, Extrm_b);
+                Extrm_a = latlong1[0];
+                Extrm_b = latlong1[1];
+                lat1 = Extrm_a;
+                long1= Extrm_b;
+                points.Add(new PointLatLng(lat1, long1));
+
+                GMap.NET.WindowsForms.GMapPolygon polygon = new GMap.NET.WindowsForms.GMapPolygon(points, "CirclePoly");
+                polygons.Polygons.Add(polygon);
+                gMapControl1.Overlays.Add(polygons);
+                polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.DarkMagenta));
+                polygon.Stroke = new Pen(Color.DarkMagenta, 0);
+
+            }
+            catch
+            {
+
+            }
+        }
