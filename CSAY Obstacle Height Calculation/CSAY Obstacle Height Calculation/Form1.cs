@@ -3953,12 +3953,13 @@ namespace CSAY_Obstacle_Height_Calculation
                 radius = (Divergence_Ap/100.0 * Length_First_Ap * 2 + Len_of_InnerEdge_Ap) / 2; //distance between OE' or PE' (450+450+2*r1)/2
                 a = Find_Intersection_X(slope1, intercept1, slope2, intercept2);//X-COORD of intersection of EF and IJ
                 b = Find_Intersection_Y(slope1, intercept1, slope2, intercept2);//Y-COORD of intersection of EF and IJ
-
+                
                 Quad_x_plus = Find_Quadratic_X_Plus(slope1, intercept1, a, b, radius);
                 Quad_x_minus = Find_Quadratic_X_minus(slope1, intercept1, a, b, radius);
                 Quad_y_plus = slope1 * Quad_x_plus + intercept1;//O_Y
                 Quad_y_minus = slope1 * Quad_x_minus + intercept1;//P_Y
                    
+
 
                 //COORD O
                 Approach_COORD_X[2] = Quad_x_plus;
@@ -3967,11 +3968,11 @@ namespace CSAY_Obstacle_Height_Calculation
                 Approach_COORD_X[3] = Quad_x_minus;
                 Approach_COORD_Y[3] = Quad_y_minus;
                 latlong1 = Convert_UTM_To_Latitude_Longitude(Quad_x_plus, Quad_y_plus);
-                //dataGridView1.Rows[8].Cells["ColLatitude"].Value = latlong1[0].ToString();
-                //dataGridView1.Rows[8].Cells["ColLongitude"].Value = latlong1[1].ToString();
+                dataGridView1.Rows[8].Cells["ColLatitude"].Value = latlong1[0].ToString();
+                dataGridView1.Rows[8].Cells["ColLongitude"].Value = latlong1[1].ToString();
                 latlong1 = Convert_UTM_To_Latitude_Longitude(Quad_x_minus, Quad_y_minus);
-                //dataGridView1.Rows[9].Cells["ColLatitude"].Value = latlong1[0].ToString();
-                //dataGridView1.Rows[9].Cells["ColLongitude"].Value = latlong1[1].ToString();
+                dataGridView1.Rows[9].Cells["ColLatitude"].Value = latlong1[0].ToString();
+                dataGridView1.Rows[9].Cells["ColLongitude"].Value = latlong1[1].ToString();
                 //distance between two points
                 dist = Find_Distance_bet_two_pointXY(Quad_x_plus, Quad_y_plus, Quad_x_minus, Quad_y_minus);
                 dataGridView2.Rows[6].Cells[3].Value = dist.ToString();
@@ -3993,11 +3994,11 @@ namespace CSAY_Obstacle_Height_Calculation
                 Approach_COORD_X[5] = Quad_x_minus;
                 Approach_COORD_Y[5] = Quad_y_minus;
                 latlong1 = Convert_UTM_To_Latitude_Longitude(Quad_x_plus, Quad_y_plus);
-                //dataGridView1.Rows[10].Cells["ColLatitude"].Value = latlong1[0].ToString();
-                //dataGridView1.Rows[10].Cells["ColLongitude"].Value = latlong1[1].ToString();
+                dataGridView1.Rows[10].Cells["ColLatitude"].Value = latlong1[0].ToString();
+                dataGridView1.Rows[10].Cells["ColLongitude"].Value = latlong1[1].ToString();
                 latlong1 = Convert_UTM_To_Latitude_Longitude(Quad_x_minus, Quad_y_minus);
-                //dataGridView1.Rows[11].Cells["ColLatitude"].Value = latlong1[0].ToString();
-                //dataGridView1.Rows[11].Cells["ColLongitude"].Value = latlong1[1].ToString();
+                dataGridView1.Rows[11].Cells["ColLatitude"].Value = latlong1[0].ToString();
+                dataGridView1.Rows[11].Cells["ColLongitude"].Value = latlong1[1].ToString();
                 //distance between two points
                 dist = Find_Distance_bet_two_pointXY(Quad_x_plus, Quad_y_plus, Quad_x_minus, Quad_y_minus);
                 dataGridView2.Rows[7].Cells[3].Value = dist.ToString();
@@ -4191,7 +4192,7 @@ namespace CSAY_Obstacle_Height_Calculation
                 dataGridView2.Rows[16].Cells["ColDistance"].Value = Find_Distance_bet_two_pointXY(x1, y1, x2, y2).ToString();
 
 
-                int[] ix1 = new int[] { 13, 14 };
+                /*int[] ix1 = new int[] { 13, 14 };
                 int[] ix2 = new int[] { 6, 7 };
                 int[,] ix3 = new int[,] { { 8, 9 },{ 10, 11 } };
 
@@ -4214,7 +4215,7 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView1.Rows[ix3[k1, i1]].Cells["ColLongitude"].Value = latlong1[1].ToString();
 
                     }
-                }
+                }*/
 
                 Calculate_Take_of_Climb_Surface();
                 Calculate_Balked_Landing_Surface();
@@ -4927,12 +4928,14 @@ namespace CSAY_Obstacle_Height_Calculation
             //Approach surfaces
             if (Ap == 1)
             {
-                No_of_Polygon = 4;
+                No_of_Polygon = 6;
                 int[,] index = new int[,] {
-                    { 6, 12, 13, 7 }, //approach 28
+                    { 6, 7, 9, 8 }, //approach 28
                     { 8, 10, 11, 9}, //approach 28
-                    { 14, 15, 21, 20 }, //approach 10
+                    { 10, 12, 13, 11}, //approach 28
+                    { 14, 15, 17, 16 }, //approach 10
                     { 16, 17, 19, 18},  //approach10
+                    { 18, 19, 21, 20}  //approach10
                 
                 };//One row contains 4 points of polygon in clockwise direction
 
@@ -4940,7 +4943,9 @@ namespace CSAY_Obstacle_Height_Calculation
                     Color.Red,
                     Color.Yellow,
                     Color.Red,
-                    Color.Yellow
+                    Color.Red,
+                    Color.Yellow,
+                    Color.Red
                 };
 
                 for (int i = 0; i < No_of_Polygon; i++)
@@ -5647,6 +5652,36 @@ namespace CSAY_Obstacle_Height_Calculation
             string[] Trans_Point_Name = new string[4] { "Trans_A", "Trans_D", "Trans_B", "Trans_C" };
             double[] latlong1 = new double[2];
             int[,] indx = new int[2,2] { { 13, 15 }, { 14, 16 } };
+            double[,] slopes = new double[2,2];
+            double[,] intercepts = new double[2,2];
+
+            x1 = Convert.ToDouble(dataGridView1.Rows[6].Cells[4].Value);//J
+            y1 = Convert.ToDouble(dataGridView1.Rows[6].Cells[5].Value);//J
+            x2 = Convert.ToDouble(dataGridView1.Rows[8].Cells[4].Value);//O
+            y2 = Convert.ToDouble(dataGridView1.Rows[8].Cells[5].Value);//O
+            slopes[0,0] = Find_Slope_Of_Equation(x1, y1, x2, y2);
+            intercepts[0,0] = Find_Intercept_Of_Equation(slopes[0, 0], x1, y1);
+
+            x1 = Convert.ToDouble(dataGridView1.Rows[7].Cells[4].Value);//I
+            y1 = Convert.ToDouble(dataGridView1.Rows[7].Cells[5].Value);//I
+            x2 = Convert.ToDouble(dataGridView1.Rows[9].Cells[4].Value);//P
+            y2 = Convert.ToDouble(dataGridView1.Rows[9].Cells[5].Value);//P
+            slopes[0, 1] = Find_Slope_Of_Equation(x1, y1, x2, y2);
+            intercepts[0, 1] = Find_Intercept_Of_Equation(slopes[0, 1], x1, y1);
+
+            x1 = Convert.ToDouble(dataGridView1.Rows[14].Cells[4].Value);//K
+            y1 = Convert.ToDouble(dataGridView1.Rows[14].Cells[5].Value);//K
+            x2 = Convert.ToDouble(dataGridView1.Rows[16].Cells[4].Value);//V
+            y2 = Convert.ToDouble(dataGridView1.Rows[16].Cells[5].Value);//V
+            slopes[1, 0] = Find_Slope_Of_Equation(x1, y1, x2, y2);
+            intercepts[1, 0] = Find_Intercept_Of_Equation(slopes[1, 0], x1, y1);
+
+            x1 = Convert.ToDouble(dataGridView1.Rows[15].Cells[4].Value);//L
+            y1 = Convert.ToDouble(dataGridView1.Rows[15].Cells[5].Value);//L
+            x2 = Convert.ToDouble(dataGridView1.Rows[17].Cells[4].Value);//U
+            y2 = Convert.ToDouble(dataGridView1.Rows[17].Cells[5].Value);//U
+            slopes[1, 1] = Find_Slope_Of_Equation(x1, y1, x2, y2);
+            intercepts[1, 1] = Find_Intercept_Of_Equation(slopes[1, 1], x1, y1);
 
             DGV1_row_inx = 42;//for Trans_A and end at index 45 for Trans_J
             //PtIndex = 0;
@@ -5662,6 +5697,9 @@ namespace CSAY_Obstacle_Height_Calculation
                 {
                     slope2 = Convert.ToDouble(dataGridView2.Rows[indx[j,k]].Cells["ColSlope"].Value);//slope
                     intercept2 = Convert.ToDouble(dataGridView2.Rows[indx[j,k]].Cells["ColIntercept"].Value);//intercept                                                                                                //For Point Trans_A and Trans_B
+
+                    //slope2 = slopes[j, k];
+                    //intercept2 = intercepts[j, k];
 
                     a = Find_Intersection_X(slope1, intercept1, slope2, intercept2);//X-COORD of intersection of EF and IJ
                     b = Find_Intersection_Y(slope1, intercept1, slope2, intercept2);//Y-COORD of intersection of EF and IJ
