@@ -1,11 +1,14 @@
 Central_Meridian	84
 RL_RWY	105.642
 RWY_Classify	Precision_CAT_II_III
+Lower_Threshold_Displaced_by	298.5
+Higher_Threshold_Displaced_by	0.0
 Points	Description	Latitude (N)	Longitude (E)
-A	RWY20	27.68379167	85.35359722
-B	RWY20	27.68394722	85.35317222
+A	RWY20	27.68130278	85.35245833
+B	RWY20	27.68145833	85.35204722
 C	RWY02	27.70717778	85.36374444
 D	RWY02	27.707025	85.36416389
+
 
 
 	

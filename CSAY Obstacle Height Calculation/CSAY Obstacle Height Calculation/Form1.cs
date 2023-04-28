@@ -57,6 +57,28 @@ namespace CSAY_Obstacle_Height_Calculation
         int SurfaceCount;
         bool Plot_Map_Clicked = false, all_surfacechkbox_checked = true;
 
+       /* //DGV1
+        int Approach_DGV1_St = 6;//up to 21
+        int ToC_DGV1_St = 22;//up to 33
+        int BL_DGV1_St = 34;//up to 41
+        int Trans_DGV1_St = 42;//up to 45
+        int In_Horizontal_DGV1_St = 46;//up to 49
+        int Conical_DGV1_St = 50;//up to 53
+        int InHz_Co_DGV1_St = 54;//up to 57
+        int In_App_DGV1_St = 58;//up to 65
+        int In_Trans_DGV1_St =66;//up to 69
+
+        //DGV2
+        int Approach_DGV2_St = 5;//up to 16
+        int ToC_DGV2_St = 17;//up to 33
+        int BL_DGV2_St = 34;//up to 41
+        int Trans_DGV2_St = 42;//up to 45
+        int In_Horizontal_DGV2_St = 46;//up to 49
+        int Conical_DGV2_St = 50;//up to 53
+        int InHz_Co_DGV2_St = 54;//up to 57
+        int In_App_DGV2_St = 58;//up to 65
+        int In_Trans_DGV2_St = 66;//up to 69*/
+
         private void BtnExportToKML_Click(object sender, EventArgs e)
         {
             double lat1, long1, lat2, long2;
@@ -3677,28 +3699,16 @@ namespace CSAY_Obstacle_Height_Calculation
                 sr.Close();
 
                 //load data to datagridview by splitting by tab character of coord of RWY
-                int grid_row = 0;
-                for (int row = 4; row <= 7; row++)
+                for (int row = 6; row <= 9; row++)
                 {
                     string[] splittedtext = ReadingText[row].Split('\t');
                     for (int col = 0; col <= 3; col++)
                     {
-                        dataGridView1.Rows[row-4].Cells[col].Value = splittedtext[col];
-                        grid_row++;
+                        dataGridView1.Rows[row-6].Cells[col].Value = splittedtext[col];
                     }
                 }
 
-                //load RL of Runway used in calculation of OLS
-                for (int row = 1; row <= 1; row++) //row 1 of text file contains info about RL
-                {
-                    string[] splittedtext = ReadingText[row].Split('\t');
-                    for (int col = 1; col <= 1; col++)
-                    {
-                        TxtRL_RWY.Text = splittedtext[col];
-                    }
-                }
-
-                //load central meridian of Runway used in calculation of OLS
+                //load central meridian of Runway
                 for (int row = 0; row <= 0; row++) //row 0 of text file contains info about central meridian
                 {
                     string[] splittedtext = ReadingText[row].Split('\t');
@@ -3708,7 +3718,17 @@ namespace CSAY_Obstacle_Height_Calculation
                     }
                 }
 
-                //load RWY Classification of Runway used in calculation of OLS
+                //load RL of Runway
+                for (int row = 1; row <= 1; row++) //row 1 of text file contains info about RL
+                {
+                    string[] splittedtext = ReadingText[row].Split('\t');
+                    for (int col = 1; col <= 1; col++)
+                    {
+                        TxtRL_RWY.Text = splittedtext[col];
+                    }
+                }
+
+                //load RWY Classification
                 for (int row = 2; row <= 2; row++) //row 0 of text file contains info about central meridian
                 {
                     string[] splittedtext = ReadingText[row].Split('\t');
@@ -3717,6 +3737,27 @@ namespace CSAY_Obstacle_Height_Calculation
                         TxtRWYClassify.Text = splittedtext[col];
                     }
                 }
+
+                //load Lower threshold displaced by
+                for (int row = 3; row <= 3; row++) //row 0 of text file contains info about central meridian
+                {
+                    string[] splittedtext = ReadingText[row].Split('\t');
+                    for (int col = 1; col <= 1; col++)
+                    {
+                        TxtLower_Disp_Th.Text = splittedtext[col];
+                    }
+                }
+
+                //load Higher threshold displaced by
+                for (int row = 4; row <= 4; row++) //row 0 of text file contains info about central meridian
+                {
+                    string[] splittedtext = ReadingText[row].Split('\t');
+                    for (int col = 1; col <= 1; col++)
+                    {
+                        TxtHigher_Disp_Th.Text = splittedtext[col];
+                    }
+                }
+
                 TxtLog.Text = "RWY COORD loaded of Airport " + TxtAirportCode.Text;
 
                 //Loading RWY Classification data
@@ -3765,7 +3806,6 @@ namespace CSAY_Obstacle_Height_Calculation
                         label26.Text = splittedtext[col];
                     }
                 }
-
 
 
                 //Finding EastingX, NorthingY of RWY coord ABCD
@@ -5600,7 +5640,7 @@ namespace CSAY_Obstacle_Height_Calculation
             //45/14.3% = 314.68
             double[] intercept_parallel = new double[10];
             double a, b, x1, y1, x2, y2;
-            string[] Trans_Line_Name = new string[2] { "Trans_AD", "Trans_BC" };
+            string[] Trans_Line_Name = new string[2] { "Trans_JK", "Trans_IL" };
 
             int DGV2_row_inx, DGV1_row_inx, i, intrcpt;
             int a1, a2;
@@ -5649,7 +5689,7 @@ namespace CSAY_Obstacle_Height_Calculation
             double slope2, intercept2;
             double[] Trans_COORD_X = new double[12];
             double[] Trans_COORD_Y = new double[12];
-            string[] Trans_Point_Name = new string[4] { "Trans_A", "Trans_D", "Trans_B", "Trans_C" };
+            string[] Trans_Point_Name = new string[4] { "Trans_J", "Trans_K", "Trans_I", "Trans_L" };
             double[] latlong1 = new double[2];
             int[,] indx = new int[2,2] { { 13, 15 }, { 14, 16 } };
             double[,] slopes = new double[2,2];
@@ -5944,7 +5984,8 @@ namespace CSAY_Obstacle_Height_Calculation
         {
             //For approach equation i.e. slope and intercepts
             //Equation of line parallel to AB i.e. IJ and GH
-            double slope1, intercept1, distanceOffset, RWY_Len;
+            double slope1, intercept1, distanceOffset, RWY_Len, d1, d2;
+            double Disp_Th_Lower, Disp_Th_Higher;
             double Len_of_InnerEdge_BL, Dist_From_Threshold_BL, Divergence_BL, Slope_BL, Height_Hz;
 
             Len_of_InnerEdge_BL = Convert.ToDouble(dataGridView5.Rows[29].Cells[2].Value); //120.0;
@@ -5953,31 +5994,43 @@ namespace CSAY_Obstacle_Height_Calculation
             Slope_BL = Convert.ToDouble(dataGridView5.Rows[32].Cells[2].Value); //3.33;//Percentage
             Height_Hz = Convert.ToDouble(dataGridView5.Rows[4].Cells[2].Value); //45.0;
 
+            Disp_Th_Lower = Convert.ToDouble(TxtLower_Disp_Th.Text);
+            Disp_Th_Higher = Convert.ToDouble(TxtHigher_Disp_Th.Text);
+
+            double[] Displaced_Th = new double[2] { Disp_Th_Lower, Disp_Th_Higher};   
+
             RWY_Len = ((Convert.ToDouble(dataGridView2.Rows[1].Cells["ColDistance"].Value)) + (Convert.ToDouble(dataGridView2.Rows[3].Cells["ColDistance"].Value))) / 2;
-            double[] distanceOffset1 = new double[2] {
-                RWY_Len - Dist_From_Threshold_BL,
-                (Height_Hz*100.0 / Slope_BL - RWY_Len + Dist_From_Threshold_BL) };   //45/3.33% = 1351.35         
+            d1 = Dist_From_Threshold_BL;
+            d2 = Height_Hz * 100.0 / Slope_BL + Dist_From_Threshold_BL;
+            double[] distanceOffset1 = new double[2] {d1, d2};   //45/3.33% = 1351.35
+            //double[] distanceOffset1 = new double[2] {1500, 3000};   //45/3.33% = 1351.35  
             double[] intercept_parallel = new double[4];
             double a, b, x1, y1, x2, y2;
             string[] BL_Line_Name = new string[4] { "BL_AB", "BL_CD", "BL_EF", "BL_GH"};
 
             int DGV2_row_inx, DGV1_row_inx, i, intrcpt;
-            int[,] mulfactor = new int[2,2] { { 1, -1 }, {-1, 1 } }; //+1 for BL_AB and BL_GH, -1 for BL_CD and BL_EF
+            int[] mulfactor = new int[] { 1, -1  }; //+1 for BL_AB and BL_CD wrt AB, -1 for BL_GH and BL_EF wrt CD
             int[] RW_Side = new int[2] { 0, 2 }; //0 for line AB, 2 for line CD
 
             //parallel line equation
             intrcpt = 0;
             DGV2_row_inx = 31; //for BL_AB and end at index 31 for BL_AB
-            for (int j = 0; j <= 1; j++)
+            for (int j = 0; j <=1; j++)
             {
                 slope1 = Convert.ToDouble(dataGridView2.Rows[RW_Side[j]].Cells["ColSlope"].Value);//AB
                 intercept1 = Convert.ToDouble(dataGridView2.Rows[RW_Side[j]].Cells["ColIntercept"].Value);//AB
+                //MessageBox.Show("slope1 = " + slope1.ToString());
+                //slope1 = 6.38465885;
+                //intercept1 = 231401.2689;
 
                 for (int k = 0; k <= 1; k++)
                 {
                     //For TOC_DE--->RWY 28 side
-                    distanceOffset = distanceOffset1[k];
-                    intercept_parallel[intrcpt] = Intercept_of_Parallel_line(slope1, intercept1, distanceOffset, mulfactor[j,k]);
+                    distanceOffset = distanceOffset1[k] + Displaced_Th[j];
+                    //distanceOffset = distanceOffset1[k];
+                    //MessageBox.Show("Distance offset = " + distanceOffset.ToString("0.00"));
+                    intercept_parallel[intrcpt] = Intercept_of_Parallel_line(slope1, intercept1, distanceOffset, mulfactor[j]);
+                    //MessageBox.Show("Distance offset = " + intercept_parallel[intrcpt].ToString("0.00"));
                     dataGridView2.Rows[DGV2_row_inx].Cells["ColLine"].Value = BL_Line_Name[intrcpt];
                     dataGridView2.Rows[DGV2_row_inx].Cells["ColSlope"].Value = slope1.ToString();
                     dataGridView2.Rows[DGV2_row_inx].Cells["ColIntercept"].Value = intercept_parallel[intrcpt].ToString();
@@ -5999,8 +6052,7 @@ namespace CSAY_Obstacle_Height_Calculation
             double[] latlong1 = new double[2];
             double tempdist;
             tempdist = Height_Hz * 100.0 / Slope_BL * Divergence_BL / 100.0;
-            double[] radii = new double[2] { r1, tempdist * 2 + Len_of_InnerEdge_BL };//195.135 = 135.135*2+120; 135.135 = dist * 10%
-
+            double[] radii = new double[2] { r1, (tempdist * 2 + Len_of_InnerEdge_BL) *0.5};//195.135 = 135.135*2+120; 135.135 = dist * 10%
 
 
             DGV1_row_inx = 34;//for BL_A and end at index 41 for BL_H

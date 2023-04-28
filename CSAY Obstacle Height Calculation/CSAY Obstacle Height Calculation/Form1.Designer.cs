@@ -204,6 +204,9 @@
             this.TabRWYClassify = new System.Windows.Forms.TabPage();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.ColSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSurface = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDimension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.TabMenu = new System.Windows.Forms.TabPage();
             this.BtnOpenFolder = new System.Windows.Forms.Button();
@@ -237,9 +240,11 @@
             this.PanelBack = new System.Windows.Forms.Panel();
             this.PanelFore = new System.Windows.Forms.Panel();
             this.LblProgress = new System.Windows.Forms.Label();
-            this.ColSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColSurface = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDimension = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.TxtLower_Disp_Th = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.TxtHigher_Disp_Th = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -272,6 +277,7 @@
             this.groupBox10.SuspendLayout();
             this.TabFilter.SuspendLayout();
             this.PanelBack.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -2193,6 +2199,7 @@
             // 
             // TabRWYClassify
             // 
+            this.TabRWYClassify.Controls.Add(this.groupBox13);
             this.TabRWYClassify.Controls.Add(this.groupBox12);
             this.TabRWYClassify.Location = new System.Drawing.Point(4, 25);
             this.TabRWYClassify.Name = "TabRWYClassify";
@@ -2224,6 +2231,25 @@
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.Size = new System.Drawing.Size(662, 356);
             this.dataGridView5.TabIndex = 0;
+            // 
+            // ColSN
+            // 
+            this.ColSN.HeaderText = "SN";
+            this.ColSN.Name = "ColSN";
+            // 
+            // ColSurface
+            // 
+            this.ColSurface.HeaderText = "Surface";
+            this.ColSurface.Name = "ColSurface";
+            this.ColSurface.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColSurface.Width = 300;
+            // 
+            // ColDimension
+            // 
+            this.ColDimension.HeaderText = "Dimension";
+            this.ColDimension.Name = "ColDimension";
+            this.ColDimension.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColDimension.Width = 200;
             // 
             // tabControl2
             // 
@@ -2717,24 +2743,56 @@
             this.LblProgress.TabIndex = 1;
             this.LblProgress.Text = "0%";
             // 
-            // ColSN
+            // groupBox13
             // 
-            this.ColSN.HeaderText = "SN";
-            this.ColSN.Name = "ColSN";
+            this.groupBox13.Controls.Add(this.TxtHigher_Disp_Th);
+            this.groupBox13.Controls.Add(this.label52);
+            this.groupBox13.Controls.Add(this.TxtLower_Disp_Th);
+            this.groupBox13.Controls.Add(this.label51);
+            this.groupBox13.Location = new System.Drawing.Point(745, 15);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(571, 98);
+            this.groupBox13.TabIndex = 11;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Displaced Threshold";
             // 
-            // ColSurface
+            // TxtLower_Disp_Th
             // 
-            this.ColSurface.HeaderText = "Surface";
-            this.ColSurface.Name = "ColSurface";
-            this.ColSurface.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColSurface.Width = 300;
+            this.TxtLower_Disp_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtLower_Disp_Th.Location = new System.Drawing.Point(278, 24);
+            this.TxtLower_Disp_Th.Name = "TxtLower_Disp_Th";
+            this.TxtLower_Disp_Th.Size = new System.Drawing.Size(287, 26);
+            this.TxtLower_Disp_Th.TabIndex = 11;
             // 
-            // ColDimension
+            // label51
             // 
-            this.ColDimension.HeaderText = "Dimension";
-            this.ColDimension.Name = "ColDimension";
-            this.ColDimension.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColDimension.Width = 200;
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label51.Location = new System.Drawing.Point(17, 30);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(244, 20);
+            this.label51.TabIndex = 10;
+            this.label51.Text = "Lower Threshold displaced by (m)";
+            // 
+            // TxtHigher_Disp_Th
+            // 
+            this.TxtHigher_Disp_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtHigher_Disp_Th.Location = new System.Drawing.Point(278, 56);
+            this.TxtHigher_Disp_Th.Name = "TxtHigher_Disp_Th";
+            this.TxtHigher_Disp_Th.Size = new System.Drawing.Size(287, 26);
+            this.TxtHigher_Disp_Th.TabIndex = 13;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label52.Location = new System.Drawing.Point(17, 62);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(248, 20);
+            this.label52.TabIndex = 12;
+            this.label52.Text = "Higher Threshold displaced by (m)";
             // 
             // FrmObstacleHeightCalculation
             // 
@@ -2800,6 +2858,8 @@
             this.TabFilter.ResumeLayout(false);
             this.TabFilter.PerformLayout();
             this.PanelBack.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3017,6 +3077,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSurface;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDimension;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.TextBox TxtHigher_Disp_Th;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.TextBox TxtLower_Disp_Th;
+        private System.Windows.Forms.Label label51;
     }
 }
 
