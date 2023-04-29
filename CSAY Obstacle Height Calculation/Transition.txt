@@ -187,3 +187,71 @@ public void Calculate_Transitional_Surface()
             dataGridView2.Rows[42].Cells[3].Value = dist.ToString();
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//TRANSITIONAL SURFACE
+                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7)
+                {
+                    int TransPlot_case;
+                    double perp_dist_TOC = 0;
+
+                    TransPlot_case = Transitional_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
+                    if (TransPlot_case == 500 || TransPlot_case == 600)
+                    {
+                        if (TransPlot_case == 500)
+                        {
+                            //Find perpendicular distance from obstacle point to Approach line IJ
+                            //equation TOC_AB
+                            m = Convert.ToDouble(dataGridView2.Rows[41].Cells[1].Value);//slope of Trans_JK
+                            c = Convert.ToDouble(dataGridView2.Rows[41].Cells[2].Value);//intercept of Trans_JK
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                        }
+                        else if (TransPlot_case == 600)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[42].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[42].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                        }
+
+                        SurfaceHeight = 0.0 + 14.3 / 100.0 * (perp_dist_TOC - 0.0);
+                        AllowableElev_Obs = RL_RWY + SurfaceHeight;
+                        SurfaceName = "TRANSITIONAL SURFACE";
+
+                        //adding data to datagridview4
+                        dataGridView4.Rows.Add();
+                        SurfaceCount++;
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (14.3% * (" + perp_dist_TOC.ToString("0.000") + " - 0.0)) = " + AllowableElev_Obs.ToString("0.000");
+
+                    }
+                }
