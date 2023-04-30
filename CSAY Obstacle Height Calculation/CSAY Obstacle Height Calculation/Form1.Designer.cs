@@ -202,6 +202,11 @@
             this.TxtCalculationDetail = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.TabRWYClassify = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.TxtHigher_Disp_Th = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.TxtLower_Disp_Th = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.ColSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -240,11 +245,7 @@
             this.PanelBack = new System.Windows.Forms.Panel();
             this.PanelFore = new System.Windows.Forms.Panel();
             this.LblProgress = new System.Windows.Forms.Label();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.TxtLower_Disp_Th = new System.Windows.Forms.TextBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.TxtHigher_Disp_Th = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
+            this.ChkBoxInnerTrans_1 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -270,6 +271,7 @@
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.TabRWYClassify.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tabControl2.SuspendLayout();
@@ -277,7 +279,6 @@
             this.groupBox10.SuspendLayout();
             this.TabFilter.SuspendLayout();
             this.PanelBack.SuspendLayout();
-            this.groupBox13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -696,6 +697,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.ChkBoxInnerTrans_1);
             this.groupBox11.Controls.Add(this.ChkBoxOuterHorizontal);
             this.groupBox11.Controls.Add(this.ChkBoxInnerTrans);
             this.groupBox11.Controls.Add(this.ChkBoxInnerApproach);
@@ -720,7 +722,7 @@
             this.ChkBoxOuterHorizontal.Checked = true;
             this.ChkBoxOuterHorizontal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxOuterHorizontal.ForeColor = System.Drawing.Color.DeepPink;
-            this.ChkBoxOuterHorizontal.Location = new System.Drawing.Point(150, 49);
+            this.ChkBoxOuterHorizontal.Location = new System.Drawing.Point(13, 156);
             this.ChkBoxOuterHorizontal.Name = "ChkBoxOuterHorizontal";
             this.ChkBoxOuterHorizontal.Size = new System.Drawing.Size(188, 24);
             this.ChkBoxOuterHorizontal.TabIndex = 25;
@@ -734,11 +736,11 @@
             this.ChkBoxInnerTrans.Checked = true;
             this.ChkBoxInnerTrans.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxInnerTrans.ForeColor = System.Drawing.Color.DarkRed;
-            this.ChkBoxInnerTrans.Location = new System.Drawing.Point(150, 95);
+            this.ChkBoxInnerTrans.Location = new System.Drawing.Point(139, 36);
             this.ChkBoxInnerTrans.Name = "ChkBoxInnerTrans";
-            this.ChkBoxInnerTrans.Size = new System.Drawing.Size(184, 24);
+            this.ChkBoxInnerTrans.Size = new System.Drawing.Size(208, 24);
             this.ChkBoxInnerTrans.TabIndex = 24;
-            this.ChkBoxInnerTrans.Text = "INNER TRANSITION";
+            this.ChkBoxInnerTrans.Text = "INNER TRANSITION CD";
             this.ChkBoxInnerTrans.UseVisualStyleBackColor = true;
             this.ChkBoxInnerTrans.CheckedChanged += new System.EventHandler(this.ChkBoxInnerTrans_CheckedChanged);
             // 
@@ -748,7 +750,7 @@
             this.ChkBoxInnerApproach.Checked = true;
             this.ChkBoxInnerApproach.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxInnerApproach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ChkBoxInnerApproach.Location = new System.Drawing.Point(150, 71);
+            this.ChkBoxInnerApproach.Location = new System.Drawing.Point(13, 137);
             this.ChkBoxInnerApproach.Name = "ChkBoxInnerApproach";
             this.ChkBoxInnerApproach.Size = new System.Drawing.Size(162, 24);
             this.ChkBoxInnerApproach.TabIndex = 23;
@@ -765,7 +767,7 @@
             this.BtnDeselectAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
             this.BtnDeselectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDeselectAll.ForeColor = System.Drawing.Color.White;
-            this.BtnDeselectAll.Location = new System.Drawing.Point(261, 124);
+            this.BtnDeselectAll.Location = new System.Drawing.Point(261, 104);
             this.BtnDeselectAll.Name = "BtnDeselectAll";
             this.BtnDeselectAll.Size = new System.Drawing.Size(79, 48);
             this.BtnDeselectAll.TabIndex = 22;
@@ -783,7 +785,7 @@
             this.BtnSelectAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(191)))), ((int)(((byte)(111)))));
             this.BtnSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSelectAll.ForeColor = System.Drawing.Color.White;
-            this.BtnSelectAll.Location = new System.Drawing.Point(181, 124);
+            this.BtnSelectAll.Location = new System.Drawing.Point(181, 104);
             this.BtnSelectAll.Name = "BtnSelectAll";
             this.BtnSelectAll.Size = new System.Drawing.Size(74, 48);
             this.BtnSelectAll.TabIndex = 21;
@@ -797,7 +799,7 @@
             this.ChkBoxBalkedlanding.Checked = true;
             this.ChkBoxBalkedlanding.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxBalkedlanding.ForeColor = System.Drawing.Color.DarkOrange;
-            this.ChkBoxBalkedlanding.Location = new System.Drawing.Point(14, 148);
+            this.ChkBoxBalkedlanding.Location = new System.Drawing.Point(14, 117);
             this.ChkBoxBalkedlanding.Name = "ChkBoxBalkedlanding";
             this.ChkBoxBalkedlanding.Size = new System.Drawing.Size(161, 24);
             this.ChkBoxBalkedlanding.TabIndex = 5;
@@ -811,7 +813,7 @@
             this.ChkBoxTransition.Checked = true;
             this.ChkBoxTransition.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxTransition.ForeColor = System.Drawing.Color.Blue;
-            this.ChkBoxTransition.Location = new System.Drawing.Point(14, 101);
+            this.ChkBoxTransition.Location = new System.Drawing.Point(14, 79);
             this.ChkBoxTransition.Name = "ChkBoxTransition";
             this.ChkBoxTransition.Size = new System.Drawing.Size(130, 24);
             this.ChkBoxTransition.TabIndex = 4;
@@ -825,7 +827,7 @@
             this.ChkBoxTakeoffclimb.Checked = true;
             this.ChkBoxTakeoffclimb.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxTakeoffclimb.ForeColor = System.Drawing.Color.DarkCyan;
-            this.ChkBoxTakeoffclimb.Location = new System.Drawing.Point(14, 124);
+            this.ChkBoxTakeoffclimb.Location = new System.Drawing.Point(14, 99);
             this.ChkBoxTakeoffclimb.Name = "ChkBoxTakeoffclimb";
             this.ChkBoxTakeoffclimb.Size = new System.Drawing.Size(152, 24);
             this.ChkBoxTakeoffclimb.TabIndex = 3;
@@ -839,7 +841,7 @@
             this.ChkBoxApproach.Checked = true;
             this.ChkBoxApproach.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxApproach.ForeColor = System.Drawing.Color.Red;
-            this.ChkBoxApproach.Location = new System.Drawing.Point(14, 77);
+            this.ChkBoxApproach.Location = new System.Drawing.Point(14, 58);
             this.ChkBoxApproach.Name = "ChkBoxApproach";
             this.ChkBoxApproach.Size = new System.Drawing.Size(108, 24);
             this.ChkBoxApproach.TabIndex = 2;
@@ -853,7 +855,7 @@
             this.ChkBoxConical.Checked = true;
             this.ChkBoxConical.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxConical.ForeColor = System.Drawing.Color.DimGray;
-            this.ChkBoxConical.Location = new System.Drawing.Point(14, 52);
+            this.ChkBoxConical.Location = new System.Drawing.Point(14, 36);
             this.ChkBoxConical.Name = "ChkBoxConical";
             this.ChkBoxConical.Size = new System.Drawing.Size(97, 24);
             this.ChkBoxConical.TabIndex = 1;
@@ -867,7 +869,7 @@
             this.ChkBoxHorizontal.Checked = true;
             this.ChkBoxHorizontal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxHorizontal.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.ChkBoxHorizontal.Location = new System.Drawing.Point(14, 27);
+            this.ChkBoxHorizontal.Location = new System.Drawing.Point(14, 15);
             this.ChkBoxHorizontal.Name = "ChkBoxHorizontal";
             this.ChkBoxHorizontal.Size = new System.Drawing.Size(187, 24);
             this.ChkBoxHorizontal.TabIndex = 0;
@@ -2208,6 +2210,57 @@
             this.TabRWYClassify.Text = "RWY Classification";
             this.TabRWYClassify.UseVisualStyleBackColor = true;
             // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.TxtHigher_Disp_Th);
+            this.groupBox13.Controls.Add(this.label52);
+            this.groupBox13.Controls.Add(this.TxtLower_Disp_Th);
+            this.groupBox13.Controls.Add(this.label51);
+            this.groupBox13.Location = new System.Drawing.Point(745, 15);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(571, 98);
+            this.groupBox13.TabIndex = 11;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Displaced Threshold";
+            // 
+            // TxtHigher_Disp_Th
+            // 
+            this.TxtHigher_Disp_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtHigher_Disp_Th.Location = new System.Drawing.Point(278, 56);
+            this.TxtHigher_Disp_Th.Name = "TxtHigher_Disp_Th";
+            this.TxtHigher_Disp_Th.Size = new System.Drawing.Size(287, 26);
+            this.TxtHigher_Disp_Th.TabIndex = 13;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label52.Location = new System.Drawing.Point(17, 62);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(248, 20);
+            this.label52.TabIndex = 12;
+            this.label52.Text = "Higher Threshold displaced by (m)";
+            // 
+            // TxtLower_Disp_Th
+            // 
+            this.TxtLower_Disp_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtLower_Disp_Th.Location = new System.Drawing.Point(278, 24);
+            this.TxtLower_Disp_Th.Name = "TxtLower_Disp_Th";
+            this.TxtLower_Disp_Th.Size = new System.Drawing.Size(287, 26);
+            this.TxtLower_Disp_Th.TabIndex = 11;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label51.Location = new System.Drawing.Point(17, 30);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(244, 20);
+            this.label51.TabIndex = 10;
+            this.label51.Text = "Lower Threshold displaced by (m)";
+            // 
             // groupBox12
             // 
             this.groupBox12.Controls.Add(this.dataGridView5);
@@ -2743,56 +2796,19 @@
             this.LblProgress.TabIndex = 1;
             this.LblProgress.Text = "0%";
             // 
-            // groupBox13
+            // ChkBoxInnerTrans_1
             // 
-            this.groupBox13.Controls.Add(this.TxtHigher_Disp_Th);
-            this.groupBox13.Controls.Add(this.label52);
-            this.groupBox13.Controls.Add(this.TxtLower_Disp_Th);
-            this.groupBox13.Controls.Add(this.label51);
-            this.groupBox13.Location = new System.Drawing.Point(745, 15);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(571, 98);
-            this.groupBox13.TabIndex = 11;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Displaced Threshold";
-            // 
-            // TxtLower_Disp_Th
-            // 
-            this.TxtLower_Disp_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLower_Disp_Th.Location = new System.Drawing.Point(278, 24);
-            this.TxtLower_Disp_Th.Name = "TxtLower_Disp_Th";
-            this.TxtLower_Disp_Th.Size = new System.Drawing.Size(287, 26);
-            this.TxtLower_Disp_Th.TabIndex = 11;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label51.Location = new System.Drawing.Point(17, 30);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(244, 20);
-            this.label51.TabIndex = 10;
-            this.label51.Text = "Lower Threshold displaced by (m)";
-            // 
-            // TxtHigher_Disp_Th
-            // 
-            this.TxtHigher_Disp_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtHigher_Disp_Th.Location = new System.Drawing.Point(278, 56);
-            this.TxtHigher_Disp_Th.Name = "TxtHigher_Disp_Th";
-            this.TxtHigher_Disp_Th.Size = new System.Drawing.Size(287, 26);
-            this.TxtHigher_Disp_Th.TabIndex = 13;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label52.Location = new System.Drawing.Point(17, 62);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(248, 20);
-            this.label52.TabIndex = 12;
-            this.label52.Text = "Higher Threshold displaced by (m)";
+            this.ChkBoxInnerTrans_1.AutoSize = true;
+            this.ChkBoxInnerTrans_1.Checked = true;
+            this.ChkBoxInnerTrans_1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkBoxInnerTrans_1.ForeColor = System.Drawing.Color.DarkRed;
+            this.ChkBoxInnerTrans_1.Location = new System.Drawing.Point(139, 58);
+            this.ChkBoxInnerTrans_1.Name = "ChkBoxInnerTrans_1";
+            this.ChkBoxInnerTrans_1.Size = new System.Drawing.Size(208, 24);
+            this.ChkBoxInnerTrans_1.TabIndex = 26;
+            this.ChkBoxInnerTrans_1.Text = "INNER TRANSITION AB";
+            this.ChkBoxInnerTrans_1.UseVisualStyleBackColor = true;
+            this.ChkBoxInnerTrans_1.CheckedChanged += new System.EventHandler(this.ChkBoxInnerTrans_1_CheckedChanged);
             // 
             // FrmObstacleHeightCalculation
             // 
@@ -2849,6 +2865,8 @@
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.TabRWYClassify.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.tabControl2.ResumeLayout(false);
@@ -2858,8 +2876,6 @@
             this.TabFilter.ResumeLayout(false);
             this.TabFilter.PerformLayout();
             this.PanelBack.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3082,6 +3098,7 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.TextBox TxtLower_Disp_Th;
         private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.CheckBox ChkBoxInnerTrans_1;
     }
 }
 

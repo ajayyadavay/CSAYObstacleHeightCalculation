@@ -835,12 +835,12 @@ namespace CSAY_Obstacle_Height_Calculation
         private void Form1_Load(object sender, EventArgs e)
         {
             LblProgress.ForeColor = Color.White;
-            for (int i = 0; i <= 69; i++) //0 to 69
+            for (int i = 0; i <= 81; i++) //0 to 75
             {
                 dataGridView1.Rows.Add();
             }
 
-            for (int i = 0; i <= 56; i++) //0 to 56
+            for (int i = 0; i <= 68; i++) //0 to 62
             {
                 dataGridView2.Rows.Add();
             }
@@ -1963,7 +1963,7 @@ namespace CSAY_Obstacle_Height_Calculation
                     }
                 }
 
-                //INNER TRANSITIONAL SURFACE
+                //INNER TRANSITIONAL SURFACE CD
                 if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7)
                 {
                     int IT_Plot_Case;
@@ -2622,6 +2622,17 @@ namespace CSAY_Obstacle_Height_Calculation
             }
 
             return position;
+        }
+
+        public double Find_Quadratic_X(double slope1, double intercept1, double a, double b, double radius, int factor)
+        {
+            double A, B, C, Quad_x;
+            A = (slope1 * slope1 + 1);
+            B = 2 * (slope1 * (intercept1 - b) - a);
+            C = a * a + (intercept1 - b) * (intercept1 - b) - radius * radius;
+            Quad_x = (-B + factor * Math.Sqrt(B * B - 4 * A * C)) / (2 * A); //J_X
+            //Quad_x_minus = (-B - Math.Sqrt(B * B - 4 * A * C)) / (2 * A);//I_X
+            return Quad_x;
         }
 
         public double Find_Quadratic_X_Plus(double slope1, double intercept1, double a, double b, double radius)
@@ -4380,7 +4391,8 @@ namespace CSAY_Obstacle_Height_Calculation
                 Calculate_Hz_Con_Surface_Extreme_Point();
                 Calculate_Inner_Approach_Surface();
                 Calculate_Corner_Transitional_Surface();
-                //Calculate_Inner_Transition_Surface();
+                Calculate_Inner_Transition_Surface_CD_Inner_ApproachEnd();
+                Calculate_Inner_Transition_Surface_AB_Inner_ApproachEnd();
 
                 for (int k = 6; k <= 13; k++)
                 {
@@ -4389,7 +4401,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
                 for (int k = 14; k <= 21; k++)
                 {
-                    dataGridView1.Rows[k].Cells["ColDescription"].Value = "Approach 2";
+                    dataGridView1.Rows[k].Cells["ColDescription"].Value = "Approach 0";
                 }
 
                 for (int k = 22; k <= 27; k++)
@@ -4399,7 +4411,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
                 for (int k = 28; k <= 33; k++)
                 {
-                    dataGridView1.Rows[k].Cells["ColDescription"].Value = "Take Off Climb 2";
+                    dataGridView1.Rows[k].Cells["ColDescription"].Value = "Take Off Climb 0";
                 }
 
                 for (int k = 34; k <= 37; k++)
@@ -4409,7 +4421,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
                 for (int k = 38; k <= 41; k++)
                 {
-                    dataGridView1.Rows[k].Cells["ColDescription"].Value = "Balked Landing 2";
+                    dataGridView1.Rows[k].Cells["ColDescription"].Value = "Balked Landing 0";
                 }
 
                 for (int k = 42; k <= 43; k++)
@@ -4419,7 +4431,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
                 for (int k = 44; k <= 45; k++)
                 {
-                    dataGridView1.Rows[k].Cells["ColDescription"].Value = "Transitional 2";
+                    dataGridView1.Rows[k].Cells["ColDescription"].Value = "Transitional 0";
                 }
 
                 for (int k = 46; k <= 49; k++)
@@ -4445,15 +4457,15 @@ namespace CSAY_Obstacle_Height_Calculation
                     if (k <= 61)
                         dataGridView1.Rows[k].Cells["ColDescription"].Value = "Inner Approach 1";
                     else
-                        dataGridView1.Rows[k].Cells["ColDescription"].Value = "Inner Approach 2";
+                        dataGridView1.Rows[k].Cells["ColDescription"].Value = "Inner Approach 0";
                 }
 
                 for (int k = 66; k <= 69; k++)
                 {
                     if (k <= 67)
-                        dataGridView1.Rows[k].Cells["ColDescription"].Value = "Inner Transition 1";
+                        dataGridView1.Rows[k].Cells["ColDescription"].Value = "Transition Corner 1";
                     else
-                        dataGridView1.Rows[k].Cells["ColDescription"].Value = "Inner Transition 2";
+                        dataGridView1.Rows[k].Cells["ColDescription"].Value = "Transition Corner 0";
                 }
 
                 Clear_All_Surfaces();
@@ -5115,7 +5127,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
             }
         }
-        public void Draw_Selective_Obstalce_Surfaces(int Hz, int Co, int Ap, int Tr, int ToC, int Bl, int IA, int IT, int OHz)
+        public void Draw_Selective_Obstalce_Surfaces(int Hz, int Co, int Ap, int Tr, int ToC, int Bl, int IA, int IT, int OHz, int IT_1)
         {
             double lat1, long1, lat2, long2, lat3, long3, lat4, long4;
             int No_of_Polygon;
@@ -5335,13 +5347,14 @@ namespace CSAY_Obstacle_Height_Calculation
                 }
             }
 
-            // Inner Transition surfaces
+            // Inner Transition surfaces with approach at lower end
             if (IT == 1)
             {
                 No_of_Polygon = 2;
+                int vertex_in_one_Poly;
                 int[,] index = new int[,] {
-                    { 66, 6, 14, 67 }, //Inner Transition
-                    { 15, 7, 68, 69}  //Inner Transition
+                    { 64, 70, 71, 72, 40, 38 }, //Inner Transition
+                    { 65, 73, 74, 75, 41, 39 }  //Inner Transition
                 
                 };//One row contains 4 points of polygon in clockwise direction
 
@@ -5350,22 +5363,47 @@ namespace CSAY_Obstacle_Height_Calculation
                     Color.DarkRed
                 };
 
+                vertex_in_one_Poly = 6;
                 for (int i = 0; i < No_of_Polygon; i++)
                 {
-                    //Approach surface-JGHI
-                    lat1 = Convert.ToDouble(dataGridView1.Rows[index[i, 0]].Cells["ColLatitude"].Value);
-                    long1 = Convert.ToDouble(dataGridView1.Rows[index[i, 0]].Cells["ColLongitude"].Value);
+                    List<PointLatLng> points = new List<PointLatLng>();
+                    for (int j = 0; j < vertex_in_one_Poly; j++)
+                    {
+                        lat1 = Convert.ToDouble(dataGridView1.Rows[index[i, j]].Cells["ColLatitude"].Value);
+                        long1 = Convert.ToDouble(dataGridView1.Rows[index[i, j]].Cells["ColLongitude"].Value);
+                        points.Add(new PointLatLng(lat1, long1));
+                    }
+                    Draw_Polygon_With_Many_Points(points, mycolor[i]);
+                }
+            }
 
-                    lat2 = Convert.ToDouble(dataGridView1.Rows[index[i, 1]].Cells["ColLatitude"].Value);
-                    long2 = Convert.ToDouble(dataGridView1.Rows[index[i, 1]].Cells["ColLongitude"].Value);
+            // Inner Transition surfaces with approach at Higher end
+            if (IT_1 == 1)
+            {
+                No_of_Polygon = 2;
+                int vertex_in_one_Poly;
+                int[,] index = new int[,] {
+                    { 60, 76, 77, 78, 36, 34 }, //Inner Transition
+                    { 61, 79, 80, 81, 37, 35 }  //Inner Transition
+                
+                };//One row contains 4 points of polygon in clockwise direction
 
-                    lat3 = Convert.ToDouble(dataGridView1.Rows[index[i, 2]].Cells["ColLatitude"].Value);
-                    long3 = Convert.ToDouble(dataGridView1.Rows[index[i, 2]].Cells["ColLongitude"].Value);
+                Color[] mycolor = new Color[] {
+                    Color.DarkRed,
+                    Color.DarkRed
+                };
 
-                    lat4 = Convert.ToDouble(dataGridView1.Rows[index[i, 3]].Cells["ColLatitude"].Value);
-                    long4 = Convert.ToDouble(dataGridView1.Rows[index[i, 3]].Cells["ColLongitude"].Value);
-
-                    Draw_Polygon_With_Four_Points(lat1, long1, lat2, long2, lat3, long3, lat4, long4, mycolor[i]);
+                vertex_in_one_Poly = 6;
+                for (int i = 0; i < No_of_Polygon; i++)
+                {
+                    List<PointLatLng> points = new List<PointLatLng>();
+                    for (int j = 0; j < vertex_in_one_Poly; j++)
+                    {
+                        lat1 = Convert.ToDouble(dataGridView1.Rows[index[i, j]].Cells["ColLatitude"].Value);
+                        long1 = Convert.ToDouble(dataGridView1.Rows[index[i, j]].Cells["ColLongitude"].Value);
+                        points.Add(new PointLatLng(lat1, long1));
+                    }
+                    Draw_Polygon_With_Many_Points(points, mycolor[i]);
                 }
             }
 
@@ -5475,7 +5513,7 @@ namespace CSAY_Obstacle_Height_Calculation
         }
         public void Draw_Checked_Surfaces()
         {
-            int Hz, Co, Ap, Tr, ToC, Bl, IA, IT, OHz;
+            int Hz, Co, Ap, Tr, ToC, Bl, IA, IT, OHz, IT_1;
 
             if (ChkBoxHorizontal.Checked == true) { Hz = 1; }
             else { Hz = 0; }
@@ -5495,8 +5533,10 @@ namespace CSAY_Obstacle_Height_Calculation
             else { IT = 0; }
             if (ChkBoxOuterHorizontal.Checked == true) { OHz = 1; }
             else { OHz = 0; }
+            if (ChkBoxInnerTrans_1.Checked == true) { IT_1 = 1; }
+            else { IT_1 = 0; }
 
-            Draw_Selective_Obstalce_Surfaces(Hz, Co, Ap, Tr, ToC, Bl, IA, IT, OHz);
+            Draw_Selective_Obstalce_Surfaces(Hz, Co, Ap, Tr, ToC, Bl, IA, IT, OHz, IT_1);
 
         }
 
@@ -5586,6 +5626,7 @@ namespace CSAY_Obstacle_Height_Calculation
             ChkBoxInnerApproach.Checked = true;
             ChkBoxInnerTrans.Checked = true;
             ChkBoxOuterHorizontal.Checked = true;
+            ChkBoxInnerTrans_1.Checked = true;
             all_surfacechkbox_checked = true;
             
             BtnSelectAll.Enabled = false;
@@ -5617,6 +5658,7 @@ namespace CSAY_Obstacle_Height_Calculation
             ChkBoxInnerApproach.Checked = false;
             ChkBoxInnerTrans.Checked = false;
             ChkBoxOuterHorizontal.Checked = false;
+            ChkBoxInnerTrans_1.Checked = false;
             BtnSelectAll.Enabled = true;
         }
 
@@ -5650,25 +5692,36 @@ namespace CSAY_Obstacle_Height_Calculation
             }
         }
 
-        public void Calculate_Inner_Transition_Surface()
+        public void Calculate_Inner_Transition_Surface_CD_Inner_ApproachEnd()
         {
-            //For Inner transition equation i.e. slope and intercepts
-            //Equation of line parallel to AB i.e. IJ and GH
-            double slope1, intercept1, distanceOffset;
+            //For Inner transition equation i.e. slope and intercepts 
+            double slope1, intercept1;
             double Slope_IT, Len_of_InnerEdge_Ap, Height_Hz;
+            double slope_IA, Length_IA;
 
             Slope_IT = Convert.ToDouble(dataGridView5.Rows[27].Cells[2].Value); //33.3;
             Len_of_InnerEdge_Ap = Convert.ToDouble(dataGridView5.Rows[12].Cells[2].Value); //280.0;
             Height_Hz = Convert.ToDouble(dataGridView5.Rows[4].Cells[2].Value); //45.0;
 
-            double[] distanceOffset1 = new double[1] { 0.5 * Len_of_InnerEdge_Ap + Height_Hz *100/Slope_IT };
-            //45/33.33% = 135.135
-            double[] intercept_parallel = new double[10];
+            slope_IA = Convert.ToDouble(dataGridView5.Rows[10].Cells[2].Value); //2
+            Length_IA = Convert.ToDouble(dataGridView5.Rows[9].Cells[2].Value); //900
+
+            double e1 = slope_IA / 100.0 * Length_IA;//18m elevation
+            double r1 = (Height_Hz - e1) * 100.0 / Slope_IT;//(45-18)/33.3% = 81.08
+            double r2 = Height_Hz / Slope_IT * 100.0;//45/33.3% = 135.135m
+
+            int[,] C_indx = new int[,] { { 64, 62, 38 }, { 65, 63, 39 } };//center point index for circle
+            int[] Line_indx = new int[] { 46, 45, 33 };//for DGV2 intercept and slopes
+            double[] radii = new double[] { r1, r2, r2 };
+
             double a, b, x1, y1, x2, y2;
-            string[] IT_Line_Name = new string[2] { "IT_AD", "IT_BC" };
+            string[,] IT_Point_Name = new string[,] { { "IT_A", "IT_B", "IT_C" }, { "IT_F", "IT_E", "IT_D" } };
+            double[] latlong1 = new double[2];
+            double[] IT_COORD_X = new double[6];
+            double[] IT_COORD_Y = new double[6];
 
             int DGV2_row_inx, DGV1_row_inx, i, intrcpt;
-            int a1, a2;
+            /*int a1, a2;
             slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
             double tempslope;
             tempslope = Math.Atan(slope1);
@@ -5681,97 +5734,185 @@ namespace CSAY_Obstacle_Height_Calculation
             {
                 a1 = 1;
                 a2 = -1;
-            }
-            int[] mulfactor = new int[2] { a1, a2 };//1 for T_AD and -1 for T_BC
-            int[] RW_Side = new int[1] { 4 };//EF
-
+            }*/
+            //int[] mulfactor = new int[2] { a1, a2 };//1 for T_AD and -1 for T_BC
+            int[] mulfactor = new int[2] { 1, -1 };//1 for IT_ABC and -1 for IT_DEF
+            //int[] RW_Side = new int[1] { 4 };//EF
 
             intrcpt = 0;
-            DGV2_row_inx = 51; //for IT_AB and end at index 52 for IT_BC
+            DGV1_row_inx = 70; //for IT_AB and end at index 52 for IT_BC
+            int coord = 0;
             for (int j = 0; j <= 1; j++)
             {
-                slope1 = Convert.ToDouble(dataGridView2.Rows[RW_Side[0]].Cells["ColSlope"].Value);//EF
-                intercept1 = Convert.ToDouble(dataGridView2.Rows[RW_Side[0]].Cells["ColIntercept"].Value);//EF
+                //slope1 = Convert.ToDouble(dataGridView2.Rows[RW_Side[0]].Cells["ColSlope"].Value);//EF
+                //intercept1 = Convert.ToDouble(dataGridView2.Rows[RW_Side[0]].Cells["ColIntercept"].Value);//EF
 
-                for (int k = 0; k <= 0; k++)
+                for (int k = 0; k <= 2; k++)
                 {
                     //For IT_DE--->RWY 28 side
-                    distanceOffset = distanceOffset1[k];
-                    intercept_parallel[intrcpt] = Intercept_of_Parallel_line(slope1, intercept1, distanceOffset, mulfactor[j]);
-                    dataGridView2.Rows[DGV2_row_inx].Cells["ColLine"].Value = IT_Line_Name[intrcpt];
-                    dataGridView2.Rows[DGV2_row_inx].Cells["ColSlope"].Value = slope1.ToString();
-                    dataGridView2.Rows[DGV2_row_inx].Cells["ColIntercept"].Value = intercept_parallel[intrcpt].ToString();
+                    //distanceOffset = distanceOffset1[k];
+                    //intercept_parallel[intrcpt] = Intercept_of_Parallel_line(slope1, intercept1, distanceOffset, mulfactor[j]);
 
-                    DGV2_row_inx++;
-                    intrcpt++;
-                }
-            }
+                    slope1 = Convert.ToDouble(dataGridView2.Rows[Line_indx[k]].Cells["ColSlope"].Value);
+                    intercept1 = Convert.ToDouble(dataGridView2.Rows[Line_indx[k]].Cells["ColIntercept"].Value);
 
-            //Find intersection point IT_A, IT_D, IT_B, IT_C
-            //Point of intersection of circle and line
-            double Quad_x_plus, Quad_x_minus, Quad_y_plus, Quad_y_minus;
-            double dist;
-            double slope2, intercept2;
-            double[] IT_COORD_X = new double[12];
-            double[] IT_COORD_Y = new double[12];
-            string[] IT_Point_Name = new string[4] { "IT_A", "IT_D", "IT_B", "IT_C" };
-            double[] latlong1 = new double[2];
-            int[,] indx = new int[2, 2] { { 13, 15 }, { 14, 16 } };
-
-            DGV1_row_inx = 66;//for IT_A and end at index 69 for IT_J
-            //PtIndex = 0;
-            i = 0;
-            intrcpt = 0;
-
-            for (int j = 0; j <= 1; j++)
-            {
-                intercept1 = intercept_parallel[j]; //intercept of IT_AB i.e. parallel line
-                slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
-
-                for (int k = 0; k <= 1; k++)
-                {
-                    slope2 = Convert.ToDouble(dataGridView2.Rows[indx[j, k]].Cells["ColSlope"].Value);//slope
-                    intercept2 = Convert.ToDouble(dataGridView2.Rows[indx[j, k]].Cells["ColIntercept"].Value);//intercept                                                                                                //For Point IT_A and IT_B
-
-                    a = Find_Intersection_X(slope1, intercept1, slope2, intercept2);//X-COORD of intersection of EF and IJ
-                    b = Find_Intersection_Y(slope1, intercept1, slope2, intercept2);//Y-COORD of intersection of EF and IJ
-
-                    //COORD IT_A
-                    IT_COORD_X[i] = a;
-                    IT_COORD_Y[i] = b;
-                    //COORD IT_B
-                    //IT_COORD_X[i + 1] = Quad_x_minus;
-                    //IT_COORD_Y[i + 1] = Quad_y_minus;
+                    //intercept1 = intercept_parallel[2]; //intercept of OP i.e. parallel line
+                    double radius = radii[k];
+                    a = Convert.ToDouble(dataGridView1.Rows[C_indx[j,k]].Cells["ColEasting"].Value);
+                    b = Convert.ToDouble(dataGridView1.Rows[C_indx[j, k]].Cells["ColNorthing"].Value);
 
 
-                    latlong1 = Convert_UTM_To_Latitude_Longitude(a, b);
-                    dataGridView1.Rows[DGV1_row_inx].Cells["ColPoint"].Value = IT_Point_Name[i].ToString();
+                    double Quad_x = Find_Quadratic_X(slope1, intercept1, a, b, radius, mulfactor[j]);
+                    double Quad_y = slope1 * Quad_x + intercept1;//O_Y
+
+                    //COORD R
+                    //IT_COORD_X[coord] = Quad_x;
+                    //IT_COORD_Y[coord] = Quad_y;
+
+                    latlong1 = Convert_UTM_To_Latitude_Longitude(Quad_x, Quad_y);
+                    dataGridView1.Rows[DGV1_row_inx].Cells["ColPoint"].Value = IT_Point_Name[j,k].ToString();
                     dataGridView1.Rows[DGV1_row_inx].Cells["ColLatitude"].Value = latlong1[0].ToString();
                     dataGridView1.Rows[DGV1_row_inx].Cells["ColLongitude"].Value = latlong1[1].ToString();
-                    dataGridView1.Rows[DGV1_row_inx].Cells["ColEasting"].Value = a.ToString();
-                    dataGridView1.Rows[DGV1_row_inx].Cells["ColNorthing"].Value = b.ToString();
+                    dataGridView1.Rows[DGV1_row_inx].Cells["ColEasting"].Value = Quad_x.ToString();
+                    dataGridView1.Rows[DGV1_row_inx].Cells["ColNorthing"].Value = Quad_y.ToString();
+                    //distance between two points
+                    //dist = Find_Distance_bet_two_pointXY(Quad_x_plus, Quad_y_plus, Quad_x_minus, Quad_y_minus);
+                    //dataGridView2.Rows[7].Cells[3].Value = dist.ToString();
 
                     DGV1_row_inx++;
-                    i++;
-                    intrcpt++;
+                    coord++;
                 }
-
             }
 
+            int[,] L_indx = new int[,] { { 64, 70, 71, 40 }, { 65, 73, 74, 41 } };//
+            string[,] IT_Line_Name = new string[,] { { "IA_V-IT_A", "IT_AB", "IT_B-BL_H" }, { "IA_U-IT_F", "IT_FE", "IT_E-BL_G" } };
             //distance between two points
-            DGV2_row_inx = 51;
-            for (int k = 0; k <= 3; k += 2)
+            DGV2_row_inx = 57;
+            for(int j = 0; j <= 1; j++)
             {
-                Quad_x_plus = IT_COORD_X[k];
-                Quad_y_plus = IT_COORD_Y[k];
+                for (int k = 0; k <= 2; k++)
+                {
+                    x1 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k]].Cells["ColEasting"].Value);
+                    y1 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k]].Cells["ColNorthing"].Value);
 
-                Quad_x_minus = IT_COORD_X[k + 1];
-                Quad_y_minus = IT_COORD_Y[k + 1];
+                    x2 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k+1]].Cells["ColEasting"].Value);
+                    y2 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k+1]].Cells["ColNorthing"].Value);
 
-                dist = Find_Distance_bet_two_pointXY(Quad_x_plus, Quad_y_plus, Quad_x_minus, Quad_y_minus);
-                dataGridView2.Rows[DGV2_row_inx].Cells[3].Value = dist.ToString();
-                DGV2_row_inx++;
+                    slope1 = Find_Slope_Of_Equation(x1, y1, x2, y2);
+                    intercept1 = Find_Intercept_Of_Equation(slope1, x1, y1);
 
+                    double dist = Find_Distance_bet_two_pointXY(x1, y1, x2, y2);
+                    dataGridView2.Rows[DGV2_row_inx].Cells[0].Value = IT_Line_Name[j,k].ToString();
+                    dataGridView2.Rows[DGV2_row_inx].Cells[1].Value = slope1.ToString();
+                    dataGridView2.Rows[DGV2_row_inx].Cells[2].Value = intercept1.ToString();
+                    dataGridView2.Rows[DGV2_row_inx].Cells[3].Value = dist.ToString();
+                    DGV2_row_inx++;
+
+                }
+            }
+            
+        }
+
+        public void Calculate_Inner_Transition_Surface_AB_Inner_ApproachEnd()
+        {
+            //For Inner transition equation i.e. slope and intercepts 
+            double slope1, intercept1;
+            double Slope_IT, Len_of_InnerEdge_Ap, Height_Hz;
+            double slope_IA, Length_IA;
+
+            Slope_IT = Convert.ToDouble(dataGridView5.Rows[27].Cells[2].Value); //33.3;
+            Len_of_InnerEdge_Ap = Convert.ToDouble(dataGridView5.Rows[12].Cells[2].Value); //280.0;
+            Height_Hz = Convert.ToDouble(dataGridView5.Rows[4].Cells[2].Value); //45.0;
+
+            slope_IA = Convert.ToDouble(dataGridView5.Rows[10].Cells[2].Value); //2
+            Length_IA = Convert.ToDouble(dataGridView5.Rows[9].Cells[2].Value); //900
+
+            double e1 = slope_IA / 100.0 * Length_IA;//18m elevation
+            double r1 = (Height_Hz - e1) * 100.0 / Slope_IT;//(45-18)/33.3% = 81.08
+            double r2 = Height_Hz / Slope_IT * 100.0;//45/33.3% = 135.135m
+
+            int[,] C_indx = new int[,] { { 60, 58, 34 }, { 61, 59, 35 } };//center point index for circle
+            int[] Line_indx = new int[] { 44, 43, 31 };//for DGV2 intercept and slopes
+            double[] radii = new double[] { r1, r2, r2 };
+
+            double a, b, x1, y1, x2, y2;
+            string[,] IT_Point_Name = new string[,] { { "IT_G", "IT_H", "IT_I" }, { "IT_J", "IT_K", "IT_L" } };
+            double[] latlong1 = new double[2];
+            double[] IT_COORD_X = new double[6];
+            double[] IT_COORD_Y = new double[6];
+
+            int DGV2_row_inx, DGV1_row_inx;
+            int[] mulfactor = new int[2] { 1, -1 };//1 for IT_ABC and -1 for IT_DEF
+
+            DGV1_row_inx = 76; //for IT_AB and end at index 81 for IT_BC
+            int coord = 0;
+            for (int j = 0; j <= 1; j++)
+            {
+                for (int k = 0; k <= 2; k++)
+                {
+                    slope1 = Convert.ToDouble(dataGridView2.Rows[Line_indx[k]].Cells["ColSlope"].Value);
+                    intercept1 = Convert.ToDouble(dataGridView2.Rows[Line_indx[k]].Cells["ColIntercept"].Value);
+
+                    double radius = radii[k];
+                    a = Convert.ToDouble(dataGridView1.Rows[C_indx[j, k]].Cells["ColEasting"].Value);
+                    b = Convert.ToDouble(dataGridView1.Rows[C_indx[j, k]].Cells["ColNorthing"].Value);
+
+                    double Quad_x = Find_Quadratic_X(slope1, intercept1, a, b, radius, mulfactor[j]);
+                    double Quad_y = slope1 * Quad_x + intercept1;
+
+                    latlong1 = Convert_UTM_To_Latitude_Longitude(Quad_x, Quad_y);
+                    dataGridView1.Rows[DGV1_row_inx].Cells["ColPoint"].Value = IT_Point_Name[j, k].ToString();
+                    dataGridView1.Rows[DGV1_row_inx].Cells["ColLatitude"].Value = latlong1[0].ToString();
+                    dataGridView1.Rows[DGV1_row_inx].Cells["ColLongitude"].Value = latlong1[1].ToString();
+                    dataGridView1.Rows[DGV1_row_inx].Cells["ColEasting"].Value = Quad_x.ToString();
+                    dataGridView1.Rows[DGV1_row_inx].Cells["ColNorthing"].Value = Quad_y.ToString();
+
+                    DGV1_row_inx++;
+                    coord++;
+                }
+            }
+
+            int[,] L_indx = new int[,] { { 60, 76, 77, 36 }, { 61, 79, 80, 37 } };//to find slope of lines of inner trans.
+            string[,] IT_Line_Name = new string[,] { { "IA_O-IT_G", "IT_GH", "IT_H-BL_D" }, { "IA_P-IT_J", "IT_JK", "IT_K-BL_C" } };
+            //distance between two points
+            DGV2_row_inx = 63;
+            for (int j = 0; j <= 1; j++)
+            {
+                for (int k = 0; k <= 2; k++)
+                {
+                    x1 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k]].Cells["ColEasting"].Value);
+                    y1 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k]].Cells["ColNorthing"].Value);
+
+                    x2 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k + 1]].Cells["ColEasting"].Value);
+                    y2 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k + 1]].Cells["ColNorthing"].Value);
+
+                    slope1 = Find_Slope_Of_Equation(x1, y1, x2, y2);
+                    intercept1 = Find_Intercept_Of_Equation(slope1, x1, y1);
+
+                    double dist = Find_Distance_bet_two_pointXY(x1, y1, x2, y2);
+                    dataGridView2.Rows[DGV2_row_inx].Cells[0].Value = IT_Line_Name[j, k].ToString();
+                    dataGridView2.Rows[DGV2_row_inx].Cells[1].Value = slope1.ToString();
+                    dataGridView2.Rows[DGV2_row_inx].Cells[2].Value = intercept1.ToString();
+                    dataGridView2.Rows[DGV2_row_inx].Cells[3].Value = dist.ToString();
+                    DGV2_row_inx++;
+
+                }
+            }
+
+        }
+
+        private void ChkBoxInnerTrans_1_CheckedChanged(object sender, EventArgs e)
+        {
+            Check_if_all_checkboxes_are_Checked();
+            if (all_surfacechkbox_checked == true) BtnSelectAll.Enabled = false; else BtnSelectAll.Enabled = true;
+            if (Plot_Map_Clicked == true)
+            {
+                BtnCreateMap_Click(sender, e);
+            }
+            else
+            {
+                Clear_All_Surfaces();
+                Draw_Checked_Surfaces();
             }
         }
 

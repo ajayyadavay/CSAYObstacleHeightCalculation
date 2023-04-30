@@ -1,8 +1,8 @@
 Central_Meridian	84
 RL_RWY	105.642
 RWY_Classify	Precision_CAT_II_III
-Lower_Threshold_Displaced_by	0.0
-Higher_Threshold_Displaced_by	0.0
+AB_Threshold_Displaced_by	0.0
+CD_Threshold_Displaced_by	0.0
 Points	Description	Latitude (N)	Longitude (E)	
 A	RWY28 N	27.50288611	83.42583333	
 B	RWY28 S	27.50248333	83.42576389	
