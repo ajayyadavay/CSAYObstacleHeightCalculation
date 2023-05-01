@@ -67,6 +67,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.TabObstacleHeightCalculation = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.ChkBoxInnerTrans_1 = new System.Windows.Forms.CheckBox();
             this.ChkBoxOuterHorizontal = new System.Windows.Forms.CheckBox();
             this.ChkBoxInnerTrans = new System.Windows.Forms.CheckBox();
             this.ChkBoxInnerApproach = new System.Windows.Forms.CheckBox();
@@ -245,7 +246,6 @@
             this.PanelBack = new System.Windows.Forms.Panel();
             this.PanelFore = new System.Windows.Forms.Panel();
             this.LblProgress = new System.Windows.Forms.Label();
-            this.ChkBoxInnerTrans_1 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -715,6 +715,20 @@
             this.groupBox11.TabIndex = 20;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Surfaces";
+            // 
+            // ChkBoxInnerTrans_1
+            // 
+            this.ChkBoxInnerTrans_1.AutoSize = true;
+            this.ChkBoxInnerTrans_1.Checked = true;
+            this.ChkBoxInnerTrans_1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkBoxInnerTrans_1.ForeColor = System.Drawing.Color.DarkRed;
+            this.ChkBoxInnerTrans_1.Location = new System.Drawing.Point(139, 58);
+            this.ChkBoxInnerTrans_1.Name = "ChkBoxInnerTrans_1";
+            this.ChkBoxInnerTrans_1.Size = new System.Drawing.Size(208, 24);
+            this.ChkBoxInnerTrans_1.TabIndex = 26;
+            this.ChkBoxInnerTrans_1.Text = "INNER TRANSITION AB";
+            this.ChkBoxInnerTrans_1.UseVisualStyleBackColor = true;
+            this.ChkBoxInnerTrans_1.CheckedChanged += new System.EventHandler(this.ChkBoxInnerTrans_1_CheckedChanged);
             // 
             // ChkBoxOuterHorizontal
             // 
@@ -2238,9 +2252,9 @@
             this.label52.ForeColor = System.Drawing.Color.DarkViolet;
             this.label52.Location = new System.Drawing.Point(17, 62);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(248, 20);
+            this.label52.Size = new System.Drawing.Size(224, 20);
             this.label52.TabIndex = 12;
-            this.label52.Text = "Higher Threshold displaced by (m)";
+            this.label52.Text = "CD Threshold displaced by (m)";
             // 
             // TxtLower_Disp_Th
             // 
@@ -2257,9 +2271,9 @@
             this.label51.ForeColor = System.Drawing.Color.DarkViolet;
             this.label51.Location = new System.Drawing.Point(17, 30);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(244, 20);
+            this.label51.Size = new System.Drawing.Size(223, 20);
             this.label51.TabIndex = 10;
-            this.label51.Text = "Lower Threshold displaced by (m)";
+            this.label51.Text = "AB Threshold displaced by (m)";
             // 
             // groupBox12
             // 
@@ -2795,20 +2809,6 @@
             this.LblProgress.Size = new System.Drawing.Size(34, 18);
             this.LblProgress.TabIndex = 1;
             this.LblProgress.Text = "0%";
-            // 
-            // ChkBoxInnerTrans_1
-            // 
-            this.ChkBoxInnerTrans_1.AutoSize = true;
-            this.ChkBoxInnerTrans_1.Checked = true;
-            this.ChkBoxInnerTrans_1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkBoxInnerTrans_1.ForeColor = System.Drawing.Color.DarkRed;
-            this.ChkBoxInnerTrans_1.Location = new System.Drawing.Point(139, 58);
-            this.ChkBoxInnerTrans_1.Name = "ChkBoxInnerTrans_1";
-            this.ChkBoxInnerTrans_1.Size = new System.Drawing.Size(208, 24);
-            this.ChkBoxInnerTrans_1.TabIndex = 26;
-            this.ChkBoxInnerTrans_1.Text = "INNER TRANSITION AB";
-            this.ChkBoxInnerTrans_1.UseVisualStyleBackColor = true;
-            this.ChkBoxInnerTrans_1.CheckedChanged += new System.EventHandler(this.ChkBoxInnerTrans_1_CheckedChanged);
             // 
             // FrmObstacleHeightCalculation
             // 

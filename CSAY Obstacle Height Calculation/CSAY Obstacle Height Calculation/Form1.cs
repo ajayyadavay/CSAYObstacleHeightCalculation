@@ -1632,10 +1632,17 @@ namespace CSAY_Obstacle_Height_Calculation
                     }
                 }
 
-               
+
                 //APPROACH SURFACE
+                double length_Ap_First = Convert.ToDouble(dataGridView5.Rows[16].Cells[2].Value);//3000
+                double slope_Ap_First = Convert.ToDouble(dataGridView5.Rows[17].Cells[2].Value);//2
+
+                double length_Ap_Second = Convert.ToDouble(dataGridView5.Rows[19].Cells[2].Value);//2.5
+                double slope_Ap_Second = Convert.ToDouble(dataGridView5.Rows[20].Cells[2].Value);//2.5
+
                 if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5)
                 {
+
                     ApproachPlotCase =Approach_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
                     double perp_dist_approach = 0;
                     if (ApproachPlotCase == 10 || ApproachPlotCase == 40)//FIRST SECTION SLOPE UPWARD 2%
@@ -1655,7 +1662,8 @@ namespace CSAY_Obstacle_Height_Calculation
                             c = Convert.ToDouble(dataGridView2.Rows[9].Cells[2].Value);//intercept of KL
                             perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                         }
-                        SurfaceHeight = 0.0 + 2.0 / 100.0 * (perp_dist_approach - 0.0);
+                        
+                        SurfaceHeight = 0.0 + slope_Ap_First / 100.0 * (perp_dist_approach - 0.0);
                         AllowableElev_Obs = RL_RWY + SurfaceHeight;
                         SurfaceName = "APPROACH - FIRST SECTION";
 
@@ -1666,8 +1674,7 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
                         dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
                         dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (2% * (" + perp_dist_approach.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
-
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + ("+ slope_Ap_First.ToString() +"% * (" + perp_dist_approach.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
 
                     }
                     else if (ApproachPlotCase == 20 || ApproachPlotCase == 50)//SECOND SECTION SLOPE UPWARD 2.5%
@@ -1689,7 +1696,8 @@ namespace CSAY_Obstacle_Height_Calculation
                         }
 
                         SurfaceName = "APPROACH - SECOND SECTION";
-                        SurfaceHeight = 60 + 2.5 / 100 * (perp_dist_approach - (0.00));//(60+3000)
+                        double Base_Height = slope_Ap_First / 100.0 * length_Ap_First;//2/100*3000=60
+                        SurfaceHeight = Base_Height + slope_Ap_Second / 100.0 * (perp_dist_approach - (0.00));//(60+3000)
                         AllowableElev_Obs = RL_RWY +  SurfaceHeight;
 
                         //adding data to datagridview4
@@ -1699,13 +1707,16 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
                         dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
                         dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (60 + 2.5% * (" + perp_dist_approach.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + ("+ Base_Height.ToString() +" + "+slope_Ap_Second+"% * (" + perp_dist_approach.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
 
                     }
                     else if (ApproachPlotCase == 30 || ApproachPlotCase == 60)//HORIZONTAL SECTION 0% SLOPE AT ELEV. 60+90=150m
                     {
                         SurfaceName = "APPROACH - HORIZONTAL SECTION";
-                        SurfaceHeight = 60 + 90; //i.e. 150 m
+                        double e1, e2;
+                        e1 = slope_Ap_First / 100.0 * length_Ap_First;//60
+                        e2 = slope_Ap_Second / 100.0 * length_Ap_Second;//90
+                        SurfaceHeight = e1 + e2; //i.e. 150 m
                         AllowableElev_Obs = RL_RWY + SurfaceHeight;
 
                         //adding data to datagridview4
@@ -1715,13 +1726,14 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
                         dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
                         dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (60 + 90" + ") = " + AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY.ToString() + " + ("+e1.ToString()+" + "+ e2.ToString() +"" + ") = " + AllowableElev_Obs.ToString("0.000");
 
                     }
 
                 }
 
                 //TAKE OFF CLIMB SURFACE
+                double slope_ToC = Convert.ToDouble(dataGridView5.Rows[39].Cells[2].Value);
                 if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5)
                 {
                     int TakeOffClimbPlot_case;
@@ -1745,7 +1757,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             c = Convert.ToDouble(dataGridView2.Rows[20].Cells[2].Value);//intercept of TOC_GH
                             perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                         }
-                        SurfaceHeight = 0.0 + 2.0 / 100.0 * (perp_dist_TOC - 0.0);
+                        SurfaceHeight = 0.0 + slope_ToC / 100.0 * (perp_dist_TOC - 0.0);
                         AllowableElev_Obs = RL_RWY + SurfaceHeight;
                         SurfaceName = "TAKE-OFF CLIMB SURFACE";
 
@@ -1756,11 +1768,12 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
                         dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
                         dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (2% * (" + perp_dist_TOC.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (" + slope_ToC.ToString()+ "% * (" + perp_dist_TOC.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
 
                     }
                 }
 
+                double slope_BL = Convert.ToDouble(dataGridView5.Rows[32].Cells[2].Value);
                 //BALKED LANDING SURFACE CALCULATION
                 if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5)
                 {
@@ -1785,7 +1798,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             c = Convert.ToDouble(dataGridView2.Rows[33].Cells[2].Value);//intercept of BL_EF
                             perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                         }
-                        SurfaceHeight = 0.0 + 3.33 / 100.0 * (perp_dist_TOC - 0.0);
+                        SurfaceHeight = 0.0 + slope_BL / 100.0 * (perp_dist_TOC - 0.0);
                         AllowableElev_Obs = RL_RWY + SurfaceHeight;
                         SurfaceName = "BALKED LANDING SURFACE";
 
@@ -1796,7 +1809,7 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
                         dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
                         dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (3.33% * (" + perp_dist_TOC.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (" + slope_BL.ToString() + "% * (" + perp_dist_TOC.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
 
                     }
                 }
@@ -1811,6 +1824,7 @@ namespace CSAY_Obstacle_Height_Calculation
                     double temp_perp, Divergence_App, Slope_App_First_Sec;
                     Slope_App_First_Sec = Convert.ToDouble(dataGridView5.Rows[17].Cells[2].Value); //2.0
                     Divergence_App = Convert.ToDouble(dataGridView5.Rows[14].Cells[2].Value); //45.0;
+                    double slope_Trans = Convert.ToDouble(dataGridView5.Rows[25].Cells[2].Value); //14.3
 
                     TransPlot_case = Transitional_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
                     if (TransPlot_case == 500 || TransPlot_case == 600 || TransPlot_case == 501 || TransPlot_case == 502 || TransPlot_case == 601 || TransPlot_case == 602)
@@ -1907,7 +1921,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
                         }
 
-                        SurfaceHeight = Base_Height + 14.3 / 100.0 * (perp_dist_TOC - Base_Dist);
+                        SurfaceHeight = Base_Height + slope_Trans / 100.0 * (perp_dist_TOC - Base_Dist);
                         AllowableElev_Obs = RL_RWY + SurfaceHeight;
                         SurfaceName = "TRANSITIONAL SURFACE";
 
@@ -1918,12 +1932,13 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
                         dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
                         dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY +  Base_Height.ToString("0.000") + " + (14.3% * (" + perp_dist_TOC.ToString("0.000") + " - " + Base_Dist.ToString("0.000") + " )) = " + AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY.ToString() + " + " + Base_Height.ToString("0.000") + " + (" + slope_Trans.ToString() + "% * (" + perp_dist_TOC.ToString("0.000") + " - " + Base_Dist.ToString("0.000") + " )) = " + AllowableElev_Obs.ToString("0.000");
 
                     }
                 }
 
                 //INNER APPROACH
+                double slope_IA = Convert.ToDouble(dataGridView5.Rows[10].Cells[2].Value);
                 if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5)
                 {
                     int IA_Plot_case;
@@ -1947,7 +1962,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             c = Convert.ToDouble(dataGridView2.Rows[45].Cells[2].Value);//intercept of KL
                             perp_dist_IA = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                         }
-                        SurfaceHeight = 0.0 + 2.0 / 100.0 * (perp_dist_IA - 0.0);
+                        SurfaceHeight = 0.0 + slope_IA / 100.0 * (perp_dist_IA - 0.0);
                         AllowableElev_Obs = RL_RWY + SurfaceHeight;
                         SurfaceName = "INNER APPROACH";
 
@@ -1958,39 +1973,106 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
                         dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
                         dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (2% * (" + perp_dist_IA.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (" + slope_IA.ToString() + "% * (" + perp_dist_IA.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
 
                     }
                 }
 
                 //INNER TRANSITIONAL SURFACE CD
+                double Divergence_BL, slope_IT;
+                Divergence_BL = Convert.ToDouble(dataGridView5.Rows[31].Cells[2].Value);
+                //slope_BL = Convert.ToDouble(dataGridView5.Rows[32].Cells[2].Value);
+                slope_IT = Convert.ToDouble(dataGridView5.Rows[27].Cells[2].Value);
                 if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7)
                 {
                     int IT_Plot_Case;
                     double perp_dist_TOC = 0;
+                    double Base_Height = 0;
+                    double Base_Dist = 0;
 
-                    IT_Plot_Case = InnerTransitional_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
-                    if (IT_Plot_Case == 5000 || IT_Plot_Case == 6000)
+                    IT_Plot_Case = InnerTransitional_Case_of_Plot_COORD_CD(Final_Easting_X, Final_Northing_Y);
+                    if (IT_Plot_Case == 5000 || IT_Plot_Case == 6000 || IT_Plot_Case == 5001 || IT_Plot_Case == 6001 || IT_Plot_Case == 5002 || IT_Plot_Case == 6002)
                     {
                         if (IT_Plot_Case == 5000)
                         {
                             //Find perpendicular distance from obstacle point to Approach line IJ
                             //equation TOC_AB
-                            m = Convert.ToDouble(dataGridView2.Rows[41].Cells[1].Value);//slope of Trans_JK
-                            c = Convert.ToDouble(dataGridView2.Rows[41].Cells[2].Value);//intercept of Trans_JK
+                            m = Convert.ToDouble(dataGridView2.Rows[49].Cells[1].Value);//slope of Trans_JK
+                            c = Convert.ToDouble(dataGridView2.Rows[49].Cells[2].Value);//intercept of Trans_JK
                             perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                            Base_Height = 0.0;
+                            Base_Dist = 0.0;
                         }
                         else if (IT_Plot_Case == 6000)
                         {
                             //equation Trans_LI
-                            m = Convert.ToDouble(dataGridView2.Rows[42].Cells[1].Value);//slope of TOC_GH
-                            c = Convert.ToDouble(dataGridView2.Rows[42].Cells[2].Value);//intercept of TOC_GH
+                            m = Convert.ToDouble(dataGridView2.Rows[50].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[50].Cells[2].Value);//intercept of TOC_GH
                             perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                            Base_Height = 0.0;
+                            Base_Dist = 0.0;
+                        }
+                        else if (IT_Plot_Case == 5001)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[33].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[33].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[49].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[49].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = d1 * slope_BL /100.0;
+                            Base_Dist = Divergence_BL /100.0 * d1;
+                        }
+                        else if (IT_Plot_Case == 5002)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[45].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[45].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[49].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[49].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = d1 * slope_IA / 100.0;
+                            Base_Dist = 0.0;
+                        }
+                        else if (IT_Plot_Case == 6001)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[33].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[33].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[50].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[50].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = d1 * slope_BL / 100.0;
+                            Base_Dist = Divergence_BL / 100.0 * d1;
+                        }
+                        else if (IT_Plot_Case == 6002)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[45].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[45].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[50].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[50].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+
+                            Base_Height = d1 * slope_IA / 100.0;
+                            Base_Dist = 0.0;
                         }
 
-                        SurfaceHeight = 0.0 + 33.3 / 100.0 * (perp_dist_TOC - 0.0);
+                        SurfaceHeight = Base_Height + slope_IT / 100.0 * (perp_dist_TOC - Base_Dist);
                         AllowableElev_Obs = RL_RWY + SurfaceHeight;
-                        SurfaceName = "INNER TRANSITIONAL SURFACE";
+                        SurfaceName = "INNER TRANSITIONAL SURFACE CD";
 
                         //adding data to datagridview4
                         dataGridView4.Rows.Add();
@@ -1999,7 +2081,112 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
                         dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
                         dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (33.3% * (" + perp_dist_TOC.ToString("0.000") + " - 0.0)) = " + AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + " +  Base_Height.ToString() + " + (" + slope_IT + "% * (" + perp_dist_TOC.ToString("0.000") + " - " + Base_Dist.ToString() + ")) = " + AllowableElev_Obs.ToString("0.000");
+
+                    }
+                }
+
+                //INNER TRANSITIONAL SURFACE AB
+                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7)
+                {
+                    int IT_Plot_Case;
+                    double perp_dist_TOC = 0;
+                    double Base_Height = 0;
+                    double Base_Dist = 0;
+
+                    IT_Plot_Case = InnerTransitional_Case_of_Plot_COORD_AB(Final_Easting_X, Final_Northing_Y);
+                    if (IT_Plot_Case == 7000 || IT_Plot_Case == 8000 || IT_Plot_Case == 7001 || IT_Plot_Case == 8001 || IT_Plot_Case == 7002 || IT_Plot_Case == 8002)
+                    {
+                        if (IT_Plot_Case == 7000)
+                        {
+                            //Find perpendicular distance from obstacle point to Approach line IJ
+                            //equation TOC_AB
+                            m = Convert.ToDouble(dataGridView2.Rows[47].Cells[1].Value);//slope of Trans_JK
+                            c = Convert.ToDouble(dataGridView2.Rows[47].Cells[2].Value);//intercept of Trans_JK
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                            Base_Height = 0.0;
+                            Base_Dist = 0.0;
+                        }
+                        else if (IT_Plot_Case == 8000)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[48].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[48].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                            Base_Height = 0.0;
+                            Base_Dist = 0.0;
+                        }
+                        else if (IT_Plot_Case == 7001)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[43].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[43].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[47].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[47].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = d1 * slope_IA / 100.0;
+                            Base_Dist = 0.0;
+                        }
+                        else if (IT_Plot_Case == 7002)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[31].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[31].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[47].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[47].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+
+                            Base_Height = d1 * slope_BL / 100.0;
+                            Base_Dist = Divergence_BL / 100.0 * d1;
+                        }
+                        else if (IT_Plot_Case == 8001)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[43].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[43].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[48].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[48].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = d1 * slope_IA / 100.0;
+                            Base_Dist = 0.0;
+                        }
+                        else if (IT_Plot_Case == 8002)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[31].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[31].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[48].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[48].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+
+                            Base_Height = d1 * slope_BL / 100.0;
+                            Base_Dist = Divergence_BL / 100.0 * d1;
+                        }
+
+                        SurfaceHeight = Base_Height + slope_IT / 100.0 * (perp_dist_TOC - Base_Dist);
+                        AllowableElev_Obs = RL_RWY + SurfaceHeight;
+                        SurfaceName = "INNER TRANSITIONAL SURFACE AB";
+
+                        //adding data to datagridview4
+                        dataGridView4.Rows.Add();
+                        SurfaceCount++;
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + " + Base_Height.ToString() + " + (" + slope_IT + "% * (" + perp_dist_TOC.ToString("0.000") + " - " + Base_Dist.ToString() + ")) = " + AllowableElev_Obs.ToString("0.000");
 
                     }
                 }
@@ -2095,65 +2282,212 @@ namespace CSAY_Obstacle_Height_Calculation
 
         }
 
-        public int InnerTransitional_Case_of_Plot_COORD(double eastingX, double northingY)
+        public int InnerTransitional_Case_of_Plot_COORD_AB(double eastingX, double northingY)
         {
             int plot_case = 0;
             double m, c;
-            string position_AD, position_DK, position_KJ, position_JA;
-            string position_CL, position_LI, position_IB, position_BC;
+            string position_OG, position_GH, position_HD, position_DA, position_AO, position_HK, position_IL;
+            string position_PJ, position_JK, position_KC, position_CB, position_BIP;
 
             //Transition near RWYAD
             //equation AD
-            m = Convert.ToDouble(dataGridView2.Rows[51].Cells[1].Value);//slope
-            c = Convert.ToDouble(dataGridView2.Rows[51].Cells[2].Value);//intercept
-            position_AD = Find_Plotting_Position(eastingX, northingY, m, c);
+            m = Convert.ToDouble(dataGridView2.Rows[63].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[63].Cells[2].Value);//intercept
+            position_OG = Find_Plotting_Position(eastingX, northingY, m, c);
 
             //equation DK
-            m = Convert.ToDouble(dataGridView2.Rows[15].Cells[1].Value);//slope
-            c = Convert.ToDouble(dataGridView2.Rows[15].Cells[2].Value);//intercept
-            position_DK = Find_Plotting_Position(eastingX, northingY, m, c);
+            m = Convert.ToDouble(dataGridView2.Rows[64].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[64].Cells[2].Value);//intercept
+            position_GH = Find_Plotting_Position(eastingX, northingY, m, c);
 
             //equation KJ
-            m = Convert.ToDouble(dataGridView2.Rows[41].Cells[1].Value);//slope
-            c = Convert.ToDouble(dataGridView2.Rows[41].Cells[2].Value);//intercept
-            position_KJ = Find_Plotting_Position(eastingX, northingY, m, c);
+            m = Convert.ToDouble(dataGridView2.Rows[65].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[65].Cells[2].Value);//intercept
+            position_HD = Find_Plotting_Position(eastingX, northingY, m, c);
 
             //equation JA
-            m = Convert.ToDouble(dataGridView2.Rows[13].Cells[1].Value);//slope 
-            c = Convert.ToDouble(dataGridView2.Rows[13].Cells[2].Value);//intercept
-            position_JA = Find_Plotting_Position(eastingX, northingY, m, c);
+            m = Convert.ToDouble(dataGridView2.Rows[35].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[35].Cells[2].Value);//intercept
+            position_DA = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation JA
+            m = Convert.ToDouble(dataGridView2.Rows[47].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[47].Cells[2].Value);//intercept
+            position_AO = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation JA
+            m = Convert.ToDouble(dataGridView2.Rows[43].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[43].Cells[2].Value);//intercept
+            position_HK = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation JA
+            m = Convert.ToDouble(dataGridView2.Rows[31].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[31].Cells[2].Value);//intercept
+            position_IL = Find_Plotting_Position(eastingX, northingY, m, c);
 
             //plot_case
-            if (position_AD == "Below" && position_JA == "Above" && position_DK == "Above" && position_KJ == "Above")
+            if (position_OG == "Above" && position_GH == "Below" && position_HD == "Below" && position_DA == "Above" && position_AO == "Above")
             {
-                plot_case = 5000;
+                if (position_IL == "Below" && position_HK == "Above")
+                {
+                    plot_case = 7000;
+                }
+                else if (position_IL == "Below" && position_HK == "Below")
+                {
+                    plot_case = 7001;
+                }
+                else if (position_IL == "Above" && position_HK == "Above")
+                {
+                    plot_case = 7002;
+                }
             }
 
             //Transition near RWYBC
             //equation CL
-            m = Convert.ToDouble(dataGridView2.Rows[16].Cells[1].Value);//slope
-            c = Convert.ToDouble(dataGridView2.Rows[16].Cells[2].Value);//intercept
-            position_CL = Find_Plotting_Position(eastingX, northingY, m, c);
+            m = Convert.ToDouble(dataGridView2.Rows[66].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[66].Cells[2].Value);//intercept
+            position_PJ = Find_Plotting_Position(eastingX, northingY, m, c);
 
             //equation LI
-            m = Convert.ToDouble(dataGridView2.Rows[42].Cells[1].Value);//slope
-            c = Convert.ToDouble(dataGridView2.Rows[42].Cells[2].Value);//intercept
-            position_LI = Find_Plotting_Position(eastingX, northingY, m, c);
+            m = Convert.ToDouble(dataGridView2.Rows[67].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[67].Cells[2].Value);//intercept
+            position_JK = Find_Plotting_Position(eastingX, northingY, m, c);
 
             //equation IB
-            m = Convert.ToDouble(dataGridView2.Rows[14].Cells[1].Value);//slope
-            c = Convert.ToDouble(dataGridView2.Rows[14].Cells[2].Value);//intercept
-            position_IB = Find_Plotting_Position(eastingX, northingY, m, c);
+            m = Convert.ToDouble(dataGridView2.Rows[68].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[68].Cells[2].Value);//intercept
+            position_KC = Find_Plotting_Position(eastingX, northingY, m, c);
 
             //equation BC
-            m = Convert.ToDouble(dataGridView2.Rows[52].Cells[1].Value);//slope 
-            c = Convert.ToDouble(dataGridView2.Rows[52].Cells[2].Value);//intercept
-            position_BC = Find_Plotting_Position(eastingX, northingY, m, c);
+            m = Convert.ToDouble(dataGridView2.Rows[36].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[36].Cells[2].Value);//intercept
+            position_CB = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation BC
+            m = Convert.ToDouble(dataGridView2.Rows[48].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[48].Cells[2].Value);//intercept
+            position_BIP = Find_Plotting_Position(eastingX, northingY, m, c);
 
             //plot_case
-            if (position_LI == "Below" && position_CL == "Below" && position_IB == "Below" && position_BC == "Above")
+            if (position_PJ == "Above" && position_JK == "Above" && position_KC == "Above" && position_CB == "Below" && position_BIP == "Below")
             {
-                plot_case = 6000;
+                if (position_IL == "Below" && position_HK == "Above")
+                {
+                    plot_case = 8000;
+                }
+                else if (position_IL == "Below" && position_HK == "Below")
+                {
+                    plot_case = 8001;
+                }
+                else if (position_IL == "Above" && position_HK == "Above")
+                {
+                    plot_case = 8002;
+                }
+            }
+            return plot_case;
+        }
+
+        public int InnerTransitional_Case_of_Plot_COORD_CD(double eastingX, double northingY)
+        {
+            int plot_case = 0;
+            double m, c;
+            string position_VA, position_AB, position_BH, position_HE, position_EV, position_BE, position_CD;
+            string position_UF, position_FE, position_EG, position_GF, position_FLU;
+
+            //Transition near RWYAD
+            //equation AD
+            m = Convert.ToDouble(dataGridView2.Rows[57].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[57].Cells[2].Value);//intercept
+            position_VA = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation DK
+            m = Convert.ToDouble(dataGridView2.Rows[58].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[58].Cells[2].Value);//intercept
+            position_AB = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation KJ
+            m = Convert.ToDouble(dataGridView2.Rows[59].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[59].Cells[2].Value);//intercept
+            position_BH = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation JA
+            m = Convert.ToDouble(dataGridView2.Rows[37].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[37].Cells[2].Value);//intercept
+            position_HE = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation JA
+            m = Convert.ToDouble(dataGridView2.Rows[49].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[49].Cells[2].Value);//intercept
+            position_EV = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation JA
+            m = Convert.ToDouble(dataGridView2.Rows[45].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[45].Cells[2].Value);//intercept
+            position_BE = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation JA
+            m = Convert.ToDouble(dataGridView2.Rows[33].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[33].Cells[2].Value);//intercept
+            position_CD = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //plot_case
+            if (position_VA == "Above" && position_AB == "Below" && position_BH == "Below" && position_HE == "Above" && position_EV == "Above")
+            {
+                if(position_BE == "Below" && position_CD == "Above")
+                {
+                    plot_case = 5000;
+                }
+                else if(position_BE == "Below" && position_CD == "Below")
+                {
+                    plot_case = 5001;
+                }
+                else if (position_BE == "Above" && position_CD == "Above")
+                {
+                    plot_case = 5002;
+                }
+            }
+
+            //Transition near RWYBC
+            //equation CL
+            m = Convert.ToDouble(dataGridView2.Rows[60].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[60].Cells[2].Value);//intercept
+            position_UF = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation LI
+            m = Convert.ToDouble(dataGridView2.Rows[61].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[61].Cells[2].Value);//intercept
+            position_FE = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation IB
+            m = Convert.ToDouble(dataGridView2.Rows[62].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[62].Cells[2].Value);//intercept
+            position_EG = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation BC
+            m = Convert.ToDouble(dataGridView2.Rows[38].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[38].Cells[2].Value);//intercept
+            position_GF = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation BC
+            m = Convert.ToDouble(dataGridView2.Rows[50].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[50].Cells[2].Value);//intercept
+            position_FLU = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //plot_case
+            if (position_UF == "Above" && position_FE == "Above" && position_EG == "Above" && position_GF == "Below" && position_FLU == "Below")
+            {
+                if (position_BE == "Below" && position_CD == "Above")
+                {
+                    plot_case = 6000;
+                }
+                else if (position_BE == "Below" && position_CD == "Below")
+                {
+                    plot_case = 6001;
+                }
+                else if (position_BE == "Above" && position_CD == "Above")
+                {
+                    plot_case = 6002;
+                }
             }
             return plot_case;
         }
