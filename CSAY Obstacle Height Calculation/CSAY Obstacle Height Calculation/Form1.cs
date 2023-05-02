@@ -4159,12 +4159,12 @@ namespace CSAY_Obstacle_Height_Calculation
                 sr.Close();
 
                 //load data to datagridview by splitting by tab character of coord of RWY
-                for (int row = 6; row <= 9; row++)
+                for (int row = 10; row <= 13; row++)
                 {
                     string[] splittedtext = ReadingText[row].Split('\t');
                     for (int col = 0; col <= 3; col++)
                     {
-                        dataGridView1.Rows[row-6].Cells[col].Value = splittedtext[col];
+                        dataGridView1.Rows[row-10].Cells[col].Value = splittedtext[col];
                     }
                 }
 
@@ -4218,6 +4218,46 @@ namespace CSAY_Obstacle_Height_Calculation
                     }
                 }
 
+                //load AB_CLWY_beyond_Strip
+                for (int row = 5; row <= 5; row++) //row 0 of text file contains info about central meridian
+                {
+                    string[] splittedtext = ReadingText[row].Split('\t');
+                    for (int col = 1; col <= 1; col++)
+                    {
+                        Txt_AB_Clearway.Text = splittedtext[col];
+                    }
+                }
+
+                //load CD_CLWY_beyond_Strip
+                for (int row = 6; row <= 6; row++) //row 0 of text file contains info about central meridian
+                {
+                    string[] splittedtext = ReadingText[row].Split('\t');
+                    for (int col = 1; col <= 1; col++)
+                    {
+                        Txt_CD_Clearway.Text = splittedtext[col];
+                    }
+                }
+
+                //load ARP_Latitude
+                for (int row = 7; row <= 7; row++) //row 0 of text file contains info about central meridian
+                {
+                    string[] splittedtext = ReadingText[row].Split('\t');
+                    for (int col = 1; col <= 1; col++)
+                    {
+                        Txt_ARP_Latitude.Text = splittedtext[col];
+                    }
+                }
+
+                //load ARP_Longitude
+                for (int row = 8; row <= 8; row++) //row 0 of text file contains info about central meridian
+                {
+                    string[] splittedtext = ReadingText[row].Split('\t');
+                    for (int col = 1; col <= 1; col++)
+                    {
+                        Txt_ARP_Longitude.Text = splittedtext[col];
+                    }
+                }
+
                 TxtLog.Text = "RWY COORD loaded of Airport " + TxtAirportCode.Text;
 
                 //Loading RWY Classification data
@@ -4248,6 +4288,7 @@ namespace CSAY_Obstacle_Height_Calculation
                     dataGridView5.Rows.Add();
                     dataGridView5.Rows[row - 2].Cells[0].Value = (row-1).ToString();
                 }
+
                 for (int row = 2; row <= 41; row++)
                 {
                     string[] splittedtext = ReadingText[row].Split('\t');
@@ -5305,14 +5346,21 @@ namespace CSAY_Obstacle_Height_Calculation
                 //segments = 6000;
 
                 //Input of center E
-                a_E = Convert.ToDouble(dataGridView1.Rows[4].Cells["ColEasting"].Value);//E
+                /*a_E = Convert.ToDouble(dataGridView1.Rows[4].Cells["ColEasting"].Value);//E
                 b_E = Convert.ToDouble(dataGridView1.Rows[4].Cells["ColNorthing"].Value);//E
 
                 a_F = Convert.ToDouble(dataGridView1.Rows[5].Cells["ColEasting"].Value);//E
                 b_F = Convert.ToDouble(dataGridView1.Rows[5].Cells["ColNorthing"].Value);//E
 
                 a = (a_E + a_F) / 2;
-                b = (b_E + b_F) / 2;
+                b = (b_E + b_F) / 2;*/
+
+                double[] ARP_XY = new double[2];
+                a_E = Convert.ToDouble(Txt_ARP_Latitude.Text);
+                b_E = Convert.ToDouble(Txt_ARP_Longitude.Text);
+                ARP_XY = Convert_LatLong_To_UTM(a_E, b_E);
+                a = ARP_XY[0];
+                b = ARP_XY[1];
 
                 seg = (Math.PI * 2) / segments;//Math.PI * 2 / segments;
                 //plot_position = "Below";
@@ -6590,8 +6638,12 @@ namespace CSAY_Obstacle_Height_Calculation
             FinalWidth_Toc = Convert.ToDouble(dataGridView5.Rows[37].Cells[2].Value); //1800.0;
             Length_Toc = Convert.ToDouble(dataGridView5.Rows[38].Cells[2].Value); //15000.0;
 
+            double[] CLWY_after_strip = new double[2];
+            CLWY_after_strip[0] = Convert.ToDouble(Txt_AB_Clearway.Text);
+            CLWY_after_strip[1] = Convert.ToDouble(Txt_CD_Clearway.Text);
+
             tempdist = (FinalWidth_Toc - Len_of_InnerEdge_Toc) * 0.5 * 100.0 / Divergence_Toc;//6480.0 
-            double[] distanceOffset1 = new double[3] { Dist_From_RWYEnd_Toc, Dist_From_RWYEnd_Toc+ tempdist, Dist_From_RWYEnd_Toc+ Length_Toc };
+            double[] distanceOffset1 = new double[3] { Dist_From_RWYEnd_Toc, Dist_From_RWYEnd_Toc + tempdist, Dist_From_RWYEnd_Toc + Length_Toc  };
             //6480 = ((1800-180)/2)/12.5%   and 8520 = 15000 - 6480
             double[] intercept_parallel = new double[10];
             double a, b, x1, y1, x2, y2;
@@ -6612,7 +6664,7 @@ namespace CSAY_Obstacle_Height_Calculation
                 for (int k =0; k<=2; k++)
                 {
                     //For TOC_DE--->RWY 28 side
-                    distanceOffset = distanceOffset1[k];
+                    distanceOffset = distanceOffset1[k] + CLWY_after_strip[j];
                     intercept_parallel[intrcpt] = Intercept_of_Parallel_line(slope1, intercept1, distanceOffset, mulfactor[j]);
                     dataGridView2.Rows[DGV2_row_inx].Cells["ColLine"].Value = ToC_Line_Name[intrcpt];
                     dataGridView2.Rows[DGV2_row_inx].Cells["ColSlope"].Value = slope1.ToString();

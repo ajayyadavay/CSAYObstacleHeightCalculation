@@ -3,6 +3,10 @@ RL_RWY	800.000
 RWY_Classify	Precision_CAT_II_III
 AB_Threshold_Displaced_by	0.0
 CD_Threshold_Displaced_by	0.0
+AB_CLWY_beyond_Strip	0.0
+CD_CLWY_beyond_Strip	0.0
+ARP_Lat_N	28.18844722
+ARP_Long_E	84.00329167
 Points	Description	Latitude (N)	Longitude (E)	
 A	RWY28 N	28.17981111	84.02482222
 B	RWY28 S	28.17945556	84.02463056

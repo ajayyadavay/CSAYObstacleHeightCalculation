@@ -246,6 +246,16 @@
             this.PanelBack = new System.Windows.Forms.Panel();
             this.PanelFore = new System.Windows.Forms.Panel();
             this.LblProgress = new System.Windows.Forms.Label();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.Txt_CD_Clearway = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.Txt_AB_Clearway = new System.Windows.Forms.TextBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.Txt_ARP_Longitude = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.Txt_ARP_Latitude = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -279,6 +289,8 @@
             this.groupBox10.SuspendLayout();
             this.TabFilter.SuspendLayout();
             this.PanelBack.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox15.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -2215,13 +2227,15 @@
             // 
             // TabRWYClassify
             // 
+            this.TabRWYClassify.Controls.Add(this.groupBox15);
+            this.TabRWYClassify.Controls.Add(this.groupBox14);
             this.TabRWYClassify.Controls.Add(this.groupBox13);
             this.TabRWYClassify.Controls.Add(this.groupBox12);
             this.TabRWYClassify.Location = new System.Drawing.Point(4, 25);
             this.TabRWYClassify.Name = "TabRWYClassify";
             this.TabRWYClassify.Size = new System.Drawing.Size(1338, 441);
             this.TabRWYClassify.TabIndex = 7;
-            this.TabRWYClassify.Text = "RWY Classification";
+            this.TabRWYClassify.Text = "RWY Classification and other";
             this.TabRWYClassify.UseVisualStyleBackColor = true;
             // 
             // groupBox13
@@ -2283,7 +2297,7 @@
             this.groupBox12.Size = new System.Drawing.Size(689, 403);
             this.groupBox12.TabIndex = 10;
             this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Runway Coordinates";
+            this.groupBox12.Text = "OLS dimensions";
             // 
             // dataGridView5
             // 
@@ -2810,6 +2824,108 @@
             this.LblProgress.TabIndex = 1;
             this.LblProgress.Text = "0%";
             // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.Txt_CD_Clearway);
+            this.groupBox14.Controls.Add(this.label53);
+            this.groupBox14.Controls.Add(this.Txt_AB_Clearway);
+            this.groupBox14.Controls.Add(this.label54);
+            this.groupBox14.Location = new System.Drawing.Point(745, 119);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(571, 98);
+            this.groupBox14.TabIndex = 14;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "ClearWay beyond Strip";
+            // 
+            // Txt_CD_Clearway
+            // 
+            this.Txt_CD_Clearway.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_CD_Clearway.Location = new System.Drawing.Point(278, 56);
+            this.Txt_CD_Clearway.Name = "Txt_CD_Clearway";
+            this.Txt_CD_Clearway.Size = new System.Drawing.Size(287, 26);
+            this.Txt_CD_Clearway.TabIndex = 13;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label53.Location = new System.Drawing.Point(17, 62);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(221, 20);
+            this.label53.TabIndex = 12;
+            this.label53.Text = "CD ClearWay beyond strip (m)";
+            // 
+            // Txt_AB_Clearway
+            // 
+            this.Txt_AB_Clearway.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_AB_Clearway.Location = new System.Drawing.Point(278, 24);
+            this.Txt_AB_Clearway.Name = "Txt_AB_Clearway";
+            this.Txt_AB_Clearway.Size = new System.Drawing.Size(287, 26);
+            this.Txt_AB_Clearway.TabIndex = 11;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label54.Location = new System.Drawing.Point(17, 30);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(220, 20);
+            this.label54.TabIndex = 10;
+            this.label54.Text = "AB ClearWay beyond strip (m)";
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.Txt_ARP_Longitude);
+            this.groupBox15.Controls.Add(this.label55);
+            this.groupBox15.Controls.Add(this.Txt_ARP_Latitude);
+            this.groupBox15.Controls.Add(this.label56);
+            this.groupBox15.Location = new System.Drawing.Point(745, 223);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(571, 98);
+            this.groupBox15.TabIndex = 15;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "ARP COORD";
+            // 
+            // Txt_ARP_Longitude
+            // 
+            this.Txt_ARP_Longitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_ARP_Longitude.Location = new System.Drawing.Point(115, 56);
+            this.Txt_ARP_Longitude.Name = "Txt_ARP_Longitude";
+            this.Txt_ARP_Longitude.Size = new System.Drawing.Size(450, 26);
+            this.Txt_ARP_Longitude.TabIndex = 13;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label55.Location = new System.Drawing.Point(17, 62);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(80, 20);
+            this.label55.TabIndex = 12;
+            this.label55.Text = "Longitude";
+            // 
+            // Txt_ARP_Latitude
+            // 
+            this.Txt_ARP_Latitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_ARP_Latitude.Location = new System.Drawing.Point(115, 24);
+            this.Txt_ARP_Latitude.Name = "Txt_ARP_Latitude";
+            this.Txt_ARP_Latitude.Size = new System.Drawing.Size(450, 26);
+            this.Txt_ARP_Latitude.TabIndex = 11;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label56.Location = new System.Drawing.Point(17, 30);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(92, 20);
+            this.label56.TabIndex = 10;
+            this.label56.Text = "Latitude (N)";
+            // 
             // FrmObstacleHeightCalculation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2876,6 +2992,10 @@
             this.TabFilter.ResumeLayout(false);
             this.TabFilter.PerformLayout();
             this.PanelBack.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3099,6 +3219,16 @@
         private System.Windows.Forms.TextBox TxtLower_Disp_Th;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.CheckBox ChkBoxInnerTrans_1;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.TextBox Txt_CD_Clearway;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.TextBox Txt_AB_Clearway;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.TextBox Txt_ARP_Longitude;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TextBox Txt_ARP_Latitude;
+        private System.Windows.Forms.Label label56;
     }
 }
 
