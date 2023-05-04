@@ -6298,6 +6298,12 @@ namespace CSAY_Obstacle_Height_Calculation
             }
         }
 
+        private void BtnDMS_Click(object sender, EventArgs e)
+        {
+            FrmDMS fdms = new FrmDMS();
+            fdms.Show();
+        }
+
         public void Calculate_Corner_Transitional_Surface()
         {
             //For approach equation i.e. slope and intercepts
