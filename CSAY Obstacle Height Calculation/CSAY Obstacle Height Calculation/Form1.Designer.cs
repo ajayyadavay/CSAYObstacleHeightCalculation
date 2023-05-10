@@ -88,6 +88,7 @@
             this.TxtArealDistance = new System.Windows.Forms.TextBox();
             this.BtnSaveMap = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.BtnDMS = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.TxtLong2 = new System.Windows.Forms.TextBox();
@@ -256,7 +257,7 @@
             this.PanelBack = new System.Windows.Forms.Panel();
             this.PanelFore = new System.Windows.Forms.Panel();
             this.LblProgress = new System.Windows.Forms.Label();
-            this.BtnDMS = new System.Windows.Forms.Button();
+            this.ChkExtractCOORD = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -722,7 +723,7 @@
             this.groupBox11.Controls.Add(this.ChkBoxApproach);
             this.groupBox11.Controls.Add(this.ChkBoxConical);
             this.groupBox11.Controls.Add(this.ChkBoxHorizontal);
-            this.groupBox11.Location = new System.Drawing.Point(975, 107);
+            this.groupBox11.Location = new System.Drawing.Point(975, 114);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(346, 186);
             this.groupBox11.TabIndex = 20;
@@ -936,7 +937,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label25.Location = new System.Drawing.Point(1254, 331);
+            this.label25.Location = new System.Drawing.Point(1254, 333);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(72, 20);
             this.label25.TabIndex = 17;
@@ -954,7 +955,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label24.Location = new System.Drawing.Point(971, 307);
+            this.label24.Location = new System.Drawing.Point(971, 313);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(137, 20);
             this.label24.TabIndex = 11;
@@ -980,7 +981,7 @@
             // TxtArealDistance
             // 
             this.TxtArealDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtArealDistance.Location = new System.Drawing.Point(1131, 299);
+            this.TxtArealDistance.Location = new System.Drawing.Point(1131, 305);
             this.TxtArealDistance.Name = "TxtArealDistance";
             this.TxtArealDistance.Size = new System.Drawing.Size(190, 26);
             this.TxtArealDistance.TabIndex = 10;
@@ -1004,22 +1005,41 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.ChkExtractCOORD);
             this.groupBox5.Controls.Add(this.BtnDMS);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.TxtLong2);
             this.groupBox5.Controls.Add(this.TxtLat2);
-            this.groupBox5.Location = new System.Drawing.Point(975, 14);
+            this.groupBox5.Location = new System.Drawing.Point(975, 7);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(346, 87);
+            this.groupBox5.Size = new System.Drawing.Size(346, 105);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Nearest Coordinate of Plot";
             // 
+            // BtnDMS
+            // 
+            this.BtnDMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
+            this.BtnDMS.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnDMS.FlatAppearance.BorderSize = 0;
+            this.BtnDMS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
+            this.BtnDMS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
+            this.BtnDMS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDMS.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDMS.ForeColor = System.Drawing.Color.White;
+            this.BtnDMS.Location = new System.Drawing.Point(278, 32);
+            this.BtnDMS.Name = "BtnDMS";
+            this.BtnDMS.Size = new System.Drawing.Size(62, 42);
+            this.BtnDMS.TabIndex = 16;
+            this.BtnDMS.Text = "DMS";
+            this.BtnDMS.UseVisualStyleBackColor = false;
+            this.BtnDMS.Click += new System.EventHandler(this.BtnDMS_Click);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(140, 24);
+            this.label11.Location = new System.Drawing.Point(140, 20);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(132, 20);
             this.label11.TabIndex = 9;
@@ -1028,7 +1048,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 25);
+            this.label12.Location = new System.Drawing.Point(10, 21);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(126, 20);
             this.label12.TabIndex = 8;
@@ -1037,20 +1057,18 @@
             // TxtLong2
             // 
             this.TxtLong2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLong2.Location = new System.Drawing.Point(144, 48);
+            this.TxtLong2.Location = new System.Drawing.Point(144, 44);
             this.TxtLong2.Name = "TxtLong2";
             this.TxtLong2.Size = new System.Drawing.Size(122, 26);
             this.TxtLong2.TabIndex = 7;
-            this.TxtLong2.Text = "83.42268056";
             // 
             // TxtLat2
             // 
             this.TxtLat2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLat2.Location = new System.Drawing.Point(14, 48);
+            this.TxtLat2.Location = new System.Drawing.Point(14, 44);
             this.TxtLat2.Name = "TxtLat2";
             this.TxtLat2.Size = new System.Drawing.Size(119, 26);
             this.TxtLat2.TabIndex = 7;
-            this.TxtLat2.Text = "27.50574722";
             // 
             // BtnCreateMap
             // 
@@ -1094,6 +1112,7 @@
             this.gMapControl1.Size = new System.Drawing.Size(954, 438);
             this.gMapControl1.TabIndex = 1;
             this.gMapControl1.Zoom = 2D;
+            this.gMapControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gMapControl1_MouseClick);
             // 
             // splitter1
             // 
@@ -2928,23 +2947,14 @@
             this.LblProgress.TabIndex = 1;
             this.LblProgress.Text = "0%";
             // 
-            // BtnDMS
+            // ChkExtractCOORD
             // 
-            this.BtnDMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
-            this.BtnDMS.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnDMS.FlatAppearance.BorderSize = 0;
-            this.BtnDMS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
-            this.BtnDMS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
-            this.BtnDMS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDMS.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDMS.ForeColor = System.Drawing.Color.White;
-            this.BtnDMS.Location = new System.Drawing.Point(275, 27);
-            this.BtnDMS.Name = "BtnDMS";
-            this.BtnDMS.Size = new System.Drawing.Size(62, 47);
-            this.BtnDMS.TabIndex = 16;
-            this.BtnDMS.Text = "DMS";
-            this.BtnDMS.UseVisualStyleBackColor = false;
-            this.BtnDMS.Click += new System.EventHandler(this.BtnDMS_Click);
+            this.ChkExtractCOORD.Location = new System.Drawing.Point(14, 73);
+            this.ChkExtractCOORD.Name = "ChkExtractCOORD";
+            this.ChkExtractCOORD.Size = new System.Drawing.Size(222, 26);
+            this.ChkExtractCOORD.TabIndex = 19;
+            this.ChkExtractCOORD.Text = "Extract COORD with Mouse click";
+            this.ChkExtractCOORD.UseVisualStyleBackColor = true;
             // 
             // FrmObstacleHeightCalculation
             // 
@@ -3250,6 +3260,7 @@
         private System.Windows.Forms.Button BtnDMS;
         public System.Windows.Forms.TextBox TxtLong2;
         public System.Windows.Forms.TextBox TxtLat2;
+        private System.Windows.Forms.CheckBox ChkExtractCOORD;
     }
 }
 

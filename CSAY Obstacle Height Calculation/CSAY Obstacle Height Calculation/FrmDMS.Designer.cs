@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ColDes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDegree = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,31 +50,31 @@
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColDes,
             this.ColDegree,
             this.ColMinute,
             this.ColSecond});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Location = new System.Drawing.Point(12, 57);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(456, 156);
+            this.dataGridView1.Size = new System.Drawing.Size(507, 156);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColDes
@@ -107,9 +107,9 @@
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExit.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExit.ForeColor = System.Drawing.Color.White;
-            this.BtnExit.Location = new System.Drawing.Point(342, 358);
+            this.BtnExit.Location = new System.Drawing.Point(375, 372);
             this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(126, 42);
+            this.BtnExit.Size = new System.Drawing.Size(144, 42);
             this.BtnExit.TabIndex = 17;
             this.BtnExit.Text = "Exit";
             this.BtnExit.UseVisualStyleBackColor = false;
@@ -125,9 +125,9 @@
             this.BtnCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCalculate.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCalculate.ForeColor = System.Drawing.Color.White;
-            this.BtnCalculate.Location = new System.Drawing.Point(175, 358);
+            this.BtnCalculate.Location = new System.Drawing.Point(188, 372);
             this.BtnCalculate.Name = "BtnCalculate";
-            this.BtnCalculate.Size = new System.Drawing.Size(141, 42);
+            this.BtnCalculate.Size = new System.Drawing.Size(166, 42);
             this.BtnCalculate.TabIndex = 18;
             this.BtnCalculate.Text = "Calculate";
             this.BtnCalculate.UseVisualStyleBackColor = false;
@@ -143,9 +143,9 @@
             this.BtnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNew.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnNew.ForeColor = System.Drawing.Color.White;
-            this.BtnNew.Location = new System.Drawing.Point(23, 358);
+            this.BtnNew.Location = new System.Drawing.Point(23, 372);
             this.BtnNew.Name = "BtnNew";
-            this.BtnNew.Size = new System.Drawing.Size(127, 42);
+            this.BtnNew.Size = new System.Drawing.Size(149, 42);
             this.BtnNew.TabIndex = 19;
             this.BtnNew.Text = "New";
             this.BtnNew.UseVisualStyleBackColor = false;
@@ -157,7 +157,7 @@
             this.ChkSendDMS.Checked = true;
             this.ChkSendDMS.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkSendDMS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChkSendDMS.Location = new System.Drawing.Point(23, 325);
+            this.ChkSendDMS.Location = new System.Drawing.Point(23, 339);
             this.ChkSendDMS.Name = "ChkSendDMS";
             this.ChkSendDMS.Size = new System.Drawing.Size(203, 24);
             this.ChkSendDMS.TabIndex = 20;
@@ -168,7 +168,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 241);
+            this.label1.Location = new System.Drawing.Point(19, 250);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 20);
             this.label1.TabIndex = 21;
@@ -177,24 +177,24 @@
             // TxtLatitude
             // 
             this.TxtLatitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLatitude.Location = new System.Drawing.Point(159, 238);
+            this.TxtLatitude.Location = new System.Drawing.Point(159, 247);
             this.TxtLatitude.Name = "TxtLatitude";
-            this.TxtLatitude.Size = new System.Drawing.Size(309, 26);
+            this.TxtLatitude.Size = new System.Drawing.Size(360, 26);
             this.TxtLatitude.TabIndex = 22;
             // 
             // TxtLongitude
             // 
             this.TxtLongitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLongitude.Location = new System.Drawing.Point(159, 281);
+            this.TxtLongitude.Location = new System.Drawing.Point(159, 290);
             this.TxtLongitude.Name = "TxtLongitude";
-            this.TxtLongitude.Size = new System.Drawing.Size(309, 26);
+            this.TxtLongitude.Size = new System.Drawing.Size(360, 26);
             this.TxtLongitude.TabIndex = 24;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 281);
+            this.label2.Location = new System.Drawing.Point(19, 290);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 20);
             this.label2.TabIndex = 23;
@@ -216,7 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(488, 419);
+            this.ClientSize = new System.Drawing.Size(531, 438);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtLongitude);
             this.Controls.Add(this.label2);

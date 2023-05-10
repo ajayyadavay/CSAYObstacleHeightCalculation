@@ -1566,6 +1566,7 @@ namespace CSAY_Obstacle_Height_Calculation
             double RL_RWY, RL_Plinth, ObstacleHeight, AllowableElev_Obs=0.0, Actual_Elev_obs, Elev_permitted;
             string SurfaceName="";
             double m, c;
+            bool IsPointInTheStrip;
             try
             {
                 dataGridView4.Rows.Clear();
@@ -1580,12 +1581,22 @@ namespace CSAY_Obstacle_Height_Calculation
                 TxtElev_Obstacle.Text = Actual_Elev_obs.ToString("0.000");
                 SurfaceHeight = 0.0;
 
+
+                //Horizontal data
+                double Height_Hz = Convert.ToDouble(dataGridView5.Rows[4].Cells[2].Value);
+                double Radius_Hz = Convert.ToDouble(dataGridView5.Rows[5].Cells[2].Value);
+
+                //Conical data
+                double Slope_Co = Convert.ToDouble(dataGridView5.Rows[1].Cells[2].Value);
+                double Height_Co = Convert.ToDouble(dataGridView5.Rows[2].Cells[2].Value);
+
+                IsPointInTheStrip = Strip_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
                 if (plotCase >= 1 && plotCase <= 8)
                 {
-                    if (areal_distance <= 4000)//(areal_distance <= 4000 && areal_distance > (117.5+314.68))
+                    if (areal_distance <= Radius_Hz && IsPointInTheStrip == false)//(areal_distance <= 4000 && areal_distance > (117.5+314.68))
                     {
                         SurfaceName = "INNER HORIZONTAL";
-                        SurfaceHeight = 45.0;
+                        SurfaceHeight = Height_Hz;
                         AllowableElev_Obs = RL_RWY + SurfaceHeight;
 
                         //adding data to datagridview4
@@ -1598,10 +1609,10 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + " + SurfaceHeight.ToString("0.000") + " = " + AllowableElev_Obs.ToString("0.000");
 
                     }
-                    else if (areal_distance > 4000 && areal_distance <= 6000)
+                    else if (areal_distance > Radius_Hz && areal_distance <= (Radius_Hz + Height_Co * 100.0 / Slope_Co))
                     {
                         SurfaceName = "CONICAL";
-                        SurfaceHeight = 45.0 + 5.0 / 100.0 * (areal_distance - 4000.0);
+                        SurfaceHeight = Height_Hz + Slope_Co / 100.0 * (areal_distance - Radius_Hz);
                         AllowableElev_Obs = RL_RWY + SurfaceHeight;
 
                         //adding data to datagridview4
@@ -1611,10 +1622,10 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
                         dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
                         dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + (45 + 5% * (" + areal_distance.ToString("0.000") + "- 4000)" + ") = " + AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " + ("+ Height_Hz.ToString() +" + "+Slope_Co.ToString()+"% * (" + areal_distance.ToString("0.000") + "- "+Radius_Hz.ToString()+")" + ") = " + AllowableElev_Obs.ToString("0.000");
 
                     }
-                    else if (areal_distance > 6000 && areal_distance <= 15000)
+                    else if (areal_distance > (Radius_Hz + Height_Co * 100.0 / Slope_Co) && areal_distance <= 15000)
                     {
                         SurfaceName = "OUTER HORIZONTAL";
                         SurfaceHeight = 150;
@@ -1632,6 +1643,23 @@ namespace CSAY_Obstacle_Height_Calculation
                     }
                 }
 
+                //Within the strip
+                if (IsPointInTheStrip == true)
+                {
+                    SurfaceName = "INSIDE STRIP BOUNDARY";
+                    SurfaceHeight = 0.0;
+                    AllowableElev_Obs = RL_RWY + SurfaceHeight;
+
+                    //adding data to datagridview4
+                    dataGridView4.Rows.Add();
+                    SurfaceCount++;
+                    dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
+                    dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
+                    dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
+                    dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = AllowableElev_Obs.ToString("0.000");
+                    dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = RL_RWY + " 0.0 = " + AllowableElev_Obs.ToString("0.000");
+
+                }
 
                 //APPROACH SURFACE
                 double length_Ap_First = Convert.ToDouble(dataGridView5.Rows[16].Cells[2].Value);//3000
@@ -2870,6 +2898,46 @@ namespace CSAY_Obstacle_Height_Calculation
             if (position_TOC_GH == "Below" && position_TOC_LG == "Below" && position_TOC_KL == "Below" && position_TOC_JK == "Above" && position_TOC_IJ == "Above" && position_TOC_HI == "Above")
             {
                 plot_case = 200;
+            }
+            return plot_case;
+        }
+
+        public bool Strip_Case_of_Plot_COORD(double eastingX, double northingY)
+        {
+            bool plot_case = false;
+            double m, c;
+            string position_KL, position_JI, position_LI, position_JK;
+
+            //Balked Landing surface 28 side
+            //equation BL_AB
+            m = Convert.ToDouble(dataGridView2.Rows[9].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[9].Cells[2].Value);//intercept
+            position_KL = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation BL_CD
+            m = Convert.ToDouble(dataGridView2.Rows[5].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[5].Cells[2].Value);//intercept
+            position_JI = Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation BL_DA
+            m = Convert.ToDouble(dataGridView2.Rows[42].Cells[1].Value);//slope 
+            c = Convert.ToDouble(dataGridView2.Rows[42].Cells[2].Value);//intercept
+            position_LI= Find_Plotting_Position(eastingX, northingY, m, c);
+
+            //equation BL_BC
+            m = Convert.ToDouble(dataGridView2.Rows[41].Cells[1].Value);//slope
+            c = Convert.ToDouble(dataGridView2.Rows[41].Cells[2].Value);//intercept
+            position_JK = Find_Plotting_Position(eastingX, northingY, m, c);
+
+
+            //plot_case
+            if (position_KL == "Below" && position_JI == "Above" && position_LI == "Above" && position_JK == "Below")
+            {
+                plot_case = true;
+            }
+            else
+            {
+                plot_case = false;
             }
             return plot_case;
         }
@@ -6302,6 +6370,23 @@ namespace CSAY_Obstacle_Height_Calculation
         {
             FrmDMS fdms = new FrmDMS();
             fdms.Show();
+        }
+
+        private void gMapControl1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(ChkExtractCOORD.Checked == true)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    var point1 = gMapControl1.FromLocalToLatLng(e.X, e.Y);
+                    double lat1 = point1.Lat;
+                    double long1 = point1.Lng;
+
+                    TxtLat2.Text = lat1.ToString();
+                    TxtLong2.Text = long1.ToString();
+                }
+            }
+            
         }
 
         public void Calculate_Corner_Transitional_Surface()

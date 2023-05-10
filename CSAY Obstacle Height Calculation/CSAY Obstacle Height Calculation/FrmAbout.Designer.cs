@@ -96,11 +96,9 @@
             this.label1.ForeColor = System.Drawing.Color.Brown;
             this.label1.Location = new System.Drawing.Point(615, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 128);
+            this.label1.Size = new System.Drawing.Size(355, 112);
             this.label1.TabIndex = 23;
-            this.label1.Text = "SURFACES NOT CONSIDERED\r\n1. INNER TRANSITIONAL SURFACE\r\n\r\nCurrently valid for RWY" +
-    " Classification\r\nPRECISION APPROACH \r\nCATEGORY II OR III, CODE NO. 3E\r\n\r\nCurrent" +
-    "ly valid for nearly E-W aligned RWY";
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // FrmAbout
             // 

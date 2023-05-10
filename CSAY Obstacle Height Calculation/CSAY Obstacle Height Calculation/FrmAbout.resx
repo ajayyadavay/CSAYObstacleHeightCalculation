@@ -130,6 +130,15 @@ STEP 9:  DO CLICK ON "MODIFY", "DISPLAY", "DELETE" AS REQUIRED
 
 OR ALTERNATIVE METHOD:
 STEP 1: INPUT ALL REQUIRED DATA
-STEP 2: CLICK ON "AUTO PROCESS AND ADD"</value>
+STEP 2: CLICK ON "AUTO PROCESS"</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>The ABCD naming of the RWY should be in anti-clockwise
+direction.
+
+Reference RWY for naming is 10-28.  AB will be on RWY28 
+side and CD will be on RWY10 side with ABCD being anti-
+clockwise direction. Also, AB = CD = small side and 
+BC = AD = longer side.</value>
   </data>
 </root>
