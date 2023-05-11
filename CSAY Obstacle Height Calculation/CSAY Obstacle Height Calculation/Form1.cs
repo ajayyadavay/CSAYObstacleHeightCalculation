@@ -51,7 +51,8 @@ namespace CSAY_Obstacle_Height_Calculation
     public partial class FrmObstacleHeightCalculation : Form
     {
         string Cur_Dir, Local_Level, Project_Folders, ThisObstacleFolder, FirstName, Plot_No;
-        double Final_Easting_X, Final_Northing_Y, Final_Latitude_DD, Final_Longitude_DD;
+        double Final_Easting_X, Final_Northing_Y;
+        //double Final_Latitude_DD, Final_Longitude_DD;
         string Recent_Folder_Location;
         bool AutoAdd = false;
         int SurfaceCount;
@@ -325,7 +326,12 @@ namespace CSAY_Obstacle_Height_Calculation
                 //Plot coordinate
                 lat2 = Convert.ToDouble(TxtLat2.Text);
                 long2 = Convert.ToDouble(TxtLong2.Text);
-                LatLong_To_UTM(lat2, long2); //this gives FinalEasting_X and FinalNorthing_Y of plot
+                //LatLong_To_UTM(lat2, long2); //this gives FinalEasting_X and FinalNorthing_Y of plot
+                //MessageBox.Show("East = " + Final_Easting_X + "\nNorth = " + Final_Northing_Y);
+                double[] NE = new double[2];
+                NE = Convert_LatLong_To_UTM(lat2, long2);
+                Final_Easting_X = NE[0];
+                Final_Northing_Y = NE[1];
                 //MessageBox.Show("East = " + Final_Easting_X + "\nNorth = " + Final_Northing_Y);
 
                 //find Case among 1,2,3,4,5 or 6
@@ -343,9 +349,17 @@ namespace CSAY_Obstacle_Height_Calculation
 
                     intersection_X = (c - c2) / (m2 - m);
                     intersection_Y = (m2 * c - m * c2) / (m2 - m);
-                    UTM_To_LatLong(intersection_X, intersection_Y);
-                    lat1 = Final_Latitude_DD;
-                    long1 = Final_Longitude_DD;
+                    //UTM_To_LatLong(intersection_X, intersection_Y);
+                    //lat1 = Final_Latitude_DD;
+                    //long1 = Final_Longitude_DD;
+                    //MessageBox.Show("Lat1 = " + lat1.ToString() + "\n" + "long1 = " + long1.ToString());
+
+                    double[] LL = new double[2];
+                    LL = Convert_UTM_To_Latitude_Longitude(intersection_X, intersection_Y);
+                    lat1 = LL[0];
+                    long1 = LL[1];
+                    //MessageBox.Show("Lat1 = " + LL[0].ToString() + "\n" + "long1 = " + long1.ToString());
+
                     TxtLat1.Text = lat1.ToString();
                     TxtLong1.Text = long1.ToString();
                 }
@@ -360,9 +374,16 @@ namespace CSAY_Obstacle_Height_Calculation
 
                     intersection_X = (c - c2) / (m2 - m);
                     intersection_Y = (m2 * c - m * c2) / (m2 - m);
-                    UTM_To_LatLong(intersection_X, intersection_Y);
+
+                    /*UTM_To_LatLong(intersection_X, intersection_Y);
                     lat1 = Final_Latitude_DD;
-                    long1 = Final_Longitude_DD;
+                    long1 = Final_Longitude_DD;*/
+
+                    double[] LL = new double[2];
+                    LL = Convert_UTM_To_Latitude_Longitude(intersection_X, intersection_Y);
+                    lat1 = LL[0];
+                    long1 = LL[1];
+
                     TxtLat1.Text = lat1.ToString();
                     TxtLong1.Text = long1.ToString();
                 }
@@ -407,9 +428,15 @@ namespace CSAY_Obstacle_Height_Calculation
 
                     intersection_X = (c - c2) / (m2 - m);
                     intersection_Y = (m2 * c - m * c2) / (m2 - m);
-                    UTM_To_LatLong(intersection_X, intersection_Y);
+                    /*UTM_To_LatLong(intersection_X, intersection_Y);
                     lat1 = Final_Latitude_DD;
-                    long1 = Final_Longitude_DD;
+                    long1 = Final_Longitude_DD;*/
+
+                    double[] LL = new double[2];
+                    LL = Convert_UTM_To_Latitude_Longitude(intersection_X, intersection_Y);
+                    lat1 = LL[0];
+                    long1 = LL[1];
+
                     TxtLat1.Text = lat1.ToString();
                     TxtLong1.Text = long1.ToString();
                 }
@@ -454,9 +481,15 @@ namespace CSAY_Obstacle_Height_Calculation
 
                     intersection_X = (c - c2) / (m2 - m);
                     intersection_Y = (m2 * c - m * c2) / (m2 - m);
-                    UTM_To_LatLong(intersection_X, intersection_Y);
+                    /*UTM_To_LatLong(intersection_X, intersection_Y);
                     lat1 = Final_Latitude_DD;
-                    long1 = Final_Longitude_DD;
+                    long1 = Final_Longitude_DD;*/
+
+                    double[] LL = new double[2];
+                    LL = Convert_UTM_To_Latitude_Longitude(intersection_X, intersection_Y);
+                    lat1 = LL[0];
+                    long1 = LL[1];
+
                     TxtLat1.Text = lat1.ToString();
                     TxtLong1.Text = long1.ToString();
                 }
@@ -541,7 +574,7 @@ namespace CSAY_Obstacle_Height_Calculation
             }
         }
 
-        private void UTM_To_LatLong(double Easting_X, double Northing_Y)
+        /*private void UTM_To_LatLong(double Easting_X, double Northing_Y)
         {
             double  a, one_by_f, lambda0, K0, M0;
             double False_Easting_X, f;
@@ -593,9 +626,9 @@ namespace CSAY_Obstacle_Height_Calculation
             Final_Longitude_DD = lambda * 180.0 / Math.PI;
 
             //MessageBox.Show("phi_t1 +t2 = " + (phi_t1+phi_t2)* ((N1 * Math.Tan(phi1) / R1)) + "\nphi1 = " + phi1);
-        }
+        }*/
 
-        public void LatLong_To_UTM(double latitude_in_degree, double longitude_in_degree)
+        /*public void LatLong_To_UTM(double latitude_in_degree, double longitude_in_degree)
         {
             double a, one_by_f, lambda0_DD, phi0_DD, K0, M0, f; 
             //double Easting_X, Northing_Y, f; 
@@ -654,7 +687,7 @@ namespace CSAY_Obstacle_Height_Calculation
             Final_Northing_Y = Northing_Y;
 
             //MessageBox.Show("EastingX = " + Easting_X + "\nNorthingY = " + Northing_Y);
-        }
+        }*/
 
         public double[] Convert_LatLong_To_UTM(double latitude_in_degree, double longitude_in_degree)
         {
@@ -666,15 +699,24 @@ namespace CSAY_Obstacle_Height_Calculation
             //Parameter values for WGS and UTM84
             //False_Easting_X = 500000.0;
             //False_Northing_Y = 0;
+
             //Input parameters
-            a = 6378137.0;
+            /*a = 6378137.0;
             one_by_f = 298.2572201;
             K0 = 0.9996;
             M0 = 0; //distance in meter of origin latitude from equator
-            f = 1 / one_by_f;
-            phi0_DD = 0;
+            phi0_DD = 0;*/
+
+            a = Convert.ToDouble(TxtA.Text);
+            one_by_f = Convert.ToDouble(TxtOneByF.Text);
+            K0 = Convert.ToDouble(TxtK0.Text);
+            M0 = Convert.ToDouble(TxtM0.Text);
+            phi0_DD = Convert.ToDouble(TxtPhi_DD.Text);
+
             //lambda0_DD = 84;
             lambda0_DD = Convert.ToDouble(TxtCM.Text);
+
+            f = 1 / one_by_f;
 
             var phi0 = phi0_DD * Math.PI / 180;
             var lambda0 = lambda0_DD * Math.PI / 180;
@@ -6716,6 +6758,65 @@ namespace CSAY_Obstacle_Height_Calculation
 
         }
 
+        private void TxtCM_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                groupBox16.Text = "Projection COORD Parameter of " + TxtCM.Text;
+
+                TxtA.Text = "";
+                TxtOneByF.Text = "";
+                TxtK0.Text = "";
+                TxtM0.Text = "";
+                TxtPhi_DD.Text = "";
+                TxtFalseEasting_X.Text = "";
+
+                string[] ReadingText = new string[20];
+                string line;
+                line = "";
+                string RWYCoordFilenName = @".\ComboBoxList\" + TxtCM.Text + ".txt";
+                //Pass the file path and file name to the StreamReader constructor
+                StreamReader sr = new StreamReader(RWYCoordFilenName);
+                //Read the first line of text
+                line = sr.ReadLine();
+                ReadingText[0] = line;
+                //Continue to read until you reach end of file
+                int i = 1;
+                while (line != null)
+                {
+                    //Read the next line
+                    line = sr.ReadLine();
+                    ReadingText[i] = line;
+                    i++;
+                }
+                //close the file
+                sr.Close();
+
+                string[] splittedtext = ReadingText[1].Split('\t');
+                TxtA.Text = splittedtext[1];
+
+                splittedtext = ReadingText[2].Split('\t');
+                TxtOneByF.Text = splittedtext[1];
+
+                splittedtext = ReadingText[3].Split('\t');
+                TxtK0.Text = splittedtext[1];
+
+                splittedtext = ReadingText[4].Split('\t');
+                TxtM0.Text = splittedtext[1];
+
+                splittedtext = ReadingText[5].Split('\t');
+                TxtPhi_DD.Text = splittedtext[1];
+
+                splittedtext = ReadingText[6].Split('\t');
+                TxtFalseEasting_X.Text = splittedtext[1];
+
+            }
+            catch
+            {
+
+            }
+        }
+
         public void Calculate_Take_of_Climb_Surface()
         {
             //For approach equation i.e. slope and intercepts
@@ -7058,15 +7159,22 @@ namespace CSAY_Obstacle_Height_Calculation
             double[] LatLong = new double[2];
 
             //Parameter values for WGS and UTM84
-            False_Easting_X = 500000.0;
+            /*False_Easting_X = 500000.0;
             //False_Northing_Y = 0;
             a = 6378137.0;
             one_by_f = 298.2572201;
             K0 = 0.9996;
-            M0 = 0; //distance in meter of origin latitude from equator
+            M0 = 0; //distance in meter of origin latitude from equator*/
+
+            False_Easting_X = Convert.ToDouble(TxtFalseEasting_X.Text);
+            a = Convert.ToDouble(TxtA.Text);
+            one_by_f = Convert.ToDouble(TxtOneByF.Text);
+            K0 = Convert.ToDouble(TxtK0.Text);
+            M0 = Convert.ToDouble(TxtM0.Text);
 
             //Input
-            lambda0 = 84.0; //central meridian for zone 44
+            //lambda0 = 84.0; //central meridian for zone 44
+            lambda0 = Convert.ToDouble(TxtCM.Text);
 
             //Formula and equation for conversion from UTM to WGS
             f = 1 / one_by_f;

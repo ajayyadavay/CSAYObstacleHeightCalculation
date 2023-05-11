@@ -88,6 +88,7 @@
             this.TxtArealDistance = new System.Windows.Forms.TextBox();
             this.BtnSaveMap = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.ChkExtractCOORD = new System.Windows.Forms.CheckBox();
             this.BtnDMS = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -257,7 +258,19 @@
             this.PanelBack = new System.Windows.Forms.Panel();
             this.PanelFore = new System.Windows.Forms.Panel();
             this.LblProgress = new System.Windows.Forms.Label();
-            this.ChkExtractCOORD = new System.Windows.Forms.CheckBox();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.TxtOneByF = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.TxtA = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.TxtK0 = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.TxtM0 = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.TxtPhi_DD = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.TxtFalseEasting_X = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -293,6 +306,7 @@
             this.groupBox10.SuspendLayout();
             this.TabFilter.SuspendLayout();
             this.PanelBack.SuspendLayout();
+            this.groupBox16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1017,6 +1031,15 @@
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Nearest Coordinate of Plot";
+            // 
+            // ChkExtractCOORD
+            // 
+            this.ChkExtractCOORD.Location = new System.Drawing.Point(14, 73);
+            this.ChkExtractCOORD.Name = "ChkExtractCOORD";
+            this.ChkExtractCOORD.Size = new System.Drawing.Size(222, 26);
+            this.ChkExtractCOORD.TabIndex = 19;
+            this.ChkExtractCOORD.Text = "Extract COORD with Mouse click";
+            this.ChkExtractCOORD.UseVisualStyleBackColor = true;
             // 
             // BtnDMS
             // 
@@ -2079,6 +2102,7 @@
             this.TxtCM.Name = "TxtCM";
             this.TxtCM.Size = new System.Drawing.Size(99, 26);
             this.TxtCM.TabIndex = 9;
+            this.TxtCM.TextChanged += new System.EventHandler(this.TxtCM_TextChanged);
             // 
             // label50
             // 
@@ -2248,6 +2272,7 @@
             // 
             // TabRWYClassify
             // 
+            this.TabRWYClassify.Controls.Add(this.groupBox16);
             this.TabRWYClassify.Controls.Add(this.groupBox15);
             this.TabRWYClassify.Controls.Add(this.groupBox14);
             this.TabRWYClassify.Controls.Add(this.groupBox13);
@@ -2265,9 +2290,9 @@
             this.groupBox15.Controls.Add(this.label55);
             this.groupBox15.Controls.Add(this.Txt_ARP_Latitude);
             this.groupBox15.Controls.Add(this.label56);
-            this.groupBox15.Location = new System.Drawing.Point(745, 223);
+            this.groupBox15.Location = new System.Drawing.Point(745, 192);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(571, 98);
+            this.groupBox15.Size = new System.Drawing.Size(571, 84);
             this.groupBox15.TabIndex = 15;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "ARP COORD";
@@ -2275,7 +2300,7 @@
             // Txt_ARP_Longitude
             // 
             this.Txt_ARP_Longitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_ARP_Longitude.Location = new System.Drawing.Point(115, 56);
+            this.Txt_ARP_Longitude.Location = new System.Drawing.Point(115, 48);
             this.Txt_ARP_Longitude.Name = "Txt_ARP_Longitude";
             this.Txt_ARP_Longitude.Size = new System.Drawing.Size(450, 26);
             this.Txt_ARP_Longitude.TabIndex = 13;
@@ -2285,7 +2310,7 @@
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label55.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label55.Location = new System.Drawing.Point(17, 62);
+            this.label55.Location = new System.Drawing.Point(17, 54);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(80, 20);
             this.label55.TabIndex = 12;
@@ -2294,7 +2319,7 @@
             // Txt_ARP_Latitude
             // 
             this.Txt_ARP_Latitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_ARP_Latitude.Location = new System.Drawing.Point(115, 24);
+            this.Txt_ARP_Latitude.Location = new System.Drawing.Point(115, 16);
             this.Txt_ARP_Latitude.Name = "Txt_ARP_Latitude";
             this.Txt_ARP_Latitude.Size = new System.Drawing.Size(450, 26);
             this.Txt_ARP_Latitude.TabIndex = 11;
@@ -2304,7 +2329,7 @@
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label56.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label56.Location = new System.Drawing.Point(17, 30);
+            this.label56.Location = new System.Drawing.Point(17, 22);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(92, 20);
             this.label56.TabIndex = 10;
@@ -2316,9 +2341,9 @@
             this.groupBox14.Controls.Add(this.label53);
             this.groupBox14.Controls.Add(this.Txt_AB_Clearway);
             this.groupBox14.Controls.Add(this.label54);
-            this.groupBox14.Location = new System.Drawing.Point(745, 119);
+            this.groupBox14.Location = new System.Drawing.Point(745, 102);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(571, 98);
+            this.groupBox14.Size = new System.Drawing.Size(571, 85);
             this.groupBox14.TabIndex = 14;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "ClearWay beyond Strip";
@@ -2326,7 +2351,7 @@
             // Txt_CD_Clearway
             // 
             this.Txt_CD_Clearway.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_CD_Clearway.Location = new System.Drawing.Point(278, 56);
+            this.Txt_CD_Clearway.Location = new System.Drawing.Point(278, 47);
             this.Txt_CD_Clearway.Name = "Txt_CD_Clearway";
             this.Txt_CD_Clearway.Size = new System.Drawing.Size(287, 26);
             this.Txt_CD_Clearway.TabIndex = 13;
@@ -2336,7 +2361,7 @@
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label53.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label53.Location = new System.Drawing.Point(17, 62);
+            this.label53.Location = new System.Drawing.Point(17, 53);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(221, 20);
             this.label53.TabIndex = 12;
@@ -2345,7 +2370,7 @@
             // Txt_AB_Clearway
             // 
             this.Txt_AB_Clearway.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_AB_Clearway.Location = new System.Drawing.Point(278, 24);
+            this.Txt_AB_Clearway.Location = new System.Drawing.Point(278, 15);
             this.Txt_AB_Clearway.Name = "Txt_AB_Clearway";
             this.Txt_AB_Clearway.Size = new System.Drawing.Size(287, 26);
             this.Txt_AB_Clearway.TabIndex = 11;
@@ -2355,7 +2380,7 @@
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label54.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label54.Location = new System.Drawing.Point(17, 30);
+            this.label54.Location = new System.Drawing.Point(17, 21);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(220, 20);
             this.label54.TabIndex = 10;
@@ -2367,9 +2392,9 @@
             this.groupBox13.Controls.Add(this.label52);
             this.groupBox13.Controls.Add(this.TxtLower_Disp_Th);
             this.groupBox13.Controls.Add(this.label51);
-            this.groupBox13.Location = new System.Drawing.Point(745, 15);
+            this.groupBox13.Location = new System.Drawing.Point(745, 10);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(571, 98);
+            this.groupBox13.Size = new System.Drawing.Size(571, 88);
             this.groupBox13.TabIndex = 11;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Displaced Threshold";
@@ -2377,7 +2402,7 @@
             // TxtHigher_Disp_Th
             // 
             this.TxtHigher_Disp_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtHigher_Disp_Th.Location = new System.Drawing.Point(278, 56);
+            this.TxtHigher_Disp_Th.Location = new System.Drawing.Point(278, 48);
             this.TxtHigher_Disp_Th.Name = "TxtHigher_Disp_Th";
             this.TxtHigher_Disp_Th.Size = new System.Drawing.Size(287, 26);
             this.TxtHigher_Disp_Th.TabIndex = 13;
@@ -2387,7 +2412,7 @@
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label52.Location = new System.Drawing.Point(17, 62);
+            this.label52.Location = new System.Drawing.Point(17, 54);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(224, 20);
             this.label52.TabIndex = 12;
@@ -2396,7 +2421,7 @@
             // TxtLower_Disp_Th
             // 
             this.TxtLower_Disp_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLower_Disp_Th.Location = new System.Drawing.Point(278, 24);
+            this.TxtLower_Disp_Th.Location = new System.Drawing.Point(278, 16);
             this.TxtLower_Disp_Th.Name = "TxtLower_Disp_Th";
             this.TxtLower_Disp_Th.Size = new System.Drawing.Size(287, 26);
             this.TxtLower_Disp_Th.TabIndex = 11;
@@ -2406,7 +2431,7 @@
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label51.Location = new System.Drawing.Point(17, 30);
+            this.label51.Location = new System.Drawing.Point(17, 22);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(223, 20);
             this.label51.TabIndex = 10;
@@ -2947,14 +2972,140 @@
             this.LblProgress.TabIndex = 1;
             this.LblProgress.Text = "0%";
             // 
-            // ChkExtractCOORD
+            // groupBox16
             // 
-            this.ChkExtractCOORD.Location = new System.Drawing.Point(14, 73);
-            this.ChkExtractCOORD.Name = "ChkExtractCOORD";
-            this.ChkExtractCOORD.Size = new System.Drawing.Size(222, 26);
-            this.ChkExtractCOORD.TabIndex = 19;
-            this.ChkExtractCOORD.Text = "Extract COORD with Mouse click";
-            this.ChkExtractCOORD.UseVisualStyleBackColor = true;
+            this.groupBox16.Controls.Add(this.TxtFalseEasting_X);
+            this.groupBox16.Controls.Add(this.label62);
+            this.groupBox16.Controls.Add(this.TxtPhi_DD);
+            this.groupBox16.Controls.Add(this.label61);
+            this.groupBox16.Controls.Add(this.TxtM0);
+            this.groupBox16.Controls.Add(this.label60);
+            this.groupBox16.Controls.Add(this.TxtK0);
+            this.groupBox16.Controls.Add(this.label59);
+            this.groupBox16.Controls.Add(this.TxtOneByF);
+            this.groupBox16.Controls.Add(this.label57);
+            this.groupBox16.Controls.Add(this.TxtA);
+            this.groupBox16.Controls.Add(this.label58);
+            this.groupBox16.Location = new System.Drawing.Point(745, 282);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(571, 136);
+            this.groupBox16.TabIndex = 16;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Projection COORD Parameter of";
+            // 
+            // TxtOneByF
+            // 
+            this.TxtOneByF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtOneByF.Location = new System.Drawing.Point(63, 51);
+            this.TxtOneByF.Name = "TxtOneByF";
+            this.TxtOneByF.Size = new System.Drawing.Size(172, 26);
+            this.TxtOneByF.TabIndex = 13;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label57.Location = new System.Drawing.Point(17, 54);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(27, 20);
+            this.label57.TabIndex = 12;
+            this.label57.Text = "1/f";
+            // 
+            // TxtA
+            // 
+            this.TxtA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtA.Location = new System.Drawing.Point(63, 19);
+            this.TxtA.Name = "TxtA";
+            this.TxtA.Size = new System.Drawing.Size(172, 26);
+            this.TxtA.TabIndex = 11;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label58.Location = new System.Drawing.Point(17, 22);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(45, 20);
+            this.label58.TabIndex = 10;
+            this.label58.Text = "a (m)";
+            // 
+            // TxtK0
+            // 
+            this.TxtK0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtK0.Location = new System.Drawing.Point(63, 83);
+            this.TxtK0.Name = "TxtK0";
+            this.TxtK0.Size = new System.Drawing.Size(172, 26);
+            this.TxtK0.TabIndex = 15;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label59.Location = new System.Drawing.Point(17, 86);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(28, 20);
+            this.label59.TabIndex = 14;
+            this.label59.Text = "K0";
+            // 
+            // TxtM0
+            // 
+            this.TxtM0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtM0.Location = new System.Drawing.Point(389, 16);
+            this.TxtM0.Name = "TxtM0";
+            this.TxtM0.Size = new System.Drawing.Size(172, 26);
+            this.TxtM0.TabIndex = 17;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label60.Location = new System.Drawing.Point(257, 22);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(58, 20);
+            this.label60.TabIndex = 16;
+            this.label60.Text = "M0 (m)";
+            // 
+            // TxtPhi_DD
+            // 
+            this.TxtPhi_DD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPhi_DD.Location = new System.Drawing.Point(389, 48);
+            this.TxtPhi_DD.Name = "TxtPhi_DD";
+            this.TxtPhi_DD.Size = new System.Drawing.Size(172, 26);
+            this.TxtPhi_DD.TabIndex = 19;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label61.Location = new System.Drawing.Point(257, 57);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(64, 20);
+            this.label61.TabIndex = 18;
+            this.label61.Text = "Phi_DD";
+            // 
+            // TxtFalseEasting_X
+            // 
+            this.TxtFalseEasting_X.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFalseEasting_X.Location = new System.Drawing.Point(389, 80);
+            this.TxtFalseEasting_X.Name = "TxtFalseEasting_X";
+            this.TxtFalseEasting_X.Size = new System.Drawing.Size(172, 26);
+            this.TxtFalseEasting_X.TabIndex = 21;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label62.Location = new System.Drawing.Point(257, 86);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(133, 20);
+            this.label62.TabIndex = 20;
+            this.label62.Text = "False Easting (m)";
             // 
             // FrmObstacleHeightCalculation
             // 
@@ -3026,6 +3177,8 @@
             this.TabFilter.ResumeLayout(false);
             this.TabFilter.PerformLayout();
             this.PanelBack.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3261,6 +3414,19 @@
         public System.Windows.Forms.TextBox TxtLong2;
         public System.Windows.Forms.TextBox TxtLat2;
         private System.Windows.Forms.CheckBox ChkExtractCOORD;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.TextBox TxtOneByF;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox TxtA;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.TextBox TxtM0;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.TextBox TxtK0;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.TextBox TxtPhi_DD;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.TextBox TxtFalseEasting_X;
+        private System.Windows.Forms.Label label62;
     }
 }
 
