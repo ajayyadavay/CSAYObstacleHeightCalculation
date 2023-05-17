@@ -3277,7 +3277,7 @@ namespace CSAY_Obstacle_Height_Calculation
             RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             RichTxtLetters.AppendText("\nIn response to the letter received from that office dated "
                 + TxtPreviousLetterDate.Text + " with ref. no. " + TxtPrevLetterRef.Text
-                + "requesting consent for building construction, this is to certify that maximum permitted elevation of the proposed "
+                + "requesting consent for " + TxtObstacleType.Text + " construction, this is to certify that maximum permitted elevation of the proposed "
                 + TxtObstacleType.Text + " located at " + TxtLocalLevel.Text + "-" + TxtWardNo.Text + ", "
                 + TxtTole.Text + " having plot no. " + TxtPlotNo.Text + " of " + TxtDesignation.Text + " "
                 + TxtFirstName.Text + " " + TxtMiddleName.Text + " " + TxtLastName.Text
