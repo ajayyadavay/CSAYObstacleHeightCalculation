@@ -1,0 +1,6 @@
+Note:RL of extended RWY CL from AB to inner edge of ToC_VNKT
+Distance_From_AB	RL_m	Remark
+0	105.5	AB_Threshold_Midpoint
+30	105.25	
+50	105.05	
+60	105	JI_Midpoint

@@ -1,0 +1,193 @@
+//TRANSITIONAL SURFACE
+                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7)
+                {
+                    int TransPlot_case;
+                    double perp_dist_TOC2 = 0.0;
+                    double Base_Height = 0.0;
+                    double Base_Dist = 0.0;
+                    double temp_perp, Divergence_App, Slope_App_First_Sec;
+                    Slope_App_First_Sec = Convert.ToDouble(dataGridView5.Rows[17].Cells[2].Value); //2.0
+                    Divergence_App = Convert.ToDouble(dataGridView5.Rows[14].Cells[2].Value); //45.0;
+                    double slope_Trans = Convert.ToDouble(dataGridView5.Rows[25].Cells[2].Value); //14.3
+                    //double x1, x2, y1, y2, d0, Ox, Oy;
+
+
+                    TransPlot_case = Transitional_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
+                    //MessageBox.Show("Trans plot case = " + TransPlot_case.ToString());
+                    bool IsTransSurface = false;
+
+                    if (TransPlot_case == 500 || TransPlot_case == 600 || TransPlot_case == 501 || TransPlot_case == 502 || TransPlot_case == 601 || TransPlot_case == 602)
+                    {
+                        RL_datum_Surface = 0;
+                        if (TransPlot_case == 500)
+                        {
+                            //To find if point lies in Trans zone in from of rwy length
+                            m = Convert.ToDouble(dataGridView2.Rows[4].Cells[1].Value);//EF
+                            c = Convert.ToDouble(dataGridView2.Rows[4].Cells[2].Value);//EF
+
+                            //slope and intercept of line perpendicular to EF
+                            m2 = -1.0 / m;
+                            c2 = Final_Northing_Y - m2 * Final_Easting_X;
+
+                            double this_RL = RL_of_RWY_CL_by_Interpolation(m, c, m2, c2, 14, 15);
+                            Height_Hz = Convert.ToDouble(dataGridView5.Rows[4].Cells[2].Value); //45.0;
+                            double RL_IHs = Convert.ToDouble(TxtRL_IHS.Text);
+
+                            //horizontal distance form CL of RWY making boundary for Transition surface
+                            double temp_dist = (RL_IHs + Height_Hz - this_RL) * 100 / slope_Trans;
+
+
+                            //Find perpendicular distance from obstacle point to Approach line IJ
+                            //equation TOC_AB
+                            m = Convert.ToDouble(dataGridView2.Rows[41].Cells[1].Value);//slope of Trans_JK
+                            c = Convert.ToDouble(dataGridView2.Rows[41].Cells[2].Value);//intercept of Trans_JK
+                            double perp_dist_JK = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+
+                            if (perp_dist_JK <= temp_dist) 
+                            {
+                                Base_Height = 0.0;
+                                Base_Dist = 0.0;
+                                RL_datum_Surface = this_RL;
+                                perp_dist_TOC2 = perp_dist_JK;
+
+                                IsTransSurface = true;
+                            }
+                        }
+                        else if (TransPlot_case == 600)
+                        {
+                            //To find if point lies in Trans zone in from of rwy length
+                            m = Convert.ToDouble(dataGridView2.Rows[4].Cells[1].Value);//EF
+                            c = Convert.ToDouble(dataGridView2.Rows[4].Cells[2].Value);//EF
+
+                            //slope and intercept of line perpendicular to EF
+                            m2 = -1.0 / m;
+                            c2 = Final_Northing_Y - m2 * Final_Easting_X;
+
+                            double this_RL = RL_of_RWY_CL_by_Interpolation(m, c, m2, c2, 14, 15);
+                            Height_Hz = Convert.ToDouble(dataGridView5.Rows[4].Cells[2].Value); //45.0;
+                            double RL_IHs = Convert.ToDouble(TxtRL_IHS.Text);
+
+                            //horizontal distance form CL of RWY making boundary for Transition surface
+                            double temp_dist = (RL_IHs + Height_Hz - this_RL) * 100 / slope_Trans;
+
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[42].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[42].Cells[2].Value);//intercept of TOC_GH
+                            double perp_dist_LI = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            if (perp_dist_LI <= temp_dist)
+                            {
+                                Base_Height = 0.0;
+                                Base_Dist = 0.0;
+                                RL_datum_Surface = this_RL;
+                                perp_dist_TOC2 = perp_dist_LI;
+
+                                IsTransSurface = true;
+                            }
+                        }
+                        if (TransPlot_case == 501)
+                        {
+                            IsTransSurface = true;
+                            //Find perpendicular distance from obstacle point to Approach line IJ
+                            //equation TOC_AB
+                            m = Convert.ToDouble(dataGridView2.Rows[41].Cells[1].Value);//slope of Trans_JK
+                            c = Convert.ToDouble(dataGridView2.Rows[41].Cells[2].Value);//intercept of Trans_JK
+                            perp_dist_TOC2 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                           
+                            //equation JI
+                            m = Convert.ToDouble(dataGridView2.Rows[5].Cells[1].Value);//slope of JI
+                            c = Convert.ToDouble(dataGridView2.Rows[5].Cells[2].Value);//intercept of JI
+                            temp_perp = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = temp_perp * Slope_App_First_Sec / 100.0;
+                            Base_Dist = temp_perp * Divergence_App / 100.0;
+
+                            RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+
+                        }
+                        else if (TransPlot_case == 502)
+                        {
+                            IsTransSurface = true;
+                            //Find perpendicular distance from obstacle point to Approach line IJ
+                            //equation TOC_AB
+                            m = Convert.ToDouble(dataGridView2.Rows[41].Cells[1].Value);//slope of Trans_JK
+                            c = Convert.ToDouble(dataGridView2.Rows[41].Cells[2].Value);//intercept of Trans_JK
+                            perp_dist_TOC2 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            //double temp_perp, Divergence_App = 15.0, Slope_App = 2.0;
+                            //equation JI
+                            m = Convert.ToDouble(dataGridView2.Rows[9].Cells[1].Value);//slope of KL
+                            c = Convert.ToDouble(dataGridView2.Rows[9].Cells[2].Value);//intercept of KL
+                            temp_perp = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = temp_perp * Slope_App_First_Sec / 100.0;
+                            Base_Dist = temp_perp * Divergence_App / 100.0;
+
+                            RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+
+                        }
+                        else if (TransPlot_case == 601)
+                        {
+                            IsTransSurface = true;
+                            //Find perpendicular distance from obstacle point to Approach line IJ
+                            //equation TOC_AB
+                            m = Convert.ToDouble(dataGridView2.Rows[42].Cells[1].Value);//slope of Trans_JK
+                            c = Convert.ToDouble(dataGridView2.Rows[42].Cells[2].Value);//intercept of Trans_JK
+                            perp_dist_TOC2 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            //double temp_perp, Divergence_App = 15.0, Slope_App = 2.0;
+                            //equation JI
+                            m = Convert.ToDouble(dataGridView2.Rows[5].Cells[1].Value);//slope of JI
+                            c = Convert.ToDouble(dataGridView2.Rows[5].Cells[2].Value);//intercept of JI
+                            temp_perp = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = temp_perp * Slope_App_First_Sec / 100.0;
+                            Base_Dist = temp_perp * Divergence_App / 100.0;
+
+                            RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+
+                        }
+                        else if (TransPlot_case == 602)
+                        {
+                            IsTransSurface = true;
+                            //Find perpendicular distance from obstacle point to Approach line IJ
+                            //equation TOC_AB
+                            m = Convert.ToDouble(dataGridView2.Rows[42].Cells[1].Value);//slope of Trans_JK
+                            c = Convert.ToDouble(dataGridView2.Rows[42].Cells[2].Value);//intercept of Trans_JK
+                            perp_dist_TOC2 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            //double temp_perp, Divergence_App = 15.0, Slope_App = 2.0;
+                            //equation JI
+                            m = Convert.ToDouble(dataGridView2.Rows[9].Cells[1].Value);//slope of KL
+                            c = Convert.ToDouble(dataGridView2.Rows[9].Cells[2].Value);//intercept of KL
+                            temp_perp = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = temp_perp * Slope_App_First_Sec / 100.0;
+                            Base_Dist = temp_perp * Divergence_App / 100.0;
+
+                            RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+
+                        }
+
+                        if(IsTransSurface == true)
+                        {
+                            SurfaceHeight = Base_Height + slope_Trans / 100.0 * (perp_dist_TOC2 - Base_Dist);
+                            AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
+                            SurfaceName = "TRANSITIONAL SURFACE";
+
+                            //adding data to datagridview4
+                            dataGridView4.Rows.Add();
+                            SurfaceCount++;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + " + Base_Height.ToString("0.000") + " + (" + slope_Trans.ToString() + "% * (" + perp_dist_TOC2.ToString("0.000") + " - " + Base_Dist.ToString("0.000") + " )) = " + AllowableElev_Obs.ToString("0.000");
+                        }
+                        
+
+                    }
+                }

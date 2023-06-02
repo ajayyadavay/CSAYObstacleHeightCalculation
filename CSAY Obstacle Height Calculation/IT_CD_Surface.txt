@@ -1,0 +1,223 @@
+public void Calculate_Inner_Transition_Surface_CD_Inner_ApproachEnd_with_different_RL()
+        {
+            //For Inner transition equation i.e. slope and intercepts 
+            double slope1, intercept1;
+            double Slope_IT, Len_of_InnerEdge_Ap, Height_Hz;
+            double slope_IA, Length_IA, Width_IA;
+
+            double RL_TH_CD, RL_IHS;
+            RL_TH_CD = Convert.ToDouble(Txt_RL_CD_Th.Text);
+            RL_IHS = Convert.ToDouble(TxtRL_IHS.Text);
+
+            Slope_IT = Convert.ToDouble(dataGridView5.Rows[27].Cells[2].Value); //33.3;
+            Len_of_InnerEdge_Ap = Convert.ToDouble(dataGridView5.Rows[12].Cells[2].Value); //280.0;
+            Height_Hz = Convert.ToDouble(dataGridView5.Rows[4].Cells[2].Value); //45.0;
+
+            slope_IA = Convert.ToDouble(dataGridView5.Rows[10].Cells[2].Value); //2
+            Length_IA = Convert.ToDouble(dataGridView5.Rows[9].Cells[2].Value); //900
+            Width_IA = Convert.ToDouble(dataGridView5.Rows[7].Cells[2].Value); //120
+
+
+            //finding index for distance vs RL table
+            double m, c, m2, c2;
+            //int[] bl_idx = new int[] { 33 };
+            int DGV1_index1, DGV1_index2;
+            DGV1_index1 = 14;
+            DGV1_index2 = 15;
+            int Sm_idx;
+            m2 = Convert.ToDouble(dataGridView2.Rows[4].Cells[1].Value);//EF
+            c2 = Convert.ToDouble(dataGridView2.Rows[4].Cells[2].Value);//EF
+            m = Convert.ToDouble(dataGridView2.Rows[33].Cells[1].Value);//BL_EF
+            c = Convert.ToDouble(dataGridView2.Rows[33].Cells[2].Value);//BL_EF
+            Sm_idx = Index_of_dist_of_RWY_CL_by_Interpolation(m, c, m2, c2, DGV1_index1, DGV1_index2);
+            double last_RL = RL_of_RWY_CL_by_Interpolation(m, c, m2, c2, DGV1_index1, DGV1_index2);
+            double last_dist = Dist_of_RWY_CL_by_Interpolation(m, c, m2, c2, DGV1_index1, DGV1_index2);
+
+            /*MessageBox.Show("Sm_idx = " + Sm_idx.ToString() + "\nlast rl = " + last_RL.ToString() + 
+                "\nlast dist = " + last_dist.ToString());*/
+
+            //double e1 = slope_IA / 100.0 * Length_IA;//2/100*900=18m elevation
+            //double r1 = ( (RL_IHS + Height_Hz) - (RL_TH_CD + e1)) * 100.0 / Slope_IT;//((105+45)-(104+18))/33.3% = 81.08
+            //double r2 = (RL_IHS + Height_Hz) / Slope_IT * 100.0;//45/33.3% = 135.135m
+
+            int[,] C_indx = new int[,] { { 64, 62, 38 }, { 65, 63, 39 } };//center point index for circle
+            int[] Line_indx = new int[] { 46, 45, 33 };//for DGV2 intercept and slopes
+            //double[] radii = new double[] { r1, r2, r2 };
+
+            double a, b, x1, y1, x2, y2;
+            string[,] IT_Point_Name = new string[,] { { "IT_A", "IT_B", "IT_C" }, { "IT_F", "IT_E", "IT_D" } };
+            double[] latlong1 = new double[2];
+            double[] IT_COORD_X = new double[6];
+            double[] IT_COORD_Y = new double[6];
+
+            int DGV2_row_inx, DGV1_row_inx, i, intrcpt;
+            //int[] mulfactor = new int[2] { 1, -1 };//1 for IT_ABC and -1 for IT_DEF
+            double X_coord, Y_coord;
+            intrcpt = 0;
+            DGV1_row_inx = 70; //for IT_AB and end at index 52 for IT_BC
+            int coord = 0;
+
+            int a1, a2;
+            slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
+            if (tempslope >= 0)
+            {
+                a1 = -1;
+                a2 = 1;
+            }
+            else
+            {
+                a1 = 1;
+                a2 = -1;
+            }
+            int[] mulfactor = new int[2] { a1, a2 };//1 for T_AD and -1 for T_BC
+
+
+            slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            intercept1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColIntercept"].Value);//EF
+            dataGridView10.Rows.Clear();
+            /*for (int k = 0; k <= (Sm_idx+1) * 2; k++)
+            {
+                dataGridView10.Rows.Add();
+            }*/
+            for (int j = 0; j <= 1; j++)
+            {
+                for (int k = 0; k <= (Sm_idx + 1); k++)
+                {
+                    double RL_CL_RWY;
+                    if ( k == (Sm_idx+1))
+                    {
+                        RL_CL_RWY = last_RL;
+                    }
+                    else
+                    {
+                        RL_CL_RWY = Convert.ToDouble(dataGridView6.Rows[k].Cells[2].Value);
+                    }
+                    
+                    double distanceOffset = 0.5 * Width_IA + (RL_IHS + Height_Hz - RL_CL_RWY) / Slope_IT * 100.0;//45/33.3% = 135.135m
+                    double intrc_parallel = Intercept_of_Parallel_line(slope1, intercept1, distanceOffset, mulfactor[j]);
+
+                    //slope1 = Convert.ToDouble(dataGridView2.Rows[Line_indx[k]].Cells["ColSlope"].Value);
+                    //intercept1 = Convert.ToDouble(dataGridView2.Rows[Line_indx[k]].Cells["ColIntercept"].Value);
+
+                    double m_kl = Convert.ToDouble(dataGridView2.Rows[9].Cells["ColSlope"].Value);//KL
+                    double c_kl = Convert.ToDouble(dataGridView2.Rows[9].Cells["ColIntercept"].Value);//KL
+
+                    if (k == (Sm_idx + 1))
+                    {
+                        distanceOffset = last_dist;
+                    }
+                    else
+                    {
+                        distanceOffset = Convert.ToDouble(dataGridView6.Rows[k].Cells[1].Value);//chainage
+                    }
+                    
+                    //distanceOffset = distanceOffset1[k];
+                    double intrc_perp = Intercept_of_Parallel_line(m_kl, c_kl, distanceOffset, -1);
+
+                    X_coord = Find_Intersection_X(slope1, intrc_parallel, m_kl, intrc_perp);
+                    Y_coord = Find_Intersection_Y(slope1, intrc_parallel, m_kl, intrc_perp);
+
+                    latlong1 = Convert_UTM_To_Latitude_Longitude(X_coord, Y_coord);
+
+                    dataGridView10.Rows.Add();
+                    dataGridView10.Rows[intrcpt].Cells[0].Value = distanceOffset.ToString();
+                    dataGridView10.Rows[intrcpt].Cells[1].Value = "Inner_Transition_CD_" + j.ToString();
+                    dataGridView10.Rows[intrcpt].Cells[2].Value = latlong1[0].ToString();
+                    dataGridView10.Rows[intrcpt].Cells[3].Value = latlong1[1].ToString();
+                    dataGridView10.Rows[intrcpt].Cells[4].Value = X_coord.ToString();
+                    dataGridView10.Rows[intrcpt].Cells[5].Value = Y_coord.ToString();
+
+                    intrcpt++;
+                }
+
+            }
+
+            double dist;
+            /*int[,] L_indx = new int[,] { { 64, 70, 71, 40 }, { 65, 73, 74, 41 } };//
+            string[,] IT_Line_Name = new string[,] { { "IA_V-IT_A", "IT_AB", "IT_B-BL_H" }, { "IA_U-IT_F", "IT_FE", "IT_E-BL_G" } };
+            //distance between two points
+            DGV2_row_inx = 57;
+            for (int j = 0; j <= 1; j++)
+            {
+                for (int k = 0; k <= 2; k++)
+                {
+                    x1 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k]].Cells["ColEasting"].Value);
+                    y1 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k]].Cells["ColNorthing"].Value);
+
+                    x2 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k + 1]].Cells["ColEasting"].Value);
+                    y2 = Convert.ToDouble(dataGridView1.Rows[L_indx[j, k + 1]].Cells["ColNorthing"].Value);
+
+                    slope1 = Find_Slope_Of_Equation(x1, y1, x2, y2);
+                    intercept1 = Find_Intercept_Of_Equation(slope1, x1, y1);
+
+                    dist = Find_Distance_bet_two_pointXY(x1, y1, x2, y2);
+                    dataGridView2.Rows[DGV2_row_inx].Cells[0].Value = IT_Line_Name[j, k].ToString();
+                    dataGridView2.Rows[DGV2_row_inx].Cells[1].Value = slope1.ToString();
+                    dataGridView2.Rows[DGV2_row_inx].Cells[2].Value = intercept1.ToString();
+                    dataGridView2.Rows[DGV2_row_inx].Cells[3].Value = dist.ToString();
+                    DGV2_row_inx++;
+
+                }
+            }*/
+
+            
+            string[,] LineName = new string[,] { { "IA_V-IT_A", "IT_AB", "IT_C-BL_H" }, { "IA_U-IT_F", "IT_EF", "IT_D-BL_G" } };
+            int[,] ix = new int[,] { {64, 0, Sm_idx+1 }, { 65, Sm_idx+2, (Sm_idx + 1)*2 + 1 } };//DGV10
+            int[,] iy = new int[,] { { 70, 70, 40 }, { 73, 73, 41 } };//DGV1
+
+            DGV2_row_inx = 57;
+            for(int k =0; k <= 1; k++)
+            {
+                x1 = Convert.ToDouble(dataGridView1.Rows[ix[k, 0]].Cells[4].Value);//IA_V
+                y1 = Convert.ToDouble(dataGridView1.Rows[ix[k, 0]].Cells[5].Value);//IA_V
+                x2 = Convert.ToDouble(dataGridView1.Rows[iy[k, 0]].Cells[4].Value);//IT_A
+                y2 = Convert.ToDouble(dataGridView1.Rows[iy[k, 0]].Cells[5].Value);//IT_A
+
+                slope1 = Find_Slope_Of_Equation(x1, y1, x2, y2);
+                intercept1 = Find_Intercept_Of_Equation(slope1, x1, y1);
+                dist = Find_Distance_bet_two_pointXY(x1, y1, x2, y2);
+
+                dataGridView2.Rows[DGV2_row_inx].Cells[0].Value = LineName[k,0];
+                dataGridView2.Rows[DGV2_row_inx].Cells[1].Value = slope1.ToString();
+                dataGridView2.Rows[DGV2_row_inx].Cells[2].Value = intercept1.ToString();
+                dataGridView2.Rows[DGV2_row_inx].Cells[3].Value = dist.ToString();
+                DGV2_row_inx++;
+
+                //DGV2_row_inx = 58;
+                x1 = Convert.ToDouble(dataGridView10.Rows[ix[k, 1]].Cells[4].Value);//IA_V
+                y1 = Convert.ToDouble(dataGridView10.Rows[ix[k, 1]].Cells[5].Value);//IA_V
+                x2 = Convert.ToDouble(dataGridView1.Rows[iy[k, 1]].Cells[4].Value);//IT_A
+                y2 = Convert.ToDouble(dataGridView1.Rows[iy[k, 1]].Cells[5].Value);//IT_A
+
+                slope1 = Find_Slope_Of_Equation(x1, y1, x2, y2);
+                intercept1 = Find_Intercept_Of_Equation(slope1, x1, y1);
+                dist = Find_Distance_bet_two_pointXY(x1, y1, x2, y2);
+
+                dataGridView2.Rows[DGV2_row_inx].Cells[0].Value = LineName[k,1];
+                dataGridView2.Rows[DGV2_row_inx].Cells[1].Value = slope1.ToString();
+                dataGridView2.Rows[DGV2_row_inx].Cells[2].Value = intercept1.ToString();
+                dataGridView2.Rows[DGV2_row_inx].Cells[3].Value = dist.ToString();
+                DGV2_row_inx++;
+
+                //DGV2_row_inx = 59;
+                x1 = Convert.ToDouble(dataGridView10.Rows[ix[k, 2]].Cells[4].Value);//IT_A
+                y1 = Convert.ToDouble(dataGridView10.Rows[ix[k, 2]].Cells[5].Value);//It_A
+                x2 = Convert.ToDouble(dataGridView1.Rows[iy[k, 2]].Cells[4].Value);//IT_C
+                y2 = Convert.ToDouble(dataGridView1.Rows[iy[k, 2]].Cells[5].Value);//IT_C
+
+                slope1 = Find_Slope_Of_Equation(x1, y1, x2, y2);
+                intercept1 = Find_Intercept_Of_Equation(slope1, x1, y1);
+                dist = Find_Distance_bet_two_pointXY(x1, y1, x2, y2);
+
+                dataGridView2.Rows[DGV2_row_inx].Cells[0].Value = LineName[k,2];
+                dataGridView2.Rows[DGV2_row_inx].Cells[1].Value = slope1.ToString();
+                dataGridView2.Rows[DGV2_row_inx].Cells[2].Value = intercept1.ToString();
+                dataGridView2.Rows[DGV2_row_inx].Cells[3].Value = dist.ToString();
+                DGV2_row_inx++;
+            }
+            
+
+
+        }

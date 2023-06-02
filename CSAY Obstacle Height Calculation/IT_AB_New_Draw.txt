@@ -1,0 +1,46 @@
+// Inner Transition surfaces with approach at Higher end AB
+            if (IT_AB == 1)
+            {
+                No_of_Polygon = 2;
+                int vertex_in_one_Poly;
+                int[,] index = new int[,] {
+                    { 76, 60, 58, 34, 36 }, //Inner Transition
+                    { 79, 61, 59, 35, 37 }  //Inner Transition
+                
+                };//One row contains 4 points of polygon in clockwise direction
+
+                Color[] mycolor = new Color[] {
+                    Color.DarkRed,
+                    Color.DarkRed
+                };
+
+                vertex_in_one_Poly = 5;
+                /*int strt_row = 0, end_row = 0;
+                int n_row_11 = dataGridView11.RowCount - 1;
+                int n_row = n_row_11 / 2;*/
+                for (int i = 0; i < No_of_Polygon; i++)
+                {
+                    //strt_row = n_row * i;
+                    //end_row = strt_row + n_row;
+                    //MessageBox.Show("srow = " + strt_row.ToString() + "endrow = " + end_row.ToString());
+
+                    List<PointLatLng> points = new List<PointLatLng>();
+                    for (int j = 0; j < vertex_in_one_Poly; j++)
+                    {
+                        lat1 = Convert.ToDouble(dataGridView1.Rows[index[i, j]].Cells["ColLatitude"].Value);
+                        long1 = Convert.ToDouble(dataGridView1.Rows[index[i, j]].Cells["ColLongitude"].Value);
+                        points.Add(new PointLatLng(lat1, long1));
+                    }
+                    /*for (int j = strt_row; j < end_row; j++) //for (int j = 0; j < vertex_in_one_Poly; j++)
+                    {
+                        //lat1 = Convert.ToDouble(dataGridView1.Rows[index[i, j]].Cells["ColLatitude"].Value);
+                        //long1 = Convert.ToDouble(dataGridView1.Rows[index[i, j]].Cells["ColLongitude"].Value);
+                        //points.Add(new PointLatLng(lat1, long1));
+
+                        lat1 = Convert.ToDouble(dataGridView11.Rows[j].Cells[2].Value);
+                        long1 = Convert.ToDouble(dataGridView11.Rows[j].Cells[3].Value);
+                        points.Add(new PointLatLng(lat1, long1));
+                    }*/
+                    Draw_Polygon_With_Many_Points(points, mycolor[i]);
+                }
+            }

@@ -1,0 +1,110 @@
+//INNER TRANSITIONAL SURFACE CD
+                double Divergence_BL, slope_IT;
+                Divergence_BL = Convert.ToDouble(dataGridView5.Rows[31].Cells[2].Value);
+                //slope_BL = Convert.ToDouble(dataGridView5.Rows[32].Cells[2].Value);
+                slope_IT = Convert.ToDouble(dataGridView5.Rows[27].Cells[2].Value);
+
+                bool IsInner_CD_TransSurface = false;
+                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7)
+                {
+                    int IT_Plot_Case;
+                    double perp_dist_TOC = 0;
+                    double Base_Height = 0;
+                    double Base_Dist = 0;
+
+                    IT_Plot_Case = InnerTransitional_Case_of_Plot_COORD_CD(Final_Easting_X, Final_Northing_Y);
+                    if (IT_Plot_Case == 5000 || IT_Plot_Case == 6000 || IT_Plot_Case == 5001 || IT_Plot_Case == 6001 || IT_Plot_Case == 5002 || IT_Plot_Case == 6002)
+                    {
+                        if (IT_Plot_Case == 5000)
+                        {
+                            //Find perpendicular distance from obstacle point to Approach line IJ
+                            //equation TOC_AB
+                            m = Convert.ToDouble(dataGridView2.Rows[49].Cells[1].Value);//slope of Trans_JK
+                            c = Convert.ToDouble(dataGridView2.Rows[49].Cells[2].Value);//intercept of Trans_JK
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                            Base_Height = 0.0;
+                            Base_Dist = 0.0;
+                        }
+                        else if (IT_Plot_Case == 6000)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[50].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[50].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                            Base_Height = 0.0;
+                            Base_Dist = 0.0;
+                        }
+                        else if (IT_Plot_Case == 5001)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[33].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[33].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[49].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[49].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = d1 * slope_BL /100.0;
+                            Base_Dist = Divergence_BL /100.0 * d1;
+                        }
+                        else if (IT_Plot_Case == 5002)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[45].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[45].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[49].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[49].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = d1 * slope_IA / 100.0;
+                            Base_Dist = 0.0;
+                        }
+                        else if (IT_Plot_Case == 6001)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[33].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[33].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[50].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[50].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            Base_Height = d1 * slope_BL / 100.0;
+                            Base_Dist = Divergence_BL / 100.0 * d1;
+                        }
+                        else if (IT_Plot_Case == 6002)
+                        {
+                            //equation Trans_LI
+                            m = Convert.ToDouble(dataGridView2.Rows[45].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[45].Cells[2].Value);//intercept of TOC_GH
+                            double d1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+                            m = Convert.ToDouble(dataGridView2.Rows[50].Cells[1].Value);//slope of TOC_GH
+                            c = Convert.ToDouble(dataGridView2.Rows[50].Cells[2].Value);//intercept of TOC_GH
+                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+
+
+                            Base_Height = d1 * slope_IA / 100.0;
+                            Base_Dist = 0.0;
+                        }
+
+                        SurfaceHeight = Base_Height + slope_IT / 100.0 * (perp_dist_TOC - Base_Dist);
+                        AllowableElev_Obs = RL_RWY + SurfaceHeight;
+                        SurfaceName = "INNER TRANSITIONAL SURFACE CD";
+
+                        //adding data to datagridview4
+                        dataGridView4.Rows.Add();
+                        SurfaceCount++;
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
+                        //dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
+                        dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_RWY + " + " +  Base_Height.ToString() + " + (" + slope_IT + "% * (" + perp_dist_TOC.ToString("0.000") + " - " + Base_Dist.ToString() + ")) = " + AllowableElev_Obs.ToString("0.000");
+
+                    }
+                }

@@ -35,6 +35,7 @@
             this.TxtAbout = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnDocumentation = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,9 +70,9 @@
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExit.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExit.ForeColor = System.Drawing.Color.White;
-            this.BtnExit.Location = new System.Drawing.Point(618, 282);
+            this.BtnExit.Location = new System.Drawing.Point(345, 352);
             this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(327, 42);
+            this.BtnExit.Size = new System.Drawing.Size(248, 42);
             this.BtnExit.TabIndex = 21;
             this.BtnExit.Text = "Exit";
             this.BtnExit.UseVisualStyleBackColor = false;
@@ -111,25 +112,37 @@
             this.BtnDocumentation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDocumentation.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDocumentation.ForeColor = System.Drawing.Color.White;
-            this.BtnDocumentation.Location = new System.Drawing.Point(618, 232);
+            this.BtnDocumentation.Location = new System.Drawing.Point(27, 352);
             this.BtnDocumentation.Name = "BtnDocumentation";
-            this.BtnDocumentation.Size = new System.Drawing.Size(327, 42);
+            this.BtnDocumentation.Size = new System.Drawing.Size(302, 42);
             this.BtnDocumentation.TabIndex = 24;
             this.BtnDocumentation.Text = "Documentation";
             this.BtnDocumentation.UseVisualStyleBackColor = false;
             this.BtnDocumentation.Click += new System.EventHandler(this.BtnDocumentation_Click);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(610, 234);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(355, 163);
+            this.label2.TabIndex = 25;
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // FrmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(977, 344);
+            this.ClientSize = new System.Drawing.Size(977, 406);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnDocumentation);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtAbout);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "FrmAbout";
             this.Text = "About";
             this.Load += new System.EventHandler(this.FrmAbout_Load);
@@ -148,5 +161,6 @@
         private System.Windows.Forms.TextBox TxtAbout;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnDocumentation;
+        private System.Windows.Forms.Label label2;
     }
 }

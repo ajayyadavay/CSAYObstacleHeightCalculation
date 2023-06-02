@@ -32,6 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmObstacleHeightCalculation));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabLoadAllRecord = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.RichTxtFilter = new System.Windows.Forms.RichTextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.BtnGreaterThan = new System.Windows.Forms.Button();
+            this.ComboBoxFilterBy1 = new System.Windows.Forms.ComboBox();
+            this.BtnLessThan = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.BtnEqualTo = new System.Windows.Forms.Button();
+            this.ComboBoxDistinctVal1 = new System.Windows.Forms.ComboBox();
+            this.BtnFilter = new System.Windows.Forms.Button();
+            this.BtnAnd = new System.Windows.Forms.Button();
+            this.BtnClear = new System.Windows.Forms.Button();
+            this.BtnOR = new System.Windows.Forms.Button();
             this.BtnExportRecordToExcel = new System.Windows.Forms.Button();
             this.LblRecordNo = new System.Windows.Forms.Label();
             this.LblLoad = new System.Windows.Forms.Label();
@@ -200,6 +213,7 @@
             this.ColCalcSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCalcSurfaceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCalcSurfaceHeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDatumRL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCalcRL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCalculation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtCalculationDetail = new System.Windows.Forms.TextBox();
@@ -238,41 +252,86 @@
             this.ColSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSurface = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDimension = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.TabMenu = new System.Windows.Forms.TabPage();
-            this.BtnOpenFolder = new System.Windows.Forms.Button();
-            this.BtnAutoProcess = new System.Windows.Forms.Button();
-            this.BtnDisplay = new System.Windows.Forms.Button();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.RadModify_del_display = new System.Windows.Forms.RadioButton();
-            this.RadAdd = new System.Windows.Forms.RadioButton();
-            this.BtnExit = new System.Windows.Forms.Button();
-            this.BtnAbout = new System.Windows.Forms.Button();
-            this.BtnDelete = new System.Windows.Forms.Button();
-            this.BtnModify = new System.Windows.Forms.Button();
-            this.BtnAdd = new System.Windows.Forms.Button();
-            this.BtnCalculate = new System.Windows.Forms.Button();
-            this.BtnExportToPDF = new System.Windows.Forms.Button();
-            this.TabFilter = new System.Windows.Forms.TabPage();
-            this.RichTxtFilter = new System.Windows.Forms.RichTextBox();
-            this.BtnGreaterThan = new System.Windows.Forms.Button();
-            this.BtnLessThan = new System.Windows.Forms.Button();
-            this.BtnEqualTo = new System.Windows.Forms.Button();
-            this.BtnFilter = new System.Windows.Forms.Button();
-            this.BtnClear = new System.Windows.Forms.Button();
-            this.BtnOR = new System.Windows.Forms.Button();
-            this.BtnAnd = new System.Windows.Forms.Button();
-            this.ComboBoxDistinctVal1 = new System.Windows.Forms.ComboBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.ComboBoxFilterBy1 = new System.Windows.Forms.ComboBox();
-            this.label38 = new System.Windows.Forms.Label();
+            this.TabRLRWY = new System.Windows.Forms.TabPage();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.dataGridView8 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.Txt_RL_CD_Th = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.TxtRL_AB_Th = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.TxtRL_IHS = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDistance_KL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCoordTrans = new System.Windows.Forms.TabPage();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.dataGridView11 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.dataGridView10 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtLog = new System.Windows.Forms.TextBox();
             this.TxtRecentFolderLocation = new System.Windows.Forms.TextBox();
             this.PanelBack = new System.Windows.Forms.Panel();
             this.PanelFore = new System.Windows.Forms.Panel();
             this.LblProgress = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToPdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openRecentFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyDisplayDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.autoProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.TabRWYEq.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -302,11 +361,23 @@
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            this.tabControl2.SuspendLayout();
-            this.TabMenu.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.TabFilter.SuspendLayout();
+            this.TabRLRWY.SuspendLayout();
+            this.groupBox20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
+            this.groupBox19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
+            this.groupBox18.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            this.TabCoordTrans.SuspendLayout();
+            this.groupBox23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
+            this.groupBox22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
+            this.groupBox21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
             this.PanelBack.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -321,15 +392,18 @@
             this.tabControl1.Controls.Add(this.TabLetterPreview);
             this.tabControl1.Controls.Add(this.TabCalculationDetail);
             this.tabControl1.Controls.Add(this.TabRWYClassify);
+            this.tabControl1.Controls.Add(this.TabRLRWY);
+            this.tabControl1.Controls.Add(this.TabCoordTrans);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 18);
+            this.tabControl1.Location = new System.Drawing.Point(11, 40);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1346, 470);
+            this.tabControl1.Size = new System.Drawing.Size(1346, 601);
             this.tabControl1.TabIndex = 0;
             // 
             // TabLoadAllRecord
             // 
+            this.TabLoadAllRecord.Controls.Add(this.groupBox10);
             this.TabLoadAllRecord.Controls.Add(this.BtnExportRecordToExcel);
             this.TabLoadAllRecord.Controls.Add(this.LblRecordNo);
             this.TabLoadAllRecord.Controls.Add(this.LblLoad);
@@ -339,10 +413,196 @@
             this.TabLoadAllRecord.Location = new System.Drawing.Point(4, 25);
             this.TabLoadAllRecord.Name = "TabLoadAllRecord";
             this.TabLoadAllRecord.Padding = new System.Windows.Forms.Padding(3);
-            this.TabLoadAllRecord.Size = new System.Drawing.Size(1338, 441);
+            this.TabLoadAllRecord.Size = new System.Drawing.Size(1338, 572);
             this.TabLoadAllRecord.TabIndex = 0;
             this.TabLoadAllRecord.Text = "Load All Record";
             this.TabLoadAllRecord.UseVisualStyleBackColor = true;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.RichTxtFilter);
+            this.groupBox10.Controls.Add(this.label38);
+            this.groupBox10.Controls.Add(this.BtnGreaterThan);
+            this.groupBox10.Controls.Add(this.ComboBoxFilterBy1);
+            this.groupBox10.Controls.Add(this.BtnLessThan);
+            this.groupBox10.Controls.Add(this.label39);
+            this.groupBox10.Controls.Add(this.BtnEqualTo);
+            this.groupBox10.Controls.Add(this.ComboBoxDistinctVal1);
+            this.groupBox10.Controls.Add(this.BtnFilter);
+            this.groupBox10.Controls.Add(this.BtnAnd);
+            this.groupBox10.Controls.Add(this.BtnClear);
+            this.groupBox10.Controls.Add(this.BtnOR);
+            this.groupBox10.Location = new System.Drawing.Point(19, 438);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(1306, 128);
+            this.groupBox10.TabIndex = 29;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Filter";
+            // 
+            // RichTxtFilter
+            // 
+            this.RichTxtFilter.Location = new System.Drawing.Point(10, 78);
+            this.RichTxtFilter.Name = "RichTxtFilter";
+            this.RichTxtFilter.Size = new System.Drawing.Size(1290, 39);
+            this.RichTxtFilter.TabIndex = 23;
+            this.RichTxtFilter.Text = "";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(18, 26);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(176, 20);
+            this.label38.TabIndex = 11;
+            this.label38.Text = "Filter by (Column Name)";
+            // 
+            // BtnGreaterThan
+            // 
+            this.BtnGreaterThan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
+            this.BtnGreaterThan.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnGreaterThan.FlatAppearance.BorderSize = 0;
+            this.BtnGreaterThan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
+            this.BtnGreaterThan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
+            this.BtnGreaterThan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGreaterThan.ForeColor = System.Drawing.Color.White;
+            this.BtnGreaterThan.Location = new System.Drawing.Point(478, 31);
+            this.BtnGreaterThan.Name = "BtnGreaterThan";
+            this.BtnGreaterThan.Size = new System.Drawing.Size(51, 42);
+            this.BtnGreaterThan.TabIndex = 22;
+            this.BtnGreaterThan.Text = ">";
+            this.BtnGreaterThan.UseVisualStyleBackColor = false;
+            this.BtnGreaterThan.Click += new System.EventHandler(this.BtnGreaterThan_Click);
+            // 
+            // ComboBoxFilterBy1
+            // 
+            this.ComboBoxFilterBy1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxFilterBy1.FormattingEnabled = true;
+            this.ComboBoxFilterBy1.Location = new System.Drawing.Point(10, 49);
+            this.ComboBoxFilterBy1.Name = "ComboBoxFilterBy1";
+            this.ComboBoxFilterBy1.Size = new System.Drawing.Size(308, 28);
+            this.ComboBoxFilterBy1.TabIndex = 13;
+            this.ComboBoxFilterBy1.SelectedIndexChanged += new System.EventHandler(this.ComboBoxFilterBy1_SelectedIndexChanged);
+            // 
+            // BtnLessThan
+            // 
+            this.BtnLessThan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
+            this.BtnLessThan.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnLessThan.FlatAppearance.BorderSize = 0;
+            this.BtnLessThan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
+            this.BtnLessThan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
+            this.BtnLessThan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLessThan.ForeColor = System.Drawing.Color.White;
+            this.BtnLessThan.Location = new System.Drawing.Point(406, 31);
+            this.BtnLessThan.Name = "BtnLessThan";
+            this.BtnLessThan.Size = new System.Drawing.Size(51, 42);
+            this.BtnLessThan.TabIndex = 21;
+            this.BtnLessThan.Text = "<";
+            this.BtnLessThan.UseVisualStyleBackColor = false;
+            this.BtnLessThan.Click += new System.EventHandler(this.BtnLessThan_Click);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(553, 16);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(114, 20);
+            this.label39.TabIndex = 14;
+            this.label39.Text = "Distinct Values";
+            // 
+            // BtnEqualTo
+            // 
+            this.BtnEqualTo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
+            this.BtnEqualTo.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnEqualTo.FlatAppearance.BorderSize = 0;
+            this.BtnEqualTo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
+            this.BtnEqualTo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
+            this.BtnEqualTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEqualTo.ForeColor = System.Drawing.Color.White;
+            this.BtnEqualTo.Location = new System.Drawing.Point(332, 32);
+            this.BtnEqualTo.Name = "BtnEqualTo";
+            this.BtnEqualTo.Size = new System.Drawing.Size(54, 42);
+            this.BtnEqualTo.TabIndex = 20;
+            this.BtnEqualTo.Text = "=";
+            this.BtnEqualTo.UseVisualStyleBackColor = false;
+            this.BtnEqualTo.Click += new System.EventHandler(this.BtnEqualTo_Click);
+            // 
+            // ComboBoxDistinctVal1
+            // 
+            this.ComboBoxDistinctVal1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxDistinctVal1.FormattingEnabled = true;
+            this.ComboBoxDistinctVal1.Location = new System.Drawing.Point(553, 48);
+            this.ComboBoxDistinctVal1.Name = "ComboBoxDistinctVal1";
+            this.ComboBoxDistinctVal1.Size = new System.Drawing.Size(308, 28);
+            this.ComboBoxDistinctVal1.TabIndex = 15;
+            this.ComboBoxDistinctVal1.SelectedIndexChanged += new System.EventHandler(this.ComboBoxDistinctVal1_SelectedIndexChanged);
+            // 
+            // BtnFilter
+            // 
+            this.BtnFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
+            this.BtnFilter.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnFilter.FlatAppearance.BorderSize = 0;
+            this.BtnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
+            this.BtnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
+            this.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFilter.ForeColor = System.Drawing.Color.White;
+            this.BtnFilter.Location = new System.Drawing.Point(1198, 30);
+            this.BtnFilter.Name = "BtnFilter";
+            this.BtnFilter.Size = new System.Drawing.Size(100, 42);
+            this.BtnFilter.TabIndex = 19;
+            this.BtnFilter.Text = "FILTER";
+            this.BtnFilter.UseVisualStyleBackColor = false;
+            this.BtnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
+            // 
+            // BtnAnd
+            // 
+            this.BtnAnd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(157)))), ((int)(((byte)(88)))));
+            this.BtnAnd.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnAnd.FlatAppearance.BorderSize = 0;
+            this.BtnAnd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(117)))), ((int)(((byte)(64)))));
+            this.BtnAnd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(191)))), ((int)(((byte)(111)))));
+            this.BtnAnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAnd.ForeColor = System.Drawing.Color.White;
+            this.BtnAnd.Location = new System.Drawing.Point(879, 30);
+            this.BtnAnd.Name = "BtnAnd";
+            this.BtnAnd.Size = new System.Drawing.Size(100, 42);
+            this.BtnAnd.TabIndex = 16;
+            this.BtnAnd.Text = "AND";
+            this.BtnAnd.UseVisualStyleBackColor = false;
+            this.BtnAnd.Click += new System.EventHandler(this.BtnAnd_Click);
+            // 
+            // BtnClear
+            // 
+            this.BtnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
+            this.BtnClear.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnClear.FlatAppearance.BorderSize = 0;
+            this.BtnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
+            this.BtnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
+            this.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClear.ForeColor = System.Drawing.Color.White;
+            this.BtnClear.Location = new System.Drawing.Point(1091, 30);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(100, 42);
+            this.BtnClear.TabIndex = 18;
+            this.BtnClear.Text = "CLEAR";
+            this.BtnClear.UseVisualStyleBackColor = false;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            // 
+            // BtnOR
+            // 
+            this.BtnOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(157)))), ((int)(((byte)(88)))));
+            this.BtnOR.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnOR.FlatAppearance.BorderSize = 0;
+            this.BtnOR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(117)))), ((int)(((byte)(64)))));
+            this.BtnOR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(191)))), ((int)(((byte)(111)))));
+            this.BtnOR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOR.ForeColor = System.Drawing.Color.White;
+            this.BtnOR.Location = new System.Drawing.Point(985, 30);
+            this.BtnOR.Name = "BtnOR";
+            this.BtnOR.Size = new System.Drawing.Size(100, 42);
+            this.BtnOR.TabIndex = 17;
+            this.BtnOR.Text = "OR";
+            this.BtnOR.UseVisualStyleBackColor = false;
+            this.BtnOR.Click += new System.EventHandler(this.BtnOR_Click);
             // 
             // BtnExportRecordToExcel
             // 
@@ -406,7 +666,7 @@
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(19, 15);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(1306, 362);
+            this.dataGridView3.Size = new System.Drawing.Size(1306, 367);
             this.dataGridView3.TabIndex = 0;
             // 
             // TabRWYEq
@@ -426,7 +686,7 @@
             this.TabRWYEq.Location = new System.Drawing.Point(4, 25);
             this.TabRWYEq.Name = "TabRWYEq";
             this.TabRWYEq.Padding = new System.Windows.Forms.Padding(3);
-            this.TabRWYEq.Size = new System.Drawing.Size(1338, 441);
+            this.TabRWYEq.Size = new System.Drawing.Size(1338, 572);
             this.TabRWYEq.TabIndex = 3;
             this.TabRWYEq.Text = "RWY COORD and Eq";
             this.TabRWYEq.UseVisualStyleBackColor = true;
@@ -434,7 +694,7 @@
             // TxtRWYClassify
             // 
             this.TxtRWYClassify.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtRWYClassify.Location = new System.Drawing.Point(585, 287);
+            this.TxtRWYClassify.Location = new System.Drawing.Point(585, 409);
             this.TxtRWYClassify.Name = "TxtRWYClassify";
             this.TxtRWYClassify.Size = new System.Drawing.Size(302, 28);
             this.TxtRWYClassify.TabIndex = 16;
@@ -449,7 +709,7 @@
             this.BtnZoomToFit2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnZoomToFit2.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnZoomToFit2.ForeColor = System.Drawing.Color.White;
-            this.BtnZoomToFit2.Location = new System.Drawing.Point(757, 321);
+            this.BtnZoomToFit2.Location = new System.Drawing.Point(757, 443);
             this.BtnZoomToFit2.Name = "BtnZoomToFit2";
             this.BtnZoomToFit2.Size = new System.Drawing.Size(129, 42);
             this.BtnZoomToFit2.TabIndex = 15;
@@ -462,7 +722,7 @@
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.Red;
-            this.label27.Location = new System.Drawing.Point(585, 385);
+            this.label27.Location = new System.Drawing.Point(585, 507);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(204, 18);
             this.label27.TabIndex = 14;
@@ -472,9 +732,9 @@
             // 
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label26.Location = new System.Drawing.Point(582, 412);
+            this.label26.Location = new System.Drawing.Point(787, 507);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(569, 31);
+            this.label26.Size = new System.Drawing.Size(545, 31);
             this.label26.TabIndex = 13;
             this.label26.Text = "PRECISION APPROACH  CATEGORY II OR III, CODE NO. 4E";
             // 
@@ -524,7 +784,7 @@
             this.BtnLoadRWYCoord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLoadRWYCoord.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLoadRWYCoord.ForeColor = System.Drawing.Color.White;
-            this.BtnLoadRWYCoord.Location = new System.Drawing.Point(585, 321);
+            this.BtnLoadRWYCoord.Location = new System.Drawing.Point(585, 443);
             this.BtnLoadRWYCoord.Name = "BtnLoadRWYCoord";
             this.BtnLoadRWYCoord.Size = new System.Drawing.Size(151, 42);
             this.BtnLoadRWYCoord.TabIndex = 11;
@@ -537,7 +797,7 @@
             this.ComboBoxRWY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxRWY.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxRWY.FormattingEnabled = true;
-            this.ComboBoxRWY.Location = new System.Drawing.Point(585, 253);
+            this.ComboBoxRWY.Location = new System.Drawing.Point(585, 375);
             this.ComboBoxRWY.Name = "ComboBoxRWY";
             this.ComboBoxRWY.Size = new System.Drawing.Size(151, 28);
             this.ComboBoxRWY.TabIndex = 10;
@@ -546,7 +806,7 @@
             // TxtAirportCode
             // 
             this.TxtAirportCode.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAirportCode.Location = new System.Drawing.Point(745, 253);
+            this.TxtAirportCode.Location = new System.Drawing.Point(745, 375);
             this.TxtAirportCode.Name = "TxtAirportCode";
             this.TxtAirportCode.Size = new System.Drawing.Size(142, 28);
             this.TxtAirportCode.TabIndex = 9;
@@ -561,9 +821,9 @@
             this.ColIntercept,
             this.ColDistance});
             this.dataGridView2.ContextMenuStrip = this.contextMenuStrip2;
-            this.dataGridView2.Location = new System.Drawing.Point(22, 247);
+            this.dataGridView2.Location = new System.Drawing.Point(22, 369);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(557, 175);
+            this.dataGridView2.Size = new System.Drawing.Size(557, 186);
             this.dataGridView2.TabIndex = 10;
             // 
             // ColLine
@@ -613,7 +873,7 @@
             this.groupBox6.Controls.Add(this.dataGridView1);
             this.groupBox6.Location = new System.Drawing.Point(22, 17);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(874, 212);
+            this.groupBox6.Size = new System.Drawing.Size(874, 336);
             this.groupBox6.TabIndex = 9;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Runway Coordinates";
@@ -632,7 +892,7 @@
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(6, 27);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(858, 167);
+            this.dataGridView1.Size = new System.Drawing.Size(858, 303);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColPoint
@@ -694,7 +954,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(622, 234);
+            this.label19.Location = new System.Drawing.Point(622, 356);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(89, 16);
             this.label19.TabIndex = 8;
@@ -718,7 +978,7 @@
             this.TabObstacleHeightCalculation.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TabObstacleHeightCalculation.Location = new System.Drawing.Point(4, 25);
             this.TabObstacleHeightCalculation.Name = "TabObstacleHeightCalculation";
-            this.TabObstacleHeightCalculation.Size = new System.Drawing.Size(1338, 441);
+            this.TabObstacleHeightCalculation.Size = new System.Drawing.Size(1338, 572);
             this.TabObstacleHeightCalculation.TabIndex = 2;
             this.TabObstacleHeightCalculation.Text = "RWY to Obstacle Distance Calculation";
             this.TabObstacleHeightCalculation.UseVisualStyleBackColor = true;
@@ -928,7 +1188,7 @@
             this.BtnZoomToFit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
             this.BtnZoomToFit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnZoomToFit.ForeColor = System.Drawing.Color.White;
-            this.BtnZoomToFit.Location = new System.Drawing.Point(975, 388);
+            this.BtnZoomToFit.Location = new System.Drawing.Point(972, 512);
             this.BtnZoomToFit.Name = "BtnZoomToFit";
             this.BtnZoomToFit.Size = new System.Drawing.Size(116, 42);
             this.BtnZoomToFit.TabIndex = 19;
@@ -940,9 +1200,9 @@
             // 
             this.ChkBoxAutoFitMap.Checked = true;
             this.ChkBoxAutoFitMap.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkBoxAutoFitMap.Location = new System.Drawing.Point(1131, 333);
+            this.ChkBoxAutoFitMap.Location = new System.Drawing.Point(988, 392);
             this.ChkBoxAutoFitMap.Name = "ChkBoxAutoFitMap";
-            this.ChkBoxAutoFitMap.Size = new System.Drawing.Size(125, 49);
+            this.ChkBoxAutoFitMap.Size = new System.Drawing.Size(223, 49);
             this.ChkBoxAutoFitMap.TabIndex = 18;
             this.ChkBoxAutoFitMap.Text = "Auto Fit Map While Saving";
             this.ChkBoxAutoFitMap.UseVisualStyleBackColor = true;
@@ -951,7 +1211,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label25.Location = new System.Drawing.Point(1254, 333);
+            this.label25.Location = new System.Drawing.Point(1036, 343);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(72, 20);
             this.label25.TabIndex = 17;
@@ -960,9 +1220,9 @@
             // TxtPlotCase
             // 
             this.TxtPlotCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPlotCase.Location = new System.Drawing.Point(1258, 354);
+            this.TxtPlotCase.Location = new System.Drawing.Point(1131, 337);
             this.TxtPlotCase.Name = "TxtPlotCase";
-            this.TxtPlotCase.Size = new System.Drawing.Size(63, 26);
+            this.TxtPlotCase.Size = new System.Drawing.Size(190, 26);
             this.TxtPlotCase.TabIndex = 16;
             // 
             // label24
@@ -984,7 +1244,7 @@
             this.BtnExportToKML.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
             this.BtnExportToKML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExportToKML.ForeColor = System.Drawing.Color.White;
-            this.BtnExportToKML.Location = new System.Drawing.Point(1209, 388);
+            this.BtnExportToKML.Location = new System.Drawing.Point(1206, 512);
             this.BtnExportToKML.Name = "BtnExportToKML";
             this.BtnExportToKML.Size = new System.Drawing.Size(120, 42);
             this.BtnExportToKML.TabIndex = 15;
@@ -1009,7 +1269,7 @@
             this.BtnSaveMap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
             this.BtnSaveMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSaveMap.ForeColor = System.Drawing.Color.White;
-            this.BtnSaveMap.Location = new System.Drawing.Point(1097, 388);
+            this.BtnSaveMap.Location = new System.Drawing.Point(1094, 512);
             this.BtnSaveMap.Name = "BtnSaveMap";
             this.BtnSaveMap.Size = new System.Drawing.Size(104, 42);
             this.BtnSaveMap.TabIndex = 14;
@@ -1102,9 +1362,9 @@
             this.BtnCreateMap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
             this.BtnCreateMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCreateMap.ForeColor = System.Drawing.Color.White;
-            this.BtnCreateMap.Location = new System.Drawing.Point(975, 340);
+            this.BtnCreateMap.Location = new System.Drawing.Point(972, 464);
             this.BtnCreateMap.Name = "BtnCreateMap";
-            this.BtnCreateMap.Size = new System.Drawing.Size(150, 42);
+            this.BtnCreateMap.Size = new System.Drawing.Size(354, 42);
             this.BtnCreateMap.TabIndex = 12;
             this.BtnCreateMap.Text = "2. Plot Map";
             this.BtnCreateMap.UseVisualStyleBackColor = false;
@@ -1118,7 +1378,7 @@
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.LevelsKeepInMemory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(3, 3);
+            this.gMapControl1.Location = new System.Drawing.Point(0, 0);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 25;
             this.gMapControl1.MinZoom = 2;
@@ -1132,7 +1392,7 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(954, 438);
+            this.gMapControl1.Size = new System.Drawing.Size(957, 572);
             this.gMapControl1.TabIndex = 1;
             this.gMapControl1.Zoom = 2D;
             this.gMapControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gMapControl1_MouseClick);
@@ -1141,7 +1401,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(957, 441);
+            this.splitter1.Size = new System.Drawing.Size(957, 572);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -1156,7 +1416,7 @@
             this.TabGeneral.Location = new System.Drawing.Point(4, 25);
             this.TabGeneral.Name = "TabGeneral";
             this.TabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.TabGeneral.Size = new System.Drawing.Size(1338, 441);
+            this.TabGeneral.Size = new System.Drawing.Size(1338, 572);
             this.TabGeneral.TabIndex = 1;
             this.TabGeneral.Text = "General";
             this.TabGeneral.UseVisualStyleBackColor = true;
@@ -1171,7 +1431,7 @@
             this.groupBox9.Controls.Add(this.label21);
             this.groupBox9.Controls.Add(this.TxtRL_Plinth);
             this.groupBox9.Controls.Add(this.label23);
-            this.groupBox9.Location = new System.Drawing.Point(15, 261);
+            this.groupBox9.Location = new System.Drawing.Point(15, 329);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(1303, 71);
             this.groupBox9.TabIndex = 12;
@@ -1260,7 +1520,7 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.TxtLocalLevel);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(15, 174);
+            this.groupBox3.Location = new System.Drawing.Point(15, 236);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1303, 71);
             this.groupBox3.TabIndex = 6;
@@ -1452,7 +1712,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.TxtFirstName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 97);
+            this.groupBox1.Location = new System.Drawing.Point(15, 128);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1303, 71);
             this.groupBox1.TabIndex = 0;
@@ -1546,7 +1806,7 @@
             this.groupBox7.Controls.Add(this.TxtLong1);
             this.groupBox7.Controls.Add(this.TxtLat1);
             this.groupBox7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.groupBox7.Location = new System.Drawing.Point(15, 338);
+            this.groupBox7.Location = new System.Drawing.Point(15, 424);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(1303, 87);
             this.groupBox7.TabIndex = 10;
@@ -1628,7 +1888,7 @@
             this.TabLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TabLetter.Location = new System.Drawing.Point(4, 25);
             this.TabLetter.Name = "TabLetter";
-            this.TabLetter.Size = new System.Drawing.Size(1338, 441);
+            this.TabLetter.Size = new System.Drawing.Size(1338, 572);
             this.TabLetter.TabIndex = 4;
             this.TabLetter.Text = "Letter and others";
             this.TabLetter.UseVisualStyleBackColor = true;
@@ -2001,10 +2261,11 @@
             this.TabLetterPreview.Controls.Add(this.RichTxtLetters);
             this.TabLetterPreview.Controls.Add(this.TxtDocumentRequired);
             this.TabLetterPreview.Controls.Add(this.label35);
+            this.TabLetterPreview.ForeColor = System.Drawing.Color.Black;
             this.TabLetterPreview.Location = new System.Drawing.Point(4, 25);
             this.TabLetterPreview.Name = "TabLetterPreview";
             this.TabLetterPreview.Padding = new System.Windows.Forms.Padding(3);
-            this.TabLetterPreview.Size = new System.Drawing.Size(1338, 441);
+            this.TabLetterPreview.Size = new System.Drawing.Size(1338, 572);
             this.TabLetterPreview.TabIndex = 5;
             this.TabLetterPreview.Text = "English Letter Preview";
             this.TabLetterPreview.UseVisualStyleBackColor = true;
@@ -2033,7 +2294,7 @@
             this.RichTxtLetters.Location = new System.Drawing.Point(6, 6);
             this.RichTxtLetters.Name = "RichTxtLetters";
             this.RichTxtLetters.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.RichTxtLetters.Size = new System.Drawing.Size(756, 405);
+            this.RichTxtLetters.Size = new System.Drawing.Size(756, 543);
             this.RichTxtLetters.TabIndex = 0;
             this.RichTxtLetters.Text = "";
             // 
@@ -2070,7 +2331,7 @@
             this.TabCalculationDetail.Location = new System.Drawing.Point(4, 25);
             this.TabCalculationDetail.Name = "TabCalculationDetail";
             this.TabCalculationDetail.Padding = new System.Windows.Forms.Padding(3);
-            this.TabCalculationDetail.Size = new System.Drawing.Size(1338, 441);
+            this.TabCalculationDetail.Size = new System.Drawing.Size(1338, 572);
             this.TabCalculationDetail.TabIndex = 6;
             this.TabCalculationDetail.Text = "Calculation Detail";
             this.TabCalculationDetail.UseVisualStyleBackColor = true;
@@ -2088,7 +2349,7 @@
             this.groupBox8.Controls.Add(this.TxtRL_RWY);
             this.groupBox8.Controls.Add(this.label17);
             this.groupBox8.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(19, 309);
+            this.groupBox8.Location = new System.Drawing.Point(7, 421);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(1303, 113);
             this.groupBox8.TabIndex = 11;
@@ -2206,12 +2467,13 @@
             this.ColCalcSN,
             this.ColCalcSurfaceName,
             this.ColCalcSurfaceHeight,
+            this.ColDatumRL,
             this.ColCalcRL,
             this.ColCalculation});
             this.dataGridView4.ContextMenuStrip = this.contextMenuStrip2;
             this.dataGridView4.Location = new System.Drawing.Point(19, 40);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(1289, 198);
+            this.dataGridView4.Size = new System.Drawing.Size(1289, 291);
             this.dataGridView4.TabIndex = 23;
             // 
             // ColCalcSN
@@ -2233,14 +2495,20 @@
             this.ColCalcSurfaceHeight.HeaderText = "Surface Height";
             this.ColCalcSurfaceHeight.Name = "ColCalcSurfaceHeight";
             this.ColCalcSurfaceHeight.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColCalcSurfaceHeight.Width = 150;
+            this.ColCalcSurfaceHeight.Width = 120;
+            // 
+            // ColDatumRL
+            // 
+            this.ColDatumRL.HeaderText = "Datum RL";
+            this.ColDatumRL.Name = "ColDatumRL";
+            this.ColDatumRL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ColCalcRL
             // 
             this.ColCalcRL.HeaderText = "RL of Surface";
             this.ColCalcRL.Name = "ColCalcRL";
             this.ColCalcRL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColCalcRL.Width = 225;
+            this.ColCalcRL.Width = 120;
             // 
             // ColCalculation
             // 
@@ -2252,7 +2520,7 @@
             // TxtCalculationDetail
             // 
             this.TxtCalculationDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCalculationDetail.Location = new System.Drawing.Point(262, 244);
+            this.TxtCalculationDetail.Location = new System.Drawing.Point(250, 356);
             this.TxtCalculationDetail.Multiline = true;
             this.TxtCalculationDetail.Name = "TxtCalculationDetail";
             this.TxtCalculationDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -2264,7 +2532,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.Teal;
-            this.label37.Location = new System.Drawing.Point(29, 263);
+            this.label37.Location = new System.Drawing.Point(17, 375);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(227, 20);
             this.label37.TabIndex = 27;
@@ -2279,7 +2547,7 @@
             this.TabRWYClassify.Controls.Add(this.groupBox12);
             this.TabRWYClassify.Location = new System.Drawing.Point(4, 25);
             this.TabRWYClassify.Name = "TabRWYClassify";
-            this.TabRWYClassify.Size = new System.Drawing.Size(1338, 441);
+            this.TabRWYClassify.Size = new System.Drawing.Size(1338, 572);
             this.TabRWYClassify.TabIndex = 7;
             this.TabRWYClassify.Text = "RWY Classification and other";
             this.TabRWYClassify.UseVisualStyleBackColor = true;
@@ -2298,7 +2566,7 @@
             this.groupBox16.Controls.Add(this.label57);
             this.groupBox16.Controls.Add(this.TxtA);
             this.groupBox16.Controls.Add(this.label58);
-            this.groupBox16.Location = new System.Drawing.Point(745, 282);
+            this.groupBox16.Location = new System.Drawing.Point(745, 365);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Size = new System.Drawing.Size(571, 136);
             this.groupBox16.TabIndex = 16;
@@ -2425,7 +2693,7 @@
             this.groupBox15.Controls.Add(this.label55);
             this.groupBox15.Controls.Add(this.Txt_ARP_Latitude);
             this.groupBox15.Controls.Add(this.label56);
-            this.groupBox15.Location = new System.Drawing.Point(745, 192);
+            this.groupBox15.Location = new System.Drawing.Point(745, 249);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(571, 84);
             this.groupBox15.TabIndex = 15;
@@ -2476,7 +2744,7 @@
             this.groupBox14.Controls.Add(this.label53);
             this.groupBox14.Controls.Add(this.Txt_AB_Clearway);
             this.groupBox14.Controls.Add(this.label54);
-            this.groupBox14.Location = new System.Drawing.Point(745, 102);
+            this.groupBox14.Location = new System.Drawing.Point(745, 127);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(571, 85);
             this.groupBox14.TabIndex = 14;
@@ -2577,7 +2845,7 @@
             this.groupBox12.Controls.Add(this.dataGridView5);
             this.groupBox12.Location = new System.Drawing.Point(19, 15);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(689, 403);
+            this.groupBox12.Size = new System.Drawing.Size(689, 536);
             this.groupBox12.TabIndex = 10;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "OLS dimensions";
@@ -2593,13 +2861,14 @@
             this.dataGridView5.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView5.Location = new System.Drawing.Point(6, 27);
             this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(662, 356);
+            this.dataGridView5.Size = new System.Drawing.Size(662, 494);
             this.dataGridView5.TabIndex = 0;
             // 
             // ColSN
             // 
             this.ColSN.HeaderText = "SN";
             this.ColSN.Name = "ColSN";
+            this.ColSN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ColSurface
             // 
@@ -2615,466 +2884,487 @@
             this.ColDimension.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColDimension.Width = 200;
             // 
-            // tabControl2
+            // TabRLRWY
             // 
-            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl2.Controls.Add(this.TabMenu);
-            this.tabControl2.Controls.Add(this.TabFilter);
-            this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl2.Location = new System.Drawing.Point(12, 532);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1346, 169);
-            this.tabControl2.TabIndex = 1;
+            this.TabRLRWY.Controls.Add(this.groupBox20);
+            this.TabRLRWY.Controls.Add(this.groupBox19);
+            this.TabRLRWY.Controls.Add(this.groupBox18);
+            this.TabRLRWY.Controls.Add(this.groupBox17);
+            this.TabRLRWY.Location = new System.Drawing.Point(4, 25);
+            this.TabRLRWY.Name = "TabRLRWY";
+            this.TabRLRWY.Padding = new System.Windows.Forms.Padding(3);
+            this.TabRLRWY.Size = new System.Drawing.Size(1338, 572);
+            this.TabRLRWY.TabIndex = 8;
+            this.TabRLRWY.Text = "RL of RWY CL";
+            this.TabRLRWY.UseVisualStyleBackColor = true;
             // 
-            // TabMenu
+            // groupBox20
             // 
-            this.TabMenu.Controls.Add(this.BtnOpenFolder);
-            this.TabMenu.Controls.Add(this.BtnAutoProcess);
-            this.TabMenu.Controls.Add(this.BtnDisplay);
-            this.TabMenu.Controls.Add(this.groupBox10);
-            this.TabMenu.Controls.Add(this.BtnExit);
-            this.TabMenu.Controls.Add(this.BtnAbout);
-            this.TabMenu.Controls.Add(this.BtnDelete);
-            this.TabMenu.Controls.Add(this.BtnModify);
-            this.TabMenu.Controls.Add(this.BtnAdd);
-            this.TabMenu.Controls.Add(this.BtnCalculate);
-            this.TabMenu.Controls.Add(this.BtnExportToPDF);
-            this.TabMenu.Location = new System.Drawing.Point(4, 25);
-            this.TabMenu.Name = "TabMenu";
-            this.TabMenu.Padding = new System.Windows.Forms.Padding(3);
-            this.TabMenu.Size = new System.Drawing.Size(1338, 140);
-            this.TabMenu.TabIndex = 0;
-            this.TabMenu.Text = "Menu";
-            this.TabMenu.UseVisualStyleBackColor = true;
+            this.groupBox20.Controls.Add(this.dataGridView8);
+            this.groupBox20.Location = new System.Drawing.Point(675, 330);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(650, 214);
+            this.groupBox20.TabIndex = 14;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "RL of RWY CL from RWY end (AB) to inner edge of ToC";
             // 
-            // BtnOpenFolder
+            // dataGridView8
             // 
-            this.BtnOpenFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnOpenFolder.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnOpenFolder.FlatAppearance.BorderSize = 0;
-            this.BtnOpenFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnOpenFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnOpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnOpenFolder.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOpenFolder.ForeColor = System.Drawing.Color.White;
-            this.BtnOpenFolder.Location = new System.Drawing.Point(893, 78);
-            this.BtnOpenFolder.Name = "BtnOpenFolder";
-            this.BtnOpenFolder.Size = new System.Drawing.Size(210, 42);
-            this.BtnOpenFolder.TabIndex = 26;
-            this.BtnOpenFolder.Text = "Open Recent Folder";
-            this.BtnOpenFolder.UseVisualStyleBackColor = false;
-            this.BtnOpenFolder.Click += new System.EventHandler(this.BtnOpenFolder_Click);
+            this.dataGridView8.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView8.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.dataGridView8.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView8.Location = new System.Drawing.Point(6, 32);
+            this.dataGridView8.Name = "dataGridView8";
+            this.dataGridView8.Size = new System.Drawing.Size(628, 165);
+            this.dataGridView8.TabIndex = 0;
             // 
-            // BtnAutoProcess
+            // dataGridViewTextBoxColumn6
             // 
-            this.BtnAutoProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnAutoProcess.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnAutoProcess.FlatAppearance.BorderSize = 0;
-            this.BtnAutoProcess.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnAutoProcess.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnAutoProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAutoProcess.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAutoProcess.ForeColor = System.Drawing.Color.White;
-            this.BtnAutoProcess.Location = new System.Drawing.Point(893, 29);
-            this.BtnAutoProcess.Name = "BtnAutoProcess";
-            this.BtnAutoProcess.Size = new System.Drawing.Size(210, 42);
-            this.BtnAutoProcess.TabIndex = 25;
-            this.BtnAutoProcess.Text = "Auto Process";
-            this.BtnAutoProcess.UseVisualStyleBackColor = false;
-            this.BtnAutoProcess.Click += new System.EventHandler(this.BtnAutoProcess_Click);
+            this.dataGridViewTextBoxColumn6.HeaderText = "SN";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn6.Width = 80;
             // 
-            // BtnDisplay
+            // dataGridViewTextBoxColumn7
             // 
-            this.BtnDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnDisplay.Enabled = false;
-            this.BtnDisplay.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnDisplay.FlatAppearance.BorderSize = 0;
-            this.BtnDisplay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnDisplay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDisplay.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDisplay.ForeColor = System.Drawing.Color.White;
-            this.BtnDisplay.Location = new System.Drawing.Point(237, 78);
-            this.BtnDisplay.Name = "BtnDisplay";
-            this.BtnDisplay.Size = new System.Drawing.Size(212, 42);
-            this.BtnDisplay.TabIndex = 24;
-            this.BtnDisplay.Text = "Display";
-            this.BtnDisplay.UseVisualStyleBackColor = false;
-            this.BtnDisplay.Click += new System.EventHandler(this.BtnDisplay_Click);
+            this.dataGridViewTextBoxColumn7.HeaderText = "Distance from AB (m)";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn7.Width = 120;
             // 
-            // groupBox10
+            // dataGridViewTextBoxColumn8
             // 
-            this.groupBox10.Controls.Add(this.RadModify_del_display);
-            this.groupBox10.Controls.Add(this.RadAdd);
-            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.ForeColor = System.Drawing.Color.ForestGreen;
-            this.groupBox10.Location = new System.Drawing.Point(1140, 17);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(185, 103);
-            this.groupBox10.TabIndex = 23;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Choose Action";
+            this.dataGridViewTextBoxColumn8.HeaderText = "RL (m)";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn8.Width = 120;
             // 
-            // RadModify_del_display
+            // dataGridViewTextBoxColumn9
             // 
-            this.RadModify_del_display.AutoSize = true;
-            this.RadModify_del_display.ForeColor = System.Drawing.Color.Black;
-            this.RadModify_del_display.Location = new System.Drawing.Point(2, 60);
-            this.RadModify_del_display.Name = "RadModify_del_display";
-            this.RadModify_del_display.Size = new System.Drawing.Size(187, 24);
-            this.RadModify_del_display.TabIndex = 1;
-            this.RadModify_del_display.Text = "Modify, Display, Delete";
-            this.RadModify_del_display.UseVisualStyleBackColor = true;
-            this.RadModify_del_display.CheckedChanged += new System.EventHandler(this.RadModify_del_display_CheckedChanged);
+            this.dataGridViewTextBoxColumn9.HeaderText = "Remark";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn9.Width = 225;
             // 
-            // RadAdd
+            // groupBox19
             // 
-            this.RadAdd.AutoSize = true;
-            this.RadAdd.Checked = true;
-            this.RadAdd.ForeColor = System.Drawing.Color.Black;
-            this.RadAdd.Location = new System.Drawing.Point(5, 30);
-            this.RadAdd.Name = "RadAdd";
-            this.RadAdd.Size = new System.Drawing.Size(56, 24);
-            this.RadAdd.TabIndex = 0;
-            this.RadAdd.TabStop = true;
-            this.RadAdd.Text = "Add";
-            this.RadAdd.UseVisualStyleBackColor = true;
-            this.RadAdd.CheckedChanged += new System.EventHandler(this.RadAdd_CheckedChanged);
+            this.groupBox19.Controls.Add(this.dataGridView7);
+            this.groupBox19.Location = new System.Drawing.Point(675, 112);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(650, 212);
+            this.groupBox19.TabIndex = 13;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "RL of RWY CL from RWY end (CD) to inner edge of ToC";
             // 
-            // BtnExit
+            // dataGridView7
             // 
-            this.BtnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnExit.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnExit.FlatAppearance.BorderSize = 0;
-            this.BtnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExit.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExit.ForeColor = System.Drawing.Color.White;
-            this.BtnExit.Location = new System.Drawing.Point(675, 78);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(212, 42);
-            this.BtnExit.TabIndex = 22;
-            this.BtnExit.Text = "Exit";
-            this.BtnExit.UseVisualStyleBackColor = false;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            this.dataGridView7.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView7.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dataGridView7.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView7.Location = new System.Drawing.Point(6, 32);
+            this.dataGridView7.Name = "dataGridView7";
+            this.dataGridView7.Size = new System.Drawing.Size(628, 174);
+            this.dataGridView7.TabIndex = 0;
             // 
-            // BtnAbout
+            // dataGridViewTextBoxColumn2
             // 
-            this.BtnAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnAbout.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnAbout.FlatAppearance.BorderSize = 0;
-            this.BtnAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAbout.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAbout.ForeColor = System.Drawing.Color.White;
-            this.BtnAbout.Location = new System.Drawing.Point(675, 29);
-            this.BtnAbout.Name = "BtnAbout";
-            this.BtnAbout.Size = new System.Drawing.Size(212, 42);
-            this.BtnAbout.TabIndex = 21;
-            this.BtnAbout.Text = "About";
-            this.BtnAbout.UseVisualStyleBackColor = false;
-            this.BtnAbout.Click += new System.EventHandler(this.BtnAbout_Click);
+            this.dataGridViewTextBoxColumn2.HeaderText = "SN";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn2.Width = 80;
             // 
-            // BtnDelete
+            // dataGridViewTextBoxColumn3
             // 
-            this.BtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnDelete.Enabled = false;
-            this.BtnDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnDelete.FlatAppearance.BorderSize = 0;
-            this.BtnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDelete.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete.ForeColor = System.Drawing.Color.White;
-            this.BtnDelete.Location = new System.Drawing.Point(237, 29);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(212, 42);
-            this.BtnDelete.TabIndex = 20;
-            this.BtnDelete.Text = "Delete";
-            this.BtnDelete.UseVisualStyleBackColor = false;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            this.dataGridViewTextBoxColumn3.HeaderText = "Distance from CD (m)";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn3.Width = 120;
             // 
-            // BtnModify
+            // dataGridViewTextBoxColumn4
             // 
-            this.BtnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnModify.Enabled = false;
-            this.BtnModify.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnModify.FlatAppearance.BorderSize = 0;
-            this.BtnModify.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnModify.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModify.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModify.ForeColor = System.Drawing.Color.White;
-            this.BtnModify.Location = new System.Drawing.Point(19, 77);
-            this.BtnModify.Name = "BtnModify";
-            this.BtnModify.Size = new System.Drawing.Size(212, 42);
-            this.BtnModify.TabIndex = 19;
-            this.BtnModify.Text = "Modify";
-            this.BtnModify.UseVisualStyleBackColor = false;
-            this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
+            this.dataGridViewTextBoxColumn4.HeaderText = "RL (m)";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn4.Width = 120;
             // 
-            // BtnAdd
+            // dataGridViewTextBoxColumn5
             // 
-            this.BtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnAdd.FlatAppearance.BorderSize = 0;
-            this.BtnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdd.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAdd.ForeColor = System.Drawing.Color.White;
-            this.BtnAdd.Location = new System.Drawing.Point(19, 29);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(212, 42);
-            this.BtnAdd.TabIndex = 18;
-            this.BtnAdd.Text = "Add";
-            this.BtnAdd.UseVisualStyleBackColor = false;
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            this.dataGridViewTextBoxColumn5.HeaderText = "Remark";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn5.Width = 225;
             // 
-            // BtnCalculate
+            // groupBox18
             // 
-            this.BtnCalculate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnCalculate.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnCalculate.FlatAppearance.BorderSize = 0;
-            this.BtnCalculate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnCalculate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCalculate.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCalculate.ForeColor = System.Drawing.Color.White;
-            this.BtnCalculate.Location = new System.Drawing.Point(455, 29);
-            this.BtnCalculate.Name = "BtnCalculate";
-            this.BtnCalculate.Size = new System.Drawing.Size(212, 42);
-            this.BtnCalculate.TabIndex = 17;
-            this.BtnCalculate.Text = "5. Calculate";
-            this.BtnCalculate.UseVisualStyleBackColor = false;
-            this.BtnCalculate.Click += new System.EventHandler(this.BtnCalculate_Click);
+            this.groupBox18.Controls.Add(this.Txt_RL_CD_Th);
+            this.groupBox18.Controls.Add(this.label65);
+            this.groupBox18.Controls.Add(this.TxtRL_AB_Th);
+            this.groupBox18.Controls.Add(this.label63);
+            this.groupBox18.Controls.Add(this.TxtRL_IHS);
+            this.groupBox18.Controls.Add(this.label64);
+            this.groupBox18.Location = new System.Drawing.Point(675, 15);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(650, 80);
+            this.groupBox18.TabIndex = 12;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "RL (for IHS, OHS, Co, App, In. App)";
             // 
-            // BtnExportToPDF
+            // Txt_RL_CD_Th
             // 
-            this.BtnExportToPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnExportToPDF.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnExportToPDF.FlatAppearance.BorderSize = 0;
-            this.BtnExportToPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnExportToPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnExportToPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExportToPDF.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExportToPDF.ForeColor = System.Drawing.Color.White;
-            this.BtnExportToPDF.Location = new System.Drawing.Point(455, 78);
-            this.BtnExportToPDF.Name = "BtnExportToPDF";
-            this.BtnExportToPDF.Size = new System.Drawing.Size(212, 42);
-            this.BtnExportToPDF.TabIndex = 16;
-            this.BtnExportToPDF.Text = "6. Export to PDF";
-            this.BtnExportToPDF.UseVisualStyleBackColor = false;
-            this.BtnExportToPDF.Click += new System.EventHandler(this.BtnExportToPDF_Click);
+            this.Txt_RL_CD_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_RL_CD_Th.Location = new System.Drawing.Point(191, 42);
+            this.Txt_RL_CD_Th.Name = "Txt_RL_CD_Th";
+            this.Txt_RL_CD_Th.Size = new System.Drawing.Size(218, 26);
+            this.Txt_RL_CD_Th.TabIndex = 15;
             // 
-            // TabFilter
+            // label65
             // 
-            this.TabFilter.Controls.Add(this.RichTxtFilter);
-            this.TabFilter.Controls.Add(this.BtnGreaterThan);
-            this.TabFilter.Controls.Add(this.BtnLessThan);
-            this.TabFilter.Controls.Add(this.BtnEqualTo);
-            this.TabFilter.Controls.Add(this.BtnFilter);
-            this.TabFilter.Controls.Add(this.BtnClear);
-            this.TabFilter.Controls.Add(this.BtnOR);
-            this.TabFilter.Controls.Add(this.BtnAnd);
-            this.TabFilter.Controls.Add(this.ComboBoxDistinctVal1);
-            this.TabFilter.Controls.Add(this.label39);
-            this.TabFilter.Controls.Add(this.ComboBoxFilterBy1);
-            this.TabFilter.Controls.Add(this.label38);
-            this.TabFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TabFilter.Location = new System.Drawing.Point(4, 25);
-            this.TabFilter.Name = "TabFilter";
-            this.TabFilter.Padding = new System.Windows.Forms.Padding(3);
-            this.TabFilter.Size = new System.Drawing.Size(1338, 140);
-            this.TabFilter.TabIndex = 1;
-            this.TabFilter.Text = "Filter";
-            this.TabFilter.UseVisualStyleBackColor = true;
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label65.Location = new System.Drawing.Point(187, 19);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(222, 20);
+            this.label65.TabIndex = 14;
+            this.label65.Text = "CD Threshold Midpoint RL (m)";
             // 
-            // RichTxtFilter
+            // TxtRL_AB_Th
             // 
-            this.RichTxtFilter.Location = new System.Drawing.Point(15, 75);
-            this.RichTxtFilter.Name = "RichTxtFilter";
-            this.RichTxtFilter.Size = new System.Drawing.Size(1300, 39);
-            this.RichTxtFilter.TabIndex = 23;
-            this.RichTxtFilter.Text = "";
+            this.TxtRL_AB_Th.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtRL_AB_Th.Location = new System.Drawing.Point(426, 42);
+            this.TxtRL_AB_Th.Name = "TxtRL_AB_Th";
+            this.TxtRL_AB_Th.Size = new System.Drawing.Size(208, 26);
+            this.TxtRL_AB_Th.TabIndex = 13;
             // 
-            // BtnGreaterThan
+            // label63
             // 
-            this.BtnGreaterThan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnGreaterThan.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnGreaterThan.FlatAppearance.BorderSize = 0;
-            this.BtnGreaterThan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnGreaterThan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnGreaterThan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGreaterThan.ForeColor = System.Drawing.Color.White;
-            this.BtnGreaterThan.Location = new System.Drawing.Point(483, 16);
-            this.BtnGreaterThan.Name = "BtnGreaterThan";
-            this.BtnGreaterThan.Size = new System.Drawing.Size(51, 42);
-            this.BtnGreaterThan.TabIndex = 22;
-            this.BtnGreaterThan.Text = ">";
-            this.BtnGreaterThan.UseVisualStyleBackColor = false;
-            this.BtnGreaterThan.Click += new System.EventHandler(this.BtnGreaterThan_Click);
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label63.Location = new System.Drawing.Point(422, 19);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(212, 20);
+            this.label63.TabIndex = 12;
+            this.label63.Text = "AB Threshold Mipoint RL (m)";
             // 
-            // BtnLessThan
+            // TxtRL_IHS
             // 
-            this.BtnLessThan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnLessThan.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnLessThan.FlatAppearance.BorderSize = 0;
-            this.BtnLessThan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnLessThan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnLessThan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLessThan.ForeColor = System.Drawing.Color.White;
-            this.BtnLessThan.Location = new System.Drawing.Point(411, 16);
-            this.BtnLessThan.Name = "BtnLessThan";
-            this.BtnLessThan.Size = new System.Drawing.Size(51, 42);
-            this.BtnLessThan.TabIndex = 21;
-            this.BtnLessThan.Text = "<";
-            this.BtnLessThan.UseVisualStyleBackColor = false;
-            this.BtnLessThan.Click += new System.EventHandler(this.BtnLessThan_Click);
+            this.TxtRL_IHS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtRL_IHS.Location = new System.Drawing.Point(21, 42);
+            this.TxtRL_IHS.Name = "TxtRL_IHS";
+            this.TxtRL_IHS.Size = new System.Drawing.Size(160, 26);
+            this.TxtRL_IHS.TabIndex = 11;
             // 
-            // BtnEqualTo
+            // label64
             // 
-            this.BtnEqualTo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnEqualTo.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnEqualTo.FlatAppearance.BorderSize = 0;
-            this.BtnEqualTo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnEqualTo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnEqualTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEqualTo.ForeColor = System.Drawing.Color.White;
-            this.BtnEqualTo.Location = new System.Drawing.Point(337, 16);
-            this.BtnEqualTo.Name = "BtnEqualTo";
-            this.BtnEqualTo.Size = new System.Drawing.Size(54, 42);
-            this.BtnEqualTo.TabIndex = 20;
-            this.BtnEqualTo.Text = "=";
-            this.BtnEqualTo.UseVisualStyleBackColor = false;
-            this.BtnEqualTo.Click += new System.EventHandler(this.BtnEqualTo_Click);
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label64.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label64.Location = new System.Drawing.Point(17, 19);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(164, 20);
+            this.label64.TabIndex = 10;
+            this.label64.Text = "Datum RL for IHS (m)";
             // 
-            // BtnFilter
+            // groupBox17
             // 
-            this.BtnFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
-            this.BtnFilter.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnFilter.FlatAppearance.BorderSize = 0;
-            this.BtnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
-            this.BtnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
-            this.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFilter.ForeColor = System.Drawing.Color.White;
-            this.BtnFilter.Location = new System.Drawing.Point(1217, 15);
-            this.BtnFilter.Name = "BtnFilter";
-            this.BtnFilter.Size = new System.Drawing.Size(100, 42);
-            this.BtnFilter.TabIndex = 19;
-            this.BtnFilter.Text = "FILTER";
-            this.BtnFilter.UseVisualStyleBackColor = false;
-            this.BtnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
+            this.groupBox17.Controls.Add(this.dataGridView6);
+            this.groupBox17.Location = new System.Drawing.Point(19, 15);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(627, 529);
+            this.groupBox17.TabIndex = 11;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Strip KL to Strip JI RWY CL and its extension RL (For Trans, In. Trans, BL)";
             // 
-            // BtnClear
+            // dataGridView6
             // 
-            this.BtnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
-            this.BtnClear.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnClear.FlatAppearance.BorderSize = 0;
-            this.BtnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
-            this.BtnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
-            this.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnClear.ForeColor = System.Drawing.Color.White;
-            this.BtnClear.Location = new System.Drawing.Point(1110, 15);
-            this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(100, 42);
-            this.BtnClear.TabIndex = 18;
-            this.BtnClear.Text = "CLEAR";
-            this.BtnClear.UseVisualStyleBackColor = false;
-            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            this.dataGridView6.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.ColDistance_KL,
+            this.ColRL,
+            this.ColRemark});
+            this.dataGridView6.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView6.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.Size = new System.Drawing.Size(606, 485);
+            this.dataGridView6.TabIndex = 0;
             // 
-            // BtnOR
+            // dataGridViewTextBoxColumn1
             // 
-            this.BtnOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(157)))), ((int)(((byte)(88)))));
-            this.BtnOR.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnOR.FlatAppearance.BorderSize = 0;
-            this.BtnOR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(117)))), ((int)(((byte)(64)))));
-            this.BtnOR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(191)))), ((int)(((byte)(111)))));
-            this.BtnOR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnOR.ForeColor = System.Drawing.Color.White;
-            this.BtnOR.Location = new System.Drawing.Point(1004, 15);
-            this.BtnOR.Name = "BtnOR";
-            this.BtnOR.Size = new System.Drawing.Size(100, 42);
-            this.BtnOR.TabIndex = 17;
-            this.BtnOR.Text = "OR";
-            this.BtnOR.UseVisualStyleBackColor = false;
-            this.BtnOR.Click += new System.EventHandler(this.BtnOR_Click);
+            this.dataGridViewTextBoxColumn1.HeaderText = "SN";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.Width = 80;
             // 
-            // BtnAnd
+            // ColDistance_KL
             // 
-            this.BtnAnd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(157)))), ((int)(((byte)(88)))));
-            this.BtnAnd.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnAnd.FlatAppearance.BorderSize = 0;
-            this.BtnAnd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(117)))), ((int)(((byte)(64)))));
-            this.BtnAnd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(191)))), ((int)(((byte)(111)))));
-            this.BtnAnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAnd.ForeColor = System.Drawing.Color.White;
-            this.BtnAnd.Location = new System.Drawing.Point(898, 15);
-            this.BtnAnd.Name = "BtnAnd";
-            this.BtnAnd.Size = new System.Drawing.Size(100, 42);
-            this.BtnAnd.TabIndex = 16;
-            this.BtnAnd.Text = "AND";
-            this.BtnAnd.UseVisualStyleBackColor = false;
-            this.BtnAnd.Click += new System.EventHandler(this.BtnAnd_Click);
+            this.ColDistance_KL.HeaderText = "Distance from KL (m)";
+            this.ColDistance_KL.Name = "ColDistance_KL";
+            this.ColDistance_KL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColDistance_KL.Width = 120;
             // 
-            // ComboBoxDistinctVal1
+            // ColRL
             // 
-            this.ComboBoxDistinctVal1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBoxDistinctVal1.FormattingEnabled = true;
-            this.ComboBoxDistinctVal1.Location = new System.Drawing.Point(558, 33);
-            this.ComboBoxDistinctVal1.Name = "ComboBoxDistinctVal1";
-            this.ComboBoxDistinctVal1.Size = new System.Drawing.Size(308, 26);
-            this.ComboBoxDistinctVal1.TabIndex = 15;
-            this.ComboBoxDistinctVal1.SelectedIndexChanged += new System.EventHandler(this.ComboBoxDistinctVal1_SelectedIndexChanged);
+            this.ColRL.HeaderText = "RL (m)";
+            this.ColRL.Name = "ColRL";
+            this.ColRL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColRL.Width = 120;
             // 
-            // label39
+            // ColRemark
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(558, 13);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(105, 18);
-            this.label39.TabIndex = 14;
-            this.label39.Text = "Distinct Values";
+            this.ColRemark.HeaderText = "Remark";
+            this.ColRemark.Name = "ColRemark";
+            this.ColRemark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColRemark.Width = 225;
             // 
-            // ComboBoxFilterBy1
+            // TabCoordTrans
             // 
-            this.ComboBoxFilterBy1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBoxFilterBy1.FormattingEnabled = true;
-            this.ComboBoxFilterBy1.Location = new System.Drawing.Point(15, 34);
-            this.ComboBoxFilterBy1.Name = "ComboBoxFilterBy1";
-            this.ComboBoxFilterBy1.Size = new System.Drawing.Size(308, 26);
-            this.ComboBoxFilterBy1.TabIndex = 13;
-            this.ComboBoxFilterBy1.SelectedIndexChanged += new System.EventHandler(this.ComboBoxFilterBy1_SelectedIndexChanged);
+            this.TabCoordTrans.Controls.Add(this.groupBox23);
+            this.TabCoordTrans.Controls.Add(this.groupBox22);
+            this.TabCoordTrans.Controls.Add(this.groupBox21);
+            this.TabCoordTrans.Location = new System.Drawing.Point(4, 25);
+            this.TabCoordTrans.Name = "TabCoordTrans";
+            this.TabCoordTrans.Padding = new System.Windows.Forms.Padding(3);
+            this.TabCoordTrans.Size = new System.Drawing.Size(1338, 572);
+            this.TabCoordTrans.TabIndex = 9;
+            this.TabCoordTrans.Text = "CoordTrans";
+            this.TabCoordTrans.UseVisualStyleBackColor = true;
             // 
-            // label38
+            // groupBox23
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(23, 11);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(169, 18);
-            this.label38.TabIndex = 11;
-            this.label38.Text = "Filter by (Column Name)";
+            this.groupBox23.Controls.Add(this.dataGridView11);
+            this.groupBox23.Location = new System.Drawing.Point(133, 387);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(874, 170);
+            this.groupBox23.TabIndex = 12;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Inner Transistion Surface Coordinates (AB)";
+            // 
+            // dataGridView11
+            // 
+            this.dataGridView11.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27});
+            this.dataGridView11.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView11.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView11.Name = "dataGridView11";
+            this.dataGridView11.Size = new System.Drawing.Size(858, 133);
+            this.dataGridView11.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.HeaderText = "Point";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn22.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn23.Width = 145;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.HeaderText = "Latitude (N in DD)";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn24.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.HeaderText = "Longitude (E in DD)";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn25.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.HeaderText = "Easting (X in m)";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn26.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.HeaderText = "Northing (Y in m)";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn27.Width = 150;
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.dataGridView10);
+            this.groupBox22.Location = new System.Drawing.Point(133, 199);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(874, 182);
+            this.groupBox22.TabIndex = 11;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Inner Transistion Surface Coordinates (CD)";
+            // 
+            // dataGridView10
+            // 
+            this.dataGridView10.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView10.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21});
+            this.dataGridView10.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView10.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView10.Name = "dataGridView10";
+            this.dataGridView10.Size = new System.Drawing.Size(858, 138);
+            this.dataGridView10.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Point";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn16.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn17.Width = 145;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Latitude (N in DD)";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn18.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "Longitude (E in DD)";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn19.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.HeaderText = "Easting (X in m)";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn20.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.HeaderText = "Northing (Y in m)";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn21.Width = 150;
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.dataGridView9);
+            this.groupBox21.Location = new System.Drawing.Point(133, 8);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(874, 185);
+            this.groupBox21.TabIndex = 10;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "Transistion Surface Coordinates";
+            // 
+            // dataGridView9
+            // 
+            this.dataGridView9.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView9.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15});
+            this.dataGridView9.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView9.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView9.Name = "dataGridView9";
+            this.dataGridView9.Size = new System.Drawing.Size(858, 147);
+            this.dataGridView9.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Point";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn10.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn11.Width = 145;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "Latitude (N in DD)";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn12.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "Longitude (E in DD)";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn13.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "Easting (X in m)";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn14.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "Northing (Y in m)";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn15.Width = 150;
             // 
             // TxtLog
             // 
             this.TxtLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtLog.ForeColor = System.Drawing.Color.Blue;
-            this.TxtLog.Location = new System.Drawing.Point(116, 497);
+            this.TxtLog.Location = new System.Drawing.Point(15, 647);
             this.TxtLog.Multiline = true;
             this.TxtLog.Name = "TxtLog";
             this.TxtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtLog.Size = new System.Drawing.Size(450, 45);
+            this.TxtLog.Size = new System.Drawing.Size(551, 45);
             this.TxtLog.TabIndex = 2;
             // 
             // TxtRecentFolderLocation
             // 
             this.TxtRecentFolderLocation.BackColor = System.Drawing.Color.MistyRose;
             this.TxtRecentFolderLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtRecentFolderLocation.Location = new System.Drawing.Point(818, 497);
+            this.TxtRecentFolderLocation.Location = new System.Drawing.Point(818, 647);
             this.TxtRecentFolderLocation.Multiline = true;
             this.TxtRecentFolderLocation.Name = "TxtRecentFolderLocation";
             this.TxtRecentFolderLocation.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -3084,7 +3374,7 @@
             // PanelBack
             // 
             this.PanelBack.Controls.Add(this.PanelFore);
-            this.PanelBack.Location = new System.Drawing.Point(572, 497);
+            this.PanelBack.Location = new System.Drawing.Point(572, 647);
             this.PanelBack.Name = "PanelBack";
             this.PanelBack.Size = new System.Drawing.Size(180, 45);
             this.PanelBack.TabIndex = 12;
@@ -3101,11 +3391,178 @@
             // 
             this.LblProgress.AutoSize = true;
             this.LblProgress.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblProgress.Location = new System.Drawing.Point(758, 511);
+            this.LblProgress.Location = new System.Drawing.Point(758, 661);
             this.LblProgress.Name = "LblProgress";
             this.LblProgress.Size = new System.Drawing.Size(34, 18);
             this.LblProgress.TabIndex = 1;
             this.LblProgress.Text = "0%";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.databaseToolStripMenuItem,
+            this.processingToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 28);
+            this.menuStrip1.TabIndex = 13;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.calculateToolStripMenuItem,
+            this.exportToPdfToolStripMenuItem,
+            this.openRecentFolderToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.aboutToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // calculateToolStripMenuItem
+            // 
+            this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
+            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.calculateToolStripMenuItem.Text = "Calculate";
+            this.calculateToolStripMenuItem.Click += new System.EventHandler(this.calculateToolStripMenuItem_Click);
+            // 
+            // exportToPdfToolStripMenuItem
+            // 
+            this.exportToPdfToolStripMenuItem.Name = "exportToPdfToolStripMenuItem";
+            this.exportToPdfToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.exportToPdfToolStripMenuItem.Text = "Export To Pdf";
+            this.exportToPdfToolStripMenuItem.Click += new System.EventHandler(this.exportToPdfToolStripMenuItem_Click);
+            // 
+            // openRecentFolderToolStripMenuItem
+            // 
+            this.openRecentFolderToolStripMenuItem.Name = "openRecentFolderToolStripMenuItem";
+            this.openRecentFolderToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.openRecentFolderToolStripMenuItem.Text = "Open Recent Folder";
+            this.openRecentFolderToolStripMenuItem.Click += new System.EventHandler(this.openRecentFolderToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(206, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(206, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // databaseToolStripMenuItem
+            // 
+            this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.modifyToolStripMenuItem,
+            this.displayToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.deleteToolStripMenuItem});
+            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.databaseToolStripMenuItem.Text = "Database";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
+            this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // modifyToolStripMenuItem
+            // 
+            this.modifyToolStripMenuItem.Enabled = false;
+            this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
+            this.modifyToolStripMenuItem.Text = "Modify";
+            this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
+            // 
+            // displayToolStripMenuItem
+            // 
+            this.displayToolStripMenuItem.Enabled = false;
+            this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
+            this.displayToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
+            this.displayToolStripMenuItem.Text = "Display";
+            this.displayToolStripMenuItem.Click += new System.EventHandler(this.displayToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(124, 6);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Enabled = false;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // processingToolStripMenuItem
+            // 
+            this.processingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modeToolStripMenuItem,
+            this.toolStripMenuItem4,
+            this.autoProcessToolStripMenuItem});
+            this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
+            this.processingToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.processingToolStripMenuItem.Text = "Processing";
+            // 
+            // modeToolStripMenuItem
+            // 
+            this.modeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem1,
+            this.modifyDisplayDeleteToolStripMenuItem});
+            this.modeToolStripMenuItem.Name = "modeToolStripMenuItem";
+            this.modeToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.modeToolStripMenuItem.Text = "Mode";
+            // 
+            // addToolStripMenuItem1
+            // 
+            this.addToolStripMenuItem1.Checked = true;
+            this.addToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(232, 24);
+            this.addToolStripMenuItem1.Text = "Add";
+            this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
+            // 
+            // modifyDisplayDeleteToolStripMenuItem
+            // 
+            this.modifyDisplayDeleteToolStripMenuItem.Name = "modifyDisplayDeleteToolStripMenuItem";
+            this.modifyDisplayDeleteToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.modifyDisplayDeleteToolStripMenuItem.Text = "Modify, Display, Delete";
+            this.modifyDisplayDeleteToolStripMenuItem.Click += new System.EventHandler(this.modifyDisplayDeleteToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(160, 6);
+            // 
+            // autoProcessToolStripMenuItem
+            // 
+            this.autoProcessToolStripMenuItem.Name = "autoProcessToolStripMenuItem";
+            this.autoProcessToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.autoProcessToolStripMenuItem.Text = "Auto Process";
+            this.autoProcessToolStripMenuItem.Click += new System.EventHandler(this.autoProcessToolStripMenuItem_Click);
             // 
             // FrmObstacleHeightCalculation
             // 
@@ -3114,12 +3571,13 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.LblProgress);
             this.Controls.Add(this.PanelBack);
             this.Controls.Add(this.TxtRecentFolderLocation);
             this.Controls.Add(this.TxtLog);
-            this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.tabControl1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmObstacleHeightCalculation";
             this.Text = "CSAY Obstacle Height Calculation";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -3127,6 +3585,8 @@
             this.tabControl1.ResumeLayout(false);
             this.TabLoadAllRecord.ResumeLayout(false);
             this.TabLoadAllRecord.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.TabRWYEq.ResumeLayout(false);
             this.TabRWYEq.PerformLayout();
@@ -3173,13 +3633,25 @@
             this.groupBox13.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            this.tabControl2.ResumeLayout(false);
-            this.TabMenu.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.TabFilter.ResumeLayout(false);
-            this.TabFilter.PerformLayout();
+            this.TabRLRWY.ResumeLayout(false);
+            this.groupBox20.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
+            this.groupBox19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            this.TabCoordTrans.ResumeLayout(false);
+            this.groupBox23.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
+            this.groupBox22.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
+            this.groupBox21.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
             this.PanelBack.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3191,9 +3663,6 @@
         private System.Windows.Forms.TabPage TabLoadAllRecord;
         private System.Windows.Forms.TabPage TabGeneral;
         private System.Windows.Forms.TabPage TabObstacleHeightCalculation;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage TabMenu;
-        private System.Windows.Forms.TabPage TabFilter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox TxtLastName;
         private System.Windows.Forms.Label label3;
@@ -3263,7 +3732,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox TxtRL_RWY;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button BtnExportToPDF;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.TextBox TxtElev_Permitted;
         private System.Windows.Forms.Label label22;
@@ -3273,7 +3741,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox TxtRL_Plinth;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button BtnCalculate;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox TxtArealDistance;
         private System.Windows.Forms.Label label25;
@@ -3297,23 +3764,12 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox TxtDocumentRequired;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Button BtnDisplay;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.RadioButton RadModify_del_display;
-        private System.Windows.Forms.RadioButton RadAdd;
-        private System.Windows.Forms.Button BtnExit;
-        private System.Windows.Forms.Button BtnAbout;
-        private System.Windows.Forms.Button BtnDelete;
-        private System.Windows.Forms.Button BtnModify;
-        private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.Label lable36;
         private System.Windows.Forms.TextBox TxtOtherInfo;
         private System.Windows.Forms.Label LblLoad;
         private System.Windows.Forms.Button BtnLoadAllRecord;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label LblRecordNo;
-        private System.Windows.Forms.Button BtnAutoProcess;
-        private System.Windows.Forms.Button BtnOpenFolder;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox TxtTitleOfReport;
         private System.Windows.Forms.Label label37;
@@ -3366,11 +3822,6 @@
         private System.Windows.Forms.Label LblProgress;
         private System.Windows.Forms.TabPage TabCalculationDetail;
         private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalcSN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalcSurfaceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalcSurfaceHeight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalcRL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalculation;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Button BtnZoomToFit;
         private System.Windows.Forms.Button BtnZoomToFit2;
@@ -3392,9 +3843,6 @@
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.TextBox TxtRWYClassify;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColSN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColSurface;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDimension;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.TextBox TxtHigher_Disp_Th;
         private System.Windows.Forms.Label label52;
@@ -3428,6 +3876,88 @@
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox TxtFalseEasting_X;
         private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.TabPage TabRLRWY;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColSurface;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDimension;
+        private System.Windows.Forms.GroupBox groupBox18;
+        private System.Windows.Forms.TextBox Txt_RL_CD_Th;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.TextBox TxtRL_AB_Th;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.TextBox TxtRL_IHS;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDistance_KL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColRL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalcSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalcSurfaceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalcSurfaceHeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDatumRL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalcRL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCalculation;
+        private System.Windows.Forms.GroupBox groupBox19;
+        private System.Windows.Forms.DataGridView dataGridView7;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.DataGridView dataGridView8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.TabPage TabCoordTrans;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.DataGridView dataGridView9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.DataGridView dataGridView10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.DataGridView dataGridView11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToPdfToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openRecentFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem processingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoProcessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem modifyDisplayDeleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.GroupBox groupBox10;
     }
 }
 

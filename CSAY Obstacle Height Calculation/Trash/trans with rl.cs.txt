@@ -1,0 +1,114 @@
+public void Calculate_Transitional_Surface_with_different_RL()
+        {
+            //For approach equation i.e. slope and intercepts
+            //Equation of line parallel to AB i.e. IJ and GH
+            double slope1, intercept1, distanceOffset;
+            double Slope_Trans, Len_of_InnerEdge_Ap, Height_Hz;
+            double RL_IHS, RL_KL, RL_JI;
+
+            Slope_Trans = Convert.ToDouble(dataGridView5.Rows[25].Cells[2].Value); //14.3;
+            Len_of_InnerEdge_Ap = Convert.ToDouble(dataGridView5.Rows[12].Cells[2].Value); //280.0;
+            Height_Hz = Convert.ToDouble(dataGridView5.Rows[4].Cells[2].Value); //45.0;
+
+            RL_IHS = Convert.ToDouble(TxtRL_IHS.Text);
+            RL_KL = Convert.ToDouble(dataGridView6.Rows[0].Cells[2].Value);
+            int lastrow = dataGridView6.RowCount - 1;
+
+            RL_JI = Convert.ToDouble(dataGridView6.Rows[lastrow - 1].Cells[2].Value);
+            double d_fst, d_lst;
+            d_fst = 0.5 * Len_of_InnerEdge_Ap + (RL_IHS + Height_Hz - RL_KL) * 100.0 / Slope_Trans;
+            d_lst = 0.5 * Len_of_InnerEdge_Ap + (RL_IHS + Height_Hz - RL_JI) * 100.0 / Slope_Trans;
+
+            //double[] distanceOffset1 = new double[] { d_fst, d_lst };//314.68 = 45/14.3%
+            //45/14.3% = 314.68
+            //double[] intercept_parallel_up = new double[500];
+            //double[] intercept_parallel_dn = new double[500];
+            //double a, b, x1, y1, x2, y2;
+            string[] Trans_Line_Name = new string[2] { "Trans_EH", "Trans_FG" };
+
+            int intrcpt;
+            int a1, a2;
+            slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
+            if (tempslope >= 0)
+            {
+                a1 = -1;
+                a2 = 1;
+            }
+            else
+            {
+                a1 = 1;
+                a2 = -1;
+            }
+            int[] mulfactor = new int[2] { a1, a2 };//1 for T_AD and -1 for T_BC
+            int[] RW_Side = new int[1] { 4 };
+
+            double X_coord, Y_coord;
+
+            intrcpt = 0;
+
+            slope1 = Convert.ToDouble(dataGridView2.Rows[RW_Side[0]].Cells["ColSlope"].Value);//EF
+            intercept1 = Convert.ToDouble(dataGridView2.Rows[RW_Side[0]].Cells["ColIntercept"].Value);//EF
+            double[] latlong1 = new double[2];
+            dataGridView9.Rows.Clear();
+            for (int k = 0; k < lastrow*2; k++)
+            {
+                dataGridView9.Rows.Add();
+            }
+            for (int j = 0; j <= 1; j++)
+            {
+                for (int k = 0; k < lastrow; k++)
+                {
+                    //For Trans up i.e. at K
+                    double RL_CL_RWY = Convert.ToDouble(dataGridView6.Rows[k].Cells[2].Value);
+                    distanceOffset = 0.5 * Len_of_InnerEdge_Ap + (RL_IHS + Height_Hz - RL_CL_RWY) * 100.0 / Slope_Trans;
+                    //distanceOffset = distanceOffset1[k];
+                    double intrc_parallel = Intercept_of_Parallel_line(slope1, intercept1, distanceOffset, mulfactor[j]);
+
+                    double m_kl = Convert.ToDouble(dataGridView2.Rows[9].Cells["ColSlope"].Value);//KL
+                    double c_kl = Convert.ToDouble(dataGridView2.Rows[9].Cells["ColIntercept"].Value);//KL
+                    distanceOffset = Convert.ToDouble(dataGridView6.Rows[k].Cells[1].Value);//chainage
+                                                                                            //distanceOffset = distanceOffset1[k];
+                    double intrc_perp = Intercept_of_Parallel_line(m_kl, c_kl, distanceOffset, -1);
+
+                    X_coord = Find_Intersection_X(slope1, intrc_parallel, m_kl, intrc_perp);
+                    Y_coord = Find_Intersection_Y(slope1, intrc_parallel, m_kl, intrc_perp);
+
+                    latlong1 = Convert_UTM_To_Latitude_Longitude(X_coord, Y_coord);
+
+                    dataGridView9.Rows[intrcpt].Cells[0].Value = distanceOffset.ToString();
+                    dataGridView9.Rows[intrcpt].Cells[1].Value = "Transition_" + j.ToString();
+                    dataGridView9.Rows[intrcpt].Cells[2].Value = latlong1[0].ToString();
+                    dataGridView9.Rows[intrcpt].Cells[3].Value = latlong1[1].ToString();
+                    dataGridView9.Rows[intrcpt].Cells[4].Value = X_coord.ToString();
+                    dataGridView9.Rows[intrcpt].Cells[5].Value = Y_coord.ToString();
+
+                    intrcpt++;
+                }
+            }
+
+            double x1, y1, x2, y2, dist;
+            int DGV2_row_inx = 53;
+            int[] ix = new int[] { 13, 27, 0, 14 };
+            int[] iy = new int[] { 66, 67, 68, 69 };
+            string[] LineName = new string[] { "Trans_EA", "Trans_FB", "Trans_HD", "Trans_GC" };
+            for (int k = 0; k <= 3; k++)
+            {
+                x1 = Convert.ToDouble(dataGridView9.Rows[ix[k]].Cells[4].Value);//E
+                y1 = Convert.ToDouble(dataGridView9.Rows[ix[k]].Cells[5].Value);//E
+                x2 = Convert.ToDouble(dataGridView1.Rows[iy[k]].Cells[4].Value);//A
+                y2 = Convert.ToDouble(dataGridView1.Rows[iy[k]].Cells[5].Value);//A
+
+                slope1 = Find_Slope_Of_Equation(x1, y1, x2, y2);
+                intercept1 = Find_Intercept_Of_Equation(slope1, x1, y1);
+                dist = Find_Distance_bet_two_pointXY(x1, y1, x2, y2);
+
+                dataGridView2.Rows[DGV2_row_inx].Cells[0].Value = LineName[k];
+                dataGridView2.Rows[DGV2_row_inx].Cells[1].Value = slope1.ToString();
+                dataGridView2.Rows[DGV2_row_inx].Cells[2].Value = intercept1.ToString();
+                dataGridView2.Rows[DGV2_row_inx].Cells[3].Value = dist.ToString();
+                DGV2_row_inx++;
+            }
+
+        }

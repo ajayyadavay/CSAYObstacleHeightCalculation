@@ -1,0 +1,5 @@
+Note:RL of extended RWY CL from CD to inner edge of ToC_VNKT
+Distance_From_CD	RL_m	Remark
+0	104.75	CD_Threshold_Midpoint
+30	104.25	
+60	104	KL_Midpoint	

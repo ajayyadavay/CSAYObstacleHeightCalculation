@@ -141,4 +141,9 @@ side and CD will be on RWY10 side with ABCD being anti-
 clockwise direction. Also, AB = CD = small side and 
 BC = AD = longer side.</value>
   </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Note: The creator of this software is not responsible for deviaiton in any result generated using this software and the user are highly recommended to first verfiy the result of your location and then only use.
+
+Any recommendations and comments are welcomed and will be highly appreciated to further improve this software.</value>
+  </data>
 </root>
