@@ -155,6 +155,9 @@
             this.TxtLong1 = new System.Windows.Forms.TextBox();
             this.TxtLat1 = new System.Windows.Forms.TextBox();
             this.TabLetter = new System.Windows.Forms.TabPage();
+            this.label35 = new System.Windows.Forms.Label();
+            this.TxtDocumentRequired = new System.Windows.Forms.TextBox();
+            this.BtnCreateEnglishLetter = new System.Windows.Forms.Button();
             this.BtnCreateNepaliTippani = new System.Windows.Forms.Button();
             this.TxtNepaliLocalLevel = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
@@ -172,7 +175,6 @@
             this.label45 = new System.Windows.Forms.Label();
             this.TxtLetterNepaliDate = new System.Windows.Forms.TextBox();
             this.label44 = new System.Windows.Forms.Label();
-            this.BtnPreviewLetter = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
             this.TxtTitleOfReport = new System.Windows.Forms.TextBox();
             this.lable36 = new System.Windows.Forms.Label();
@@ -181,21 +183,8 @@
             this.label34 = new System.Windows.Forms.Label();
             this.TxtPrevLetterRef = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.TxtLetterSignedby = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.TxtLetterCC = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.TxtLetterSubject = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.TxtLetterTo = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
             this.TxtLetterDate = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.TabLetterPreview = new System.Windows.Forms.TabPage();
-            this.BtnToWord = new System.Windows.Forms.Button();
-            this.RichTxtLetters = new System.Windows.Forms.RichTextBox();
-            this.TxtDocumentRequired = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
             this.TabCalculationDetail = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.TxtCM = new System.Windows.Forms.TextBox();
@@ -303,6 +292,38 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabMultiInput = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblMultiObsFilename = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.BtnMultiObsAutoprocess = new System.Windows.Forms.Button();
+            this.BtnMultiObsExportToExcel = new System.Windows.Forms.Button();
+            this.BtnGenerateMultiObsOutput = new System.Windows.Forms.Button();
+            this.BtnLoadMultiObs = new System.Windows.Forms.Button();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.dataGridView13 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMEastingX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMNorthingY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMOLS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMOLSRL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMObstacleRL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMIntrusionIntoOLS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.dataGridView12 = new System.Windows.Forms.DataGridView();
+            this.ColMSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMObstacleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMObstacleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMLatitudeDD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMLongitudeDD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMRLOfPlinth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMHeightAbovePlinth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtLog = new System.Windows.Forms.TextBox();
             this.TxtRecentFolderLocation = new System.Windows.Forms.TextBox();
             this.PanelBack = new System.Windows.Forms.Panel();
@@ -350,7 +371,6 @@
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.TabLetter.SuspendLayout();
-            this.TabLetterPreview.SuspendLayout();
             this.TabCalculationDetail.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -376,6 +396,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             this.groupBox21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
+            this.TabMultiInput.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView13)).BeginInit();
+            this.groupBox24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
             this.PanelBack.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -389,11 +415,11 @@
             this.tabControl1.Controls.Add(this.TabObstacleHeightCalculation);
             this.tabControl1.Controls.Add(this.TabGeneral);
             this.tabControl1.Controls.Add(this.TabLetter);
-            this.tabControl1.Controls.Add(this.TabLetterPreview);
             this.tabControl1.Controls.Add(this.TabCalculationDetail);
             this.tabControl1.Controls.Add(this.TabRWYClassify);
             this.tabControl1.Controls.Add(this.TabRLRWY);
             this.tabControl1.Controls.Add(this.TabCoordTrans);
+            this.tabControl1.Controls.Add(this.TabMultiInput);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(11, 40);
             this.tabControl1.Name = "tabControl1";
@@ -980,7 +1006,7 @@
             this.TabObstacleHeightCalculation.Name = "TabObstacleHeightCalculation";
             this.TabObstacleHeightCalculation.Size = new System.Drawing.Size(1338, 572);
             this.TabObstacleHeightCalculation.TabIndex = 2;
-            this.TabObstacleHeightCalculation.Text = "RWY to Obstacle Distance Calculation";
+            this.TabObstacleHeightCalculation.Text = "OLS Map";
             this.TabObstacleHeightCalculation.UseVisualStyleBackColor = true;
             // 
             // groupBox11
@@ -1021,8 +1047,6 @@
             // ChkBoxOuterHorizontal
             // 
             this.ChkBoxOuterHorizontal.AutoSize = true;
-            this.ChkBoxOuterHorizontal.Checked = true;
-            this.ChkBoxOuterHorizontal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxOuterHorizontal.ForeColor = System.Drawing.Color.DeepPink;
             this.ChkBoxOuterHorizontal.Location = new System.Drawing.Point(13, 156);
             this.ChkBoxOuterHorizontal.Name = "ChkBoxOuterHorizontal";
@@ -1080,7 +1104,6 @@
             // BtnSelectAll
             // 
             this.BtnSelectAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(157)))), ((int)(((byte)(88)))));
-            this.BtnSelectAll.Enabled = false;
             this.BtnSelectAll.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
             this.BtnSelectAll.FlatAppearance.BorderSize = 0;
             this.BtnSelectAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(117)))), ((int)(((byte)(64)))));
@@ -1849,6 +1872,9 @@
             // 
             // TabLetter
             // 
+            this.TabLetter.Controls.Add(this.label35);
+            this.TabLetter.Controls.Add(this.TxtDocumentRequired);
+            this.TabLetter.Controls.Add(this.BtnCreateEnglishLetter);
             this.TabLetter.Controls.Add(this.BtnCreateNepaliTippani);
             this.TabLetter.Controls.Add(this.TxtNepaliLocalLevel);
             this.TabLetter.Controls.Add(this.label48);
@@ -1866,7 +1892,6 @@
             this.TabLetter.Controls.Add(this.label45);
             this.TabLetter.Controls.Add(this.TxtLetterNepaliDate);
             this.TabLetter.Controls.Add(this.label44);
-            this.TabLetter.Controls.Add(this.BtnPreviewLetter);
             this.TabLetter.Controls.Add(this.label36);
             this.TabLetter.Controls.Add(this.TxtTitleOfReport);
             this.TabLetter.Controls.Add(this.lable36);
@@ -1875,14 +1900,6 @@
             this.TabLetter.Controls.Add(this.label34);
             this.TabLetter.Controls.Add(this.TxtPrevLetterRef);
             this.TabLetter.Controls.Add(this.label33);
-            this.TabLetter.Controls.Add(this.TxtLetterSignedby);
-            this.TabLetter.Controls.Add(this.label32);
-            this.TabLetter.Controls.Add(this.TxtLetterCC);
-            this.TabLetter.Controls.Add(this.label31);
-            this.TabLetter.Controls.Add(this.TxtLetterSubject);
-            this.TabLetter.Controls.Add(this.label30);
-            this.TabLetter.Controls.Add(this.TxtLetterTo);
-            this.TabLetter.Controls.Add(this.label29);
             this.TabLetter.Controls.Add(this.TxtLetterDate);
             this.TabLetter.Controls.Add(this.label28);
             this.TabLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1892,6 +1909,47 @@
             this.TabLetter.TabIndex = 4;
             this.TabLetter.Text = "Letter and others";
             this.TabLetter.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label35.Location = new System.Drawing.Point(584, 24);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(153, 20);
+            this.label35.TabIndex = 55;
+            this.label35.Text = "Documents required";
+            // 
+            // TxtDocumentRequired
+            // 
+            this.TxtDocumentRequired.BackColor = System.Drawing.Color.Thistle;
+            this.TxtDocumentRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDocumentRequired.Location = new System.Drawing.Point(449, 49);
+            this.TxtDocumentRequired.Multiline = true;
+            this.TxtDocumentRequired.Name = "TxtDocumentRequired";
+            this.TxtDocumentRequired.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TxtDocumentRequired.Size = new System.Drawing.Size(441, 279);
+            this.TxtDocumentRequired.TabIndex = 54;
+            this.TxtDocumentRequired.Text = resources.GetString("TxtDocumentRequired.Text");
+            // 
+            // BtnCreateEnglishLetter
+            // 
+            this.BtnCreateEnglishLetter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
+            this.BtnCreateEnglishLetter.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnCreateEnglishLetter.FlatAppearance.BorderSize = 0;
+            this.BtnCreateEnglishLetter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
+            this.BtnCreateEnglishLetter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
+            this.BtnCreateEnglishLetter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCreateEnglishLetter.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCreateEnglishLetter.ForeColor = System.Drawing.Color.White;
+            this.BtnCreateEnglishLetter.Location = new System.Drawing.Point(22, 350);
+            this.BtnCreateEnglishLetter.Name = "BtnCreateEnglishLetter";
+            this.BtnCreateEnglishLetter.Size = new System.Drawing.Size(212, 54);
+            this.BtnCreateEnglishLetter.TabIndex = 53;
+            this.BtnCreateEnglishLetter.Text = "Create English Letter";
+            this.BtnCreateEnglishLetter.UseVisualStyleBackColor = false;
+            this.BtnCreateEnglishLetter.Click += new System.EventHandler(this.BtnCreateEnglishLetter_Click);
             // 
             // BtnCreateNepaliTippani
             // 
@@ -1903,7 +1961,7 @@
             this.BtnCreateNepaliTippani.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCreateNepaliTippani.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCreateNepaliTippani.ForeColor = System.Drawing.Color.White;
-            this.BtnCreateNepaliTippani.Location = new System.Drawing.Point(1044, 350);
+            this.BtnCreateNepaliTippani.Location = new System.Drawing.Point(485, 350);
             this.BtnCreateNepaliTippani.Name = "BtnCreateNepaliTippani";
             this.BtnCreateNepaliTippani.Size = new System.Drawing.Size(222, 54);
             this.BtnCreateNepaliTippani.TabIndex = 52;
@@ -1993,7 +2051,7 @@
             this.BtnCreateNepaliLetter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCreateNepaliLetter.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCreateNepaliLetter.ForeColor = System.Drawing.Color.White;
-            this.BtnCreateNepaliLetter.Location = new System.Drawing.Point(826, 350);
+            this.BtnCreateNepaliLetter.Location = new System.Drawing.Point(253, 350);
             this.BtnCreateNepaliLetter.Name = "BtnCreateNepaliLetter";
             this.BtnCreateNepaliLetter.Size = new System.Drawing.Size(212, 54);
             this.BtnCreateNepaliLetter.TabIndex = 43;
@@ -2066,29 +2124,11 @@
             this.label44.TabIndex = 36;
             this.label44.Text = "निवेदनको मितिः-";
             // 
-            // BtnPreviewLetter
-            // 
-            this.BtnPreviewLetter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnPreviewLetter.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnPreviewLetter.FlatAppearance.BorderSize = 0;
-            this.BtnPreviewLetter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnPreviewLetter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnPreviewLetter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPreviewLetter.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPreviewLetter.ForeColor = System.Drawing.Color.White;
-            this.BtnPreviewLetter.Location = new System.Drawing.Point(606, 350);
-            this.BtnPreviewLetter.Name = "BtnPreviewLetter";
-            this.BtnPreviewLetter.Size = new System.Drawing.Size(212, 54);
-            this.BtnPreviewLetter.TabIndex = 27;
-            this.BtnPreviewLetter.Text = "Preview English Letter";
-            this.BtnPreviewLetter.UseVisualStyleBackColor = false;
-            this.BtnPreviewLetter.Click += new System.EventHandler(this.BtnPreviewLetter_Click);
-            // 
             // label36
             // 
             this.label36.AutoSize = true;
             this.label36.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label36.Location = new System.Drawing.Point(452, 226);
+            this.label36.Location = new System.Drawing.Point(16, 138);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(101, 18);
             this.label36.TabIndex = 25;
@@ -2097,37 +2137,37 @@
             // TxtTitleOfReport
             // 
             this.TxtTitleOfReport.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.TxtTitleOfReport.Location = new System.Drawing.Point(455, 247);
+            this.TxtTitleOfReport.Location = new System.Drawing.Point(19, 159);
             this.TxtTitleOfReport.Multiline = true;
             this.TxtTitleOfReport.Name = "TxtTitleOfReport";
             this.TxtTitleOfReport.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtTitleOfReport.Size = new System.Drawing.Size(432, 85);
+            this.TxtTitleOfReport.Size = new System.Drawing.Size(400, 85);
             this.TxtTitleOfReport.TabIndex = 24;
-            this.TxtTitleOfReport.Text = "Gautam Buddha International Airport Civil Aviation Office\r\nSiddharthanagar Munici" +
-    "pality-4, Rupandehi\r\nCivil Engineering Division\r\nObstacle Height Calculation She" +
-    "et";
+            this.TxtTitleOfReport.Text = "................. International Airport Civil Aviation Office\r\n............ Munic" +
+    "ipality-, ..........\r\nCivil Engineering Division\r\nObstacle Height Calculation Sh" +
+    "eet";
             // 
             // lable36
             // 
             this.lable36.AutoSize = true;
-            this.lable36.Location = new System.Drawing.Point(452, 30);
+            this.lable36.Location = new System.Drawing.Point(19, 263);
             this.lable36.Name = "lable36";
-            this.lable36.Size = new System.Drawing.Size(101, 18);
+            this.lable36.Size = new System.Drawing.Size(61, 18);
             this.lable36.TabIndex = 23;
-            this.lable36.Text = "Any Other info";
+            this.lable36.Text = "Remark";
             // 
             // TxtOtherInfo
             // 
-            this.TxtOtherInfo.Location = new System.Drawing.Point(455, 57);
+            this.TxtOtherInfo.Location = new System.Drawing.Point(86, 260);
             this.TxtOtherInfo.Multiline = true;
             this.TxtOtherInfo.Name = "TxtOtherInfo";
             this.TxtOtherInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtOtherInfo.Size = new System.Drawing.Size(432, 146);
+            this.TxtOtherInfo.Size = new System.Drawing.Size(333, 72);
             this.TxtOtherInfo.TabIndex = 22;
             // 
             // TxtPreviousLetterDate
             // 
-            this.TxtPreviousLetterDate.Location = new System.Drawing.Point(195, 187);
+            this.TxtPreviousLetterDate.Location = new System.Drawing.Point(195, 58);
             this.TxtPreviousLetterDate.Name = "TxtPreviousLetterDate";
             this.TxtPreviousLetterDate.Size = new System.Drawing.Size(224, 24);
             this.TxtPreviousLetterDate.TabIndex = 19;
@@ -2136,7 +2176,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(16, 190);
+            this.label34.Location = new System.Drawing.Point(16, 61);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(152, 18);
             this.label34.TabIndex = 18;
@@ -2144,7 +2184,7 @@
             // 
             // TxtPrevLetterRef
             // 
-            this.TxtPrevLetterRef.Location = new System.Drawing.Point(195, 227);
+            this.TxtPrevLetterRef.Location = new System.Drawing.Point(195, 98);
             this.TxtPrevLetterRef.Name = "TxtPrevLetterRef";
             this.TxtPrevLetterRef.Size = new System.Drawing.Size(224, 24);
             this.TxtPrevLetterRef.TabIndex = 17;
@@ -2153,96 +2193,17 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(16, 230);
+            this.label33.Location = new System.Drawing.Point(16, 101);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(173, 18);
             this.label33.TabIndex = 16;
             this.label33.Text = "Ref. no. of previous letter";
             // 
-            // TxtLetterSignedby
-            // 
-            this.TxtLetterSignedby.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.TxtLetterSignedby.Location = new System.Drawing.Point(86, 263);
-            this.TxtLetterSignedby.Multiline = true;
-            this.TxtLetterSignedby.Name = "TxtLetterSignedby";
-            this.TxtLetterSignedby.Size = new System.Drawing.Size(333, 69);
-            this.TxtLetterSignedby.TabIndex = 15;
-            this.TxtLetterSignedby.Text = ".....................................\r\nEr. \r\nCheif, CED";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label32.Location = new System.Drawing.Point(8, 263);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(72, 18);
-            this.label32.TabIndex = 14;
-            this.label32.Text = "Signed by";
-            // 
-            // TxtLetterCC
-            // 
-            this.TxtLetterCC.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.TxtLetterCC.Location = new System.Drawing.Point(86, 347);
-            this.TxtLetterCC.Multiline = true;
-            this.TxtLetterCC.Name = "TxtLetterCC";
-            this.TxtLetterCC.Size = new System.Drawing.Size(333, 71);
-            this.TxtLetterCC.TabIndex = 13;
-            this.TxtLetterCC.Text = "1. GM, GBIACAO";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label31.Location = new System.Drawing.Point(35, 350);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(34, 18);
-            this.label31.TabIndex = 12;
-            this.label31.Text = "CC:";
-            // 
-            // TxtLetterSubject
-            // 
-            this.TxtLetterSubject.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.TxtLetterSubject.Location = new System.Drawing.Point(86, 146);
-            this.TxtLetterSubject.Name = "TxtLetterSubject";
-            this.TxtLetterSubject.Size = new System.Drawing.Size(333, 24);
-            this.TxtLetterSubject.TabIndex = 11;
-            this.TxtLetterSubject.Text = "Regarding consent for building construction";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label30.Location = new System.Drawing.Point(8, 149);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(61, 18);
-            this.label30.TabIndex = 10;
-            this.label30.Text = "Subject:";
-            // 
-            // TxtLetterTo
-            // 
-            this.TxtLetterTo.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.TxtLetterTo.Location = new System.Drawing.Point(86, 54);
-            this.TxtLetterTo.Multiline = true;
-            this.TxtLetterTo.Name = "TxtLetterTo";
-            this.TxtLetterTo.Size = new System.Drawing.Size(333, 86);
-            this.TxtLetterTo.TabIndex = 9;
-            this.TxtLetterTo.Text = "...............................Municipality\r\nRupandehi, Lumbini Province\r\nNepal";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label29.Location = new System.Drawing.Point(22, 54);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(26, 18);
-            this.label29.TabIndex = 8;
-            this.label29.Text = "To";
-            // 
             // TxtLetterDate
             // 
-            this.TxtLetterDate.Location = new System.Drawing.Point(86, 24);
+            this.TxtLetterDate.Location = new System.Drawing.Point(195, 24);
             this.TxtLetterDate.Name = "TxtLetterDate";
-            this.TxtLetterDate.Size = new System.Drawing.Size(333, 24);
+            this.TxtLetterDate.Size = new System.Drawing.Size(224, 24);
             this.TxtLetterDate.TabIndex = 7;
             this.TxtLetterDate.TextChanged += new System.EventHandler(this.TxtLetterDate_TextChanged);
             // 
@@ -2254,72 +2215,6 @@
             this.label28.Size = new System.Drawing.Size(48, 18);
             this.label28.TabIndex = 6;
             this.label28.Text = "Date:-";
-            // 
-            // TabLetterPreview
-            // 
-            this.TabLetterPreview.Controls.Add(this.BtnToWord);
-            this.TabLetterPreview.Controls.Add(this.RichTxtLetters);
-            this.TabLetterPreview.Controls.Add(this.TxtDocumentRequired);
-            this.TabLetterPreview.Controls.Add(this.label35);
-            this.TabLetterPreview.ForeColor = System.Drawing.Color.Black;
-            this.TabLetterPreview.Location = new System.Drawing.Point(4, 25);
-            this.TabLetterPreview.Name = "TabLetterPreview";
-            this.TabLetterPreview.Padding = new System.Windows.Forms.Padding(3);
-            this.TabLetterPreview.Size = new System.Drawing.Size(1338, 572);
-            this.TabLetterPreview.TabIndex = 5;
-            this.TabLetterPreview.Text = "English Letter Preview";
-            this.TabLetterPreview.UseVisualStyleBackColor = true;
-            // 
-            // BtnToWord
-            // 
-            this.BtnToWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(19)))), ((int)(((byte)(71)))));
-            this.BtnToWord.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
-            this.BtnToWord.FlatAppearance.BorderSize = 0;
-            this.BtnToWord.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.BtnToWord.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(39)))), ((int)(((byte)(96)))));
-            this.BtnToWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnToWord.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnToWord.ForeColor = System.Drawing.Color.White;
-            this.BtnToWord.Location = new System.Drawing.Point(788, 319);
-            this.BtnToWord.Name = "BtnToWord";
-            this.BtnToWord.Size = new System.Drawing.Size(537, 42);
-            this.BtnToWord.TabIndex = 22;
-            this.BtnToWord.Text = "English letter To word File";
-            this.BtnToWord.UseVisualStyleBackColor = false;
-            this.BtnToWord.Click += new System.EventHandler(this.BtnToWord_Click);
-            // 
-            // RichTxtLetters
-            // 
-            this.RichTxtLetters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RichTxtLetters.Location = new System.Drawing.Point(6, 6);
-            this.RichTxtLetters.Name = "RichTxtLetters";
-            this.RichTxtLetters.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.RichTxtLetters.Size = new System.Drawing.Size(756, 543);
-            this.RichTxtLetters.TabIndex = 0;
-            this.RichTxtLetters.Text = "";
-            // 
-            // TxtDocumentRequired
-            // 
-            this.TxtDocumentRequired.BackColor = System.Drawing.Color.Thistle;
-            this.TxtDocumentRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDocumentRequired.Location = new System.Drawing.Point(788, 84);
-            this.TxtDocumentRequired.Multiline = true;
-            this.TxtDocumentRequired.Name = "TxtDocumentRequired";
-            this.TxtDocumentRequired.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TxtDocumentRequired.Size = new System.Drawing.Size(537, 217);
-            this.TxtDocumentRequired.TabIndex = 21;
-            this.TxtDocumentRequired.Text = resources.GetString("TxtDocumentRequired.Text");
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label35.Location = new System.Drawing.Point(975, 52);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(153, 20);
-            this.label35.TabIndex = 20;
-            this.label35.Text = "Documents required";
             // 
             // TabCalculationDetail
             // 
@@ -3349,6 +3244,321 @@
             this.dataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn15.Width = 150;
             // 
+            // TabMultiInput
+            // 
+            this.TabMultiInput.Controls.Add(this.panel1);
+            this.TabMultiInput.Controls.Add(this.lblMultiObsFilename);
+            this.TabMultiInput.Controls.Add(this.label66);
+            this.TabMultiInput.Controls.Add(this.BtnMultiObsAutoprocess);
+            this.TabMultiInput.Controls.Add(this.BtnMultiObsExportToExcel);
+            this.TabMultiInput.Controls.Add(this.BtnGenerateMultiObsOutput);
+            this.TabMultiInput.Controls.Add(this.BtnLoadMultiObs);
+            this.TabMultiInput.Controls.Add(this.groupBox25);
+            this.TabMultiInput.Controls.Add(this.groupBox24);
+            this.TabMultiInput.Location = new System.Drawing.Point(4, 25);
+            this.TabMultiInput.Name = "TabMultiInput";
+            this.TabMultiInput.Padding = new System.Windows.Forms.Padding(3);
+            this.TabMultiInput.Size = new System.Drawing.Size(1338, 572);
+            this.TabMultiInput.TabIndex = 10;
+            this.TabMultiInput.Text = "Multi-Obstacle data";
+            this.TabMultiInput.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(1013, 214);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(300, 45);
+            this.panel1.TabIndex = 20;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(0, 45);
+            this.panel2.TabIndex = 0;
+            // 
+            // lblMultiObsFilename
+            // 
+            this.lblMultiObsFilename.AutoSize = true;
+            this.lblMultiObsFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMultiObsFilename.Location = new System.Drawing.Point(1131, 191);
+            this.lblMultiObsFilename.Name = "lblMultiObsFilename";
+            this.lblMultiObsFilename.Size = new System.Drawing.Size(63, 18);
+            this.lblMultiObsFilename.TabIndex = 18;
+            this.lblMultiObsFilename.Text = "filename";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(1010, 193);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(115, 18);
+            this.label66.TabIndex = 17;
+            this.label66.Text = "Loaded data for:";
+            // 
+            // BtnMultiObsAutoprocess
+            // 
+            this.BtnMultiObsAutoprocess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
+            this.BtnMultiObsAutoprocess.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnMultiObsAutoprocess.FlatAppearance.BorderSize = 0;
+            this.BtnMultiObsAutoprocess.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
+            this.BtnMultiObsAutoprocess.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
+            this.BtnMultiObsAutoprocess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMultiObsAutoprocess.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMultiObsAutoprocess.ForeColor = System.Drawing.Color.White;
+            this.BtnMultiObsAutoprocess.Location = new System.Drawing.Point(1013, 148);
+            this.BtnMultiObsAutoprocess.Name = "BtnMultiObsAutoprocess";
+            this.BtnMultiObsAutoprocess.Size = new System.Drawing.Size(300, 42);
+            this.BtnMultiObsAutoprocess.TabIndex = 16;
+            this.BtnMultiObsAutoprocess.Text = "Auto Process Multi Obstacle";
+            this.BtnMultiObsAutoprocess.UseVisualStyleBackColor = false;
+            this.BtnMultiObsAutoprocess.Click += new System.EventHandler(this.BtnMultiObsAutoprocess_Click);
+            // 
+            // BtnMultiObsExportToExcel
+            // 
+            this.BtnMultiObsExportToExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
+            this.BtnMultiObsExportToExcel.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnMultiObsExportToExcel.FlatAppearance.BorderSize = 0;
+            this.BtnMultiObsExportToExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
+            this.BtnMultiObsExportToExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
+            this.BtnMultiObsExportToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMultiObsExportToExcel.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMultiObsExportToExcel.ForeColor = System.Drawing.Color.White;
+            this.BtnMultiObsExportToExcel.Location = new System.Drawing.Point(1013, 101);
+            this.BtnMultiObsExportToExcel.Name = "BtnMultiObsExportToExcel";
+            this.BtnMultiObsExportToExcel.Size = new System.Drawing.Size(300, 42);
+            this.BtnMultiObsExportToExcel.TabIndex = 15;
+            this.BtnMultiObsExportToExcel.Text = "Export Output table to Excel";
+            this.BtnMultiObsExportToExcel.UseVisualStyleBackColor = false;
+            this.BtnMultiObsExportToExcel.Click += new System.EventHandler(this.BtnMultiObsExportToExcel_Click);
+            // 
+            // BtnGenerateMultiObsOutput
+            // 
+            this.BtnGenerateMultiObsOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
+            this.BtnGenerateMultiObsOutput.FlatAppearance.BorderColor = System.Drawing.Color.DarkViolet;
+            this.BtnGenerateMultiObsOutput.FlatAppearance.BorderSize = 0;
+            this.BtnGenerateMultiObsOutput.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
+            this.BtnGenerateMultiObsOutput.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
+            this.BtnGenerateMultiObsOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGenerateMultiObsOutput.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGenerateMultiObsOutput.ForeColor = System.Drawing.Color.White;
+            this.BtnGenerateMultiObsOutput.Location = new System.Drawing.Point(1013, 54);
+            this.BtnGenerateMultiObsOutput.Name = "BtnGenerateMultiObsOutput";
+            this.BtnGenerateMultiObsOutput.Size = new System.Drawing.Size(300, 42);
+            this.BtnGenerateMultiObsOutput.TabIndex = 14;
+            this.BtnGenerateMultiObsOutput.Text = "Generate Output table";
+            this.BtnGenerateMultiObsOutput.UseVisualStyleBackColor = false;
+            this.BtnGenerateMultiObsOutput.Click += new System.EventHandler(this.BtnGenerateMultiObsOutput_Click);
+            // 
+            // BtnLoadMultiObs
+            // 
+            this.BtnLoadMultiObs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
+            this.BtnLoadMultiObs.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnLoadMultiObs.FlatAppearance.BorderSize = 0;
+            this.BtnLoadMultiObs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(176)))));
+            this.BtnLoadMultiObs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
+            this.BtnLoadMultiObs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLoadMultiObs.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLoadMultiObs.ForeColor = System.Drawing.Color.White;
+            this.BtnLoadMultiObs.Location = new System.Drawing.Point(1013, 9);
+            this.BtnLoadMultiObs.Name = "BtnLoadMultiObs";
+            this.BtnLoadMultiObs.Size = new System.Drawing.Size(300, 42);
+            this.BtnLoadMultiObs.TabIndex = 13;
+            this.BtnLoadMultiObs.Text = "Load data";
+            this.BtnLoadMultiObs.UseVisualStyleBackColor = false;
+            this.BtnLoadMultiObs.Click += new System.EventHandler(this.BtnLoadMultiObs_Click);
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.dataGridView13);
+            this.groupBox25.Location = new System.Drawing.Point(6, 259);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(1326, 307);
+            this.groupBox25.TabIndex = 12;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Multiple Obstalce Output";
+            // 
+            // dataGridView13
+            // 
+            this.dataGridView13.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView13.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView13.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31,
+            this.dataGridViewTextBoxColumn32,
+            this.ColMEastingX,
+            this.ColMNorthingY,
+            this.ColMOLS,
+            this.ColMOLSRL,
+            this.ColMObstacleRL,
+            this.ColMIntrusionIntoOLS,
+            this.ColMRemark});
+            this.dataGridView13.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView13.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView13.Name = "dataGridView13";
+            this.dataGridView13.Size = new System.Drawing.Size(1314, 274);
+            this.dataGridView13.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.HeaderText = "SN";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn28.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.HeaderText = "Obstacle ID";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn29.Width = 145;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.HeaderText = "Obstacle Type";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn30.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.HeaderText = "Latitude (N in DD)";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn31.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.HeaderText = "Longitude (E in DD)";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn32.Width = 150;
+            // 
+            // ColMEastingX
+            // 
+            this.ColMEastingX.HeaderText = "Easting X (m)";
+            this.ColMEastingX.Name = "ColMEastingX";
+            this.ColMEastingX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColMEastingX.Width = 150;
+            // 
+            // ColMNorthingY
+            // 
+            this.ColMNorthingY.HeaderText = "Northing Y (m)";
+            this.ColMNorthingY.Name = "ColMNorthingY";
+            this.ColMNorthingY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColMOLS
+            // 
+            this.ColMOLS.HeaderText = "OLS";
+            this.ColMOLS.Name = "ColMOLS";
+            this.ColMOLS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColMOLS.Width = 250;
+            // 
+            // ColMOLSRL
+            // 
+            this.ColMOLSRL.HeaderText = "OLS RL";
+            this.ColMOLSRL.Name = "ColMOLSRL";
+            this.ColMOLSRL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColMObstacleRL
+            // 
+            this.ColMObstacleRL.HeaderText = "Obstacle RL";
+            this.ColMObstacleRL.Name = "ColMObstacleRL";
+            this.ColMObstacleRL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColMIntrusionIntoOLS
+            // 
+            this.ColMIntrusionIntoOLS.HeaderText = "Intrusion into OLS";
+            this.ColMIntrusionIntoOLS.Name = "ColMIntrusionIntoOLS";
+            this.ColMIntrusionIntoOLS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColMRemark
+            // 
+            this.ColMRemark.HeaderText = "Remark";
+            this.ColMRemark.Name = "ColMRemark";
+            this.ColMRemark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.dataGridView12);
+            this.groupBox24.Location = new System.Drawing.Point(6, 23);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(982, 230);
+            this.groupBox24.TabIndex = 11;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "Multiple Obstacle Input";
+            // 
+            // dataGridView12
+            // 
+            this.dataGridView12.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView12.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColMSN,
+            this.ColMObstacleID,
+            this.ColMObstacleType,
+            this.ColMLatitudeDD,
+            this.ColMLongitudeDD,
+            this.ColMRLOfPlinth,
+            this.ColMHeightAbovePlinth});
+            this.dataGridView12.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView12.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView12.Name = "dataGridView12";
+            this.dataGridView12.Size = new System.Drawing.Size(960, 189);
+            this.dataGridView12.TabIndex = 0;
+            // 
+            // ColMSN
+            // 
+            this.ColMSN.HeaderText = "SN";
+            this.ColMSN.Name = "ColMSN";
+            this.ColMSN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColMSN.Width = 50;
+            // 
+            // ColMObstacleID
+            // 
+            this.ColMObstacleID.HeaderText = "Obstacle ID";
+            this.ColMObstacleID.Name = "ColMObstacleID";
+            this.ColMObstacleID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColMObstacleID.Width = 145;
+            // 
+            // ColMObstacleType
+            // 
+            this.ColMObstacleType.HeaderText = "Obstacle Type";
+            this.ColMObstacleType.Name = "ColMObstacleType";
+            this.ColMObstacleType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColMObstacleType.Width = 150;
+            // 
+            // ColMLatitudeDD
+            // 
+            this.ColMLatitudeDD.HeaderText = "Latitude (N in DD)";
+            this.ColMLatitudeDD.Name = "ColMLatitudeDD";
+            this.ColMLatitudeDD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColMLatitudeDD.Width = 150;
+            // 
+            // ColMLongitudeDD
+            // 
+            this.ColMLongitudeDD.HeaderText = "Longitude (E in DD)";
+            this.ColMLongitudeDD.Name = "ColMLongitudeDD";
+            this.ColMLongitudeDD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColMLongitudeDD.Width = 150;
+            // 
+            // ColMRLOfPlinth
+            // 
+            this.ColMRLOfPlinth.HeaderText = "RL of Plinth";
+            this.ColMRLOfPlinth.Name = "ColMRLOfPlinth";
+            this.ColMRLOfPlinth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColMRLOfPlinth.Width = 150;
+            // 
+            // ColMHeightAbovePlinth
+            // 
+            this.ColMHeightAbovePlinth.HeaderText = "Height Above Plinth";
+            this.ColMHeightAbovePlinth.Name = "ColMHeightAbovePlinth";
+            this.ColMHeightAbovePlinth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // TxtLog
             // 
             this.TxtLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3357,7 +3567,7 @@
             this.TxtLog.Multiline = true;
             this.TxtLog.Name = "TxtLog";
             this.TxtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtLog.Size = new System.Drawing.Size(551, 45);
+            this.TxtLog.Size = new System.Drawing.Size(521, 45);
             this.TxtLog.TabIndex = 2;
             // 
             // TxtRecentFolderLocation
@@ -3374,9 +3584,9 @@
             // PanelBack
             // 
             this.PanelBack.Controls.Add(this.PanelFore);
-            this.PanelBack.Location = new System.Drawing.Point(572, 647);
+            this.PanelBack.Location = new System.Drawing.Point(549, 647);
             this.PanelBack.Name = "PanelBack";
-            this.PanelBack.Size = new System.Drawing.Size(180, 45);
+            this.PanelBack.Size = new System.Drawing.Size(187, 45);
             this.PanelBack.TabIndex = 12;
             // 
             // PanelFore
@@ -3391,7 +3601,7 @@
             // 
             this.LblProgress.AutoSize = true;
             this.LblProgress.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblProgress.Location = new System.Drawing.Point(758, 661);
+            this.LblProgress.Location = new System.Drawing.Point(747, 661);
             this.LblProgress.Name = "LblProgress";
             this.LblProgress.Size = new System.Drawing.Size(34, 18);
             this.LblProgress.TabIndex = 1;
@@ -3615,8 +3825,6 @@
             this.groupBox7.PerformLayout();
             this.TabLetter.ResumeLayout(false);
             this.TabLetter.PerformLayout();
-            this.TabLetterPreview.ResumeLayout(false);
-            this.TabLetterPreview.PerformLayout();
             this.TabCalculationDetail.ResumeLayout(false);
             this.TabCalculationDetail.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -3649,6 +3857,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             this.groupBox21.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
+            this.TabMultiInput.ResumeLayout(false);
+            this.TabMultiInput.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.groupBox25.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView13)).EndInit();
+            this.groupBox24.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).EndInit();
             this.PanelBack.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -3748,22 +3963,12 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TabPage TabLetter;
-        private System.Windows.Forms.TextBox TxtLetterSignedby;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox TxtLetterCC;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox TxtLetterSubject;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox TxtLetterTo;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox TxtLetterDate;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox TxtPreviousLetterDate;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TextBox TxtPrevLetterRef;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox TxtDocumentRequired;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label lable36;
         private System.Windows.Forms.TextBox TxtOtherInfo;
         private System.Windows.Forms.Label LblLoad;
@@ -3792,14 +3997,10 @@
         private System.Windows.Forms.TextBox TxtDesignation;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TextBox TxtRecentFolderLocation;
-        private System.Windows.Forms.TabPage TabLetterPreview;
-        private System.Windows.Forms.RichTextBox RichTxtLetters;
-        private System.Windows.Forms.Button BtnPreviewLetter;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem exportRWYCOORDToExcelToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem exportLineParameterToExcelToolStripMenuItem;
-        private System.Windows.Forms.Button BtnToWord;
         private System.Windows.Forms.TextBox TxtPrevLetterRefNepali;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox TxtPrevLetterNepaliDate;
@@ -3958,6 +4159,41 @@
         private System.Windows.Forms.ToolStripMenuItem modifyDisplayDeleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TabPage TabMultiInput;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.DataGridView dataGridView12;
+        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.DataGridView dataGridView13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMObstacleID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMObstacleType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMLatitudeDD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMLongitudeDD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMRLOfPlinth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMHeightAbovePlinth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMEastingX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMNorthingY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMOLS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMOLSRL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMObstacleRL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMIntrusionIntoOLS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMRemark;
+        private System.Windows.Forms.Button BtnMultiObsExportToExcel;
+        private System.Windows.Forms.Button BtnGenerateMultiObsOutput;
+        private System.Windows.Forms.Button BtnLoadMultiObs;
+        private System.Windows.Forms.Button BtnMultiObsAutoprocess;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label lblMultiObsFilename;
+        private System.Windows.Forms.Button BtnCreateEnglishLetter;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox TxtDocumentRequired;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

@@ -1,0 +1,64 @@
+private void BtnPreviewLetter_Click(object sender, EventArgs e)
+        {
+            //writing letter to rich text box
+            RichTxtLetters.Text = "";
+            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            RichTxtLetters.AppendText("\nDate:- " + TxtLetterDate.Text + Environment.NewLine);
+
+            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            RichTxtLetters.AppendText("\nTo\n" + TxtLetterTo.Text + Environment.NewLine);
+
+            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            RichTxtLetters.AppendText("Subject: " + TxtLetterSubject.Text + Environment.NewLine);
+
+            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            RichTxtLetters.AppendText("\nIn response to the letter received from that office dated "
+                + TxtPreviousLetterDate.Text + " with ref. no. " + TxtPrevLetterRef.Text
+                + "requesting consent for " + TxtObstacleType.Text + " construction, this is to certify that maximum permitted elevation of the proposed "
+                + TxtObstacleType.Text + " located at " + TxtLocalLevel.Text + "-" + TxtWardNo.Text + ", "
+                + TxtTole.Text + " having plot no. " + TxtPlotNo.Text + " of " + TxtDesignation.Text + " "
+                + TxtFirstName.Text + " " + TxtMiddleName.Text + " " + TxtLastName.Text
+                + " determined after studying the received drawings, Google Earth Map other related papers is "
+                + TxtElev_Permitted.Text + " m (AMSL). Furthermore, it is to notify that this permit has been granted in accordance with the standards stipulated in Obstacle Limitation Surface (OLS) under Civil Aviation Requirement-14 (CAR-14) on the condition that there shall be no further increment of "
+                + TxtObstacleType.Text + " height by permanent construction of structure or by installment of pole, tower, antenna or any other equipment without prior approval of this Authority." + Environment.NewLine);
+
+            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            RichTxtLetters.AppendText("\n" + TxtLetterSignedby.Text + Environment.NewLine);
+
+            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            RichTxtLetters.AppendText("\nCC:\n" + TxtLetterCC.Text);
+
+            //Task.Factory.StartNew(() => { Task.Delay(3000).Wait(); }).Wait(); // wait for 5 seconds to give maps plenty of time to render
+
+            TabPage t = tabControl1.TabPages[5];
+            tabControl1.SelectTab(t); //go to tab
+
+            RichTxtLetters.SelectAll();
+            RichTxtLetters.DeselectAll();
+
+        }
+
+
+
+private void BtnToWord_Click(object sender, EventArgs e)
+        {
+            exporttoword.Application wordapp = new exporttoword.Application();
+            wordapp.Visible = true;
+            exporttoword.Document worddoc;
+            object wordobj = System.Reflection.Missing.Value;
+            worddoc = wordapp.Documents.Add(ref wordobj);
+            Clipboard.SetText(RichTxtLetters.Rtf, TextDataFormat.Rtf);
+            wordapp.Selection.TypeText(Clipboard.GetText());
+            Microsoft.Office.Interop.Word.Range rng = wordapp.ActiveDocument.Range(0, 0);
+            rng.Paste();
+            //wordapp.Selection.TypeText(RichTxtLetters.Text);
+            wordapp = null;
+
+            TxtLog.Text = "Letter in English exported.";
+
+            //Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
+
+            //Microsoft.Office.Interop.Word.Range Range;
+
+
+        }

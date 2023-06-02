@@ -1,0 +1,114 @@
+public void Draw_Circle_With_Angle(double r, int segments, string plot_positionAB, string plot_positionCD, Color Circle_Color)
+        {
+            try
+            {
+                //show google map
+                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
+                gMapControl1.DragButton = MouseButtons.Left;
+                gMapControl1.MouseWheelZoomEnabled = true;
+                gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance;
+                //gMapControl1.Zoom = 15;
+
+                //Making red cross invisible
+                gMapControl1.ShowCenter = false;
+
+                //Draw Polygon
+                GMapOverlay polygons = new GMapOverlay("polygons");
+                List<PointLatLng> points = new List<PointLatLng>();
+
+                
+                double[] latlong1 = new double[2];
+
+
+                double a, b;
+                double m, c;
+                //int segments;
+
+                double seg, theta, a1, b1;
+                string plot_position1;
+                
+                double aa, bb, rr, mm, cc;
+                //segments = 6000;
+
+                //Input of center E
+                a = Convert.ToDouble(dataGridView1.Rows[4].Cells["ColEasting"].Value);//E
+                b = Convert.ToDouble(dataGridView1.Rows[4].Cells["ColNorthing"].Value);//E
+                //r = 4000.0;
+
+                m = Convert.ToDouble(dataGridView2.Rows[0].Cells["ColSlope"].Value);//AB
+                c = Convert.ToDouble(dataGridView2.Rows[0].Cells["ColIntercept"].Value);//AB
+
+                //Input for center F
+                aa = Convert.ToDouble(dataGridView1.Rows[5].Cells["ColEasting"].Value);//E
+                bb = Convert.ToDouble(dataGridView1.Rows[5].Cells["ColNorthing"].Value);//E
+                rr = r;
+
+                mm = Convert.ToDouble(dataGridView2.Rows[2].Cells["ColSlope"].Value);//CD
+                cc = Convert.ToDouble(dataGridView2.Rows[2].Cells["ColIntercept"].Value);//CD
+
+
+                seg = (Math.PI ) / segments;//Math.PI * 2 / segments;
+                //plot_position = "Below";
+                for (int i = 0; i < segments; i++)
+                {
+                    theta = seg * i;
+                    a1 = a + Math.Cos(theta) * r;
+                    b1 = b + Math.Sin(theta) * r;
+                    plot_position1 = Find_Plotting_Position(a1, b1, m, c);
+                    //plot_position2 = Find_Plotting_Position(aa, bb, mm, cc);
+                    if(plot_position1 == plot_positionAB || plot_position1 == "On")
+                    {
+                        latlong1 = Convert_UTM_To_Latitude_Longitude(a1, b1);
+                        points.Add(new PointLatLng(latlong1[0], latlong1[1]));
+                    }
+                }
+
+                //plot_position = "Above";
+                seg = (Math.PI /2)*3 / segments;//Math.PI * 2 / segments;
+                for (int i = 0; i < segments; i++)
+                {
+                    theta =  seg * i;
+                    a1 = aa + Math.Cos(theta) * r;
+                    b1 = bb + Math.Sin(theta) * r;
+                    plot_position1 = Find_Plotting_Position(a1, b1, mm, cc);
+                    //plot_position2 = Find_Plotting_Position(aa, bb, mm, cc);
+                    if (plot_position1 == plot_positionCD || plot_position1 == "On")
+                    {
+                        latlong1 = Convert_UTM_To_Latitude_Longitude(a1, b1);
+                        points.Add(new PointLatLng(latlong1[0], latlong1[1]));
+                    }
+                }
+
+                //plot_position = "Below";
+                seg = (Math.PI) / segments;//Math.PI * 2 / segments;
+                for (int i = 0; i < segments; i++)
+                {
+                    theta = Math.PI +  seg * i;
+                    a1 = a + Math.Cos(theta) * r;
+                    b1 = b + Math.Sin(theta) * r;
+                    plot_position1 = Find_Plotting_Position(a1, b1, m, c);
+                    //plot_position2 = Find_Plotting_Position(aa, bb, mm, cc);
+                    if (plot_position1 == plot_positionAB || plot_position1 == "On")
+                    {
+                        latlong1 = Convert_UTM_To_Latitude_Longitude(a1, b1);
+                        points.Add(new PointLatLng(latlong1[0], latlong1[1]));
+                    }
+                }
+
+
+                GMap.NET.WindowsForms.GMapPolygon polygon = new GMap.NET.WindowsForms.GMapPolygon(points, "CirclePoly");
+                polygons.Polygons.Add(polygon);
+                gMapControl1.Overlays.Add(polygons);
+                polygon.Fill = new SolidBrush(Color.FromArgb(50, Circle_Color));
+                polygon.Stroke = new Pen(Circle_Color, 0);
+
+                gMapControl1.Invalidate();
+                gMapControl1.Update();
+                gMapControl1.Refresh();
+
+            }
+            catch
+            {
+
+            }
+        }

@@ -45,6 +45,7 @@ using Org.BouncyCastle.Utilities;
 using Org.BouncyCastle.Asn1.Mozilla;
 using System.Data.Entity.Core.Metadata.Edm;
 using Microsoft.Office.Core;
+using Org.BouncyCastle.Crypto;
 
 namespace CSAY_Obstacle_Height_Calculation
 {
@@ -928,42 +929,6 @@ namespace CSAY_Obstacle_Height_Calculation
                 ComboBoxDesignation.Items.Add(line);
             }
 
-            //loading text for letter textboxes ------> To
-            string[] ToList = System.IO.File.ReadAllLines(@".\InputFolder\TextBox\To.txt");
-            TxtLetterTo.Text = "";
-            foreach (var line in ToList)
-            {
-                TxtLetterTo.Text += line;
-                TxtLetterTo.Text += Environment.NewLine;
-            }
-
-            //loading text for letter textboxes ------> Subject
-            string[] SubjectList = System.IO.File.ReadAllLines(@".\InputFolder\TextBox\Subject.txt");
-            TxtLetterSubject.Text = "";
-            foreach (var line in SubjectList)
-            {
-                TxtLetterSubject.Text += line;
-                TxtLetterSubject.Text += Environment.NewLine;
-            }
-
-            //loading text for letter textboxes ------> SignedBy
-            string[] SignedByList = System.IO.File.ReadAllLines(@".\InputFolder\TextBox\SignedBy.txt");
-            TxtLetterSignedby.Text = "";
-            foreach (var line in SignedByList)
-            {
-                TxtLetterSignedby.Text += line;
-                TxtLetterSignedby.Text += Environment.NewLine;
-            }
-
-            //loading text for letter textboxes ------> CC
-            string[] CCList = System.IO.File.ReadAllLines(@".\InputFolder\TextBox\CC.txt");
-            TxtLetterCC.Text = "";
-            foreach (var line in CCList)
-            {
-                TxtLetterCC.Text += line;
-                TxtLetterCC.Text += Environment.NewLine;
-            }
-
             //loading text for letter textboxes ------> Title of report
             string[] TitleList = System.IO.File.ReadAllLines(@".\InputFolder\TextBox\TitleOfReport.txt");
             TxtTitleOfReport.Text = "";
@@ -1125,12 +1090,12 @@ namespace CSAY_Obstacle_Height_Calculation
             string PermittedElevation = TxtElev_Permitted.Text;
 
             string DateOfLetter = TxtLetterDate.Text;
-            string LetterTo = TxtLetterTo.Text;
+            //string LetterTo = TxtLetterTo.Text;
 
             string RefNoPreviousLetter = TxtPrevLetterRef.Text;
             string DateOfPreviousLetter = TxtPreviousLetterDate.Text;
-            string SignedBy = TxtLetterSignedby.Text;
-            string CC = TxtLetterCC.Text;
+            //string SignedBy = TxtLetterSignedby.Text;
+            //string CC = TxtLetterCC.Text;
             string AirportCode = TxtAirportCode.Text;
 
             string ArealDistance = TxtArealDistance.Text;
@@ -1170,14 +1135,14 @@ namespace CSAY_Obstacle_Height_Calculation
                     ConnectDb.Open();
                     string query = "INSERT INTO TableObstacleHeightRecord(FiscalYear,ObstacleType,PlotNo,FirstName,MiddleName," +
                         "LastName,LocalLevel,WardNo,Tole,SurfaceName, SurfaceHeightAboveRWY,ElevationAllowable,RLOfPlinth," +
-                        "HeightAbovePlinth,ElevationOfObstacle, PermittedElevation,DateOfLetter,LetterTo," +
-                        "RefNoPreviousLetter,DateOfPreviousLetter, SignedBy,CC,AirportCode," +
+                        "HeightAbovePlinth,ElevationOfObstacle, PermittedElevation,DateOfLetter," +
+                        "RefNoPreviousLetter,DateOfPreviousLetter,AirportCode," +
                         "ArealDistance,PlotCaseNo, OtherInfo,lat1RWY,Long1RWY,Lat2Obstacle,Long2Obstacle,TitleOfReport,CalculationDetail, Designation) " +
                         "VALUES('" + FiscalYear + "','" + ObstacleType + "','" + PlotNo + "','" + FirstName + "'," +
                         "'" + MiddleName + "','" + LastName + "','" + LocalLevel + "','" + WardNo + "'" +
                         ",'" + Tole + "','" + SurfaceName + "','" + SurfaceHeightAboveRWY + "','" + ElevationAllowable + "','" + RLOfPlinth + "'" +
-                        ",'" + HeightAbovePlinth + "','" + ElevationOfObstacle + "','" + PermittedElevation + "','" + DateOfLetter + "','" + LetterTo + "'" +
-                        ",'" + RefNoPreviousLetter + "','" + DateOfPreviousLetter + "','" + SignedBy + "','" + CC + "','" + AirportCode + "'" +
+                        ",'" + HeightAbovePlinth + "','" + ElevationOfObstacle + "','" + PermittedElevation + "','" + DateOfLetter + "'" +
+                        ",'" + RefNoPreviousLetter + "','" + DateOfPreviousLetter + "','" + AirportCode + "'" +
                         ",'" + ArealDistance + "','" + PlotCaseNo + "','" + OtherInfo + "','" + lat1RWY + "', '" + Long1RWY + "', '" + Lat2Obstacle + "', '" + Long2Obstacle + "', '" + TitleOfReport + "', '" + CalculationDetail + "', '" + Designation + "' )";// one data format  = '" + Height + "'
 
                     SQLiteCommand Cmd = new SQLiteCommand(query, ConnectDb);
@@ -1281,27 +1246,27 @@ namespace CSAY_Obstacle_Height_Calculation
                     TxtElev_Permitted.Text = row[16].ToString();
 
                     TxtLetterDate.Text = row[17].ToString();
-                    TxtLetterTo.Text = row[18].ToString();
-                    TxtPrevLetterRef.Text = row[19].ToString();
-                    TxtPreviousLetterDate.Text = row[20].ToString();
-                    TxtLetterSignedby.Text = row[21].ToString();
-                    TxtLetterCC.Text = row[22].ToString();
+                    //TxtLetterTo.Text = row[18].ToString();
+                    TxtPrevLetterRef.Text = row[18].ToString();
+                    TxtPreviousLetterDate.Text = row[19].ToString();
+                    //TxtLetterSignedby.Text = row[21].ToString();
+                    //TxtLetterCC.Text = row[22].ToString();
 
-                    TxtAirportCode.Text = row[23].ToString();
+                    TxtAirportCode.Text = row[20].ToString();
 
-                    TxtArealDistance.Text = row[24].ToString();
-                    TxtPlotCase.Text = row[25].ToString();
+                    TxtArealDistance.Text = row[21].ToString();
+                    TxtPlotCase.Text = row[22].ToString();
 
-                    TxtOtherInfo.Text = row[26].ToString();
+                    TxtOtherInfo.Text = row[23].ToString();
 
-                    TxtLat1.Text = row[27].ToString();
-                    TxtLong1.Text = row[28].ToString();
-                    TxtLat2.Text = row[29].ToString();
-                    TxtLong2.Text = row[30].ToString();
+                    TxtLat1.Text = row[24].ToString();
+                    TxtLong1.Text = row[25].ToString();
+                    TxtLat2.Text = row[26].ToString();
+                    TxtLong2.Text = row[27].ToString();
 
-                    TxtTitleOfReport.Text = row[31].ToString();
-                    TxtCalculationDetail.Text = row[32].ToString();
-                    TxtDesignation.Text = row[33].ToString();
+                    TxtTitleOfReport.Text = row[28].ToString();
+                    TxtCalculationDetail.Text = row[29].ToString();
+                    TxtDesignation.Text = row[30].ToString();
 
                     double Actual_Elev_obs, AllowableElev_Obs;
                     Actual_Elev_obs = Convert.ToDouble(TxtElev_Obstacle.Text);
@@ -1357,12 +1322,12 @@ namespace CSAY_Obstacle_Height_Calculation
             string PermittedElevation = TxtElev_Permitted.Text;
 
             string DateOfLetter = TxtLetterDate.Text;
-            string LetterTo = TxtLetterTo.Text;
+            //string LetterTo = TxtLetterTo.Text;
 
             string RefNoPreviousLetter = TxtPrevLetterRef.Text;
             string DateOfPreviousLetter = TxtPreviousLetterDate.Text;
-            string SignedBy = TxtLetterSignedby.Text;
-            string CC = TxtLetterCC.Text;
+            //string SignedBy = TxtLetterSignedby.Text;
+            //string CC = TxtLetterCC.Text;
             string AirportCode = TxtAirportCode.Text;
 
             string ArealDistance = TxtArealDistance.Text;
@@ -1390,14 +1355,14 @@ namespace CSAY_Obstacle_Height_Calculation
                 ConnectDb.Open();
                 string query = "REPLACE INTO TableObstacleHeightRecord(ID,FiscalYear,ObstacleType,PlotNo,FirstName,MiddleName," +
                     "LastName,LocalLevel,WardNo,Tole,SurfaceName, SurfaceHeightAboveRWY,ElevationAllowable,RLOfPlinth," +
-                    "HeightAbovePlinth,ElevationOfObstacle, PermittedElevation,DateOfLetter,LetterTo," +
-                    "RefNoPreviousLetter,DateOfPreviousLetter, SignedBy,CC,AirportCode," +
+                    "HeightAbovePlinth,ElevationOfObstacle, PermittedElevation,DateOfLetter," +
+                    "RefNoPreviousLetter,DateOfPreviousLetter,AirportCode," +
                     "ArealDistance,PlotCaseNo, OtherInfo,lat1RWY,Long1RWY,Lat2Obstacle,Long2Obstacle,TitleOfReport,CalculationDetail, Designation) " +
                     "VALUES('" + ID + "', '" + FiscalYear + "','" + ObstacleType + "','" + PlotNo + "','" + FirstName + "'," +
                     "'" + MiddleName + "','" + LastName + "','" + LocalLevel + "','" + WardNo + "'" +
                     ",'" + Tole + "','" + SurfaceName + "','" + SurfaceHeightAboveRWY + "','" + ElevationAllowable + "','" + RLOfPlinth + "'" +
-                    ",'" + HeightAbovePlinth + "','" + ElevationOfObstacle + "','" + PermittedElevation + "','" + DateOfLetter + "','" + LetterTo + "'" +
-                    ",'" + RefNoPreviousLetter + "','" + DateOfPreviousLetter + "','" + SignedBy + "','" + CC + "','" + AirportCode + "'" +
+                    ",'" + HeightAbovePlinth + "','" + ElevationOfObstacle + "','" + PermittedElevation + "','" + DateOfLetter + "'" +
+                    ",'" + RefNoPreviousLetter + "','" + DateOfPreviousLetter + "','" + AirportCode + "'" +
                     ",'" + ArealDistance + "','" + PlotCaseNo + "','" + OtherInfo + "','" + lat1RWY + "', '" + Long1RWY + "', '" + Lat2Obstacle + "', '" + Long2Obstacle + "', '" + TitleOfReport + "', '" + CalculationDetail + "', '" + Designation + "')";// one data format  = '" + Height + "'
 
                 SQLiteCommand Cmd = new SQLiteCommand(query, ConnectDb);
@@ -1540,6 +1505,7 @@ namespace CSAY_Obstacle_Height_Calculation
             LblProgress.Text = progress.ToString() + "%";
         }
 
+
         public double FindMaxVal_From_DGV(DataGridView Dgv, int col)
         {
             double maxval, thisval;
@@ -1571,6 +1537,8 @@ namespace CSAY_Obstacle_Height_Calculation
             try
             {
                 dataGridView4.Rows.Clear();
+                TxtCalculationDetail.Text = "";
+
                 areal_distance = Convert.ToDouble(TxtArealDistance.Text);
                 plotCase = Convert.ToInt32(TxtPlotCase.Text);
 
@@ -1601,7 +1569,7 @@ namespace CSAY_Obstacle_Height_Calculation
                 IsPointInTheStrip = Strip_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
                 if (plotCase >= 1 && plotCase <= 8)
                 {
-                    if (areal_distance <= Radius_Hz && IsPointInTheStrip == false)//(areal_distance <= 4000 && areal_distance > (117.5+314.68))
+                    if (areal_distance <= Radius_Hz && IsPointInTheStrip == false && ChkBoxHorizontal.Checked == true)//(areal_distance <= 4000 && areal_distance > (117.5+314.68))
                     {
                         RL_datum_Surface = Convert.ToDouble(TxtRL_IHS.Text);
                         SurfaceName = "INNER HORIZONTAL";
@@ -1619,7 +1587,7 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + " + SurfaceHeight.ToString("0.000") + " = " + AllowableElev_Obs.ToString("0.000");
 
                     }
-                    else if (areal_distance > Radius_Hz && areal_distance <= (Radius_Hz + Height_Co * 100.0 / Slope_Co))
+                    else if (areal_distance > Radius_Hz && areal_distance <= (Radius_Hz + Height_Co * 100.0 / Slope_Co) && ChkBoxConical.Checked == true)
                     {
                         RL_datum_Surface = Convert.ToDouble(TxtRL_IHS.Text);
                         SurfaceName = "CONICAL";
@@ -1637,7 +1605,7 @@ namespace CSAY_Obstacle_Height_Calculation
                         dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface + " + (" + Height_Hz.ToString() + " + " + Slope_Co.ToString() + "% * (" + areal_distance.ToString("0.000") + "- " + Radius_Hz.ToString() + ")" + ") = " + AllowableElev_Obs.ToString("0.000");
 
                     }
-                    else if (areal_distance > (Radius_Hz + Height_Co * 100.0 / Slope_Co) && ARP_to_OBs_dist <= 15000) //areal_distance <= 15000
+                    else if (areal_distance > (Radius_Hz + Height_Co * 100.0 / Slope_Co) && ARP_to_OBs_dist <= 15000 && ChkBoxOuterHorizontal.Checked == true) //areal_distance <= 15000
                     {
                         RL_datum_Surface = Convert.ToDouble(TxtRL_IHS.Text);
                         SurfaceName = "OUTER HORIZONTAL";
@@ -1684,163 +1652,172 @@ namespace CSAY_Obstacle_Height_Calculation
                 double length_Ap_Second = Convert.ToDouble(dataGridView5.Rows[19].Cells[2].Value);//2.5
                 double slope_Ap_Second = Convert.ToDouble(dataGridView5.Rows[20].Cells[2].Value);//2.5
 
-                if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5)
+                if(ChkBoxApproach.Checked == true)
                 {
-
-                    ApproachPlotCase = Approach_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
-                    double perp_dist_approach = 0;
-                    if (ApproachPlotCase == 10 || ApproachPlotCase == 40)//FIRST SECTION SLOPE UPWARD 2%
+                    if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5)
                     {
-                        RL_datum_Surface = 0;
-                        if (ApproachPlotCase == 10)
-                        {
-                            //Find perpendicular distance from obstacle point to Approach line IJ
-                            //equation JI
-                            m = Convert.ToDouble(dataGridView2.Rows[5].Cells[1].Value);//slope of JI
-                            c = Convert.ToDouble(dataGridView2.Rows[5].Cells[2].Value);//intercept of JI
-                            perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
-                            RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
-                        }
-                        else if (ApproachPlotCase == 40)
-                        {
-                            //equation KL
-                            m = Convert.ToDouble(dataGridView2.Rows[9].Cells[1].Value);//slope of KL
-                            c = Convert.ToDouble(dataGridView2.Rows[9].Cells[2].Value);//intercept of KL
-                            perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
-                            RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
-                        }
+                        //MessageBox.Show("approachsurface chk = " + ChkBoxApproach.CheckState.ToString());
 
-                        SurfaceHeight = 0.0 + slope_Ap_First / 100.0 * (perp_dist_approach - 0.0);
-                        AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-                        SurfaceName = "APPROACH - FIRST SECTION";
+                        ApproachPlotCase = Approach_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
+                        double perp_dist_approach = 0;
+                        if (ApproachPlotCase == 10 || ApproachPlotCase == 40)//FIRST SECTION SLOPE UPWARD 2%
+                        {
+                            RL_datum_Surface = 0;
+                            if (ApproachPlotCase == 10)
+                            {
+                                //Find perpendicular distance from obstacle point to Approach line IJ
+                                //equation JI
+                                m = Convert.ToDouble(dataGridView2.Rows[5].Cells[1].Value);//slope of JI
+                                c = Convert.ToDouble(dataGridView2.Rows[5].Cells[2].Value);//intercept of JI
+                                perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                                RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            }
+                            else if (ApproachPlotCase == 40)
+                            {
+                                //equation KL
+                                m = Convert.ToDouble(dataGridView2.Rows[9].Cells[1].Value);//slope of KL
+                                c = Convert.ToDouble(dataGridView2.Rows[9].Cells[2].Value);//intercept of KL
+                                perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                                RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            }
 
-                        //adding data to datagridview4
-                        dataGridView4.Rows.Add();
-                        SurfaceCount++;
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + (" + slope_Ap_First.ToString() + "% * (" + perp_dist_approach.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
+                            SurfaceHeight = 0.0 + slope_Ap_First / 100.0 * (perp_dist_approach - 0.0);
+                            AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
+                            SurfaceName = "APPROACH - FIRST SECTION";
+
+                            //adding data to datagridview4
+                            dataGridView4.Rows.Add();
+                            SurfaceCount++;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + (" + slope_Ap_First.ToString() + "% * (" + perp_dist_approach.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
+
+                        }
+                        else if (ApproachPlotCase == 20 || ApproachPlotCase == 50)//SECOND SECTION SLOPE UPWARD 2.5%
+                        {
+                            RL_datum_Surface = 0;
+                            if (ApproachPlotCase == 20)
+                            {
+                                //Find perpendicular distance from obstacle point to Approach line OP
+                                //equation OP
+                                m = Convert.ToDouble(dataGridView2.Rows[6].Cells[1].Value);//slope of OP
+                                c = Convert.ToDouble(dataGridView2.Rows[6].Cells[2].Value);//intercept of OP
+                                perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                                RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            }
+                            else if (ApproachPlotCase == 50)
+                            {
+                                //equation VU
+                                m = Convert.ToDouble(dataGridView2.Rows[10].Cells[1].Value);//slope of VU
+                                c = Convert.ToDouble(dataGridView2.Rows[10].Cells[2].Value);//intercept of VU
+                                perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                                RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            }
+
+                            SurfaceName = "APPROACH - SECOND SECTION";
+                            double Base_Height = slope_Ap_First / 100.0 * length_Ap_First;//2/100*3000=60
+                            SurfaceHeight = Base_Height + slope_Ap_Second / 100.0 * (perp_dist_approach - (0.00));//(60+3000)
+                            AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
+
+                            //adding data to datagridview4
+                            dataGridView4.Rows.Add();
+                            SurfaceCount++;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + (" + Base_Height.ToString() + " + " + slope_Ap_Second + "% * (" + perp_dist_approach.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
+
+                        }
+                        else if (ApproachPlotCase == 30 || ApproachPlotCase == 60)//HORIZONTAL SECTION 0% SLOPE AT ELEV. 60+90=150m
+                        {
+                            if (ApproachPlotCase == 30)
+                            {
+                                RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            }
+                            else
+                            {
+                                RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            }
+                            SurfaceName = "APPROACH - HORIZONTAL SECTION";
+                            double e1, e2;
+                            e1 = slope_Ap_First / 100.0 * length_Ap_First;//60
+                            e2 = slope_Ap_Second / 100.0 * length_Ap_Second;//90
+                            SurfaceHeight = e1 + e2; //i.e. 150 m
+                            AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
+
+                            //adding data to datagridview4
+                            dataGridView4.Rows.Add();
+                            SurfaceCount++;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + (" + e1.ToString() + " + " + e2.ToString() + "" + ") = " + AllowableElev_Obs.ToString("0.000");
+
+                        }
 
                     }
-                    else if (ApproachPlotCase == 20 || ApproachPlotCase == 50)//SECOND SECTION SLOPE UPWARD 2.5%
-                    {
-                        RL_datum_Surface = 0;
-                        if (ApproachPlotCase == 20)
-                        {
-                            //Find perpendicular distance from obstacle point to Approach line OP
-                            //equation OP
-                            m = Convert.ToDouble(dataGridView2.Rows[6].Cells[1].Value);//slope of OP
-                            c = Convert.ToDouble(dataGridView2.Rows[6].Cells[2].Value);//intercept of OP
-                            perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
-                            RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
-                        }
-                        else if (ApproachPlotCase == 50)
-                        {
-                            //equation VU
-                            m = Convert.ToDouble(dataGridView2.Rows[10].Cells[1].Value);//slope of VU
-                            c = Convert.ToDouble(dataGridView2.Rows[10].Cells[2].Value);//intercept of VU
-                            perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
-                            RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
-                        }
-
-                        SurfaceName = "APPROACH - SECOND SECTION";
-                        double Base_Height = slope_Ap_First / 100.0 * length_Ap_First;//2/100*3000=60
-                        SurfaceHeight = Base_Height + slope_Ap_Second / 100.0 * (perp_dist_approach - (0.00));//(60+3000)
-                        AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-
-                        //adding data to datagridview4
-                        dataGridView4.Rows.Add();
-                        SurfaceCount++;
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + (" + Base_Height.ToString() + " + " + slope_Ap_Second + "% * (" + perp_dist_approach.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
-
-                    }
-                    else if (ApproachPlotCase == 30 || ApproachPlotCase == 60)//HORIZONTAL SECTION 0% SLOPE AT ELEV. 60+90=150m
-                    {
-                        if (ApproachPlotCase == 30)
-                        {
-                            RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
-                        }
-                        else
-                        {
-                            RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
-                        }
-                        SurfaceName = "APPROACH - HORIZONTAL SECTION";
-                        double e1, e2;
-                        e1 = slope_Ap_First / 100.0 * length_Ap_First;//60
-                        e2 = slope_Ap_Second / 100.0 * length_Ap_Second;//90
-                        SurfaceHeight = e1 + e2; //i.e. 150 m
-                        AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-
-                        //adding data to datagridview4
-                        dataGridView4.Rows.Add();
-                        SurfaceCount++;
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + (" + e1.ToString() + " + " + e2.ToString() + "" + ") = " + AllowableElev_Obs.ToString("0.000");
-
-                    }
-
                 }
+                
 
                 //TAKE OFF CLIMB SURFACE
                 double slope_ToC = Convert.ToDouble(dataGridView5.Rows[39].Cells[2].Value);
-                if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5)
+                if(ChkBoxTakeoffclimb.Checked == true)
                 {
-                    int TakeOffClimbPlot_case;
-                    double perp_dist_TOC = 0;
-                    RL_datum_Surface = 0;
-
-                    TakeOffClimbPlot_case = TakeOffClimb_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
-                    //MessageBox.Show("ToC case = " + TakeOffClimbPlot_case.ToString());
-                    if (TakeOffClimbPlot_case == 100 || TakeOffClimbPlot_case == 200)
+                    if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5)
                     {
-                        if (TakeOffClimbPlot_case == 100)
-                        {
-                            //Find perpendicular distance from obstacle point to Approach line IJ
-                            //equation TOC_AB
-                            m = Convert.ToDouble(dataGridView2.Rows[17].Cells[1].Value);//slope of TOC_AB
-                            c = Convert.ToDouble(dataGridView2.Rows[17].Cells[2].Value);//intercept of TOC_AB
-                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
-                            //RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
-                            RL_datum_Surface = FindMaxVal_From_DGV(dataGridView8, 2);
-                            //MessageBox.Show("ToC AB100 RL = " + RL_datum_Surface.ToString());
-                        }
-                        else if (TakeOffClimbPlot_case == 200)
-                        {
-                            //equation TOC_GH
-                            m = Convert.ToDouble(dataGridView2.Rows[20].Cells[1].Value);//slope of TOC_GH
-                            c = Convert.ToDouble(dataGridView2.Rows[20].Cells[2].Value);//intercept of TOC_GH
-                            perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
-                            //RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
-                            RL_datum_Surface = FindMaxVal_From_DGV(dataGridView7, 2);
-                        }
-                        SurfaceHeight = 0.0 + slope_ToC / 100.0 * (perp_dist_TOC - 0.0);
-                        AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-                        SurfaceName = "TAKE-OFF CLIMB SURFACE";
+                        int TakeOffClimbPlot_case;
+                        double perp_dist_TOC = 0;
+                        RL_datum_Surface = 0;
 
-                        //adding data to datagridview4
-                        dataGridView4.Rows.Add();
-                        SurfaceCount++;
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
-                        dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + (" + slope_ToC.ToString() + "% * (" + perp_dist_TOC.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
+                        TakeOffClimbPlot_case = TakeOffClimb_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
+                        //MessageBox.Show("ToC case = " + TakeOffClimbPlot_case.ToString());
+                        if (TakeOffClimbPlot_case == 100 || TakeOffClimbPlot_case == 200)
+                        {
+                            if (TakeOffClimbPlot_case == 100)
+                            {
+                                //Find perpendicular distance from obstacle point to Approach line IJ
+                                //equation TOC_AB
+                                m = Convert.ToDouble(dataGridView2.Rows[17].Cells[1].Value);//slope of TOC_AB
+                                c = Convert.ToDouble(dataGridView2.Rows[17].Cells[2].Value);//intercept of TOC_AB
+                                perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                                //RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                                RL_datum_Surface = FindMaxVal_From_DGV(dataGridView8, 2);
+                                //MessageBox.Show("ToC AB100 RL = " + RL_datum_Surface.ToString());
+                            }
+                            else if (TakeOffClimbPlot_case == 200)
+                            {
+                                //equation TOC_GH
+                                m = Convert.ToDouble(dataGridView2.Rows[20].Cells[1].Value);//slope of TOC_GH
+                                c = Convert.ToDouble(dataGridView2.Rows[20].Cells[2].Value);//intercept of TOC_GH
+                                perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
+                                //RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                                RL_datum_Surface = FindMaxVal_From_DGV(dataGridView7, 2);
+                            }
+                            SurfaceHeight = 0.0 + slope_ToC / 100.0 * (perp_dist_TOC - 0.0);
+                            AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
+                            SurfaceName = "TAKE-OFF CLIMB SURFACE";
 
+                            //adding data to datagridview4
+                            dataGridView4.Rows.Add();
+                            SurfaceCount++;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[0].Value = SurfaceCount.ToString();
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[1].Value = SurfaceName;
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[2].Value = SurfaceHeight.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[3].Value = RL_datum_Surface.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[4].Value = AllowableElev_Obs.ToString("0.000");
+                            dataGridView4.Rows[SurfaceCount - 1].Cells[5].Value = RL_datum_Surface.ToString() + " + (" + slope_ToC.ToString() + "% * (" + perp_dist_TOC.ToString("0.000") + ") = " + AllowableElev_Obs.ToString("0.000");
+
+                        }
                     }
                 }
+                
 
                 double slope_BL = Convert.ToDouble(dataGridView5.Rows[32].Cells[2].Value);
                 double m2, c2;
@@ -1859,7 +1836,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
                 BLPlot_case = Balked_Landing_Case_of_Plot_COORD(Final_Easting_X, Final_Northing_Y);
                 //MessageBox.Show("BL case = " + BLPlot_case.ToString());
-                if (BLPlot_case == 300 || BLPlot_case == 400)
+                if (BLPlot_case == 300 || BLPlot_case == 400 && ChkBoxBalkedlanding.Checked == true)
                 {
                     if (BLPlot_case == 300)
                     {
@@ -1900,7 +1877,7 @@ namespace CSAY_Obstacle_Height_Calculation
                 //}
 
                 //TRANSITIONAL SURFACE
-                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7)
+                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7 && ChkBoxTransition.Checked == true)
                 {
                     int TransPlot_case;
                     double perp_dist_TOC2 = 0.0;
@@ -2095,7 +2072,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
                 //INNER APPROACH
                 double slope_IA = Convert.ToDouble(dataGridView5.Rows[10].Cells[2].Value);
-                if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5)
+                if (plotCase == 1 || plotCase == 8 || plotCase == 7 || plotCase == 3 || plotCase == 4 || plotCase == 5 && ChkBoxInnerApproach.Checked == true)
                 {
                     int IA_Plot_case;
                     double perp_dist_IA = 0;
@@ -2145,7 +2122,7 @@ namespace CSAY_Obstacle_Height_Calculation
                 slope_IT = Convert.ToDouble(dataGridView5.Rows[27].Cells[2].Value);
 
 
-                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7)
+                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7 && ChkBoxInnerTrans.Checked == true)
                 {
                     int IT_Plot_Case;
                     double perp_dist_TOC = 0;
@@ -2334,7 +2311,7 @@ namespace CSAY_Obstacle_Height_Calculation
                 }
 
                 //INNER TRANSITIONAL SURFACE AB
-                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7)
+                if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7 && ChkBoxInnerTrans_1.Checked == true)
                 {
                     int IT_Plot_Case;
                     double perp_dist_TOC = 0;
@@ -3804,46 +3781,6 @@ namespace CSAY_Obstacle_Height_Calculation
             TxtDesignation.Text = ComboBoxDesignation.Text;
         }
 
-        private void BtnPreviewLetter_Click(object sender, EventArgs e)
-        {
-            //writing letter to rich text box
-            RichTxtLetters.Text = "";
-            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Right;
-            RichTxtLetters.AppendText("\nDate:- " + TxtLetterDate.Text + Environment.NewLine);
-
-            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            RichTxtLetters.AppendText("\nTo\n" + TxtLetterTo.Text + Environment.NewLine);
-
-            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            RichTxtLetters.AppendText("Subject: " + TxtLetterSubject.Text + Environment.NewLine);
-
-            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            RichTxtLetters.AppendText("\nIn response to the letter received from that office dated "
-                + TxtPreviousLetterDate.Text + " with ref. no. " + TxtPrevLetterRef.Text
-                + "requesting consent for " + TxtObstacleType.Text + " construction, this is to certify that maximum permitted elevation of the proposed "
-                + TxtObstacleType.Text + " located at " + TxtLocalLevel.Text + "-" + TxtWardNo.Text + ", "
-                + TxtTole.Text + " having plot no. " + TxtPlotNo.Text + " of " + TxtDesignation.Text + " "
-                + TxtFirstName.Text + " " + TxtMiddleName.Text + " " + TxtLastName.Text
-                + " determined after studying the received drawings, Google Earth Map other related papers is "
-                + TxtElev_Permitted.Text + " m (AMSL). Furthermore, it is to notify that this permit has been granted in accordance with the standards stipulated in Obstacle Limitation Surface (OLS) under Civil Aviation Requirement-14 (CAR-14) on the condition that there shall be no further increment of "
-                + TxtObstacleType.Text + " height by permanent construction of structure or by installment of pole, tower, antenna or any other equipment without prior approval of this Authority." + Environment.NewLine);
-
-            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Right;
-            RichTxtLetters.AppendText("\n" + TxtLetterSignedby.Text + Environment.NewLine);
-
-            RichTxtLetters.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            RichTxtLetters.AppendText("\nCC:\n" + TxtLetterCC.Text);
-
-            //Task.Factory.StartNew(() => { Task.Delay(3000).Wait(); }).Wait(); // wait for 5 seconds to give maps plenty of time to render
-
-            TabPage t = tabControl1.TabPages[5];
-            tabControl1.SelectTab(t); //go to tab
-
-            RichTxtLetters.SelectAll();
-            RichTxtLetters.DeselectAll();
-
-        }
-
         private void exportRWYCOORDToExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExportDatagridViewToExcel(dataGridView1);
@@ -3888,29 +3825,6 @@ namespace CSAY_Obstacle_Height_Calculation
         private void exportLineParameterToExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExportDatagridViewToExcel(dataGridView2);
-        }
-
-        private void BtnToWord_Click(object sender, EventArgs e)
-        {
-            exporttoword.Application wordapp = new exporttoword.Application();
-            wordapp.Visible = true;
-            exporttoword.Document worddoc;
-            object wordobj = System.Reflection.Missing.Value;
-            worddoc = wordapp.Documents.Add(ref wordobj);
-            Clipboard.SetText(RichTxtLetters.Rtf, TextDataFormat.Rtf);
-            wordapp.Selection.TypeText(Clipboard.GetText());
-            Microsoft.Office.Interop.Word.Range rng = wordapp.ActiveDocument.Range(0, 0);
-            rng.Paste();
-            //wordapp.Selection.TypeText(RichTxtLetters.Text);
-            wordapp = null;
-
-            TxtLog.Text = "Letter in English exported.";
-
-            //Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
-
-            //Microsoft.Office.Interop.Word.Range Range;
-
-
         }
 
         private void TxtLetterDate_TextChanged(object sender, EventArgs e)
@@ -4725,7 +4639,8 @@ namespace CSAY_Obstacle_Height_Calculation
 
             document.Add(table);
 
-            //adding letter in next page
+            
+            /*//adding letter in next page
             document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
             iText.Layout.Element.Paragraph Date1 = new iText.Layout.Element.Paragraph();
             Date1.Add("\n\n\n\n\n\n\n\n\n\nDate:- " + TxtLetterDate.Text + "\n")
@@ -4769,7 +4684,7 @@ namespace CSAY_Obstacle_Height_Calculation
                 .SetTextAlignment(TextAlignment.LEFT)
                 .SetFontSize(12);
             //.SetFont(KalimatiFont);
-            document.Add(CC1);
+            document.Add(CC1);*/
 
             document.Close();
             //MessageBox.Show("Pdf Created Successfully.", "Create Pdf");
@@ -8242,15 +8157,16 @@ namespace CSAY_Obstacle_Height_Calculation
 
 
                 AutoAdd = true;
+                int increment = 187 / 11;
 
                 TabPage t = tabControl1.TabPages[2];
                 tabControl1.SelectTab(t); //go to tab
                 PanelFore.BackColor = Color.DarkViolet;
-                PanelFore.Width += 18;
+                PanelFore.Width += increment;
                 Show_Progress_Percentage();
 
                 BtnCreateMap_Click(sender, e);
-                PanelFore.Width += 18;
+                PanelFore.Width += increment;
                 Show_Progress_Percentage();//20
 
                 BtnSaveMap_Click(sender, e);
@@ -8260,30 +8176,261 @@ namespace CSAY_Obstacle_Height_Calculation
 
                 exportToPdfToolStripMenuItem_Click(sender, e);
                 //BtnExportToPDF_Click(sender, e);
-                PanelFore.Width += 18 + 18 + 18 + 18;
+                PanelFore.Width += 4*increment;
                 Show_Progress_Percentage();//60
 
+                BtnCreateEnglishLetter_Click(sender, e);
+                PanelFore.Width += increment;
+                Show_Progress_Percentage();
+
                 BtnCreateNepaliLetter_Click(sender, e);
-                PanelFore.Width += 18;
+                PanelFore.Width += increment;
                 Show_Progress_Percentage();
 
                 BtnCreateNepaliTippani_Click(sender, e);
-                PanelFore.Width += 18;
+                PanelFore.Width += increment;
                 Show_Progress_Percentage();
 
                 addToolStripMenuItem_Click(sender, e);
                 //BtnAdd_Click(sender, e);
-                PanelFore.Width += 18;
+                PanelFore.Width += increment;
                 Show_Progress_Percentage();
 
                 openRecentFolderToolStripMenuItem_Click(sender, e);
                 //BtnOpenFolder_Click(sender, e);
-                PanelFore.Width += 18;
+                PanelFore.Width += increment;
                 Show_Progress_Percentage();
 
                 AutoAdd = false;
 
                 TxtLog.Text = "Auto Process Completed";
+            }
+        }
+
+        private void BtnLoadMultiObs_Click(object sender, EventArgs e)
+        {
+            string[] ReadingText = new string[100];
+            string ThisFileName;
+            //CreateAccessProjectFolders();
+            string line;
+            line = "";
+            ThisFileName = @".\InputFolder\" + "MultiObstacle\\MultiObstacleFilename.txt";
+            //Pass the file path and file name to the StreamReader constructor
+            //StreamReader sr = new StreamReader(@".\LastEvent\LastBill.txt");
+            StreamReader sr = new StreamReader(ThisFileName);
+            //Read the first line of text
+            line = sr.ReadLine();
+            ReadingText[0] = line;
+            //Continue to read until you reach end of file
+            int i = 1;
+            while (line != null)
+            {
+                //Read the next line
+                line = sr.ReadLine();
+                ReadingText[i] = line;
+                i++;
+            }
+            //close the file
+            sr.Close();
+
+            //loading filename
+            string[] splittedtext = ReadingText[0].Split('\t');
+            string MultiObsFilename = splittedtext[1] + ".txt";
+
+
+            ThisFileName = @".\InputFolder" + "\\MultiObstacle\\" + MultiObsFilename;
+            LoadTxtToDatagridview(dataGridView12, ThisFileName, 2, 6);
+            int n_multi_obs_data = dataGridView12.RowCount - 1;
+
+            for (int k = 0; k < n_multi_obs_data; k++)
+            {
+                dataGridView12.Rows[k].Cells[0].Value = (k + 1).ToString();
+            }
+
+            TxtLog.Text = "Multi obstalce data loaded for " + MultiObsFilename;
+            lblMultiObsFilename.Text = MultiObsFilename;
+        }
+
+        private void BtnGenerateMultiObsOutput_Click(object sender, EventArgs e)
+        {
+            int n_multi_obs_data = dataGridView12.RowCount - 1;
+            dataGridView13.Rows.Clear();
+
+            panel2.Width = 0;
+            panel2.BackColor = panel1.BackColor;
+            //lblProgressMultiobs.ForeColor = Color.White;
+            //LblProgress.Text = "0%";
+            double step1 = panel1.Width * 1.0 / n_multi_obs_data;
+            int step = Convert.ToInt32(step1);
+            double width_panel2 = 0;
+
+            
+            for (int k = 0; k < n_multi_obs_data; k++)
+            {
+                dataGridView13.Rows.Add();
+                dataGridView13.Rows[k].Cells[0].Value = (k + 1).ToString();
+            }
+
+            for (int k = 0; k < n_multi_obs_data; k++)
+            {
+                for (int j = 1; j < 5; j++)
+                {
+                    dataGridView13.Rows[k].Cells[j].Value = dataGridView12.Rows[k].Cells[j].Value.ToString();
+                }
+            }
+
+            string rm;
+            
+            for (int k = 0; k < n_multi_obs_data; k++)
+            {
+                TxtObstacleType.Text = (dataGridView12.Rows[k].Cells[2].Value).ToString();
+                TxtLat2.Text = (dataGridView12.Rows[k].Cells[3].Value).ToString();
+                TxtLong2.Text = (dataGridView12.Rows[k].Cells[4].Value).ToString();
+                TxtRL_Plinth.Text = (dataGridView12.Rows[k].Cells[5].Value).ToString();
+                TxtHeightAbovePlinth.Text = (dataGridView12.Rows[k].Cells[6].Value).ToString();
+
+                BtnCreateMap_Click(sender, e);
+                calculateToolStripMenuItem_Click(sender, e);
+
+                dataGridView13.Rows[k].Cells[5].Value = Final_Easting_X.ToString();
+                dataGridView13.Rows[k].Cells[6].Value = Final_Northing_Y.ToString();
+                dataGridView13.Rows[k].Cells[7].Value = TxtSurfaceName.Text;
+                dataGridView13.Rows[k].Cells[8].Value = TxtElev_allow.Text;
+                dataGridView13.Rows[k].Cells[9].Value = TxtElev_Obstacle.Text;
+                dataGridView13.Rows[k].Cells[10].Value = (Convert.ToDouble(TxtElev_Obstacle.Text) - Convert.ToDouble(TxtElev_allow.Text)).ToString();
+                if (Convert.ToDouble(TxtElev_Obstacle.Text) >= Convert.ToDouble(TxtElev_allow.Text))
+                {
+                    rm = "Obstacle";
+                }
+                else
+                {
+                    rm = "";
+                }
+                dataGridView13.Rows[k].Cells[11].Value = rm;
+
+                panel2.BackColor = Color.DarkViolet;
+                panel2.Width += step;
+                width_panel2 += step1;
+                double progress;
+                //LblProgress.Text = "";
+                //progress = (panel2.Width * 1.0 / (panel1.Width * 1.0)) * 100.0;
+                //progress = (width_panel2 * 1.0 / (panel1.Width * 1.0)) * 100.0;
+                //progress = Math.Round(progress, 0);
+            }
+            //lblProgressMultiobs.ForeColor = Color.Black;
+            //lblProgressMultiobs.Text = "100%";
+            TxtLog.Text = "Multi-Obstacle output table generated";
+        }
+
+        private void BtnMultiObsExportToExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CopyAlltoClipboard(dataGridView13);
+                Microsoft.Office.Interop.Excel.Application xlexcel;
+                Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+                object misValue = System.Reflection.Missing.Value;
+                xlexcel = new Excel.Application();
+                xlexcel.Visible = true;
+                xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+
+                ((Excel.Range)xlWorkSheet.Cells[1, 1]).Value = "Record " + DateTime.Now.ToString("yyyy/MM/dd_HH:mm:ss");
+
+
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[5, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+                // xlWorkBook.Close();
+                //  xlexcel.Quit();
+                Marshal.ReleaseComObject(xlWorkBook);
+                Marshal.ReleaseComObject(xlWorkSheet);
+
+                MessageBox.Show("Export Completed Sucessfully.");
+
+            }
+            catch
+            {
+
+
+            }
+        }
+
+        private void BtnMultiObsAutoprocess_Click(object sender, EventArgs e)
+        {
+            BtnLoadMultiObs_Click(sender, e);
+            BtnGenerateMultiObsOutput_Click(sender, e);
+            BtnMultiObsExportToExcel_Click(sender, e);
+        }
+
+        private void BtnCreateEnglishLetter_Click(object sender, EventArgs e)
+        {
+            if (TxtFY.Text == "" || TxtLocalLevel.Text == "")
+            {
+                TxtLog.Text = "Either Fiscal Year or Local level is Empty. Please fill to continue.";
+                //TxtLog.Text += Environment.NewLine;
+            }
+            else
+            {
+                CreateAccessProjectFolders();
+
+                if (!Directory.Exists(Project_Folders))
+                {
+                    Directory.CreateDirectory(Project_Folders);
+                }
+
+                //Start Word and create a new document.
+                Word._Application oWord;
+                Word._Document oDoc;
+                oWord = new Word.Application();
+                oWord.Visible = false;
+
+                object oMissing = System.Reflection.Missing.Value;
+                object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
+
+                Cur_Dir = Environment.CurrentDirectory;
+                string filename_template = Cur_Dir + "\\InputFolder\\FormatFiles\\EnglishLetter_Template.dotx";
+                object oTemplate = filename_template;
+                //object oTemplate = "E:\\Tippani_Template.dotx";
+
+                oDoc = oWord.Documents.Add(ref oTemplate, ref oMissing, ref oMissing, ref oMissing);
+
+                //Bookmarks and Data
+                object oBookMark;
+                oBookMark = "Date_EL";
+                oDoc.Bookmarks.get_Item(ref oBookMark).Range.Text = TxtLetterDate.Text;
+
+                oBookMark = "Prev_Date_EL";
+                oDoc.Bookmarks.get_Item(ref oBookMark).Range.Text = TxtPreviousLetterDate.Text;
+
+                oBookMark = "Ref_no_EL";
+                oDoc.Bookmarks.get_Item(ref oBookMark).Range.Text = TxtPrevLetterRef.Text;
+
+                oBookMark = "Address_EL";
+                oDoc.Bookmarks.get_Item(ref oBookMark).Range.Text = TxtLocalLevel.Text + "-" + TxtWardNo.Text + ", " + TxtTole.Text;
+
+                oBookMark = "Plot_No_EL";
+                oDoc.Bookmarks.get_Item(ref oBookMark).Range.Text = TxtPlotNo.Text;
+
+                oBookMark = "Name_EL";
+                oDoc.Bookmarks.get_Item(ref oBookMark).Range.Text = TxtDesignation.Text + " " + TxtFirstName.Text + " " + TxtMiddleName.Text + " " + TxtLastName.Text;
+
+                oBookMark = "RL_EL";
+                oDoc.Bookmarks.get_Item(ref oBookMark).Range.Text = TxtElev_Permitted.Text;
+
+                //string filename_docx = Cur_Dir + "\\InputFolder\\NewLetter.docx"; 
+                string filename_docx = Project_Folders + "\\" + TxtFirstName.Text + "_" + TxtPlotNo.Text + "_English_Letter.docx";
+
+                oDoc.SaveAs2(filename_docx);
+
+                oDoc.Close();
+                oWord.Quit();
+
+
+                TxtRecentFolderLocation.Text = Project_Folders;
+                TxtLog.Text = "Letter in English Saved.";
             }
         }
 
