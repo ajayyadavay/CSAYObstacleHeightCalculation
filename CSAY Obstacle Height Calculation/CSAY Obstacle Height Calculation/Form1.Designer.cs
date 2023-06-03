@@ -350,6 +350,10 @@
             this.modifyDisplayDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.autoProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TxtABDesignation = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.TxtCDDesignation = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -697,6 +701,10 @@
             // 
             // TabRWYEq
             // 
+            this.TabRWYEq.Controls.Add(this.TxtCDDesignation);
+            this.TabRWYEq.Controls.Add(this.label30);
+            this.TabRWYEq.Controls.Add(this.TxtABDesignation);
+            this.TabRWYEq.Controls.Add(this.label29);
             this.TabRWYEq.Controls.Add(this.TxtRWYClassify);
             this.TabRWYEq.Controls.Add(this.BtnZoomToFit2);
             this.TabRWYEq.Controls.Add(this.label27);
@@ -3774,6 +3782,43 @@
             this.autoProcessToolStripMenuItem.Text = "Auto Process";
             this.autoProcessToolStripMenuItem.Click += new System.EventHandler(this.autoProcessToolStripMenuItem_Click);
             // 
+            // TxtABDesignation
+            // 
+            this.TxtABDesignation.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtABDesignation.Location = new System.Drawing.Point(1112, 428);
+            this.TxtABDesignation.Name = "TxtABDesignation";
+            this.TxtABDesignation.Size = new System.Drawing.Size(142, 28);
+            this.TxtABDesignation.TabIndex = 18;
+            this.TxtABDesignation.TextChanged += new System.EventHandler(this.TxtABDesignation_TextChanged);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label29.Location = new System.Drawing.Point(917, 434);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(166, 16);
+            this.label29.TabIndex = 17;
+            this.label29.Text = "RWY AB Side Designation";
+            // 
+            // TxtCDDesignation
+            // 
+            this.TxtCDDesignation.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCDDesignation.Location = new System.Drawing.Point(1112, 462);
+            this.TxtCDDesignation.Name = "TxtCDDesignation";
+            this.TxtCDDesignation.Size = new System.Drawing.Size(142, 28);
+            this.TxtCDDesignation.TabIndex = 20;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label30.Location = new System.Drawing.Point(917, 468);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(167, 16);
+            this.label30.TabIndex = 19;
+            this.label30.Text = "RWY CD Side Designation";
+            // 
             // FrmObstacleHeightCalculation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4194,6 +4239,10 @@
         private System.Windows.Forms.TextBox TxtDocumentRequired;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox TxtCDDesignation;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox TxtABDesignation;
+        private System.Windows.Forms.Label label29;
     }
 }
 

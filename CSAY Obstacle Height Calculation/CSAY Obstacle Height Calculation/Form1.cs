@@ -46,6 +46,7 @@ using Org.BouncyCastle.Asn1.Mozilla;
 using System.Data.Entity.Core.Metadata.Edm;
 using Microsoft.Office.Core;
 using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Asn1;
 
 namespace CSAY_Obstacle_Height_Calculation
 {
@@ -1534,8 +1535,12 @@ namespace CSAY_Obstacle_Height_Calculation
             double m, c;
             bool IsPointInTheStrip;
             double RL_datum_Surface;
+            string DsgnAB, DsgnCD, Dsgn="";
             try
             {
+                DsgnAB = TxtABDesignation.Text;
+                DsgnCD = TxtCDDesignation.Text;
+
                 dataGridView4.Rows.Clear();
                 TxtCalculationDetail.Text = "";
 
@@ -1671,6 +1676,7 @@ namespace CSAY_Obstacle_Height_Calculation
                                 c = Convert.ToDouble(dataGridView2.Rows[5].Cells[2].Value);//intercept of JI
                                 perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                                 RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                                Dsgn = DsgnAB;
                             }
                             else if (ApproachPlotCase == 40)
                             {
@@ -1679,11 +1685,12 @@ namespace CSAY_Obstacle_Height_Calculation
                                 c = Convert.ToDouble(dataGridView2.Rows[9].Cells[2].Value);//intercept of KL
                                 perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                                 RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                                Dsgn = DsgnCD;
                             }
 
                             SurfaceHeight = 0.0 + slope_Ap_First / 100.0 * (perp_dist_approach - 0.0);
                             AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-                            SurfaceName = "APPROACH - FIRST SECTION";
+                            SurfaceName = "APPROACH - FIRST SECTION " + Dsgn;
 
                             //adding data to datagridview4
                             dataGridView4.Rows.Add();
@@ -1707,6 +1714,7 @@ namespace CSAY_Obstacle_Height_Calculation
                                 c = Convert.ToDouble(dataGridView2.Rows[6].Cells[2].Value);//intercept of OP
                                 perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                                 RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                                Dsgn = DsgnAB;
                             }
                             else if (ApproachPlotCase == 50)
                             {
@@ -1715,9 +1723,10 @@ namespace CSAY_Obstacle_Height_Calculation
                                 c = Convert.ToDouble(dataGridView2.Rows[10].Cells[2].Value);//intercept of VU
                                 perp_dist_approach = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                                 RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                                Dsgn = DsgnCD;
                             }
 
-                            SurfaceName = "APPROACH - SECOND SECTION";
+                            SurfaceName = "APPROACH - SECOND SECTION " + Dsgn;
                             double Base_Height = slope_Ap_First / 100.0 * length_Ap_First;//2/100*3000=60
                             SurfaceHeight = Base_Height + slope_Ap_Second / 100.0 * (perp_dist_approach - (0.00));//(60+3000)
                             AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
@@ -1738,12 +1747,14 @@ namespace CSAY_Obstacle_Height_Calculation
                             if (ApproachPlotCase == 30)
                             {
                                 RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                                Dsgn = DsgnAB;
                             }
                             else
                             {
                                 RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                                Dsgn = DsgnCD;
                             }
-                            SurfaceName = "APPROACH - HORIZONTAL SECTION";
+                            SurfaceName = "APPROACH - HORIZONTAL SECTION " + Dsgn;
                             double e1, e2;
                             e1 = slope_Ap_First / 100.0 * length_Ap_First;//60
                             e2 = slope_Ap_Second / 100.0 * length_Ap_Second;//90
@@ -1790,6 +1801,7 @@ namespace CSAY_Obstacle_Height_Calculation
                                 //RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
                                 RL_datum_Surface = FindMaxVal_From_DGV(dataGridView8, 2);
                                 //MessageBox.Show("ToC AB100 RL = " + RL_datum_Surface.ToString());
+                                Dsgn = DsgnAB;
                             }
                             else if (TakeOffClimbPlot_case == 200)
                             {
@@ -1799,10 +1811,11 @@ namespace CSAY_Obstacle_Height_Calculation
                                 perp_dist_TOC = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                                 //RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
                                 RL_datum_Surface = FindMaxVal_From_DGV(dataGridView7, 2);
+                                Dsgn = DsgnCD;
                             }
                             SurfaceHeight = 0.0 + slope_ToC / 100.0 * (perp_dist_TOC - 0.0);
                             AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-                            SurfaceName = "TAKE-OFF CLIMB SURFACE";
+                            SurfaceName = "TAKE-OFF CLIMB SURFACE " + Dsgn;
 
                             //adding data to datagridview4
                             dataGridView4.Rows.Add();
@@ -1848,6 +1861,7 @@ namespace CSAY_Obstacle_Height_Calculation
                         perp_dist_TOC1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
 
                         RL_datum_Surface = RL_of_RWY_CL_by_Interpolation(m, c, m2, c2, DGV1_index1, DGV1_index2);
+                        Dsgn = DsgnCD;
                     }
                     else if (BLPlot_case == 400)
                     {
@@ -1858,10 +1872,11 @@ namespace CSAY_Obstacle_Height_Calculation
                         perp_dist_TOC1 = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
 
                         RL_datum_Surface = RL_of_RWY_CL_by_Interpolation(m, c, m2, c2, DGV1_index1, DGV1_index2);
+                        Dsgn = DsgnAB;
                     }
                     SurfaceHeight = 0.0 + slope_BL / 100.0 * (perp_dist_TOC1 - 0.0);
                     AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-                    SurfaceName = "BALKED LANDING SURFACE";
+                    SurfaceName = "BALKED LANDING SURFACE " + Dsgn;
 
                     //adding data to datagridview4
                     dataGridView4.Rows.Add();
@@ -1928,7 +1943,7 @@ namespace CSAY_Obstacle_Height_Calculation
                                 Base_Dist = 0.0;
                                 RL_datum_Surface = this_RL;
                                 perp_dist_TOC2 = perp_dist_JK;
-
+                                Dsgn = "AD";
                                 IsTransSurface = true;
                             }
                         }
@@ -1960,7 +1975,7 @@ namespace CSAY_Obstacle_Height_Calculation
                                 Base_Dist = 0.0;
                                 RL_datum_Surface = this_RL;
                                 perp_dist_TOC2 = perp_dist_LI;
-
+                                Dsgn = "BC";
                                 IsTransSurface = true;
                             }
                         }
@@ -1983,6 +1998,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = temp_perp * Divergence_App / 100.0;
 
                             RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            Dsgn = "AD";
 
                         }
                         else if (TransPlot_case == 502)
@@ -2004,6 +2020,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = temp_perp * Divergence_App / 100.0;
 
                             RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            Dsgn = "AD";
 
                         }
                         else if (TransPlot_case == 601)
@@ -2025,6 +2042,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = temp_perp * Divergence_App / 100.0;
 
                             RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            Dsgn = "BC";
 
                         }
                         else if (TransPlot_case == 602)
@@ -2046,6 +2064,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = temp_perp * Divergence_App / 100.0;
 
                             RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            Dsgn = "BC";
 
                         }
 
@@ -2053,7 +2072,7 @@ namespace CSAY_Obstacle_Height_Calculation
                         {
                             SurfaceHeight = Base_Height + slope_Trans / 100.0 * (perp_dist_TOC2 - Base_Dist);
                             AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-                            SurfaceName = "TRANSITIONAL SURFACE";
+                            SurfaceName = "TRANSITIONAL SURFACE " + Dsgn;
 
                             //adding data to datagridview4
                             dataGridView4.Rows.Add();
@@ -2089,6 +2108,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             c = Convert.ToDouble(dataGridView2.Rows[43].Cells[2].Value);//intercept of JI
                             perp_dist_IA = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                             RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            Dsgn = DsgnAB;
                         }
                         else if (IA_Plot_case == 800)
                         {
@@ -2097,10 +2117,11 @@ namespace CSAY_Obstacle_Height_Calculation
                             c = Convert.ToDouble(dataGridView2.Rows[45].Cells[2].Value);//intercept of KL
                             perp_dist_IA = Math.Abs(m * Final_Easting_X - Final_Northing_Y + c) / Math.Sqrt(m * m + 1.0 * 1.0);
                             RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            Dsgn = DsgnCD;
                         }
                         SurfaceHeight = 0.0 + slope_IA / 100.0 * (perp_dist_IA - 0.0);
                         AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-                        SurfaceName = "INNER APPROACH";
+                        SurfaceName = "INNER APPROACH " + Dsgn;
 
                         //adding data to datagridview4
                         dataGridView4.Rows.Add();
@@ -2120,7 +2141,6 @@ namespace CSAY_Obstacle_Height_Calculation
                 Divergence_BL = Convert.ToDouble(dataGridView5.Rows[31].Cells[2].Value);
                 //slope_BL = Convert.ToDouble(dataGridView5.Rows[32].Cells[2].Value);
                 slope_IT = Convert.ToDouble(dataGridView5.Rows[27].Cells[2].Value);
-
 
                 if (plotCase == 1 || plotCase == 2 || plotCase == 3 || plotCase == 5 || plotCase == 6 || plotCase == 7 && ChkBoxInnerTrans.Checked == true)
                 {
@@ -2165,7 +2185,7 @@ namespace CSAY_Obstacle_Height_Calculation
                                 Base_Dist = 0.0;
                                 RL_datum_Surface = this_RL;
                                 perp_dist_TOC = perp_dist_EKV;
-
+                                Dsgn = "AD";
                                 IsInner_CD_TransSurface = true;
                             }
                         }
@@ -2197,7 +2217,7 @@ namespace CSAY_Obstacle_Height_Calculation
                                 Base_Dist = 0.0;
                                 RL_datum_Surface = this_RL;
                                 perp_dist_TOC = perp_dist_FLU;
-
+                                Dsgn = "BC";
                                 IsInner_CD_TransSurface = true;
                             }
                         }
@@ -2236,6 +2256,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = Divergence_BL / 100.0 * d1;
 
                             RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            Dsgn = "AD";
                         }
                         else if (IT_Plot_Case == 5002)
                         {
@@ -2253,6 +2274,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = 0.0;
 
                             RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            Dsgn = "AD";
                         }
                         else if (IT_Plot_Case == 6001)
                         {
@@ -2270,6 +2292,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = Divergence_BL / 100.0 * d1;
 
                             RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            Dsgn = "BC";
                         }
                         else if (IT_Plot_Case == 6002)
                         {
@@ -2287,13 +2310,14 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = 0.0;
 
                             RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            Dsgn = "BC";
                         }
 
                         if (IsInner_CD_TransSurface == true)
                         {
                             SurfaceHeight = Base_Height + slope_IT / 100.0 * (perp_dist_TOC - Base_Dist);
                             AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-                            SurfaceName = "INNER TRANSITIONAL SURFACE CD";
+                            SurfaceName = "INNER TRANSITIONAL SURFACE " + DsgnCD + " " + Dsgn;
 
                             //adding data to datagridview4
                             dataGridView4.Rows.Add();
@@ -2354,7 +2378,7 @@ namespace CSAY_Obstacle_Height_Calculation
                                 Base_Dist = 0.0;
                                 RL_datum_Surface = this_RL;
                                 perp_dist_TOC = perp_dist_AJO;
-
+                                Dsgn = "AD";
                                 IsInner_AB_TransSurface = true;
                             }
 
@@ -2387,7 +2411,7 @@ namespace CSAY_Obstacle_Height_Calculation
                                 Base_Dist = 0.0;
                                 RL_datum_Surface = this_RL;
                                 perp_dist_TOC = perp_dist_BIP;
-
+                                Dsgn = "BC";
                                 IsInner_AB_TransSurface = true;
                             }
                         }
@@ -2407,6 +2431,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = 0.0;
 
                             RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            Dsgn = "AD";
                         }
                         else if (IT_Plot_Case == 7002)
                         {
@@ -2425,6 +2450,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = Divergence_BL / 100.0 * d1;
 
                             RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            Dsgn = "AD";
                         }
                         else if (IT_Plot_Case == 8001)
                         {
@@ -2442,6 +2468,7 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = 0.0;
 
                             RL_datum_Surface = Convert.ToDouble(TxtRL_AB_Th.Text);
+                            Dsgn = "CD";
                         }
                         else if (IT_Plot_Case == 8002)
                         {
@@ -2459,13 +2486,14 @@ namespace CSAY_Obstacle_Height_Calculation
                             Base_Dist = Divergence_BL / 100.0 * d1;
 
                             RL_datum_Surface = Convert.ToDouble(Txt_RL_CD_Th.Text);
+                            Dsgn = "CD";
                         }
 
                         if (IsInner_AB_TransSurface == true)
                         {
                             SurfaceHeight = Base_Height + slope_IT / 100.0 * (perp_dist_TOC - Base_Dist);
                             AllowableElev_Obs = RL_datum_Surface + SurfaceHeight;
-                            SurfaceName = "INNER TRANSITIONAL SURFACE AB";
+                            SurfaceName = "INNER TRANSITIONAL SURFACE " + DsgnAB + " " + Dsgn;
 
                             //adding data to datagridview4
                             dataGridView4.Rows.Add();
@@ -4782,14 +4810,18 @@ namespace CSAY_Obstacle_Height_Calculation
                 sr.Close();
 
                 //load data to datagridview by splitting by tab character of coord of RWY
-                for (int row = 10; row <= 13; row++)
+                for (int row = 11; row <= 14; row++)
                 {
                     string[] splittedtext = ReadingText[row].Split('\t');
                     for (int col = 0; col <= 3; col++)
                     {
-                        dataGridView1.Rows[row-10].Cells[col].Value = splittedtext[col];
+                        dataGridView1.Rows[row-11].Cells[col].Value = splittedtext[col];
                     }
                 }
+
+                //load RWY CD Designation
+                string[] splittedtext1 = ReadingText[9].Split('\t');
+                TxtABDesignation.Text = splittedtext1[1];
 
                 //load central meridian of Runway
                 for (int row = 0; row <= 0; row++) //row 0 of text file contains info about central meridian
@@ -8065,6 +8097,8 @@ namespace CSAY_Obstacle_Height_Calculation
         private void calculateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Function_Calculate();
+            /*TabPage t = tabControl1.TabPages["TabCalculationDetail"];
+            tabControl1.SelectTab(t); //go to tab*/
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
@@ -8214,6 +8248,8 @@ namespace CSAY_Obstacle_Height_Calculation
             //CreateAccessProjectFolders();
             string line;
             line = "";
+            
+            /*
             ThisFileName = @".\InputFolder\" + "MultiObstacle\\MultiObstacleFilename.txt";
             //Pass the file path and file name to the StreamReader constructor
             //StreamReader sr = new StreamReader(@".\LastEvent\LastBill.txt");
@@ -8236,9 +8272,9 @@ namespace CSAY_Obstacle_Height_Calculation
             //loading filename
             string[] splittedtext = ReadingText[0].Split('\t');
             string MultiObsFilename = splittedtext[1] + ".txt";
+            */
 
-
-            ThisFileName = @".\InputFolder" + "\\MultiObstacle\\" + MultiObsFilename;
+            ThisFileName = @".\InputFolder" + "\\MultiObstacle\\" + TxtAirportCode.Text + "_MultiObstacle.txt";
             LoadTxtToDatagridview(dataGridView12, ThisFileName, 2, 6);
             int n_multi_obs_data = dataGridView12.RowCount - 1;
 
@@ -8247,8 +8283,8 @@ namespace CSAY_Obstacle_Height_Calculation
                 dataGridView12.Rows[k].Cells[0].Value = (k + 1).ToString();
             }
 
-            TxtLog.Text = "Multi obstalce data loaded for " + MultiObsFilename;
-            lblMultiObsFilename.Text = MultiObsFilename;
+            TxtLog.Text = "Multi obstalce data loaded for " + TxtAirportCode.Text + "_MultiObstacle.txt";
+            lblMultiObsFilename.Text = TxtAirportCode.Text + "_MultiObstacle.txt";
         }
 
         private void BtnGenerateMultiObsOutput_Click(object sender, EventArgs e)
@@ -8431,6 +8467,39 @@ namespace CSAY_Obstacle_Height_Calculation
 
                 TxtRecentFolderLocation.Text = Project_Folders;
                 TxtLog.Text = "Letter in English Saved.";
+            }
+        }
+
+        private void TxtABDesignation_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = Convert.ToInt32(TxtABDesignation.Text);
+                int c;
+                if (a >= 18)
+                {
+                    c = a - 18;
+                }
+                else
+                {
+                    c = a + 18;
+                }
+                if (c < 10)
+                {
+                    TxtCDDesignation.Text = "0" + c.ToString();
+                }
+                else
+                {
+                    TxtCDDesignation.Text = c.ToString();
+                }
+
+
+                ChkBoxInnerTrans.Text = "INNER TRANSITION " + c.ToString();
+                ChkBoxInnerTrans_1.Text = "INNER TRANSITION " + a.ToString();
+            }
+            catch
+            {
+
             }
         }
 
