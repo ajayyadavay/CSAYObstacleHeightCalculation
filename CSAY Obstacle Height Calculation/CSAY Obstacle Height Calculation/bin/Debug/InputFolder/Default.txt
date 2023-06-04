@@ -1,1 +1,1 @@
-AirportCode	VNBW
+AirportCode	VNKT

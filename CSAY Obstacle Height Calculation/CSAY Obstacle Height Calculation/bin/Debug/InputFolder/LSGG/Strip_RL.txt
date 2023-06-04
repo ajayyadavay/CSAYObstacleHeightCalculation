@@ -1,0 +1,13 @@
+Note:Always_Take_Midpoint_of_KL_StripEnd_as_Origin_LSGG
+Distance_From_KL	RL_m	Remark
+0	105	KL_Midpoint
+30	105	
+60	105	CD_Threshold_Midpoint
+560	105	
+760	105	
+960	105	
+1460	105	
+1800	105	
+3635	105	AB_Threshold_Midpoint
+3962	105	
+4022	105	JI_Midpoint

@@ -1,0 +1,5 @@
+Note:RL of extended RWY CL from CD to inner edge of ToC_KSAN
+Distance_From_CD	RL_m	Remark
+0	105	CD_Threshold_Midpoint
+30	105	
+60	105	KL_Midpoint	

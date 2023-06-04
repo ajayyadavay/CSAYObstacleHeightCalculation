@@ -1,0 +1,16 @@
+Central_Meridian	9
+Reference_dataum_for_IHS_m	105.00
+RWY_Classify	Precision_CAT_II_III
+AB_Threshold_Displaced_by	327
+CD_Threshold_Displaced_by	0.0
+AB_CLWY_beyond_Strip	0.0
+CD_CLWY_beyond_Strip	0.0
+ARP_Lat_N	46.25054444
+ARP_Long_E	6.126822222
+RWY_AB_DESIGNATION	05
+Points	Description	Latitude (N)	Longitude (E)	
+A	RWY	46.22562222	6.091177778
+B	RWY	46.22594444	6.090716667
+C	RWY	46.25054444	6.126822222
+D	RWY	46.25023333	6.12725
+	

@@ -1,0 +1,15 @@
+Central_Meridian	-117
+Reference_dataum_for_IHS_m	105.00
+RWY_Classify	Precision_CAT_II_III
+AB_Threshold_Displaced_by	551.79
+CD_Threshold_Displaced_by	306.74
+AB_CLWY_beyond_Strip	0.0
+CD_CLWY_beyond_Strip	0.0
+ARP_Lat_N	32.73686944
+ARP_Long_E	-117.2044694
+RWY_AB_DESIGNATION	27
+Points	Description	Latitude (N)	Longitude (E)	
+A	RWY27 N	32.73026667	-117.1749028
+B	RWY27 S	32.72973889	-117.1750833
+C	RWY09 S	32.73686944	-117.2044694
+D	RWY09 N	32.73738889	-117.2042972	

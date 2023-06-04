@@ -1,16 +1,16 @@
 Note:Always_Take_Midpoint_of_KL_StripEnd_as_Origin_VNKT
 Distance_From_KL	RL_m	Remark
-0	108	KL_Midpoint
-30	107	
-60	109	CD_Threshold_Midpoint
-560	110	
-760	112	
-960	104	
-1010	102	
-1060	101	
-1560	115	
-2060	108	
-2560	106	
-3060	103	AB_Threshold_Midpoint
-3090	120	
-3150	100	JI_Midpoint
+0	105	KL_Midpoint
+30	105	0
+358.5	105	CD_Threshold_Midpoint
+500	105	0
+700	105	0
+1000	105	0
+1010	105	0
+1060	105	0
+1560	105	0
+2060	105	0
+2560	105	0
+3134.5	105	AB_Threshold_Midpoint
+3164.5	105	0
+3194.5	105	JI_Midpoint

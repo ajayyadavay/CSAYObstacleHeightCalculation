@@ -4771,6 +4771,7 @@ namespace CSAY_Obstacle_Height_Calculation
                 for (int col = 0; col < no_of_Col; col++)
                 {
                     Dgv.Rows[row - startrow].Cells[col + 1].Value = splittedtext[col];
+                    //MessageBox.Show("line = " + splittedtext[col].ToString());
                 }
             }
 
@@ -8470,8 +8471,11 @@ namespace CSAY_Obstacle_Height_Calculation
             }
         }
 
-        private void TxtABDesignation_TextChanged(object sender, EventArgs e)
+
+        private void TxtABDesignation_TextChanged_1(object sender, EventArgs e)
         {
+            //Input is AB because AB can have 36 or 00 designation but CD always has 18 designation along NS RWY
+            //So, user will decide which to input 36 or 00 and calculated CD will always be 18.
             try
             {
                 int a = Convert.ToInt32(TxtABDesignation.Text);

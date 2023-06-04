@@ -51,6 +51,10 @@
             this.BtnLoadAllRecord = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.TabRWYEq = new System.Windows.Forms.TabPage();
+            this.TxtCDDesignation = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.TxtABDesignation = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.TxtRWYClassify = new System.Windows.Forms.TextBox();
             this.BtnZoomToFit2 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
@@ -350,10 +354,6 @@
             this.modifyDisplayDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.autoProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TxtABDesignation = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.TxtCDDesignation = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -724,6 +724,43 @@
             this.TabRWYEq.TabIndex = 3;
             this.TabRWYEq.Text = "RWY COORD and Eq";
             this.TabRWYEq.UseVisualStyleBackColor = true;
+            // 
+            // TxtCDDesignation
+            // 
+            this.TxtCDDesignation.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCDDesignation.Location = new System.Drawing.Point(1112, 462);
+            this.TxtCDDesignation.Name = "TxtCDDesignation";
+            this.TxtCDDesignation.Size = new System.Drawing.Size(142, 28);
+            this.TxtCDDesignation.TabIndex = 20;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label30.Location = new System.Drawing.Point(917, 468);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(167, 16);
+            this.label30.TabIndex = 19;
+            this.label30.Text = "RWY CD Side Designation";
+            // 
+            // TxtABDesignation
+            // 
+            this.TxtABDesignation.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtABDesignation.Location = new System.Drawing.Point(1112, 428);
+            this.TxtABDesignation.Name = "TxtABDesignation";
+            this.TxtABDesignation.Size = new System.Drawing.Size(142, 28);
+            this.TxtABDesignation.TabIndex = 18;
+            this.TxtABDesignation.TextChanged += new System.EventHandler(this.TxtABDesignation_TextChanged_1);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label29.Location = new System.Drawing.Point(917, 434);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(166, 16);
+            this.label29.TabIndex = 17;
+            this.label29.Text = "RWY AB Side Designation";
             // 
             // TxtRWYClassify
             // 
@@ -3781,43 +3818,6 @@
             this.autoProcessToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
             this.autoProcessToolStripMenuItem.Text = "Auto Process";
             this.autoProcessToolStripMenuItem.Click += new System.EventHandler(this.autoProcessToolStripMenuItem_Click);
-            // 
-            // TxtABDesignation
-            // 
-            this.TxtABDesignation.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtABDesignation.Location = new System.Drawing.Point(1112, 428);
-            this.TxtABDesignation.Name = "TxtABDesignation";
-            this.TxtABDesignation.Size = new System.Drawing.Size(142, 28);
-            this.TxtABDesignation.TabIndex = 18;
-            this.TxtABDesignation.TextChanged += new System.EventHandler(this.TxtABDesignation_TextChanged);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label29.Location = new System.Drawing.Point(917, 434);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(166, 16);
-            this.label29.TabIndex = 17;
-            this.label29.Text = "RWY AB Side Designation";
-            // 
-            // TxtCDDesignation
-            // 
-            this.TxtCDDesignation.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCDDesignation.Location = new System.Drawing.Point(1112, 462);
-            this.TxtCDDesignation.Name = "TxtCDDesignation";
-            this.TxtCDDesignation.Size = new System.Drawing.Size(142, 28);
-            this.TxtCDDesignation.TabIndex = 20;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label30.Location = new System.Drawing.Point(917, 468);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(167, 16);
-            this.label30.TabIndex = 19;
-            this.label30.Text = "RWY CD Side Designation";
             // 
             // FrmObstacleHeightCalculation
             // 

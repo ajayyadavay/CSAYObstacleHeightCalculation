@@ -1,0 +1,6 @@
+Note:RL of extended RWY CL from AB to inner edge of ToC_KSAN
+Distance_From_AB	RL_m	Remark
+0	105	AB_Threshold_Midpoint
+150	105	
+327	105	
+387	105	JI_Midpoint
