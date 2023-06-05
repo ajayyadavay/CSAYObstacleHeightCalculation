@@ -1,4 +1,4 @@
-Central_Meridian	84
+Central_Meridian	81
 Reference_dataum_for_IHS_m	105
 RWY_Classify	Precision_CAT_II_III
 AB_Threshold_Displaced_by	298.5

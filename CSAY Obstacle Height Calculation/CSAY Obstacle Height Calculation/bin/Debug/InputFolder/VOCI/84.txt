@@ -1,7 +1,0 @@
-Everest_Nagarkot_MUTM84
-a	6377299.36
-1/f	300.8017
-K0	0.9999
-M0	0
-phi0_DD	0
-False_Easting_X	500000.0
