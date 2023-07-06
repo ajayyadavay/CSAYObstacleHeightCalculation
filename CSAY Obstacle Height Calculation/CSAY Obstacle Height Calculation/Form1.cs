@@ -974,6 +974,14 @@ namespace CSAY_Obstacle_Height_Calculation
                 }*/
             }
 
+
+            //load format bill in combobox
+            string dir = Environment.CurrentDirectory + "\\InputFolder\\MultiObstacle";
+            string[] files = Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories);//Directory.GetFiles(dir);
+
+            foreach (string filePath in files) ComboBoxMultiObs.Items.Add(System.IO.Path.GetFileName(filePath));
+
+
             BtnLoadRWYCoord_Click(sender, e);
             //BtnZoomToFit2_Click(sender, e);
             //Draw_Checked_Surfaces();
@@ -8244,48 +8252,56 @@ namespace CSAY_Obstacle_Height_Calculation
 
         private void BtnLoadMultiObs_Click(object sender, EventArgs e)
         {
-            string[] ReadingText = new string[100];
-            string ThisFileName;
-            //CreateAccessProjectFolders();
-            string line;
-            line = "";
-            
-            /*
-            ThisFileName = @".\InputFolder\" + "MultiObstacle\\MultiObstacleFilename.txt";
-            //Pass the file path and file name to the StreamReader constructor
-            //StreamReader sr = new StreamReader(@".\LastEvent\LastBill.txt");
-            StreamReader sr = new StreamReader(ThisFileName);
-            //Read the first line of text
-            line = sr.ReadLine();
-            ReadingText[0] = line;
-            //Continue to read until you reach end of file
-            int i = 1;
-            while (line != null)
+            try
             {
-                //Read the next line
+                string[] ReadingText = new string[100];
+                string ThisFileName;
+                //CreateAccessProjectFolders();
+                string line;
+                line = "";
+
+                /*
+                ThisFileName = @".\InputFolder\" + "MultiObstacle\\MultiObstacleFilename.txt";
+                //Pass the file path and file name to the StreamReader constructor
+                //StreamReader sr = new StreamReader(@".\LastEvent\LastBill.txt");
+                StreamReader sr = new StreamReader(ThisFileName);
+                //Read the first line of text
                 line = sr.ReadLine();
-                ReadingText[i] = line;
-                i++;
+                ReadingText[0] = line;
+                //Continue to read until you reach end of file
+                int i = 1;
+                while (line != null)
+                {
+                    //Read the next line
+                    line = sr.ReadLine();
+                    ReadingText[i] = line;
+                    i++;
+                }
+                //close the file
+                sr.Close();
+
+                //loading filename
+                string[] splittedtext = ReadingText[0].Split('\t');
+                string MultiObsFilename = splittedtext[1] + ".txt";
+                */
+
+                //ThisFileName = @".\InputFolder" + "\\MultiObstacle\\" + TxtAirportCode.Text + "_MultiObstacle.txt";
+                ThisFileName = @".\InputFolder" + "\\MultiObstacle\\" + ComboBoxMultiObs.Text;
+                LoadTxtToDatagridview(dataGridView12, ThisFileName, 2, 6);
+                int n_multi_obs_data = dataGridView12.RowCount - 1;
+
+                for (int k = 0; k < n_multi_obs_data; k++)
+                {
+                    dataGridView12.Rows[k].Cells[0].Value = (k + 1).ToString();
+                }
+
+                TxtLog.Text = "Multi obstalce data loaded for " + ComboBoxMultiObs.Text;
             }
-            //close the file
-            sr.Close();
-
-            //loading filename
-            string[] splittedtext = ReadingText[0].Split('\t');
-            string MultiObsFilename = splittedtext[1] + ".txt";
-            */
-
-            ThisFileName = @".\InputFolder" + "\\MultiObstacle\\" + TxtAirportCode.Text + "_MultiObstacle.txt";
-            LoadTxtToDatagridview(dataGridView12, ThisFileName, 2, 6);
-            int n_multi_obs_data = dataGridView12.RowCount - 1;
-
-            for (int k = 0; k < n_multi_obs_data; k++)
+            catch
             {
-                dataGridView12.Rows[k].Cells[0].Value = (k + 1).ToString();
-            }
 
-            TxtLog.Text = "Multi obstalce data loaded for " + TxtAirportCode.Text + "_MultiObstacle.txt";
-            lblMultiObsFilename.Text = TxtAirportCode.Text + "_MultiObstacle.txt";
+            }
+            
         }
 
         private void BtnGenerateMultiObsOutput_Click(object sender, EventArgs e)

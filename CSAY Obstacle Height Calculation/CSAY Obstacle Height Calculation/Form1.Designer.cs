@@ -299,8 +299,6 @@
             this.TabMultiInput = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblMultiObsFilename = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
             this.BtnMultiObsAutoprocess = new System.Windows.Forms.Button();
             this.BtnMultiObsExportToExcel = new System.Windows.Forms.Button();
             this.BtnGenerateMultiObsOutput = new System.Windows.Forms.Button();
@@ -354,6 +352,8 @@
             this.modifyDisplayDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.autoProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ComboBoxMultiObs = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -2410,7 +2410,6 @@
             this.ColDatumRL,
             this.ColCalcRL,
             this.ColCalculation});
-            this.dataGridView4.ContextMenuStrip = this.contextMenuStrip2;
             this.dataGridView4.Location = new System.Drawing.Point(19, 40);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(1289, 291);
@@ -2798,7 +2797,6 @@
             this.ColSN,
             this.ColSurface,
             this.ColDimension});
-            this.dataGridView5.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView5.Location = new System.Drawing.Point(6, 27);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.Size = new System.Drawing.Size(662, 494);
@@ -2857,7 +2855,6 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
-            this.dataGridView8.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView8.Location = new System.Drawing.Point(6, 32);
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.Size = new System.Drawing.Size(628, 165);
@@ -2910,7 +2907,6 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.dataGridView7.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView7.Location = new System.Drawing.Point(6, 32);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.Size = new System.Drawing.Size(628, 174);
@@ -3035,7 +3031,6 @@
             this.ColDistance_KL,
             this.ColRL,
             this.ColRemark});
-            this.dataGridView6.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView6.Location = new System.Drawing.Point(6, 27);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.Size = new System.Drawing.Size(606, 485);
@@ -3103,7 +3098,6 @@
             this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn26,
             this.dataGridViewTextBoxColumn27});
-            this.dataGridView11.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView11.Location = new System.Drawing.Point(6, 27);
             this.dataGridView11.Name = "dataGridView11";
             this.dataGridView11.Size = new System.Drawing.Size(858, 133);
@@ -3172,7 +3166,6 @@
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21});
-            this.dataGridView10.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView10.Location = new System.Drawing.Point(6, 27);
             this.dataGridView10.Name = "dataGridView10";
             this.dataGridView10.Size = new System.Drawing.Size(858, 138);
@@ -3241,7 +3234,6 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15});
-            this.dataGridView9.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView9.Location = new System.Drawing.Point(6, 27);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.Size = new System.Drawing.Size(858, 147);
@@ -3291,9 +3283,9 @@
             // 
             // TabMultiInput
             // 
+            this.TabMultiInput.Controls.Add(this.label31);
+            this.TabMultiInput.Controls.Add(this.ComboBoxMultiObs);
             this.TabMultiInput.Controls.Add(this.panel1);
-            this.TabMultiInput.Controls.Add(this.lblMultiObsFilename);
-            this.TabMultiInput.Controls.Add(this.label66);
             this.TabMultiInput.Controls.Add(this.BtnMultiObsAutoprocess);
             this.TabMultiInput.Controls.Add(this.BtnMultiObsExportToExcel);
             this.TabMultiInput.Controls.Add(this.BtnGenerateMultiObsOutput);
@@ -3324,26 +3316,6 @@
             this.panel2.Size = new System.Drawing.Size(0, 45);
             this.panel2.TabIndex = 0;
             // 
-            // lblMultiObsFilename
-            // 
-            this.lblMultiObsFilename.AutoSize = true;
-            this.lblMultiObsFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMultiObsFilename.Location = new System.Drawing.Point(1131, 191);
-            this.lblMultiObsFilename.Name = "lblMultiObsFilename";
-            this.lblMultiObsFilename.Size = new System.Drawing.Size(63, 18);
-            this.lblMultiObsFilename.TabIndex = 18;
-            this.lblMultiObsFilename.Text = "filename";
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label66.Location = new System.Drawing.Point(1010, 193);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(115, 18);
-            this.label66.TabIndex = 17;
-            this.label66.Text = "Loaded data for:";
-            // 
             // BtnMultiObsAutoprocess
             // 
             this.BtnMultiObsAutoprocess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(134)))), ((int)(((byte)(230)))));
@@ -3354,7 +3326,7 @@
             this.BtnMultiObsAutoprocess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMultiObsAutoprocess.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMultiObsAutoprocess.ForeColor = System.Drawing.Color.White;
-            this.BtnMultiObsAutoprocess.Location = new System.Drawing.Point(1013, 148);
+            this.BtnMultiObsAutoprocess.Location = new System.Drawing.Point(1013, 165);
             this.BtnMultiObsAutoprocess.Name = "BtnMultiObsAutoprocess";
             this.BtnMultiObsAutoprocess.Size = new System.Drawing.Size(300, 42);
             this.BtnMultiObsAutoprocess.TabIndex = 16;
@@ -3372,7 +3344,7 @@
             this.BtnMultiObsExportToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMultiObsExportToExcel.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMultiObsExportToExcel.ForeColor = System.Drawing.Color.White;
-            this.BtnMultiObsExportToExcel.Location = new System.Drawing.Point(1013, 101);
+            this.BtnMultiObsExportToExcel.Location = new System.Drawing.Point(1013, 118);
             this.BtnMultiObsExportToExcel.Name = "BtnMultiObsExportToExcel";
             this.BtnMultiObsExportToExcel.Size = new System.Drawing.Size(300, 42);
             this.BtnMultiObsExportToExcel.TabIndex = 15;
@@ -3390,9 +3362,9 @@
             this.BtnGenerateMultiObsOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGenerateMultiObsOutput.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGenerateMultiObsOutput.ForeColor = System.Drawing.Color.White;
-            this.BtnGenerateMultiObsOutput.Location = new System.Drawing.Point(1013, 54);
+            this.BtnGenerateMultiObsOutput.Location = new System.Drawing.Point(1123, 71);
             this.BtnGenerateMultiObsOutput.Name = "BtnGenerateMultiObsOutput";
-            this.BtnGenerateMultiObsOutput.Size = new System.Drawing.Size(300, 42);
+            this.BtnGenerateMultiObsOutput.Size = new System.Drawing.Size(190, 42);
             this.BtnGenerateMultiObsOutput.TabIndex = 14;
             this.BtnGenerateMultiObsOutput.Text = "Generate Output table";
             this.BtnGenerateMultiObsOutput.UseVisualStyleBackColor = false;
@@ -3408,9 +3380,9 @@
             this.BtnLoadMultiObs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLoadMultiObs.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLoadMultiObs.ForeColor = System.Drawing.Color.White;
-            this.BtnLoadMultiObs.Location = new System.Drawing.Point(1013, 9);
+            this.BtnLoadMultiObs.Location = new System.Drawing.Point(1013, 70);
             this.BtnLoadMultiObs.Name = "BtnLoadMultiObs";
-            this.BtnLoadMultiObs.Size = new System.Drawing.Size(300, 42);
+            this.BtnLoadMultiObs.Size = new System.Drawing.Size(104, 42);
             this.BtnLoadMultiObs.TabIndex = 13;
             this.BtnLoadMultiObs.Text = "Load data";
             this.BtnLoadMultiObs.UseVisualStyleBackColor = false;
@@ -3443,7 +3415,6 @@
             this.ColMObstacleRL,
             this.ColMIntrusionIntoOLS,
             this.ColMRemark});
-            this.dataGridView13.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView13.Location = new System.Drawing.Point(6, 27);
             this.dataGridView13.Name = "dataGridView13";
             this.dataGridView13.Size = new System.Drawing.Size(1314, 274);
@@ -3550,7 +3521,6 @@
             this.ColMLongitudeDD,
             this.ColMRLOfPlinth,
             this.ColMHeightAbovePlinth});
-            this.dataGridView12.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView12.Location = new System.Drawing.Point(6, 27);
             this.dataGridView12.Name = "dataGridView12";
             this.dataGridView12.Size = new System.Drawing.Size(960, 189);
@@ -3818,6 +3788,26 @@
             this.autoProcessToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
             this.autoProcessToolStripMenuItem.Text = "Auto Process";
             this.autoProcessToolStripMenuItem.Click += new System.EventHandler(this.autoProcessToolStripMenuItem_Click);
+            // 
+            // ComboBoxMultiObs
+            // 
+            this.ComboBoxMultiObs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxMultiObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxMultiObs.FormattingEnabled = true;
+            this.ComboBoxMultiObs.Location = new System.Drawing.Point(1013, 40);
+            this.ComboBoxMultiObs.Name = "ComboBoxMultiObs";
+            this.ComboBoxMultiObs.Size = new System.Drawing.Size(300, 26);
+            this.ComboBoxMultiObs.TabIndex = 21;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(1010, 21);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(161, 18);
+            this.label31.TabIndex = 22;
+            this.label31.Text = "Choose *.txt file to load";
             // 
             // FrmObstacleHeightCalculation
             // 
@@ -4232,8 +4222,6 @@
         private System.Windows.Forms.Button BtnGenerateMultiObsOutput;
         private System.Windows.Forms.Button BtnLoadMultiObs;
         private System.Windows.Forms.Button BtnMultiObsAutoprocess;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label lblMultiObsFilename;
         private System.Windows.Forms.Button BtnCreateEnglishLetter;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox TxtDocumentRequired;
@@ -4243,6 +4231,8 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox TxtABDesignation;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.ComboBox ComboBoxMultiObs;
+        private System.Windows.Forms.Label label31;
     }
 }
 
