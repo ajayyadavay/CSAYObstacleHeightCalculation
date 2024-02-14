@@ -87,8 +87,8 @@
             this.TxtAbout.Name = "TxtAbout";
             this.TxtAbout.Size = new System.Drawing.Size(327, 84);
             this.TxtAbout.TabIndex = 22;
-            this.TxtAbout.Text = "CSAY Obstacle Height Calculation Ver 2023.1\r\nCreated by Ajay Yadav\r\nGithub: githu" +
-    "b.com/ajayyadavay\r\nE-mail: civil.ajayyadav@gmail.com";
+            this.TxtAbout.Text = "CSAY Obstacle Height Calculation Ver 1.0.1\r\nCreated by Ajay Yadav ©2023\r\nGithub: " +
+    "github.com/ajayyadavay\r\nE-mail: civil.ajayyadav@gmail.com";
             // 
             // BtnDocumentation
             // 

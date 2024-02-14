@@ -525,10 +525,18 @@ namespace CSAY_Obstacle_Height_Calculation
                 GMap.NET.WindowsForms.GMapMarker mapMarker2 = new GMarkerGoogle(point2, GMarkerGoogleType.blue_pushpin);
 
                 //create overlay
-
                 //add all marker to overlay
-                mapMarker1.ToolTipText = "RWY Point\n0 m";
-                mapMarker2.ToolTipText = TxtFirstName.Text + " " + TxtObstacleType.Text + "\n" + Math.Round(AreaDistance,0) + " m";
+                
+                if(ChkBoxShowdist.Checked == true)
+                {
+                    mapMarker1.ToolTipText = "RWY Point\n0 m";
+                    mapMarker2.ToolTipText = TxtFirstName.Text + " " + TxtObstacleType.Text + "\n" + Math.Round(AreaDistance, 0) + " m";
+                }
+                else
+                {
+                    mapMarker1.ToolTipText = "RWY Point";
+                    mapMarker2.ToolTipText = TxtFirstName.Text + " " + TxtObstacleType.Text;
+                }
 
                 mapMarker1.ToolTipMode = MarkerTooltipMode.Always;
                 mapMarker2.ToolTipMode = MarkerTooltipMode.Always;
@@ -545,9 +553,15 @@ namespace CSAY_Obstacle_Height_Calculation
                 markerOverlay2.Markers.Add(mapMarker2);
 
                 //cover map with overlay
-                gMapControl1.Overlays.Add(markerOverlay1);
-                gMapControl1.Overlays.Add(markerOverlay2);
-
+                if(ChkboxRWYMarker.Checked == true)
+                {
+                    gMapControl1.Overlays.Add(markerOverlay1);
+                }
+                if(ChkboxObsMarker.Checked == true)
+                {
+                    gMapControl1.Overlays.Add(markerOverlay2);
+                }
+                
                 //Draw routes
                 GMapOverlay routes = new GMapOverlay("routes");
                 
@@ -557,9 +571,12 @@ namespace CSAY_Obstacle_Height_Calculation
                 GMap.NET.WindowsForms.GMapRoute route = new GMap.NET.WindowsForms.GMapRoute(points_route, "RWY to House");
                 route.Stroke = new Pen(Color.Red, 3);
                 routes.Routes.Add(route);
-                gMapControl1.Overlays.Add(routes);
 
-                
+                if(ChkboxRoute.Checked == true)
+                {
+                    gMapControl1.Overlays.Add(routes);
+                }
+               
                 TxtArealDistance.Text = AreaDistance.ToString("0.00");
                 TxtPlotCase.Text = Plot_Position_Case.ToString();
 

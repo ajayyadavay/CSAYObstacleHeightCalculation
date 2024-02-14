@@ -83,6 +83,9 @@
             this.exportRWYCOORDToExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label19 = new System.Windows.Forms.Label();
             this.TabObstacleHeightCalculation = new System.Windows.Forms.TabPage();
+            this.ChkboxRoute = new System.Windows.Forms.CheckBox();
+            this.ChkboxObsMarker = new System.Windows.Forms.CheckBox();
+            this.ChkboxRWYMarker = new System.Windows.Forms.CheckBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.ChkBoxInnerTrans_1 = new System.Windows.Forms.CheckBox();
             this.ChkBoxOuterHorizontal = new System.Windows.Forms.CheckBox();
@@ -297,6 +300,8 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabMultiInput = new System.Windows.Forms.TabPage();
+            this.label31 = new System.Windows.Forms.Label();
+            this.ComboBoxMultiObs = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnMultiObsAutoprocess = new System.Windows.Forms.Button();
@@ -352,8 +357,7 @@
             this.modifyDisplayDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.autoProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ComboBoxMultiObs = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
+            this.ChkBoxShowdist = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -1033,6 +1037,10 @@
             // 
             // TabObstacleHeightCalculation
             // 
+            this.TabObstacleHeightCalculation.Controls.Add(this.ChkBoxShowdist);
+            this.TabObstacleHeightCalculation.Controls.Add(this.ChkboxRoute);
+            this.TabObstacleHeightCalculation.Controls.Add(this.ChkboxObsMarker);
+            this.TabObstacleHeightCalculation.Controls.Add(this.ChkboxRWYMarker);
             this.TabObstacleHeightCalculation.Controls.Add(this.groupBox11);
             this.TabObstacleHeightCalculation.Controls.Add(this.BtnZoomToFit);
             this.TabObstacleHeightCalculation.Controls.Add(this.ChkBoxAutoFitMap);
@@ -1053,6 +1061,39 @@
             this.TabObstacleHeightCalculation.TabIndex = 2;
             this.TabObstacleHeightCalculation.Text = "OLS Map";
             this.TabObstacleHeightCalculation.UseVisualStyleBackColor = true;
+            // 
+            // ChkboxRoute
+            // 
+            this.ChkboxRoute.Checked = true;
+            this.ChkboxRoute.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkboxRoute.Location = new System.Drawing.Point(975, 425);
+            this.ChkboxRoute.Name = "ChkboxRoute";
+            this.ChkboxRoute.Size = new System.Drawing.Size(341, 33);
+            this.ChkboxRoute.TabIndex = 23;
+            this.ChkboxRoute.Text = "Show shortest Route from RWY to Obsacle";
+            this.ChkboxRoute.UseVisualStyleBackColor = true;
+            // 
+            // ChkboxObsMarker
+            // 
+            this.ChkboxObsMarker.Checked = true;
+            this.ChkboxObsMarker.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkboxObsMarker.Location = new System.Drawing.Point(1144, 398);
+            this.ChkboxObsMarker.Name = "ChkboxObsMarker";
+            this.ChkboxObsMarker.Size = new System.Drawing.Size(191, 33);
+            this.ChkboxObsMarker.TabIndex = 22;
+            this.ChkboxObsMarker.Text = "Show Obstacle marker";
+            this.ChkboxObsMarker.UseVisualStyleBackColor = true;
+            // 
+            // ChkboxRWYMarker
+            // 
+            this.ChkboxRWYMarker.Checked = true;
+            this.ChkboxRWYMarker.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkboxRWYMarker.Location = new System.Drawing.Point(975, 398);
+            this.ChkboxRWYMarker.Name = "ChkboxRWYMarker";
+            this.ChkboxRWYMarker.Size = new System.Drawing.Size(161, 33);
+            this.ChkboxRWYMarker.TabIndex = 21;
+            this.ChkboxRWYMarker.Text = "Show RWY marker";
+            this.ChkboxRWYMarker.UseVisualStyleBackColor = true;
             // 
             // groupBox11
             // 
@@ -1268,9 +1309,9 @@
             // 
             this.ChkBoxAutoFitMap.Checked = true;
             this.ChkBoxAutoFitMap.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkBoxAutoFitMap.Location = new System.Drawing.Point(988, 392);
+            this.ChkBoxAutoFitMap.Location = new System.Drawing.Point(975, 369);
             this.ChkBoxAutoFitMap.Name = "ChkBoxAutoFitMap";
-            this.ChkBoxAutoFitMap.Size = new System.Drawing.Size(223, 49);
+            this.ChkBoxAutoFitMap.Size = new System.Drawing.Size(223, 33);
             this.ChkBoxAutoFitMap.TabIndex = 18;
             this.ChkBoxAutoFitMap.Text = "Auto Fit Map While Saving";
             this.ChkBoxAutoFitMap.UseVisualStyleBackColor = true;
@@ -3300,6 +3341,26 @@
             this.TabMultiInput.Text = "Multi-Obstacle data";
             this.TabMultiInput.UseVisualStyleBackColor = true;
             // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(1010, 21);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(161, 18);
+            this.label31.TabIndex = 22;
+            this.label31.Text = "Choose *.txt file to load";
+            // 
+            // ComboBoxMultiObs
+            // 
+            this.ComboBoxMultiObs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxMultiObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxMultiObs.FormattingEnabled = true;
+            this.ComboBoxMultiObs.Location = new System.Drawing.Point(1013, 40);
+            this.ComboBoxMultiObs.Name = "ComboBoxMultiObs";
+            this.ComboBoxMultiObs.Size = new System.Drawing.Size(300, 26);
+            this.ComboBoxMultiObs.TabIndex = 21;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
@@ -3789,25 +3850,16 @@
             this.autoProcessToolStripMenuItem.Text = "Auto Process";
             this.autoProcessToolStripMenuItem.Click += new System.EventHandler(this.autoProcessToolStripMenuItem_Click);
             // 
-            // ComboBoxMultiObs
+            // ChkBoxShowdist
             // 
-            this.ComboBoxMultiObs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBoxMultiObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxMultiObs.FormattingEnabled = true;
-            this.ComboBoxMultiObs.Location = new System.Drawing.Point(1013, 40);
-            this.ComboBoxMultiObs.Name = "ComboBoxMultiObs";
-            this.ComboBoxMultiObs.Size = new System.Drawing.Size(300, 26);
-            this.ComboBoxMultiObs.TabIndex = 21;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(1010, 21);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(161, 18);
-            this.label31.TabIndex = 22;
-            this.label31.Text = "Choose *.txt file to load";
+            this.ChkBoxShowdist.Checked = true;
+            this.ChkBoxShowdist.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkBoxShowdist.Location = new System.Drawing.Point(1189, 369);
+            this.ChkBoxShowdist.Name = "ChkBoxShowdist";
+            this.ChkBoxShowdist.Size = new System.Drawing.Size(142, 33);
+            this.ChkBoxShowdist.TabIndex = 24;
+            this.ChkBoxShowdist.Text = "Show distances";
+            this.ChkBoxShowdist.UseVisualStyleBackColor = true;
             // 
             // FrmObstacleHeightCalculation
             // 
@@ -4233,6 +4285,10 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.ComboBox ComboBoxMultiObs;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.CheckBox ChkboxRWYMarker;
+        private System.Windows.Forms.CheckBox ChkboxRoute;
+        private System.Windows.Forms.CheckBox ChkboxObsMarker;
+        private System.Windows.Forms.CheckBox ChkBoxShowdist;
     }
 }
 
