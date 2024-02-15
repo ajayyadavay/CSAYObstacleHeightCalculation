@@ -158,14 +158,13 @@ F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calcu
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.Threading.Tasks.Extensions.xml
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\bin\Debug\System.ValueTuple.xml
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.AssemblyReference.cache
-F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.SuggestedBindingRedirects.cache
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.ResolveComReference.cache
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY_Obstacle_Height_Calculation.FrmObstacleHeightCalculation.resources
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY_Obstacle_Height_Calculation.FrmAbout.resources
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY_Obstacle_Height_Calculation.Properties.Resources.resources
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.GenerateResource.cache
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.CoreCompileInputs.cache
-F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.csproj.CopyComplete
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.exe
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obstacle Height Calculation.pdb
 F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY_Obstacle_Height_Calculation.FrmDMS.resources
+F:\VBStudio\CSAY_OHC\CSAY Obstacle Height Calculation\CSAY Obstacle Height Calculation\obj\Debug\CSAY Obs.346DF131.Up2Date

@@ -4418,6 +4418,7 @@ namespace CSAY_Obstacle_Height_Calculation
                .SetFontSize(font_size_table)
                .Add(new iText.Layout.Element.Paragraph("C. Allowable Elevation of Obstacle"));
 
+
             //Row13------------------------------------------------------
             iText.Layout.Element.Cell cell131 = new iText.Layout.Element.Cell(1, 1)
                //.SetBackgroundColor(Color.Green)
@@ -4425,17 +4426,33 @@ namespace CSAY_Obstacle_Height_Calculation
                .SetFontSize(font_size_table)
                .Add(new iText.Layout.Element.Paragraph("13"));
 
-            iText.Layout.Element.Cell cell132 = new iText.Layout.Element.Cell(1, 1)
+            //All calculation table to be included in pdf
+            string CalTab = "All OLS intruding Obstacle:\n";
+            //MessageBox.Show(" rows = " + dataGridView4.RowCount);
+            for(int i = 0; i < dataGridView4.RowCount-1; i++)
+            {
+
+                CalTab += dataGridView4.Rows[i].Cells[0].Value.ToString();//SN
+                CalTab += ". ";
+                CalTab += dataGridView4.Rows[i].Cells[1].Value.ToString();//Surface Name
+                CalTab += " [";
+                CalTab += dataGridView4.Rows[i].Cells[5].Value.ToString();//
+                CalTab += "]\n";
+
+                //MessageBox.Show(CalTab);
+            }
+            iText.Layout.Element.Cell cell132 = new iText.Layout.Element.Cell(1, 2) //span over two column
                //.SetBackgroundColor(Color.Green)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("RL of RWY (AMSL)"));
+               .Add(new iText.Layout.Element.Paragraph(CalTab));
 
-            iText.Layout.Element.Cell cell133 = new iText.Layout.Element.Cell(1, 1)
+            /*iText.Layout.Element.Cell cell133 = new iText.Layout.Element.Cell(1, 1)
                //.SetBackgroundColor(Color.GRAY)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph(TxtRL_RWY.Text + " m"));
+               .Add(new iText.Layout.Element.Paragraph(TxtRL_RWY.Text + " m"));*/
+
 
             //Row14------------------------------------------------------
             iText.Layout.Element.Cell cell141 = new iText.Layout.Element.Cell(1, 1)
@@ -4448,13 +4465,14 @@ namespace CSAY_Obstacle_Height_Calculation
                //.SetBackgroundColor(Color.Green)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("Obstacle lying in surface"));
+               .Add(new iText.Layout.Element.Paragraph("Restricting OLS"));
 
             iText.Layout.Element.Cell cell143 = new iText.Layout.Element.Cell(1, 1)
                //.SetBackgroundColor(Color.GRAY)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
                .Add(new iText.Layout.Element.Paragraph(TxtSurfaceName.Text));
+
 
             //Row15------------------------------------------------------
             iText.Layout.Element.Cell cell151 = new iText.Layout.Element.Cell(1, 1)
@@ -4467,13 +4485,14 @@ namespace CSAY_Obstacle_Height_Calculation
                //.SetBackgroundColor(Color.Green)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("Surface height above RWY"));
+               .Add(new iText.Layout.Element.Paragraph("RL of Reference point of Restricting OLS (AMSL)"));
 
             iText.Layout.Element.Cell cell153 = new iText.Layout.Element.Cell(1, 1)
                //.SetBackgroundColor(Color.GRAY)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph(TxtSurfaceHeightaboveRWY.Text + " m"));
+               .Add(new iText.Layout.Element.Paragraph(TxtRL_RWY.Text + " m"));
+
 
             //Row16------------------------------------------------------
             iText.Layout.Element.Cell cell161 = new iText.Layout.Element.Cell(1, 1)
@@ -4486,13 +4505,13 @@ namespace CSAY_Obstacle_Height_Calculation
                //.SetBackgroundColor(Color.Green)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("Allowable Maximum Obstacle Elevation"));
+               .Add(new iText.Layout.Element.Paragraph("Surface height above Reference RL for Restricting OLS"));
 
             iText.Layout.Element.Cell cell163 = new iText.Layout.Element.Cell(1, 1)
                //.SetBackgroundColor(Color.GRAY)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph(TxtCalculationDetail.Text));
+               .Add(new iText.Layout.Element.Paragraph(TxtSurfaceHeightaboveRWY.Text + " m"));
 
             //Row17------------------------------------------------------
             iText.Layout.Element.Cell cell171 = new iText.Layout.Element.Cell(1, 1)
@@ -4505,9 +4524,28 @@ namespace CSAY_Obstacle_Height_Calculation
                //.SetBackgroundColor(Color.Green)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("Hence, Maximum Permitted height of obstacle"));
+               .Add(new iText.Layout.Element.Paragraph("Allowable Maximum Obstacle Elevation"));
 
             iText.Layout.Element.Cell cell173 = new iText.Layout.Element.Cell(1, 1)
+               //.SetBackgroundColor(Color.GRAY)
+               .SetTextAlignment(TextAlignment.LEFT)
+               .SetFontSize(font_size_table)
+               .Add(new iText.Layout.Element.Paragraph(TxtCalculationDetail.Text));
+
+            //Row18------------------------------------------------------
+            iText.Layout.Element.Cell cell181 = new iText.Layout.Element.Cell(1, 1)
+               //.SetBackgroundColor(Color.Green)
+               .SetTextAlignment(TextAlignment.LEFT)
+               .SetFontSize(font_size_table)
+               .Add(new iText.Layout.Element.Paragraph("18"));
+
+            iText.Layout.Element.Cell cell182 = new iText.Layout.Element.Cell(1, 1)
+               //.SetBackgroundColor(Color.Green)
+               .SetTextAlignment(TextAlignment.LEFT)
+               .SetFontSize(font_size_table)
+               .Add(new iText.Layout.Element.Paragraph("Hence, Maximum Permitted height of obstacle"));
+
+            iText.Layout.Element.Cell cell183 = new iText.Layout.Element.Cell(1, 1)
                //.SetBackgroundColor(Color.GRAY)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
@@ -4521,25 +4559,6 @@ namespace CSAY_Obstacle_Height_Calculation
                .Add(new iText.Layout.Element.Paragraph("D. Reference"));
 
 
-            //Row18------------------------------------------------------
-            iText.Layout.Element.Cell cell181 = new iText.Layout.Element.Cell(1, 1)
-               //.SetBackgroundColor(Color.Green)
-               .SetTextAlignment(TextAlignment.LEFT)
-               .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("18"));
-
-            iText.Layout.Element.Cell cell182 = new iText.Layout.Element.Cell(1, 1)
-               //.SetBackgroundColor(Color.Green)
-               .SetTextAlignment(TextAlignment.LEFT)
-               .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("Runway Classification"));
-
-            iText.Layout.Element.Cell cell183 = new iText.Layout.Element.Cell(1, 1)
-               //.SetBackgroundColor(Color.GRAY)
-               .SetTextAlignment(TextAlignment.LEFT)
-               .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph(label26.Text));
-
             //Row19------------------------------------------------------
             iText.Layout.Element.Cell cell191 = new iText.Layout.Element.Cell(1, 1)
                //.SetBackgroundColor(Color.Green)
@@ -4551,13 +4570,13 @@ namespace CSAY_Obstacle_Height_Calculation
                //.SetBackgroundColor(Color.Green)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("Airport"));
+               .Add(new iText.Layout.Element.Paragraph("Runway Classification"));
 
             iText.Layout.Element.Cell cell193 = new iText.Layout.Element.Cell(1, 1)
                //.SetBackgroundColor(Color.GRAY)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph(TxtAirportCode.Text));
+               .Add(new iText.Layout.Element.Paragraph(label26.Text));
 
             //Row20------------------------------------------------------
             iText.Layout.Element.Cell cell201 = new iText.Layout.Element.Cell(1, 1)
@@ -4570,13 +4589,32 @@ namespace CSAY_Obstacle_Height_Calculation
                //.SetBackgroundColor(Color.Green)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("Docs refered"));
+               .Add(new iText.Layout.Element.Paragraph("Airport"));
 
             iText.Layout.Element.Cell cell203 = new iText.Layout.Element.Cell(1, 1)
                //.SetBackgroundColor(Color.GRAY)
                .SetTextAlignment(TextAlignment.LEFT)
                .SetFontSize(font_size_table)
-               .Add(new iText.Layout.Element.Paragraph("OLS Chart of ICAO Annex-14 Volume I, Chapter 4 and CAR-14"));
+               .Add(new iText.Layout.Element.Paragraph(TxtAirportCode.Text));
+
+            //Row21------------------------------------------------------
+            iText.Layout.Element.Cell cell211 = new iText.Layout.Element.Cell(1, 1)
+               //.SetBackgroundColor(Color.Green)
+               .SetTextAlignment(TextAlignment.LEFT)
+               .SetFontSize(font_size_table)
+               .Add(new iText.Layout.Element.Paragraph("21"));
+
+            iText.Layout.Element.Cell cell212 = new iText.Layout.Element.Cell(1, 1)
+               //.SetBackgroundColor(Color.Green)
+               .SetTextAlignment(TextAlignment.LEFT)
+               .SetFontSize(font_size_table)
+               .Add(new iText.Layout.Element.Paragraph("Documents refered for OLS"));
+
+            iText.Layout.Element.Cell cell213 = new iText.Layout.Element.Cell(1, 1)
+               //.SetBackgroundColor(Color.GRAY)
+               .SetTextAlignment(TextAlignment.LEFT)
+               .SetFontSize(font_size_table)
+               .Add(new iText.Layout.Element.Paragraph(label66.Text));
 
             // Creating an ImageData object 
             String imageFile = Project_Folders + "\\" + TxtFirstName.Text + "_" + TxtPlotNo.Text + "_Map.jpg";
@@ -4654,7 +4692,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
             table.AddCell(cell131);
             table.AddCell(cell132);
-            table.AddCell(cell133);
+            //table.AddCell(cell133);
 
             table.AddCell(cell141);
             table.AddCell(cell142);
@@ -4685,6 +4723,10 @@ namespace CSAY_Obstacle_Height_Calculation
             table.AddCell(cell201);
             table.AddCell(cell202);
             table.AddCell(cell203);
+
+            table.AddCell(cell211);
+            table.AddCell(cell212);
+            table.AddCell(cell213);
 
             table.AddCell(cell04); //E
 
@@ -4961,22 +5003,22 @@ namespace CSAY_Obstacle_Height_Calculation
                 }
                 //close the file
                 sr.Close();
-
+                
                 //load data to datagridview by splitting by tab character of coord of RWY
                 dataGridView5.Rows.Clear();
 
-                for (int row = 2; row <= (i-2); row++)//i-2=43-2=41
+                for (int row = 3; row <= (i-2); row++)//i-2=44-2=42
                 {
                     dataGridView5.Rows.Add();
-                    dataGridView5.Rows[row - 2].Cells[0].Value = (row-1).ToString();
+                    dataGridView5.Rows[row - 3].Cells[0].Value = (row-2).ToString();
                 }
 
-                for (int row = 2; row <= (i-2); row++)
+                for (int row = 3; row <= (i-2); row++)
                 {
                     string[] splittedtext = ReadingText[row].Split('\t');
                     for (int col = 0; col <= 1; col++)
                     {
-                        dataGridView5.Rows[row - 2].Cells[col + 1].Value = splittedtext[col];
+                        dataGridView5.Rows[row - 3].Cells[col + 1].Value = splittedtext[col];
                     }
                 }
 
@@ -4989,7 +5031,17 @@ namespace CSAY_Obstacle_Height_Calculation
                         label26.Text = splittedtext[col];
                     }
                 }
-                
+
+                //load documents refered
+                for (int row = 1; row <= 1; row++) //row 1 of text file contains info about central meridian
+                {
+                    string[] splittedtext = ReadingText[row].Split('\t');
+                    for (int col = 1; col <= 1; col++)
+                    {
+                        label66.Text = splittedtext[col];
+                    }
+                }
+
                 //Load rwy strip RL
                 RWYCoordFilenName = @".\InputFolder\" + TxtAirportCode.Text + "\\" + "Strip_RL.txt";
                 LoadTxtToDatagridview(dataGridView6, RWYCoordFilenName, 2, 3);

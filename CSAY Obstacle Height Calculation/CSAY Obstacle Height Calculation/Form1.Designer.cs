@@ -83,6 +83,7 @@
             this.exportRWYCOORDToExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label19 = new System.Windows.Forms.Label();
             this.TabObstacleHeightCalculation = new System.Windows.Forms.TabPage();
+            this.ChkBoxShowdist = new System.Windows.Forms.CheckBox();
             this.ChkboxRoute = new System.Windows.Forms.CheckBox();
             this.ChkboxObsMarker = new System.Windows.Forms.CheckBox();
             this.ChkboxRWYMarker = new System.Windows.Forms.CheckBox();
@@ -357,7 +358,8 @@
             this.modifyDisplayDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.autoProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ChkBoxShowdist = new System.Windows.Forms.CheckBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -811,7 +813,7 @@
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(545, 31);
             this.label26.TabIndex = 13;
-            this.label26.Text = "PRECISION APPROACH  CATEGORY II OR III, CODE NO. 4E";
+            this.label26.Text = "APPROACH  CATEGORY II OR III, CODE NO. 4E";
             // 
             // groupBox4
             // 
@@ -1061,6 +1063,17 @@
             this.TabObstacleHeightCalculation.TabIndex = 2;
             this.TabObstacleHeightCalculation.Text = "OLS Map";
             this.TabObstacleHeightCalculation.UseVisualStyleBackColor = true;
+            // 
+            // ChkBoxShowdist
+            // 
+            this.ChkBoxShowdist.Checked = true;
+            this.ChkBoxShowdist.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkBoxShowdist.Location = new System.Drawing.Point(1189, 369);
+            this.ChkBoxShowdist.Name = "ChkBoxShowdist";
+            this.ChkBoxShowdist.Size = new System.Drawing.Size(142, 33);
+            this.ChkBoxShowdist.TabIndex = 24;
+            this.ChkBoxShowdist.Text = "Show distances";
+            this.ChkBoxShowdist.UseVisualStyleBackColor = true;
             // 
             // ChkboxRoute
             // 
@@ -2520,6 +2533,8 @@
             // 
             // TabRWYClassify
             // 
+            this.TabRWYClassify.Controls.Add(this.label66);
+            this.TabRWYClassify.Controls.Add(this.label32);
             this.TabRWYClassify.Controls.Add(this.groupBox16);
             this.TabRWYClassify.Controls.Add(this.groupBox15);
             this.TabRWYClassify.Controls.Add(this.groupBox14);
@@ -2546,7 +2561,7 @@
             this.groupBox16.Controls.Add(this.label57);
             this.groupBox16.Controls.Add(this.TxtA);
             this.groupBox16.Controls.Add(this.label58);
-            this.groupBox16.Location = new System.Drawing.Point(745, 365);
+            this.groupBox16.Location = new System.Drawing.Point(745, 346);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Size = new System.Drawing.Size(571, 136);
             this.groupBox16.TabIndex = 16;
@@ -2673,7 +2688,7 @@
             this.groupBox15.Controls.Add(this.label55);
             this.groupBox15.Controls.Add(this.Txt_ARP_Latitude);
             this.groupBox15.Controls.Add(this.label56);
-            this.groupBox15.Location = new System.Drawing.Point(745, 249);
+            this.groupBox15.Location = new System.Drawing.Point(745, 233);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(571, 84);
             this.groupBox15.TabIndex = 15;
@@ -3072,9 +3087,9 @@
             this.ColDistance_KL,
             this.ColRL,
             this.ColRemark});
-            this.dataGridView6.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView6.Location = new System.Drawing.Point(6, 21);
             this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(606, 485);
+            this.dataGridView6.Size = new System.Drawing.Size(606, 491);
             this.dataGridView6.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -3850,16 +3865,26 @@
             this.autoProcessToolStripMenuItem.Text = "Auto Process";
             this.autoProcessToolStripMenuItem.Click += new System.EventHandler(this.autoProcessToolStripMenuItem_Click);
             // 
-            // ChkBoxShowdist
+            // label66
             // 
-            this.ChkBoxShowdist.Checked = true;
-            this.ChkBoxShowdist.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkBoxShowdist.Location = new System.Drawing.Point(1189, 369);
-            this.ChkBoxShowdist.Name = "ChkBoxShowdist";
-            this.ChkBoxShowdist.Size = new System.Drawing.Size(142, 33);
-            this.ChkBoxShowdist.TabIndex = 24;
-            this.ChkBoxShowdist.Text = "Show distances";
-            this.ChkBoxShowdist.UseVisualStyleBackColor = true;
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label66.Location = new System.Drawing.Point(1003, 488);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(321, 66);
+            this.label66.TabIndex = 24;
+            this.label66.Text = "ICAO Annex-14, Chapter-4";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.Red;
+            this.label32.Location = new System.Drawing.Point(743, 488);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(256, 18);
+            this.label32.TabIndex = 23;
+            this.label32.Text = "DOCUMENTS REFERED FOR OLS:";
             // 
             // FrmObstacleHeightCalculation
             // 
@@ -3918,6 +3943,7 @@
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.TabRWYClassify.ResumeLayout(false);
+            this.TabRWYClassify.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
             this.groupBox15.ResumeLayout(false);
@@ -4289,6 +4315,8 @@
         private System.Windows.Forms.CheckBox ChkboxRoute;
         private System.Windows.Forms.CheckBox ChkboxObsMarker;
         private System.Windows.Forms.CheckBox ChkBoxShowdist;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label32;
     }
 }
 
