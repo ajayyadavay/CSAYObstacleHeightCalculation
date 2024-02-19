@@ -47,6 +47,8 @@ using System.Data.Entity.Core.Metadata.Edm;
 using Microsoft.Office.Core;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Asn1;
+using System.Runtime.Serialization.Formatters.Binary;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CSAY_Obstacle_Height_Calculation
 {
@@ -8589,6 +8591,113 @@ namespace CSAY_Obstacle_Height_Calculation
             catch
             {
 
+            }
+        }
+
+        private void saveohcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OHCInputClass.ObstacleInfo OhcIn = new OHCInputClass.ObstacleInfo {
+                LatObs = TxtLat2.Text,
+                LongObs = TxtLong2.Text,
+                FY = TxtFY.Text,
+                ObsType = TxtObstacleType.Text,
+                PlotNo = TxtPlotNo.Text,
+                Designation = TxtDesignation.Text,
+                FirstName = TxtFirstName.Text,
+                MiddleName = TxtMiddleName.Text,
+                LastName = TxtLastName.Text,
+                LocalLevel = TxtLocalLevel.Text,
+                WardNo = TxtWardNo.Text,
+                Tole = TxtTole.Text,
+                RLPlinthObs = TxtRL_Plinth.Text,
+                HAbovePlinthObs = TxtHeightAbovePlinth.Text,
+                DateOfLetter = TxtLetterDate.Text,
+                DateOfPrevLetter = TxtPreviousLetterDate.Text,
+                RefNoPrevLetter = TxtPrevLetterRef.Text,
+                LocalLevelNepali = TxtNepaliLocalLevel.Text
+
+            };
+
+            BinaryFormatter bf = new BinaryFormatter();
+
+            string path = "";
+            SaveFileDialog savefiledialog1 = new SaveFileDialog();
+            savefiledialog1.Filter = "Obstacle Height Calculation(*.ohc)|*.ohc";//"Text File(*.txt)|*.txt|Excel Sheet(*.xls)|*.xls|All Files(*.*)|*.*";
+            savefiledialog1.FilterIndex = 1;
+
+            if (savefiledialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = savefiledialog1.FileName;
+                //LoadTxtToDatagridview(dataGridView1, path, 1, 3);
+            }
+            else if (savefiledialog1.ShowDialog() == System.Windows.Forms.DialogResult.Cancel) return;
+
+
+            FileStream fsout = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
+            try
+            {
+                using (fsout)
+                {
+                    bf.Serialize(fsout, OhcIn);
+                    MessageBox.Show("File saved to\n" + path);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error saving (*.ohc)...");
+            }
+
+        }
+
+        private void loadohcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OHCInputClass.ObstacleInfo OhcIn = new OHCInputClass.ObstacleInfo();
+            BinaryFormatter bf = new BinaryFormatter();
+
+            string path="";
+            OpenFileDialog openfiledialog1 = new OpenFileDialog();
+            openfiledialog1.Filter = "Obstacle Height Calculation(*.ohc)|*.ohc";//"Text File(*.txt)|*.txt|Excel Sheet(*.xls)|*.xls|All Files(*.*)|*.*";
+            openfiledialog1.FilterIndex = 1;
+
+            if (openfiledialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = openfiledialog1.FileName;
+            }
+            else if (openfiledialog1.ShowDialog() == System.Windows.Forms.DialogResult.Cancel) return;
+
+
+            FileStream fsin = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None);
+            try
+            {
+                using (fsin)
+                {
+                    OhcIn = (OHCInputClass.ObstacleInfo)bf.Deserialize(fsin);
+
+                    TxtLat2.Text = OhcIn.LatObs;
+                    TxtLong2.Text = OhcIn.LongObs;
+                    TxtFY.Text = OhcIn.FY;
+                    TxtObstacleType.Text = OhcIn.ObsType;
+                    TxtPlotNo.Text = OhcIn.PlotNo;
+                    TxtDesignation.Text = OhcIn.Designation;
+                    TxtFirstName.Text = OhcIn.FirstName;
+                    TxtMiddleName.Text = OhcIn.MiddleName;
+                    TxtLastName.Text = OhcIn.LastName;
+                    TxtLocalLevel.Text = OhcIn.LocalLevel;
+                    TxtWardNo.Text = OhcIn.WardNo;
+                    TxtTole.Text = OhcIn.Tole;
+                    TxtRL_Plinth.Text = OhcIn.RLPlinthObs;
+                    TxtHeightAbovePlinth.Text = OhcIn.HAbovePlinthObs;
+                    TxtLetterDate.Text = OhcIn.DateOfLetter;
+                    TxtPreviousLetterDate.Text = OhcIn.DateOfPrevLetter;
+                    TxtPrevLetterRef.Text = OhcIn.RefNoPrevLetter;
+                    TxtNepaliLocalLevel.Text = OhcIn.LocalLevelNepali;
+
+                    MessageBox.Show("File loaded from \n" + path);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error loading...");
             }
         }
 

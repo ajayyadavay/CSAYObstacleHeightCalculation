@@ -7,7 +7,11 @@
       "RelativeMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|solutionrelative:csay obstacle height calculation\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|f:\\vbstudio\\csay_ohc\\csay obstacle height calculation\\csay obstacle height calculation\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|f:\\vbstudio\\csay_ohc\\csay obstacle height calculation\\csay obstacle height calculation\\ohcinputclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|solutionrelative:csay obstacle height calculation\\ohcinputclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\csay obstacle height calculation\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|solutionrelative:csay obstacle height calculation\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -15,19 +19,16 @@
       "RelativeMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|solutionrelative:csay obstacle height calculation\\frmabout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\csay obstacle height calculation\\frmdms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|solutionrelative:csay obstacle height calculation\\frmdms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|CSAY Obstacle Height Calculation||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\csay obstacle height calculation\\frmabout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|solutionrelative:csay obstacle height calculation\\frmabout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\csay obstacle height calculation\\frmdms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|solutionrelative:csay obstacle height calculation\\frmdms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\csay obstacle height calculation\\frmabout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|solutionrelative:csay obstacle height calculation\\frmabout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\csay obstacle height calculation\\frmdms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7040FD5D-2905-49C1-AD7D-787CC638122A}|CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj|solutionrelative:csay obstacle height calculation\\frmdms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,14 +42,16 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CSAY Obstacle Height Calculation",
-              "DocumentMoniker": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj",
-              "RelativeDocumentMoniker": "CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj",
-              "ToolTip": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj",
-              "RelativeToolTip": "CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-02-14T06:00:19.112Z"
+              "DocumentIndex": 1,
+              "Title": "OHCInputClass.cs",
+              "DocumentMoniker": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\OHCInputClass.cs",
+              "RelativeDocumentMoniker": "CSAY Obstacle Height Calculation\\OHCInputClass.cs",
+              "ToolTip": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\OHCInputClass.cs",
+              "RelativeToolTip": "CSAY Obstacle Height Calculation\\OHCInputClass.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAA0wB4AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-19T07:31:46.297Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -58,14 +61,14 @@
               "RelativeDocumentMoniker": "CSAY Obstacle Height Calculation\\Form1.cs",
               "ToolTip": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\Form1.cs",
               "RelativeToolTip": "CSAY Obstacle Height Calculation\\Form1.cs",
-              "ViewState": "AQIAAIcTAAAAAAAAAAAIwJUTAAARAAAA",
+              "ViewState": "AQIAALchAAAAAAAAAAAgwMQhAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-04-16T14:18:51.778Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\Form1.cs",
               "RelativeDocumentMoniker": "CSAY Obstacle Height Calculation\\Form1.cs",
@@ -77,25 +80,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FrmAbout.cs [Design]",
               "DocumentMoniker": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\FrmAbout.cs",
               "RelativeDocumentMoniker": "CSAY Obstacle Height Calculation\\FrmAbout.cs",
               "ToolTip": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\FrmAbout.cs [Design]",
               "RelativeToolTip": "CSAY Obstacle Height Calculation\\FrmAbout.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-04-16T14:18:51.863Z"
+              "WhenOpened": "2023-04-16T14:18:51.863Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "FrmDMS.cs",
               "DocumentMoniker": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\FrmDMS.cs",
               "RelativeDocumentMoniker": "CSAY Obstacle Height Calculation\\FrmDMS.cs",
               "ToolTip": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\FrmDMS.cs",
               "RelativeToolTip": "CSAY Obstacle Height Calculation\\FrmDMS.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAASwEQAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-05-04T07:30:28.419Z"
             },
             {
@@ -106,20 +110,21 @@
               "RelativeDocumentMoniker": "CSAY Obstacle Height Calculation\\FrmDMS.cs",
               "ToolTip": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\FrmDMS.cs [Design]",
               "RelativeToolTip": "CSAY Obstacle Height Calculation\\FrmDMS.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-05-04T07:23:39.712Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "FrmAbout.cs",
               "DocumentMoniker": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\FrmAbout.cs",
               "RelativeDocumentMoniker": "CSAY Obstacle Height Calculation\\FrmAbout.cs",
               "ToolTip": "F:\\VBStudio\\CSAY_OHC\\CSAY Obstacle Height Calculation\\CSAY Obstacle Height Calculation\\FrmAbout.cs",
               "RelativeToolTip": "CSAY Obstacle Height Calculation\\FrmAbout.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAlwBYAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2023-04-16T14:18:51.856Z"
+              "ViewState": "AQIAABgAAAAAAAAAAAAYwCYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-04-16T14:18:51.856Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -216,6 +216,8 @@
             this.TxtCalculationDetail = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.TabRWYClassify = new System.Windows.Forms.TabPage();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.TxtFalseEasting_X = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
@@ -358,8 +360,9 @@
             this.modifyDisplayDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.autoProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
+            this.saveohcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.loadohcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.TabLoadAllRecord.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -2547,6 +2550,27 @@
             this.TabRWYClassify.Text = "RWY Classification and other";
             this.TabRWYClassify.UseVisualStyleBackColor = true;
             // 
+            // label66
+            // 
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label66.Location = new System.Drawing.Point(1003, 488);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(321, 66);
+            this.label66.TabIndex = 24;
+            this.label66.Text = "ICAO Annex-14, Chapter-4";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.Red;
+            this.label32.Location = new System.Drawing.Point(743, 488);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(256, 18);
+            this.label32.TabIndex = 23;
+            this.label32.Text = "DOCUMENTS REFERED FOR OLS:";
+            // 
             // groupBox16
             // 
             this.groupBox16.Controls.Add(this.TxtFalseEasting_X);
@@ -3717,6 +3741,9 @@
             this.calculateToolStripMenuItem,
             this.exportToPdfToolStripMenuItem,
             this.openRecentFolderToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.saveohcToolStripMenuItem,
+            this.loadohcToolStripMenuItem,
             this.toolStripMenuItem1,
             this.aboutToolStripMenuItem,
             this.toolStripMenuItem2,
@@ -3865,26 +3892,24 @@
             this.autoProcessToolStripMenuItem.Text = "Auto Process";
             this.autoProcessToolStripMenuItem.Click += new System.EventHandler(this.autoProcessToolStripMenuItem_Click);
             // 
-            // label66
+            // saveohcToolStripMenuItem
             // 
-            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label66.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label66.Location = new System.Drawing.Point(1003, 488);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(321, 66);
-            this.label66.TabIndex = 24;
-            this.label66.Text = "ICAO Annex-14, Chapter-4";
+            this.saveohcToolStripMenuItem.Name = "saveohcToolStripMenuItem";
+            this.saveohcToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.saveohcToolStripMenuItem.Text = "Save (*.ohc)";
+            this.saveohcToolStripMenuItem.Click += new System.EventHandler(this.saveohcToolStripMenuItem_Click);
             // 
-            // label32
+            // toolStripMenuItem5
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.Red;
-            this.label32.Location = new System.Drawing.Point(743, 488);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(256, 18);
-            this.label32.TabIndex = 23;
-            this.label32.Text = "DOCUMENTS REFERED FOR OLS:";
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(206, 6);
+            // 
+            // loadohcToolStripMenuItem
+            // 
+            this.loadohcToolStripMenuItem.Name = "loadohcToolStripMenuItem";
+            this.loadohcToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.loadohcToolStripMenuItem.Text = "Load (*.ohc)";
+            this.loadohcToolStripMenuItem.Click += new System.EventHandler(this.loadohcToolStripMenuItem_Click);
             // 
             // FrmObstacleHeightCalculation
             // 
@@ -3899,6 +3924,7 @@
             this.Controls.Add(this.TxtRecentFolderLocation);
             this.Controls.Add(this.TxtLog);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmObstacleHeightCalculation";
             this.Text = "CSAY Obstacle Height Calculation";
@@ -4317,6 +4343,9 @@
         private System.Windows.Forms.CheckBox ChkBoxShowdist;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem saveohcToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadohcToolStripMenuItem;
     }
 }
 

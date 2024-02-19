@@ -129,6 +129,7 @@
             this.Controls.Add(this.TxtAbout);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmAbout";
             this.Text = "About";
