@@ -1088,6 +1088,11 @@ namespace CSAY_Obstacle_Height_Calculation
             TxtLat2.Text = "";
             TxtLong2.Text = "";
 
+            TxtSurfaceName.Text = "";
+            TxtSurfaceHeightaboveRWY.Text = "";
+            TxtCalculationDetail.Text = "";
+            TxtRL_RWY.Text = "";
+
 
             ComboBoxFY.SelectedIndex = -1;
             ComboBoxObstacleType.SelectedIndex = -1;
@@ -8594,6 +8599,7 @@ namespace CSAY_Obstacle_Height_Calculation
             }
         }
 
+        
         private void saveohcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OHCInputClass.ObstacleInfo OhcIn = new OHCInputClass.ObstacleInfo {
@@ -8614,7 +8620,21 @@ namespace CSAY_Obstacle_Height_Calculation
                 DateOfLetter = TxtLetterDate.Text,
                 DateOfPrevLetter = TxtPreviousLetterDate.Text,
                 RefNoPrevLetter = TxtPrevLetterRef.Text,
-                LocalLevelNepali = TxtNepaliLocalLevel.Text
+                LocalLevelNepali = TxtNepaliLocalLevel.Text,
+
+                SurfaceName = TxtSurfaceName.Text,
+                SurfaceHeight = TxtSurfaceHeightaboveRWY.Text,
+                ElevationAllow = TxtElev_allow.Text,
+                ElevationOfObs = TxtElev_Obstacle.Text,
+                PermittedElev = TxtElev_Permitted.Text,
+                AirportCode = TxtAirportCode.Text,
+                ArealDistance = TxtArealDistance.Text,
+                PlotCase = TxtPlotCase.Text,
+                OtherInfo = TxtOtherInfo.Text,
+                LatRWY = TxtLat1.Text,
+                LongRWY = TxtLong2.Text,
+                TitleOfReport = TxtTitleOfReport.Text,
+                CalculationDetail = TxtCalculationDetail.Text
 
             };
 
@@ -8691,6 +8711,21 @@ namespace CSAY_Obstacle_Height_Calculation
                     TxtPreviousLetterDate.Text = OhcIn.DateOfPrevLetter;
                     TxtPrevLetterRef.Text = OhcIn.RefNoPrevLetter;
                     TxtNepaliLocalLevel.Text = OhcIn.LocalLevelNepali;
+
+                    TxtSurfaceName.Text = OhcIn.SurfaceName;
+                    TxtSurfaceHeightaboveRWY.Text = OhcIn.SurfaceHeight;
+                    TxtElev_allow.Text = OhcIn.ElevationAllow;
+                    TxtElev_Obstacle.Text = OhcIn.ElevationOfObs;
+                    TxtElev_Permitted.Text = OhcIn.PermittedElev;
+                    TxtAirportCode.Text = OhcIn.AirportCode;
+                    TxtArealDistance.Text = OhcIn.ArealDistance;
+                    TxtPlotCase.Text = OhcIn.PlotCase;
+                    TxtOtherInfo.Text = OhcIn.OtherInfo;
+                    TxtLat1.Text = OhcIn.LatRWY;
+                    TxtLong2.Text = OhcIn.LongRWY;
+                    TxtTitleOfReport.Text = OhcIn.TitleOfReport;
+                    TxtCalculationDetail.Text = OhcIn.CalculationDetail;
+
 
                     MessageBox.Show("File loaded from \n" + path);
                 }

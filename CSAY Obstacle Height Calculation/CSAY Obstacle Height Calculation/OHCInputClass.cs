@@ -29,6 +29,22 @@ namespace CSAY_Obstacle_Height_Calculation
             public string DateOfPrevLetter { get; set; }
             public string RefNoPrevLetter { get; set; }
             public string LocalLevelNepali { get; set; }
+
+
+
+            public string SurfaceName { get; set; }
+            public string SurfaceHeight { get; set; }
+            public string ElevationAllow { get; set; }
+            public string ElevationOfObs { get; set; }
+            public string PermittedElev { get; set; }
+            public string AirportCode { get; set; }
+            public string ArealDistance { get; set; }
+            public string PlotCase { get; set; }
+            public string OtherInfo { get; set; }
+            public string LatRWY { get; set; }
+            public string LongRWY { get; set; }
+            public string TitleOfReport { get; set; }
+            public string CalculationDetail { get; set; }
         }
     }
 }
