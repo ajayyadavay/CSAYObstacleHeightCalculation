@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <description>RWY to House</description>
+    <Style id="Style1">
+      <LineStyle>
+        <color>ffe67800</color>
+        <width>12</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>ffe67800</color>
+      </PolyStyle>
+    </Style>
+    <Placemark>
+      <name>RWY</name>
+      <Point>
+        <coordinates>83.425833330000003,27.502886109999999</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10 House</name>
+      <Point>
+        <coordinates>83.456268310546903,27.5003539181013</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Lines</name>
+      <LineString>
+        <coordinates>83.425833330000003,27.502886109999999
+83.456268310546903,27.5003539181013</coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

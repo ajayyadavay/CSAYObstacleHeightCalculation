@@ -928,12 +928,12 @@ namespace CSAY_Obstacle_Height_Calculation
                 ComboBoxRWY.Items.Add(line);
             }
 
-            //For Local Level
+            /*//For Local Level
             string[] LLList = System.IO.File.ReadAllLines(@".\InputFolder\LocalLevel.txt");
             foreach (var line in LLList)
             {
                 ComboBoxLocalLevel.Items.Add(line);
-            }
+            }*/
 
             //For Filter
             string[]FilterList = System.IO.File.ReadAllLines(@".\InputFolder\Filter.txt");
@@ -950,13 +950,13 @@ namespace CSAY_Obstacle_Height_Calculation
             }
 
             //loading text for letter textboxes ------> Title of report
-            string[] TitleList = System.IO.File.ReadAllLines(@".\InputFolder\TextBox\TitleOfReport.txt");
+            /*string[] TitleList = System.IO.File.ReadAllLines(@".\InputFolder\TextBox\TitleOfReport.txt");
             TxtTitleOfReport.Text = "";
             foreach (var line in TitleList)
             {
                 TxtTitleOfReport.Text += line;
                 TxtTitleOfReport.Text += Environment.NewLine;
-            }
+            }*/
 
 
             //Loading RWY COORD of airport code specified in Default
@@ -994,7 +994,27 @@ namespace CSAY_Obstacle_Height_Calculation
             }
 
 
-            //load format bill in combobox
+            //For Local Level
+            string dirLL = Environment.CurrentDirectory + "\\InputFolder\\" + TxtAirportCode.Text + "\\TextBox\\LocalLevel.txt";
+            string[] LLList = System.IO.File.ReadAllLines(dirLL);
+            foreach (var line in LLList)
+            {
+                ComboBoxLocalLevel.Items.Add(line);
+            }
+
+
+            //loading text for letter textboxes ------> Title of report
+            string Tor = Environment.CurrentDirectory + "\\InputFolder\\" + TxtAirportCode.Text + "\\TextBox\\TitleOfReport.txt";
+            string[] TitleList = System.IO.File.ReadAllLines(Tor);
+            TxtTitleOfReport.Text = "";
+            foreach (var line in TitleList)
+            {
+                TxtTitleOfReport.Text += line;
+                TxtTitleOfReport.Text += Environment.NewLine;
+            }
+
+
+            //load multiobstacle
             string dir = Environment.CurrentDirectory + "\\InputFolder\\MultiObstacle";
             string[] files = Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories);//Directory.GetFiles(dir);
 
@@ -1034,7 +1054,8 @@ namespace CSAY_Obstacle_Height_Calculation
             CurrentIndex = ComboBoxLocalLevel.SelectedIndex;
             if(CurrentIndex>=0)
             {
-                string[] LLNepList = System.IO.File.ReadAllLines(@".\InputFolder\TextBox\LocalLevelNepali.txt");
+                string dirLLN = Environment.CurrentDirectory + "\\InputFolder\\" + TxtAirportCode.Text + "\\TextBox\\LocalLevelNepali.txt";
+                string[] LLNepList = System.IO.File.ReadAllLines(dirLLN);
                 TxtNepaliLocalLevel.Text = LLNepList[CurrentIndex];
             }
             
@@ -3928,7 +3949,8 @@ namespace CSAY_Obstacle_Height_Calculation
                 object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
 
                     Cur_Dir = Environment.CurrentDirectory;
-                    string filename_template = Cur_Dir + "\\InputFolder\\FormatFiles\\LetterHeight_Template.dotx";
+                    //string filename_template = Cur_Dir + "\\InputFolder\\FormatFiles\\LetterHeight_Template.dotx";
+                    string filename_template = Cur_Dir + "\\InputFolder\\" + TxtAirportCode.Text + "\\FormatFiles\\LetterHeight_Template.dotx";
                     object oTemplate = filename_template;
                     //object oTemplate = "E:\\Tippani_Template.dotx";
 
@@ -4010,7 +4032,8 @@ namespace CSAY_Obstacle_Height_Calculation
                 object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
 
                 Cur_Dir = Environment.CurrentDirectory;
-                string filename_template = Cur_Dir + "\\InputFolder\\FormatFiles\\TippaniHeight_Template.dotx";
+                //string filename_template = Cur_Dir + "\\InputFolder\\FormatFiles\\TippaniHeight_Template.dotx";
+                string filename_template = Cur_Dir + "\\InputFolder\\" + TxtAirportCode.Text + "\\FormatFiles\\TippaniHeight_Template.dotx";
                 object oTemplate = filename_template;
                 //object oTemplate = "E:\\Tippani_Template.dotx";
 
@@ -8520,7 +8543,8 @@ namespace CSAY_Obstacle_Height_Calculation
                 object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
 
                 Cur_Dir = Environment.CurrentDirectory;
-                string filename_template = Cur_Dir + "\\InputFolder\\FormatFiles\\EnglishLetter_Template.dotx";
+                //string filename_template = Cur_Dir + "\\InputFolder\\FormatFiles\\EnglishLetter_Template.dotx";
+                string filename_template = Cur_Dir + "\\InputFolder\\" + TxtAirportCode.Text +"\\FormatFiles\\EnglishLetter_Template.dotx";
                 object oTemplate = filename_template;
                 //object oTemplate = "E:\\Tippani_Template.dotx";
 

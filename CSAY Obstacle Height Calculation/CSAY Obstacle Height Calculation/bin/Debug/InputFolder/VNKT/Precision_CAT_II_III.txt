@@ -1,4 +1,5 @@
 RWY Classification	Precision Approach Category II or III Code No 4E
+Documents refered	OLS Chart of ICAO Annex-14 Volume I, Chapter 4 and CAR-14
 Surface	Col_10_Dimension
 CONICAL	
 Slope_%	5
