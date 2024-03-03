@@ -1601,8 +1601,10 @@ namespace CSAY_Obstacle_Height_Calculation
                 plotCase = Convert.ToInt32(TxtPlotCase.Text);
 
                 //RL_RWY = Convert.ToDouble(TxtRL_RWY.Text);
+                if (TxtRL_Plinth.Text == "") TxtRL_Plinth.Text = "0";
                 RL_Plinth = Convert.ToDouble(TxtRL_Plinth.Text);
 
+                if (TxtHeightAbovePlinth.Text == "") TxtHeightAbovePlinth.Text = "0";
                 ObstacleHeight = Convert.ToDouble(TxtHeightAbovePlinth.Text);
                 Actual_Elev_obs = RL_Plinth + ObstacleHeight;
                 TxtElev_Obstacle.Text = Actual_Elev_obs.ToString("0.000");
