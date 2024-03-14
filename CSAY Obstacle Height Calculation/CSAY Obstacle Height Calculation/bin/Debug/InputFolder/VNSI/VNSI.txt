@@ -1,0 +1,15 @@
+Central_Meridian	87
+Reference_dataum_for_IHS_m	137
+RWY_Classify	Precision_NPA_code_3
+AB_Threshold_Displaced_by	0.0
+CD_Threshold_Displaced_by	0.0
+AB_CLWY_beyond_Strip	0
+CD_CLWY_beyond_Strip	0
+ARP_Lat_N	27.15464722
+ARP_Long_E	84.97895278
+RWY_AB_DESIGNATION	01
+Points	Description	Latitude (N)	Longitude (E)	
+A	RWY01	27.15464722	84.97895278
+B	RWY01	27.1547	84.97863611
+C	RWY19	27.16524167	84.98115278
+D	RWY19	27.16518056	84.98146111

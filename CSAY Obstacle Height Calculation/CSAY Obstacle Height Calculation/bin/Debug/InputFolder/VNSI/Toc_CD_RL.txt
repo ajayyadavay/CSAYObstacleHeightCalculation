@@ -1,0 +1,5 @@
+Note:RL of extended RWY CL from CD to inner edge of ToC_VNSI
+Distance_From_CD	RL_m	Remark
+0	137	CD_Threshold_Midpoint
+30	137	
+60	137	KL_Midpoint	

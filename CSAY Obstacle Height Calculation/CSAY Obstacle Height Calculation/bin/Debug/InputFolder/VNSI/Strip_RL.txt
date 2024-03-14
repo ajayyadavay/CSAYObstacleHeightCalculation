@@ -1,0 +1,11 @@
+Note:Always_Take_Midpoint_of_KL_StripEnd_as_Origin_VNSI
+Distance_From_KL	RL_m	Remark
+0	137	KL_Midpoint
+30	137	
+60	137	CD_Threshold_Midpoint
+560	137	
+760	137	
+960	137	
+1252	137	AB_Threshold_Midpoint
+1282	137	
+1312	137	JI_Midpoint

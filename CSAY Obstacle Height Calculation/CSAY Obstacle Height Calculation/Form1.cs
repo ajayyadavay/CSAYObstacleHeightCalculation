@@ -788,11 +788,29 @@ namespace CSAY_Obstacle_Height_Calculation
             double Y_from_Eq, m, c;
             string position_LAB, position_LBC, position_LCD, position_LDA;
 
+            int a1, a2;
+            double slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
+            /*if (tempslope >= 0)
+            {
+                a1 = -1;
+                a2 = 1;
+            }
+            else
+            {
+                a1 = 1;
+                a2 = -1;
+            }
+            int[] mulfactor = new int[2] { a1, a2 };//1 for T_AD and -1 for T_BC*/
+
+
+
             //equation AB--> L28 
             m = Convert.ToDouble(dataGridView2.Rows[0].Cells[1].Value);//slope of AB
             c = Convert.ToDouble(dataGridView2.Rows[0].Cells[2].Value);//intercept of AB
             Y_from_Eq = m * eastingX + c;
-            if(Y_from_Eq > northingY)
+            if (Y_from_Eq > northingY)
             {
                 position_LAB = "Below";
             }
@@ -839,49 +857,89 @@ namespace CSAY_Obstacle_Height_Calculation
             {
                 position_LDA = "Above";
             }
-
-            
-
-            //MessageBox.Show("L28 = " + position_L28 + "L10 = " + position_L10 + "LC = " + position_LC);
-
-            //plot_case
-            if(position_LAB == "Above" && position_LBC == "Above" && position_LCD == "Above" && position_LDA == "Above")
+            if (tempslope <=0)
             {
-                plot_case = 1;
-            }
-            else if (position_LAB == "Above" && position_LBC == "Above" && position_LCD == "Below" && position_LDA == "Above")
-            {
-                plot_case = 2;
-            }
-            else if (position_LAB == "Below" && position_LBC == "Above" && position_LCD == "Below" && position_LDA == "Above")
-            {
-                plot_case = 3;
-            }
-            else if (position_LAB == "Below" && position_LBC == "Above" && position_LCD == "Below" && position_LDA == "Below")
-            {
-                plot_case = 4;
-            }
-            else if (position_LAB == "Below" && position_LBC == "Below" && position_LCD == "Below" && position_LDA == "Below")
-            {
-                plot_case = 5; 
-            }
-            else if (position_LAB == "Above" && position_LBC == "Below" && position_LCD == "Below" && position_LDA == "Below")
-            {
-                plot_case = 6;
-            }
-            else if (position_LAB == "Above" && position_LBC == "Below" && position_LCD == "Above" && position_LDA == "Below")
-            {
-                plot_case = 7;
-            }
-            else if (position_LAB == "Above" && position_LBC == "Above" && position_LCD == "Above" && position_LDA == "Below")
-            {
-                plot_case = 8;
+                //For RWY of VNBW Type i.e.e aligned E-W having negative slope
+                //plot_case
+                if (position_LAB == "Above" && position_LBC == "Above" && position_LCD == "Above" && position_LDA == "Above")
+                {
+                    plot_case = 1;
+                }
+                else if (position_LAB == "Above" && position_LBC == "Above" && position_LCD == "Below" && position_LDA == "Above")
+                {
+                    plot_case = 2;
+                }
+                else if (position_LAB == "Below" && position_LBC == "Above" && position_LCD == "Below" && position_LDA == "Above")
+                {
+                    plot_case = 3;
+                }
+                else if (position_LAB == "Below" && position_LBC == "Above" && position_LCD == "Below" && position_LDA == "Below")
+                {
+                    plot_case = 4;
+                }
+                else if (position_LAB == "Below" && position_LBC == "Below" && position_LCD == "Below" && position_LDA == "Below")
+                {
+                    plot_case = 5;
+                }
+                else if (position_LAB == "Above" && position_LBC == "Below" && position_LCD == "Below" && position_LDA == "Below")
+                {
+                    plot_case = 6;
+                }
+                else if (position_LAB == "Above" && position_LBC == "Below" && position_LCD == "Above" && position_LDA == "Below")
+                {
+                    plot_case = 7;
+                }
+                else if (position_LAB == "Above" && position_LBC == "Above" && position_LCD == "Above" && position_LDA == "Below")
+                {
+                    plot_case = 8;
+                }
+                else
+                {
+                    plot_case = 0;
+                }
             }
             else
             {
-                plot_case = 0;
+                //For RWY of VNKT Type i.e.e aligned N-S having positive slope
+                //plot_case
+                if (position_LAB == "Above" && position_LBC == "Above" && position_LCD == "Above" && position_LDA == "Above")
+                {
+                    plot_case = 7;
+                }
+                else if (position_LAB == "Above" && position_LBC == "Above" && position_LCD == "Below" && position_LDA == "Above")
+                {
+                    plot_case = 6;
+                }
+                else if (position_LAB == "Below" && position_LBC == "Above" && position_LCD == "Below" && position_LDA == "Above")
+                {
+                    plot_case = 5;
+                }
+                else if (position_LAB == "Below" && position_LBC == "Below" && position_LCD == "Below" && position_LDA == "Above")
+                {
+                    plot_case = 4;
+                }
+                else if (position_LAB == "Below" && position_LBC == "Below" && position_LCD == "Below" && position_LDA == "Below")
+                {
+                    plot_case = 3;
+                }
+                else if (position_LAB == "Above" && position_LBC == "Below" && position_LCD == "Below" && position_LDA == "Below")
+                {
+                    plot_case = 2;
+                }
+                else if (position_LAB == "Above" && position_LBC == "Below" && position_LCD == "Above" && position_LDA == "Below")
+                {
+                    plot_case = 1;
+                }
+                else if (position_LAB == "Above" && position_LBC == "Below" && position_LCD == "Above" && position_LDA == "Above")
+                {
+                    plot_case = 8;
+                }
+                else
+                {
+                    plot_case = 0;
+                }
             }
-
+            
                 return plot_case;
         }
 
@@ -2829,6 +2887,10 @@ namespace CSAY_Obstacle_Height_Calculation
             string position_OG, position_GH, position_ID, position_DA, position_AO, position_HK, position_IL;
             string position_PJ, position_JK, position_LC, position_CB, position_BIP;
 
+            double slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
+
             //Transition near RWYAD
             //equation AD
             m = Convert.ToDouble(dataGridView2.Rows[63].Cells[1].Value);//slope
@@ -2865,20 +2927,42 @@ namespace CSAY_Obstacle_Height_Calculation
             c = Convert.ToDouble(dataGridView2.Rows[31].Cells[2].Value);//intercept
             position_IL = Find_Plotting_Position(eastingX, northingY, m, c);
 
+            if (tempslope <= 0)
+            {
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_OG == "Above" && position_GH == "Below" && position_AO == "Above" && position_HK == "Below")
+                {
+                    plot_case = 7001;
+                }
+                else if (position_ID == "Below" && position_DA == "Above" && position_IL == "Above")
+                {
+                    plot_case = 7002;
+                }
+                else if (position_IL == "Below" && position_HK == "Above" && position_AO == "Above")
+                {
+                    plot_case = 7000;
+                }
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_OG == "Above" && position_GH == "Above" && position_AO == "Below" && position_HK == "Below")
+                {
+                    plot_case = 7001;
+                }
+                else if (position_ID == "Above" && position_DA == "Below" && position_IL == "Above")
+                {
+                    plot_case = 7002;
+                }
+                else if (position_IL == "Below" && position_HK == "Above" && position_AO == "Below")
+                {
+                    plot_case = 7000;
+                }
 
-            //plot_case
-            if (position_OG == "Above" && position_GH == "Below"  && position_AO == "Above" && position_HK == "Below")
-            {
-                plot_case = 7001;
             }
-            else if (position_ID == "Below" && position_DA == "Above" && position_IL == "Above")
-            {
-                plot_case = 7002;
-            }
-            else if (position_IL == "Below" && position_HK == "Above" && position_AO == "Above")
-            {
-                plot_case = 7000; 
-            }
+            
 
             //Transition near RWYBC
             //equation CL
@@ -2906,21 +2990,43 @@ namespace CSAY_Obstacle_Height_Calculation
             c = Convert.ToDouble(dataGridView2.Rows[48].Cells[2].Value);//intercept
             position_BIP = Find_Plotting_Position(eastingX, northingY, m, c);
 
+            if (tempslope <= 0)
+            {
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_PJ == "Above" && position_JK == "Above" && position_BIP == "Below" && position_HK == "Below")
+                {
+                    plot_case = 8001;
+                }
+                else if (position_LC == "Above" && position_CB == "Below" && position_IL == "Above")
+                {
+                    plot_case = 8002;
+                }
+                else if (position_IL == "Below" && position_HK == "Above" && position_BIP == "Below")
+                {
+                    plot_case = 8000;
+                }
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_PJ == "Above" && position_JK == "Below" && position_BIP == "Above" && position_HK == "Below")
+                {
+                    plot_case = 8001;
+                }
+                else if (position_LC == "Below" && position_CB == "Above" && position_IL == "Above")
+                {
+                    plot_case = 8002;
+                }
+                else if (position_IL == "Below" && position_HK == "Above" && position_BIP == "Above")
+                {
+                    plot_case = 8000;
+                }
 
+            }
 
-            //plot_case
-            if (position_PJ == "Above" && position_JK == "Above" && position_BIP == "Below" && position_HK == "Below")
-            {
-                plot_case = 8001;
-            }
-            else if(position_LC == "Above" && position_CB == "Below" && position_IL == "Above")
-            {
-                plot_case = 8002;
-            }
-            else if (position_IL == "Below" && position_HK == "Above" && position_BIP == "Below")
-            {
-                plot_case = 8000;
-            }
+            
             return plot_case;
         }
 
@@ -2933,6 +3039,11 @@ namespace CSAY_Obstacle_Height_Calculation
 
             double x1, y1, x2, y2;
             int n_row1, n_row;
+
+            double slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
+
             //Transition near RWYAD
             //equation AD
             m = Convert.ToDouble(dataGridView2.Rows[57].Cells[1].Value);//slope
@@ -2984,48 +3095,117 @@ namespace CSAY_Obstacle_Height_Calculation
             c = Convert.ToDouble(dataGridView2.Rows[33].Cells[2].Value);//intercept
             position_CD = Find_Plotting_Position(eastingX, northingY, m, c);
 
-            //plot_case
-            if (position_VA == "Below" && position_AB == "Below" && position_HE == "Above" && position_EV == "Above")
+
+            if (tempslope <= 0)
             {
-                /*if(position_BE == "Below" && position_CD == "Above")
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_VA == "Below" && position_AB == "Below" && position_HE == "Above" && position_EV == "Above")
                 {
-                    plot_case = 5000;
-                }*/
-                /*if(position_BE == "Below" && position_CD == "Below")
-                {
-                    plot_case = 5001;
-                }*/
-                if (position_BE == "Above" && position_CD == "Above")
-                {
-                    plot_case = 5002;
+                    /*if(position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 5000;
+                    }*/
+                    /*if(position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 5001;
+                    }*/
+                    if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 5002;
+                    }
                 }
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_VA == "Below" && position_AB == "Above" && position_HE == "Below" && position_EV == "Below")
+                {
+                    /*if(position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 5000;
+                    }*/
+                    /*if(position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 5001;
+                    }*/
+                    if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 5002;
+                    }
+                }
+
             }
 
-            //plot_case
-            if (position_VA == "Below"  && position_CH == "Below" && position_HE == "Above" && position_EV == "Above")
+            if (tempslope <= 0)
             {
-                /*if(position_BE == "Below" && position_CD == "Above")
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_VA == "Below" && position_CH == "Below" && position_HE == "Above" && position_EV == "Above")
                 {
-                    plot_case = 5000;
-                }*/
-                if (position_BE == "Below" && position_CD == "Below")
-                {
-                    plot_case = 5001;
+                    /*if(position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 5000;
+                    }*/
+                    if (position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 5001;
+                    }
+                    /*else if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 5002;
+                    }*/
                 }
-                /*else if (position_BE == "Above" && position_CD == "Above")
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_VA == "Above" && position_CH == "Above" && position_HE == "Below" && position_EV == "Below")
                 {
-                    plot_case = 5002;
-                }*/
+                    /*if(position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 5000;
+                    }*/
+                    if (position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 5001;
+                    }
+                    /*else if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 5002;
+                    }*/
+                }
+
             }
 
-            //plot_case
-            if ( position_EV == "Above")
+            if (tempslope <= 0)
             {
-                if(position_BE == "Below" && position_CD == "Above")
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_EV == "Above")
                 {
-                    plot_case = 5000;
+                    if (position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 5000;
+                    }
                 }
             }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_EV == "Below")
+                {
+                    if (position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 5000;
+                    }
+                }
+
+            }
+            
 
             //Transition near RWYBC
             //equation CL
@@ -3065,57 +3245,131 @@ namespace CSAY_Obstacle_Height_Calculation
             c = Convert.ToDouble(dataGridView2.Rows[50].Cells[2].Value);//intercept
             position_FLU = Find_Plotting_Position(eastingX, northingY, m, c);
 
-            //plot_case
-            if ( position_DG == "Above" && position_GF == "Below")
-            {
-                /*if (position_BE == "Below" && position_CD == "Above")
-                {
-                    plot_case = 6000;
-                }*/
-                if (position_BE == "Below" && position_CD == "Below")
-                {
-                    plot_case = 6001;
-                }
-                /*if (position_BE == "Above" && position_CD == "Above")
-                {
-                    plot_case = 6002;
-                }*/
-            }
 
-            //plot_case
-            if (position_UF == "Below" && position_FE == "Above" && position_FLU == "Below")
+            if (tempslope <= 0)
             {
-                /*if (position_BE == "Below" && position_CD == "Above")
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_DG == "Above" && position_GF == "Below")
                 {
-                    plot_case = 6000;
-                }
-                else if (position_BE == "Below" && position_CD == "Below")
-                {
-                    plot_case = 6001;
-                }*/
-                if (position_BE == "Above" && position_CD == "Above")
-                {
-                    plot_case = 6002;
+                    /*if (position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 6000;
+                    }*/
+                    if (position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 6001;
+                    }
+                    /*if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 6002;
+                    }*/
                 }
             }
-
-
-
-            //plot_case
-            if ( position_FLU == "Below")
+            else
             {
-                if (position_BE == "Below" && position_CD == "Above")
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_DG == "Below" && position_GF == "Above")
                 {
-                    plot_case = 6000;
+                    /*if (position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 6000;
+                    }*/
+                    if (position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 6001;
+                    }
+                    /*if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 6002;
+                    }*/
                 }
-                /*else if (position_BE == "Below" && position_CD == "Below")
+
+            }
+
+            if (tempslope <= 0)
+            {
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_UF == "Below" && position_FE == "Above" && position_FLU == "Below")
                 {
-                    plot_case = 6001;
+                    /*if (position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 6000;
+                    }
+                    else if (position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 6001;
+                    }*/
+                    if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 6002;
+                    }
                 }
-                else if (position_BE == "Above" && position_CD == "Above")
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_UF == "Above" && position_FE == "Above" && position_FLU == "Above")
                 {
-                    plot_case = 6002;
-                }*/
+                    /*if (position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 6000;
+                    }
+                    else if (position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 6001;
+                    }*/
+                    if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 6002;
+                    }
+                }
+
+            }
+
+            if (tempslope <= 0)
+            {
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_FLU == "Below")
+                {
+                    if (position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 6000;
+                    }
+                    /*else if (position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 6001;
+                    }
+                    else if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 6002;
+                    }*/
+                }
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_FLU == "Above")
+                {
+                    if (position_BE == "Below" && position_CD == "Above")
+                    {
+                        plot_case = 6000;
+                    }
+                    /*else if (position_BE == "Below" && position_CD == "Below")
+                    {
+                        plot_case = 6001;
+                    }
+                    else if (position_BE == "Above" && position_CD == "Above")
+                    {
+                        plot_case = 6002;
+                    }*/
+                }
+
             }
 
             return plot_case;
@@ -3127,6 +3381,10 @@ namespace CSAY_Obstacle_Height_Calculation
             double m, c;
             string position_EH, position_KL, position_KJ, position_JI;
             string position_LI, position_FG;
+
+            double slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
 
             //Transition near RWYAD
             //equation AD
@@ -3154,11 +3412,26 @@ namespace CSAY_Obstacle_Height_Calculation
             {
                 plot_case = 500;
             }*/
-            if (position_JI == "Above" && position_KL == "Below" && position_KJ == "Above")
+
+            if (tempslope <= 0)
             {
-                plot_case = 500;
+                //Plot case for VNBW Type i.e. EW aligned
+                if (position_JI == "Above" && position_KL == "Below" && position_KJ == "Above")
+                {
+                    plot_case = 500;
+                }
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                if (position_JI == "Above" && position_KL == "Below" && position_KJ == "Below")
+                {
+                    plot_case = 500;
+                }
+
             }
 
+            
             //Transition near RWYBC
             //equation LI
             m = Convert.ToDouble(dataGridView2.Rows[42].Cells[1].Value);//slope
@@ -3170,11 +3443,26 @@ namespace CSAY_Obstacle_Height_Calculation
             c = Convert.ToDouble(dataGridView2.Rows[40].Cells[2].Value);//intercept
             position_FG = Find_Plotting_Position(eastingX, northingY, m, c);
 
-            //plot_case
-            if (position_LI == "Below" && position_KL == "Below" && position_JI == "Above" )
+            if (tempslope <= 0)
             {
-                plot_case = 600;
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_LI == "Below" && position_KL == "Below" && position_JI == "Above")
+                {
+                    plot_case = 600;
+                }
             }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_LI == "Above" && position_KL == "Below" && position_JI == "Above")
+                {
+                    plot_case = 600;
+                } 
+
+            }
+            
 
             double x1, y1, x2, y2;
             int n_row, n_row1;
@@ -3258,25 +3546,78 @@ namespace CSAY_Obstacle_Height_Calculation
             c = Convert.ToDouble(dataGridView2.Rows[16].Cells[2].Value);//intercept
             position_LM = Find_Plotting_Position(eastingX, northingY, m, c);
 
-            //plot_case
-            if (position_JI == "Below" && position_JG == "Above" && position_EA == "Below")
+            if (tempslope <= 0)
             {
-                plot_case = 501;
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_JI == "Below" && position_JG == "Above" && position_EA == "Below")
+                {
+                    plot_case = 501;
+                }
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_JI == "Below" && position_JG == "Below" && position_EA == "Above")
+                {
+                    plot_case = 501;
+                }
+
             }
 
-            if (position_KL == "Above" && position_NK == "Above" && position_HD == "Below")
+            if (tempslope <= 0)
             {
-                plot_case = 502;
+                //Plot case for VNBW Type i.e. EW aligned
+                if (position_KL == "Above" && position_NK == "Above" && position_HD == "Below")
+                {
+                    plot_case = 502;
+                }
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                if (position_KL == "Above" && position_NK == "Below" && position_HD == "Above")
+                {
+                    plot_case = 502;
+                }
+
             }
 
-            if (position_JI == "Below" && position_IH == "Below" && position_FB == "Above")
+            if (tempslope <= 0)
             {
-                plot_case = 601;
+                //Plot case for VNBW Type i.e. EW aligned
+                if (position_JI == "Below" && position_IH == "Below" && position_FB == "Above")
+                {
+                    plot_case = 601;
+                }
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                if (position_JI == "Below" && position_IH == "Above" && position_FB == "Below")
+                {
+                    plot_case = 601;
+                }
+
             }
 
-            if (position_KL == "Above" && position_LM == "Below" && position_GC == "Above")
+            if (tempslope <= 0)
             {
-                plot_case = 602;
+                //Plot case for VNBW Type i.e. EW aligned
+                if (position_KL == "Above" && position_LM == "Below" && position_GC == "Above")
+                {
+                    plot_case = 602;
+                }
+            }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                if (position_KL == "Above" && position_LM == "Above" && position_GC == "Below")
+                {
+                    plot_case = 602;
+                }
+
             }
 
             return plot_case;
@@ -3288,6 +3629,10 @@ namespace CSAY_Obstacle_Height_Calculation
             double m, c;
             string position_JI, position_OP, position_JO, position_IP;
             string position_KL, position_VU, position_KV, position_LU;
+
+            double slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
 
             //Approach near AB
             //equation JI
@@ -3312,11 +3657,27 @@ namespace CSAY_Obstacle_Height_Calculation
 
             //MessageBox.Show("IJ = " + position_IJ + " JG = " + position_JG + " GH = " + position_GH + " HI = " + position_HI);
 
-            //plot_case
-            if (position_JI == "Below" && position_OP == "Above" && position_JO == "Below" && position_IP == "Above")
+            if (tempslope <= 0)
             {
-                plot_case = 700;
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_JI == "Below" && position_OP == "Above" && position_JO == "Below" && position_IP == "Above")
+                {
+                    plot_case = 700;
+                }
             }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_JI == "Below" && position_OP == "Above" && position_JO == "Above" && position_IP == "Below")
+                {
+                    plot_case = 700;
+                }
+
+            }
+
+            
 
             //Approach near CD
             //equation KL
@@ -3341,12 +3702,25 @@ namespace CSAY_Obstacle_Height_Calculation
 
             //MessageBox.Show("IJ = " + position_IJ + " JG = " + position_JG + " GH = " + position_GH + " HI = " + position_HI);
 
-            //plot_case
-            if (position_KL == "Above" && position_VU == "Below" && position_KV == "Below" && position_LU == "Above")
+            if (tempslope <= 0)
             {
-                plot_case = 800;
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_KL == "Above" && position_VU == "Below" && position_KV == "Below" && position_LU == "Above")
+                {
+                    plot_case = 800;
+                }
             }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_KL == "Above" && position_VU == "Below" && position_KV == "Above" && position_LU == "Below")
+                {
+                    plot_case = 800;
+                }
 
+            }
 
             return plot_case;
         }
@@ -3357,6 +3731,10 @@ namespace CSAY_Obstacle_Height_Calculation
             double m, c;
             string position_IJ, position_JG, position_GH, position_HI, position_OP, position_RQ;
             string position_LK, position_KN, position_NM, position_ML, position_VU, position_ST;
+
+            double slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
 
             //Approach near AB
             //equation JI
@@ -3391,22 +3769,50 @@ namespace CSAY_Obstacle_Height_Calculation
 
             //MessageBox.Show("IJ = " + position_IJ + " JG = " + position_JG + " GH = " + position_GH + " HI = " + position_HI);
 
-            //plot_case
-            if (position_IJ == "Below" && position_JG == "Below" && position_GH == "Above" && position_HI == "Above")
+
+            if (tempslope <= 0)
             {
-                if(position_OP=="Above")
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_IJ == "Below" && position_JG == "Below" && position_GH == "Above" && position_HI == "Above")
                 {
-                    plot_case = 10;
-                }
-                if (position_OP == "Below" && position_RQ == "Above")
-                {
-                    plot_case = 20;
-                }
-                if (position_RQ == "Below")
-                {
-                    plot_case = 30;
+                    if (position_OP == "Above")
+                    {
+                        plot_case = 10;
+                    }
+                    if (position_OP == "Below" && position_RQ == "Above")
+                    {
+                        plot_case = 20;
+                    }
+                    if (position_RQ == "Below")
+                    {
+                        plot_case = 30;
+                    }
                 }
             }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_IJ == "Below" && position_JG == "Above" && position_GH == "Above" && position_HI == "Below")
+                {
+                    if (position_OP == "Above")
+                    {
+                        plot_case = 10;
+                    }
+                    if (position_OP == "Below" && position_RQ == "Above")
+                    {
+                        plot_case = 20;
+                    }
+                    if (position_RQ == "Below")
+                    {
+                        plot_case = 30;
+                    }
+                }
+
+            }
+
+            
 
             //Approach near CD
             //equation LK
@@ -3441,22 +3847,49 @@ namespace CSAY_Obstacle_Height_Calculation
 
             //MessageBox.Show("L28 = " + position_L28 + "L10 = " + position_L10 + "LC = " + position_LC);
 
-            //plot_case
-            if (position_LK == "Above" && position_KN == "Below" && position_NM == "Below" && position_ML == "Above")
+
+            if (tempslope <= 0)
             {
-                if (position_VU == "Below")
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_LK == "Above" && position_KN == "Below" && position_NM == "Below" && position_ML == "Above")
                 {
-                    plot_case = 40;
-                }
-                if (position_VU == "Above" && position_ST == "Below")
-                {
-                    plot_case = 50;
-                }
-                if (position_ST == "Above")
-                {
-                    plot_case = 60;
+                    if (position_VU == "Below")
+                    {
+                        plot_case = 40;
+                    }
+                    if (position_VU == "Above" && position_ST == "Below")
+                    {
+                        plot_case = 50;
+                    }
+                    if (position_ST == "Above")
+                    {
+                        plot_case = 60;
+                    }
                 }
             }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_LK == "Above" && position_KN == "Above" && position_NM == "Below" && position_ML == "Below")
+                {
+                    if (position_VU == "Below")
+                    {
+                        plot_case = 40;
+                    }
+                    if (position_VU == "Above" && position_ST == "Below")
+                    {
+                        plot_case = 50;
+                    }
+                    if (position_ST == "Above")
+                    {
+                        plot_case = 60;
+                    }
+                }
+
+            }
+            
             return plot_case;
         }
 
@@ -3500,11 +3933,28 @@ namespace CSAY_Obstacle_Height_Calculation
 
             //MessageBox.Show("IJ = " + position_IJ + " JG = " + position_JG + " GH = " + position_GH + " HI = " + position_HI);
 
-            //plot_case
-            if (position_TOC_AB == "Below" && position_TOC_FA == "Below" && position_TOC_EF == "Below" && position_TOC_DE == "Above" && position_TOC_CD == "Above" && position_TOC_BC == "Above")
+            int a1, a2;
+            double slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
+
+            if(tempslope <=0)
             {
-                plot_case = 100;
+                //plot_case for VNBW type i.e. EW Aligned
+                if (position_TOC_AB == "Below" && position_TOC_FA == "Below" && position_TOC_EF == "Below" && position_TOC_DE == "Above" && position_TOC_CD == "Above" && position_TOC_BC == "Above")
+                {
+                    plot_case = 100;
+                }
             }
+            else
+            {
+                //plot_case for VNKT type i.e. NS Aligned
+                if (position_TOC_AB == "Below" && position_TOC_FA == "Above" && position_TOC_EF == "Above" && position_TOC_DE == "Above" && position_TOC_CD == "Below" && position_TOC_BC == "Below")
+                {
+                    plot_case = 100;
+                }
+            }
+            
 
             //Approach near CD
             //equation TOC_GH
@@ -3539,11 +3989,23 @@ namespace CSAY_Obstacle_Height_Calculation
 
             //MessageBox.Show("L28 = " + position_L28 + "L10 = " + position_L10 + "LC = " + position_LC);
 
-            //plot_case
-            if (position_TOC_GH == "Above" && position_TOC_LG == "Below" && position_TOC_KL == "Below" && position_TOC_JK == "Below" && position_TOC_IJ == "Above" && position_TOC_HI == "Above")
+            if(tempslope <=0)
             {
-                plot_case = 200;
+                //plot_case for VNBW type i.e. EW Aligned
+                if (position_TOC_GH == "Above" && position_TOC_LG == "Below" && position_TOC_KL == "Below" && position_TOC_JK == "Below" && position_TOC_IJ == "Above" && position_TOC_HI == "Above")
+                {
+                    plot_case = 200;
+                }
             }
+            else
+            {
+                //plot_case for VNKT type i.e. NS Aligned
+                if (position_TOC_GH == "Above" && position_TOC_LG == "Above" && position_TOC_KL == "Above" && position_TOC_JK == "Below" && position_TOC_IJ == "Below" && position_TOC_HI == "Below")
+                {
+                    plot_case = 200;
+                }
+            }
+            
             return plot_case;
         }
 
@@ -3574,16 +4036,36 @@ namespace CSAY_Obstacle_Height_Calculation
             c = Convert.ToDouble(dataGridView2.Rows[41].Cells[2].Value);//intercept
             position_JK = Find_Plotting_Position(eastingX, northingY, m, c);
 
+            double slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
 
-            //plot_case
-            if (position_KL == "Below" && position_JI == "Above" && position_LI == "Above" && position_JK == "Below")
+            if(tempslope <=0)
             {
-                plot_case = true;
+                //plot_case for VNBW Type i.e. EW aligned
+                if (position_KL == "Below" && position_JI == "Above" && position_LI == "Above" && position_JK == "Below")
+                {
+                    plot_case = true;
+                }
+                else
+                {
+                    plot_case = false;
+                }
             }
             else
             {
-                plot_case = false;
+                //plot_case for VNKT Type i.e. NS aligned
+                if (position_KL == "Below" && position_JI == "Above" && position_LI == "Below" && position_JK == "Above")
+                {
+                    plot_case = true;
+                }
+                else
+                {
+                    plot_case = false;
+                }
             }
+            
+
             return plot_case;
         }
 
@@ -3593,6 +4075,10 @@ namespace CSAY_Obstacle_Height_Calculation
             double m, c;
             string position_BL_AB, position_BL_BC, position_BL_CD, position_BL_DA;
             string position_BL_EF, position_BL_FG, position_BL_GH, position_BL_HE;
+
+            double slope1 = Convert.ToDouble(dataGridView2.Rows[4].Cells["ColSlope"].Value);//EF
+            double tempslope;
+            tempslope = Math.Atan(slope1);
 
             //Balked Landing surface 28 side
             //equation BL_AB
@@ -3615,12 +4101,27 @@ namespace CSAY_Obstacle_Height_Calculation
             c = Convert.ToDouble(dataGridView2.Rows[36].Cells[2].Value);//intercept
             position_BL_BC = Find_Plotting_Position(eastingX, northingY, m, c);
 
-
-            //plot_case
-            if (position_BL_AB == "Above" && position_BL_DA == "Below" && position_BL_BC == "Above" && position_BL_CD == "Below")
+            if(tempslope <=0)
             {
-                plot_case = 400;
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_BL_AB == "Above" && position_BL_DA == "Below" && position_BL_BC == "Above" && position_BL_CD == "Below")
+                {
+                    plot_case = 400;
+                }
+
             }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_BL_AB == "Above" && position_BL_DA == "Above" && position_BL_BC == "Below" && position_BL_CD == "Below")
+                {
+                    plot_case = 400;
+                }
+
+            }
+            
 
             //Approach near CD
             //equation BL_EF
@@ -3643,11 +4144,26 @@ namespace CSAY_Obstacle_Height_Calculation
             c = Convert.ToDouble(dataGridView2.Rows[38].Cells[2].Value);//intercept
             position_BL_FG = Find_Plotting_Position(eastingX, northingY, m, c);
 
-            //plot_case
-            if (position_BL_GH == "Above" && position_BL_HE == "Below" && position_BL_EF == "Below" && position_BL_FG == "Above")
+            if (tempslope <= 0)
             {
-                plot_case = 300;
+                //Plot case for VNBW Type i.e. EW aligned
+                //plot_case
+                if (position_BL_GH == "Above" && position_BL_HE == "Below" && position_BL_EF == "Below" && position_BL_FG == "Above")
+                {
+                    plot_case = 300;
+                }
             }
+            else
+            {
+                //Plot case for VNKT Type i.e. NS aligned
+                //plot_case
+                if (position_BL_GH == "Above" && position_BL_HE == "Above" && position_BL_EF == "Below" && position_BL_FG == "Below")
+                {
+                    plot_case = 300;
+                }
+
+            }
+            
             return plot_case;
         }
         public string Find_Plotting_Position(double eastingX, double northingY, double m, double c)
@@ -4880,6 +5396,9 @@ namespace CSAY_Obstacle_Height_Calculation
         {
             try
             {
+                TxtLat2.Text = "";
+                TxtLong2.Text = "";
+
                 double slopeXY;
                 double interceptXY;
                 double distanceXY;
