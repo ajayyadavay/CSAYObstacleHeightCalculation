@@ -5342,7 +5342,7 @@ namespace CSAY_Obstacle_Height_Calculation
 
         public void LoadTxtToDatagridview(DataGridView Dgv, string FileName, int TxtStartRow, int no_of_Col)
         {
-            string[] ReadingText = new string[100];
+            string[] ReadingText = new string[2000];
             //string RWYCoordFilenName;
             int i;
             StreamReader sr;
